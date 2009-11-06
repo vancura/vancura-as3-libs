@@ -1,52 +1,44 @@
 # vancura-as3-libs
 
+My set of classes. Nuff said, read the docs here: [here](http://doc.vaclav.vancura.org/vancura-as3-libs).
 
 
-## Description
 
-My set of classes. Nuff said, read the docs here: [here](http://vaclav.vancura.org/docs/vancura-as3-libs).
+# Features
 
 Currently these features are covered:
 
 ### Core functions
 
-#### Special components:
+* [MorphSprite class](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/MorphSprite-as.html)
+* [QBitmap class](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/QBitmap-as.html)
+* [QSprite class](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/QSprite-as.html)
+* [QTextField class](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/QTextField-as.html)
+* [QVideo class](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/QVideo-as.html)
+* [Stats class](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/Stats-as.html)
+* [FPS class](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/FPS-as.html)
+* [GlobalStage class](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/GlobalStage-as.html)
+* [ModalWindow class](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/ModalWindow-as.html)
 
-* [MorphSprite]
-* [QBitmap]
-* [QSprite]
-* [QTextField]
-* [QVideo]
-* [Stats]
-* [FPS]
-* [GlobalStage]
-* [ModalWindow]
+* [Drawing()](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/Drawing-as.html)
+* [Bitmapping()](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/Bitmapping-as.html)
+* [addChildren()](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/addChildren-as.html)
+* [removeChildren()](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/removeChildren-as.html)
+* [duplicateMovieClip()](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/duplicateMovieClip-as.html)
 
-#### Graphics manipulation:
+* [addEventListeners()](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/addEventListeners-as.html)
+* [removeEventListeners()](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/removeEventListeners-as.html)
 
-* [Drawing]
-* [Bitmapping]
-* [addChildren()](***)
-* [removeChildren()](***)
-* [duplicateMovieClip]
-
-#### Events manipulation:
-
-* [addEventListeners()](***)
-* [removeEventListeners()]
-
-#### Object manipulation:
-
-* [assign]
-* [clone]
+* [assign()](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/assign-as.html)
+* [clone()](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/clone-as.html)
 
 
-### Easy [Far](http://code.google.com/p/vanrijkom-flashlibs/wiki/FAR) functions:
+### Easy [Far](http://code.google.com/p/vanrijkom-flashlibs/wiki/FAR) wrapper:
 
 * Far
 * FarHelperItem
 
-More features coming soon: skinnable widgets, remoting and more. Watch my [blog](http://vaclav.vancura.org/blog) for more information.
+More features coming soon: **skinnable widgets**, **remoting** and more. Watch my [blog](http://vaclav.vancura.org/blog) for more information.
 
 
 ## How to get the SWC
@@ -55,7 +47,7 @@ There are several ways to get the library for use in your project.
 
 ### Binary distribution
 
-In case you're lazy or you don't have all required components to compile it on your machine, you can grab the SWC [here](***).
+In case you're lazy or you don't have all required components to compile it on your machine, you can grab the SWC [here](http://github.com/vancura/vancura-as3-libs/blob/master/bin/vancura-as3-libs.swc).
 
 ### Compilation from source
 
