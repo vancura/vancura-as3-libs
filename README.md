@@ -1,6 +1,6 @@
 # vancura-as3-libs
 
-My set of classes. Nuff said, read the docs here: [here](http://doc.vaclav.vancura.org/vancura-as3-libs).
+My set of classes. Read the docs here: [here](http://doc.vaclav.vancura.org/vancura-as3-libs).
 
 
 
