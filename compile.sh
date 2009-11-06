@@ -22,29 +22,11 @@ IS_NATURAL_DOCS_DISABLED="no";
 # Fix DTerm current directory problem
 cd "`dirname "$0"`"
 
-
-
-if [ "$IS_NATURAL_DOCS_DISABLED" == "no" ]; then
-	echo "---------------------------------------------------------------------------------------------------"
-	echo "Generating documentation in ./doc"
-	$NATURAL_DOCS_DIR/NaturalDocs -i src -o HTML doc -p .doc-config -s mdocs -do
-	echo "---------------------------------------------------------------------------------------------------"
-	echo "Documentation done"
-else
-	echo "---------------------------------------------------------------------------------------------------"
-	echo "Documentation generation disabled"
-fi
-
-exit
-
-
-
-
-
 # Prepare all directories
 echo "---------------------------------------------------------------------------------------------------"
 echo "Making directories"
 rm -rf tmp >/dev/null 2>&1
+rm -rf lib >/dev/null 2>&1
 mkdir tmp >/dev/null 2>&1
 mkdir lib >/dev/null 2>&1
 mkdir lib/src >/dev/null 2>&1
