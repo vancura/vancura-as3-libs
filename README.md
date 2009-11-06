@@ -4,7 +4,7 @@ My set of classes. Nuff said, read the docs here: [here](http://doc.vaclav.vancu
 
 
 
-# Features
+## Features
 
 Currently these features are covered:
 
