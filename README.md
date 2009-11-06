@@ -19,16 +19,13 @@ Currently these features are covered:
 * [FPS class](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/FPS-as.html)
 * [GlobalStage class](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/GlobalStage-as.html)
 * [ModalWindow class](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/ModalWindow-as.html)
-
 * [Drawing()](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/Drawing-as.html)
 * [Bitmapping()](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/Bitmapping-as.html)
 * [addChildren()](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/addChildren-as.html)
 * [removeChildren()](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/removeChildren-as.html)
 * [duplicateMovieClip()](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/duplicateMovieClip-as.html)
-
 * [addEventListeners()](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/addEventListeners-as.html)
 * [removeEventListeners()](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/removeEventListeners-as.html)
-
 * [assign()](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/assign-as.html)
 * [clone()](http://doc.vaclav.vancura.org/vancura-as3-libs/files/org/vancura/vaclav/core/clone-as.html)
 
@@ -78,3 +75,4 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 ## Contact
 
 Contact me at [vaclav@vancura.org](mailto:vaclav@vancura.org) or see my homepage at [vaclav.vancura.org](http://vaclav.vancura.org)
+
