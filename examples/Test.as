@@ -1,8 +1,15 @@
 package {
-	import org.vancura.vaclav.core.Drawing;
-	import org.vancura.vaclav.core.QSprite;
+	import org.vancura.vaclav.widgets.DebugLevel;
+	import org.vancura.vaclav.widgets.skin.ButtonSkin;
+	import org.vancura.vaclav.widgets.widgets.ScaleButton;
+	import org.vancura.vaclav.widgets.widgets.events.ButtonEvent;
 
+	import flash.display.BitmapData;
 	import flash.display.MovieClip;
+	
+	
+	
+	[SWF(width="1000",height="400",frameRate="60",backgroundColor="#FFFFFF")]
 
 	
 	
@@ -13,12 +20,28 @@ package {
 
 		
 		
+		private var _buttonTest:ScaleButton;
+		
+		
+		
 		public function Test() {
-			var qspr:QSprite = new QSprite({x:100, y:50, alpha:.5});
+			var skin:ButtonSkin = new ButtonSkin();
 			
-			Drawing.drawRect(qspr);
+			var source:BitmapData = new BitmapData(400, 100);
 			
-			addChild(qspr);
+			
+			
+			skin.getAssetsFromComposition(source);
+			
+			_buttonTest = new ScaleButton(skin, {x:10, y:10}, this, DebugLevel.ALWAYS);
+			
+			_buttonTest.addEventListener(ButtonEvent.RELEASED_INSIDE, _onTest);
+		}
+		
+		
+		
+		private function _onTest(event:ButtonEvent):void {
+			_buttonTest.morph({width:400, morphDuration:2});
 		}
 	}
 }

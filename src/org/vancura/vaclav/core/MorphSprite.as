@@ -1,5 +1,5 @@
 package org.vancura.vaclav.core {
-	import com.greensock.TweenNano;
+	import com.greensock.TweenLite;
 	import com.greensock.easing.Elastic;
 
 	import flash.display.DisplayObjectContainer;
@@ -13,6 +13,7 @@ package org.vancura.vaclav.core {
 	 * 
 	 * Author: Vaclav Vancura <http://vaclav.vancura.org>
 	 *
+	 * 2009-11-12	- Switched back to TweenLite, TweenNano has no roundProps, sorry (v.vancura)
 	 * 2009-11-04	- Switched to TweenNano (v.vancura)
 	 * 2008-11-03	- Morph easing fixes (v.vancura)
 	 * 2008-10-16	- Added morphReset() (v.vancura)
@@ -124,16 +125,16 @@ package org.vancura.vaclav.core {
 		 *	
 		 * Parameters:
 		 *	
-		 * c	- Config object
+		 * 		c	- Config object
 		 *	
 		 * Currently these options are available (set in c Object):
 		 *	
-		 * x				- New X position
-		 * y				- New Y position
-		 * width			- New width
-		 * height			- New height
-		 * morphEase		- Easing
-		 * morphDuration	- Duration
+		 * 		x				- New X position
+		 * 		y				- New Y position
+		 * 		width			- New width
+		 * 		height			- New height
+		 * 		morphEase		- Easing
+		 * 		morphDuration	- Duration
 		 */
 		public function morph(c:Object):void {
 			if(_initialProperties == null) {
@@ -144,8 +145,8 @@ package org.vancura.vaclav.core {
 				_initialProperties.height = this.height;
 			}
 			
-			_oldCacheAsBitmap = cacheAsBitmap;
-			cacheAsBitmap = false;
+			_oldCacheAsBitmap = this.cacheAsBitmap;
+			this.cacheAsBitmap = false;
 
 			var t:Object = new Object();
 			if(isMorphXEnabled && c.x != undefined) t.x = c.x;
@@ -159,7 +160,7 @@ package org.vancura.vaclav.core {
 				cacheAsBitmap = _oldCacheAsBitmap;
 			};
 			
-			new TweenNano(this, (c.morphDuration != undefined) ? c.morphDuration : morphDuration, t);
+			new TweenLite(this, (c.morphDuration != undefined) ? c.morphDuration : morphDuration, t);
 		}
 		
 		
@@ -183,7 +184,7 @@ package org.vancura.vaclav.core {
 		 *	
 		 * Parameters:
 		 *	
-		 * value	- New width
+		 * 		value	- New width
 		 */
 		override public function set width(value:Number):void {
 			if(isChangeWidthEnabled) super.width = value;
@@ -198,7 +199,7 @@ package org.vancura.vaclav.core {
 		 *	
 		 * Parameters:
 		 *	
-		 * value	- New height
+		 * 		value	- New height
 		 */
 		override public function set height(value:Number):void {
 			if(isChangeHeightEnabled) super.height = value;

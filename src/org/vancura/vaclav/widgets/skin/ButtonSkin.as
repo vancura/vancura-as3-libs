@@ -27,8 +27,8 @@ package org.vancura.vaclav.widgets.skin {
 
 		
 		
-		public function ButtonSkin(id:String) {
-			super(id, Skin.TYPE_BUTTON);
+		public function ButtonSkin(id:String = null) {
+			super(Skin.TYPE_BUTTON, id);
 			
 			$hoveredInDuration = 0;
 			$hoveredOutDuration = .15;

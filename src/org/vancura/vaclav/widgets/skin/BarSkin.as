@@ -25,8 +25,8 @@ package org.vancura.vaclav.widgets.skin {
 
 		
 		
-		public function BarSkin(id:String) {
-			super(id, Skin.TYPE_BAR);
+		public function BarSkin(id:String = null) {
+			super(Skin.TYPE_BAR, id);
 			
 			$paddingTop = 0;
 			$paddingBottom = 0;

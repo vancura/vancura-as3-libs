@@ -1,7 +1,10 @@
 package org.vancura.vaclav.widgets.skin {
+	import br.com.stimuli.string.printf;
+
 	import com.quasimondo.geom.ColorMatrix;
 
 	import org.vancura.vaclav.core.duplicateMovieClip;
+	import org.vancura.vaclav.core.randomString;
 	import org.vancura.vaclav.widgets.skin.interfaces.ISkinnable;
 
 	import flash.display.BitmapData;
@@ -32,9 +35,13 @@ package org.vancura.vaclav.widgets.skin {
 		
 		
 		
-		public function Skin(id:String, type:String):void {
+		public function Skin(type:String, id:String = null):void {
 			$id = id;
 			$type = type;
+			
+			if($id == null) {
+				$id = printf('%s:skin:%s', type, randomString());
+			}
 		}
 		
 		

@@ -20,8 +20,8 @@ package org.vancura.vaclav.widgets.skin {
 
 		
 		
-		public function ImageSkin(id:String) {
-			super(id, Skin.TYPE_IMAGE);
+		public function ImageSkin(id:String = null) {
+			super(Skin.TYPE_IMAGE, id);
 			
 			$paddingTop = 0;
 			$paddingLeft = 0;

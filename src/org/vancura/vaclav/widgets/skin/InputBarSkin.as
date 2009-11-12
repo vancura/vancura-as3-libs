@@ -14,8 +14,8 @@ package org.vancura.vaclav.widgets.skin {
 
 		
 		
-		public function InputBarSkin(id:String) {
-			super(id, Skin.TYPE_INPUT_BAR);
+		public function InputBarSkin(id:String = null) {
+			super(Skin.TYPE_INPUT_BAR, id);
 			
 			$barSkin = new BarSkin(id + '#bar');
 			$labelSkin = new LabelSkin(id + '#label');

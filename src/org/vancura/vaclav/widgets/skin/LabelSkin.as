@@ -38,8 +38,8 @@ package org.vancura.vaclav.widgets.skin {
 
 		
 		
-		public function LabelSkin(id:String) {
-			super(id, Skin.TYPE_LABEL);
+		public function LabelSkin(id:String = null) {
+			super(Skin.TYPE_LABEL, id);
 			
 			$font = '';
 			$size = 10;

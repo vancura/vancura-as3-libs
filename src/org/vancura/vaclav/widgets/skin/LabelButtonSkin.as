@@ -14,8 +14,8 @@ package org.vancura.vaclav.widgets.skin {
 
 		
 		
-		public function LabelButtonSkin(id:String) {
-			super(id, Skin.TYPE_LABEL_BUTTON);
+		public function LabelButtonSkin(id:String = null) {
+			super(Skin.TYPE_LABEL_BUTTON, id);
 			
 			$buttonSkin = new ButtonSkin(id + '#button');
 			$labelSkin = new LabelSkin(id + '#label');

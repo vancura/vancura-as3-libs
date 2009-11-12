@@ -43,7 +43,7 @@ curl http://github.com/vancura/mdocs/raw/master/mdocs.css -o mdocs.css >/dev/nul
 curl http://www.greensock.com/as/greensock-tweening-platform-as3.zip -o tmp/greensock-tweening-platform-as3.zip >/dev/null 2>&1
 curl http://img.dafont.com/dl/?f=uni_05_x -o tmp/uni_05_x.zip >/dev/null 2>&1
 curl http://www.quasimondo.com/colormatrix/ColorMatrix.as -o lib/src/quasimondo/src/com/quasimondo/geom/ColorMatrix.as >/dev/null 2>&1
-curl http://dl.dropbox.com/u/24071/as3classes/bytearray/src/org/bytearray/display/ScaleBitmap.as -o lib/src/bytearray/src/org/bytearray/display/ScaleBitmap.as >/dev/null 2>&1
+curl http://gist.github.com/raw/232800/642574cb739ea4fa4b9e8527d0c7d86e56334aaf/ScaleBitmap.as -o lib/src/bytearray/src/org/bytearray/display/ScaleBitmap.as >/dev/null 2>&1
 svn checkout http://printf-as3.googlecode.com/svn/trunk lib/src/printf-as3 >/dev/null 2>&1
 svn checkout http://vanrijkom-flashlibs.googlecode.com/svn/trunk lib/src/vanrijkom-flashlibs >/dev/null 2>&1
 

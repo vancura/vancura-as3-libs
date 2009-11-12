@@ -13,8 +13,8 @@ package org.vancura.vaclav.widgets.skin {
 
 		
 		
-		public function CheckButtonSkin(id:String) {
-			super(id, Skin.TYPE_CHECK_BUTTON);
+		public function CheckButtonSkin(id:String = null) {
+			super(Skin.TYPE_CHECK_BUTTON, id);
 			
 			$buttonOffSkin = new ButtonSkin(id + '#buttonOff');
 			$buttonOnSkin = new ButtonSkin(id + '#buttonOn');
