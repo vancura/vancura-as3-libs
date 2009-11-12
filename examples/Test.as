@@ -1,10 +1,11 @@
 package {
+	import org.vancura.vaclav.widgets.globals.SWFLibraryProvider;
 	import br.com.stimuli.string.printf;
 
 	import org.vancura.vaclav.widgets.constants.DebugLevel;
 	import org.vancura.vaclav.widgets.events.ButtonEvent;
+	import org.vancura.vaclav.widgets.globals.SkinManager;
 	import org.vancura.vaclav.widgets.skin.LabelButtonSkin;
-	import org.vancura.vaclav.widgets.skin.SkinManager;
 	import org.vancura.vaclav.widgets.widgets.LabelButton;
 
 	import flash.display.Loader;
@@ -84,9 +85,13 @@ package {
 			if(_isError) return;
 			
 			_skinManager = SkinManager.getInstance();
+			_skinManager.init(DebugLevel.ALWAYS, 0xFF0000);
+			
+			var skinProvider:SWFLibraryProvider;
 			
 			try {
-				_skinManager.attachMovieClip(_skinSWFLoader.contentLoaderInfo.content as MovieClip, DebugLevel.NONE, 0xFF0000, null, null, true);
+				skinProvider = new SWFLibraryProvider(_skinSWFLoader.contentLoaderInfo.content as MovieClip, null, null, true);
+				_skinManager.attach(skinProvider);
 			}
 			catch(err:Error) {
 				trace(printf('Skin could not be attached (%s)', err.message));

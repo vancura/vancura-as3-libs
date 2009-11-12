@@ -4,7 +4,7 @@ package org.vancura.vaclav.widgets.widgets {
 	import org.vancura.vaclav.core.removeChildren;
 	import org.vancura.vaclav.widgets.interfaces.IBar;
 	import org.vancura.vaclav.widgets.interfaces.IBarSkin;
-	import org.vancura.vaclav.widgets.skin.SkinManager;
+	import org.vancura.vaclav.widgets.globals.SkinManager;
 
 	import flash.display.DisplayObjectContainer;
 	import flash.geom.Rectangle;

@@ -5,7 +5,7 @@ package org.vancura.vaclav.widgets.widgets {
 	import org.vancura.vaclav.core.removeChildren;
 	import org.vancura.vaclav.widgets.constants.DebugLevel;
 	import org.vancura.vaclav.widgets.interfaces.IWidget;
-	import org.vancura.vaclav.widgets.skin.SkinManager;
+	import org.vancura.vaclav.widgets.globals.SkinManager;
 
 	import flash.display.DisplayObjectContainer;
 	import flash.display.Stage;

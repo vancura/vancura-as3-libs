@@ -6,7 +6,7 @@ package org.vancura.vaclav.widgets.widgets {
 	import org.vancura.vaclav.widgets.interfaces.IInputBarSkin;
 	import org.vancura.vaclav.widgets.interfaces.ILabel;
 	import org.vancura.vaclav.widgets.interfaces.IWidget;
-	import org.vancura.vaclav.widgets.skin.SkinManager;
+	import org.vancura.vaclav.widgets.globals.SkinManager;
 
 	import flash.display.DisplayObjectContainer;
 

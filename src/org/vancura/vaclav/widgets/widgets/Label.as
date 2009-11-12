@@ -5,7 +5,7 @@ package org.vancura.vaclav.widgets.widgets {
 	import org.vancura.vaclav.widgets.constants.DebugLevel;
 	import org.vancura.vaclav.widgets.interfaces.ILabel;
 	import org.vancura.vaclav.widgets.interfaces.ILabelSkin;
-	import org.vancura.vaclav.widgets.skin.SkinManager;
+	import org.vancura.vaclav.widgets.globals.SkinManager;
 
 	import flash.display.DisplayObjectContainer;
 	import flash.events.MouseEvent;
