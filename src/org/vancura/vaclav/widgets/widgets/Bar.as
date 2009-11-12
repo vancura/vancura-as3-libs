@@ -1,4 +1,5 @@
 package org.vancura.vaclav.widgets.widgets {
+	import org.bytearray.display.ScaleBitmap;
 	import org.vancura.vaclav.core.addChildren;
 	import org.vancura.vaclav.core.removeChildren;
 	import org.vancura.vaclav.widgets.skin.SkinManager;

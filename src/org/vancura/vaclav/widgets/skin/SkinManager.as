@@ -4,8 +4,6 @@ package org.vancura.vaclav.widgets.skin {
 	import org.vancura.vaclav.widgets.DebugLevel;
 	import org.vancura.vaclav.widgets.skin.interfaces.ISkinnable;
 
-	import mx.skins.halo.ButtonSkin;
-
 	import flash.display.LoaderInfo;
 	import flash.display.MovieClip;
 	import flash.events.EventDispatcher;

@@ -1,4 +1,6 @@
 package org.vancura.vaclav.widgets.skin {
+	import com.quasimondo.geom.ColorMatrix;
+
 	import org.vancura.vaclav.core.duplicateMovieClip;
 	import org.vancura.vaclav.widgets.skin.interfaces.ISkinnable;
 

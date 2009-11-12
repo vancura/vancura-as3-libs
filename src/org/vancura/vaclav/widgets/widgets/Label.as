@@ -149,7 +149,7 @@ package org.vancura.vaclav.widgets.widgets {
 		
 		
 		public function get text():String {
-			return StringUtils.removeExtraWhitespace($textField.text);
+			return $textField.text;
 		}
 		
 		

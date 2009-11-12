@@ -31,6 +31,7 @@ mkdir -p tmp >/dev/null 2>&1
 mkdir -p lib/src >/dev/null 2>&1
 mkdir -p lib/fonts >/dev/null 2>&1
 mkdir -p lib/src/quasimondo/src/com/quasimondo/geom >/dev/null 2>&1
+mkdir -p lib/src/bytearray/src/org/bytearray/display >/dev/null 2>&1
 mkdir -p bin >/dev/null 2>&1
 mkdir -p doc >/dev/null 2>&1
 mkdir -p .doc-config >/dev/null 2>&1
@@ -41,7 +42,8 @@ echo "Downloading my mDocs NaturalDocs style and all 3rd party libraries"
 curl http://github.com/vancura/mdocs/raw/master/mdocs.css -o mdocs.css >/dev/null 2>&1
 curl http://www.greensock.com/as/greensock-tweening-platform-as3.zip -o tmp/greensock-tweening-platform-as3.zip >/dev/null 2>&1
 curl http://img.dafont.com/dl/?f=uni_05_x -o tmp/uni_05_x.zip >/dev/null 2>&1
-curl http://www.quasimondo.com/colormatrix/ColorMatrix.as -o lib/src/quasimondo/src/com/quasimondo/geom/ColorMatrix.as > /dev/null 2>&1
+curl http://www.quasimondo.com/colormatrix/ColorMatrix.as -o lib/src/quasimondo/src/com/quasimondo/geom/ColorMatrix.as >/dev/null 2>&1
+curl http://dl.dropbox.com/u/24071/as3classes/bytearray/src/org/bytearray/display/ScaleBitmap.as -o lib/src/bytearray/src/org/bytearray/display/ScaleBitmap.as >/dev/null 2>&1
 svn checkout http://printf-as3.googlecode.com/svn/trunk lib/src/printf-as3 >/dev/null 2>&1
 svn checkout http://vanrijkom-flashlibs.googlecode.com/svn/trunk lib/src/vanrijkom-flashlibs >/dev/null 2>&1
 
@@ -54,7 +56,7 @@ unzip tmp/uni_05_x.zip -d lib/fonts >/dev/null 2>&1
 # Compile the SWC
 echo "---------------------------------------------------------------------------------------------------"
 echo "Compiling vancura-as3-libs.swc"
-$FLEX_DIR/bin/compc --target-player=10.0.0 -o bin/vancura-as3-libs.swc -l $FLEX_DIR/frameworks/libs/player/10/playerglobal.swc -l $FLEX_DIR/frameworks/libs/flex.swc  -l $FLEX_DIR/frameworks/libs/framework.swc  -l $FLEX_DIR/frameworks/libs/rpc.swc  -l $FLEX_DIR/frameworks/libs/utilities.swc -is src -sp lib/src/vanrijkom-flashlibs -sp lib/src/printf-as3/src -sp lib/src/greensock-tweening-platform-as3 -sp lib/src/quasimondo/src
+$FLEX_DIR/bin/compc --target-player=10.0.0 -o bin/vancura-as3-libs.swc -l $FLEX_DIR/frameworks/libs/player/10/playerglobal.swc -l $FLEX_DIR/frameworks/libs/flex.swc  -l $FLEX_DIR/frameworks/libs/framework.swc  -l $FLEX_DIR/frameworks/libs/rpc.swc  -l $FLEX_DIR/frameworks/libs/utilities.swc -is src -sp lib/src/vanrijkom-flashlibs -sp lib/src/printf-as3/src -sp lib/src/greensock-tweening-platform-as3 -sp lib/src/quasimondo/src -sp lib/src/bytearray/src
 
 # Generate documentation
 if [ "$IS_NATURAL_DOCS_DISABLED" == "no" ]; then

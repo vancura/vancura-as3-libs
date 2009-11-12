@@ -1,6 +1,7 @@
 package org.vancura.vaclav.widgets.widgets {
 	import com.greensock.TweenMax;
 
+	import org.bytearray.display.ScaleBitmap;
 	import org.vancura.vaclav.core.Drawing;
 	import org.vancura.vaclav.core.addChildren;
 	import org.vancura.vaclav.core.removeChildren;
