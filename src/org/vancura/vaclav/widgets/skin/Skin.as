@@ -161,7 +161,7 @@ package org.vancura.vaclav.widgets.skin {
 			}
 			else if(source.width != $assetWidth || source.height != $assetHeight) {
 				// size mismatch
-				throw new Error('Size has to be same');
+				throw new Error('Sizes have to match');
 			}
 		}
 	}

@@ -24,7 +24,9 @@ package org.vancura.vaclav.widgets.widgets {
 								parent:DisplayObjectContainer = null,
 								debugLevel:String = null) {
 									
-			if(config == null) config = new Object();
+			if(config == null) {
+				config = new Object();
+			}
 			
 			if(skin != null) {
 				var sm:SkinManager = SkinManager.getInstance();
@@ -88,8 +90,13 @@ package org.vancura.vaclav.widgets.widgets {
 		public function set skin(skin:IImageSkin):void {
 			$skin = skin;
 			
-			if($width == 0) $width = $skin.assetWidth;
-			if($height == 0) $height = $skin.assetHeight;
+			if($width == 0) {
+				$width = $skin.assetWidth;
+			}
+			
+			if($height == 0) {
+				$height = $skin.assetHeight;
+			}
 			
 			draw();
 		}

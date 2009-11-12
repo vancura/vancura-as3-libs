@@ -25,15 +25,14 @@ package org.vancura.vaclav.widgets.skin {
 			
 			$paddingTop = 0;
 			$paddingLeft = 0;
+			
 			$backBD = new BitmapData(1, 1, true, 0x00000000);
 		}
 
 		
 		
 		public function getAssetsFromComposition(source:BitmapData):void {
-			if(source.width % 2 != 0) throw new Error('Width has to be multiple of 2');
-			
-			$assetWidth = source.width / 2;
+			$assetWidth = source.width;
 			$assetHeight = source.height;
 			
 			$backBD = BitmapUtil.crop(source, $assetWidth * 1, 0, $assetWidth, $assetHeight);
@@ -55,8 +54,13 @@ package org.vancura.vaclav.widgets.skin {
 			_oldPaddingTop = $paddingTop;
 			_oldPaddingLeft = $paddingLeft;
 			
-			if(source.paddingTop != undefined) $paddingTop = source.paddingTop;
-			if(source.paddingLeft != undefined) $paddingLeft = source.paddingLeft;
+			if(source.paddingTop != undefined) {
+				$paddingTop = source.paddingTop;
+			}
+			
+			if(source.paddingLeft != undefined) {
+				$paddingLeft = source.paddingLeft;
+			}
 		}
 		
 		

@@ -12,6 +12,7 @@ package org.vancura.vaclav.widgets.widgets.interfaces {
 		function set skin(skin:IInputBarSkin):void;
 		
 		function get label():ILabel;
+		
 		function get bar():IBar;
 
 	}

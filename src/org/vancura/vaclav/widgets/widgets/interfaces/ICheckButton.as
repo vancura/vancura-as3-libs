@@ -21,7 +21,9 @@ package org.vancura.vaclav.widgets.widgets.interfaces {
 		function set isChecked(value:Boolean):void;
 		
 		function get button():IButton;
+		
 		function get buttonOff():IButton;
+		
 		function get buttonOn():IButton;
 
 	}

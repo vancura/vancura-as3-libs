@@ -33,7 +33,9 @@ package org.vancura.vaclav.widgets.widgets {
 									parent:DisplayObjectContainer = null,
 									debugLevel:String = null) {
 										
-			if(config == null) config = new Object();
+			if(config == null) {
+				config = new Object();
+			}
 			
 			if(skin != null) {
 				var sm:SkinManager = SkinManager.getInstance();
@@ -84,7 +86,9 @@ package org.vancura.vaclav.widgets.widgets {
 			if(_isDown) {
 				_currentDrag = null;
 				_isDown = false;
+				
 				$releasedOutsideTween();
+				
 				dispatchEvent(new ButtonEvent(ButtonEvent.RELEASE_OUTSIDE, true));
 			}
 		}
@@ -93,7 +97,9 @@ package org.vancura.vaclav.widgets.widgets {
 		
 		public static function releaseAll():void {
 			for each(var b:IWidget in $allWidgets) {
-				if(b is ButtonCore) (b as ButtonCore).forceRelease();
+				if(b is ButtonCore) {
+					(b as ButtonCore).forceRelease();
+				}
 			}
 		}
 		
@@ -108,9 +114,17 @@ package org.vancura.vaclav.widgets.widgets {
 		public function set skin(skin:IButtonSkin):void {
 			$skin = skin as ButtonSkin;
 			
-			if($width == 0) $width = $skin.assetWidth;
-			if($height == 0) $height = $skin.assetHeight;
-			if($skin.assetWidth != 0 && $skin.assetHeight != 0) setSize($skin.assetWidth, $skin.assetHeight);
+			if($width == 0) {
+				$width = $skin.assetWidth;
+			}
+			
+			if($height == 0) {
+				$height = $skin.assetHeight;
+			}
+			
+			if($skin.assetWidth != 0 && $skin.assetHeight != 0) {
+				setSize($skin.assetWidth, $skin.assetHeight);
+			}
 			
 			draw();
 		}
@@ -186,7 +200,9 @@ package org.vancura.vaclav.widgets.widgets {
 				else {
 					// roll over
 					_isOver = true;
+					
 					$hoverInTween();
+					
 					dispatchEvent(new ButtonEvent(ButtonEvent.HOVER_IN, true));
 				}
 			}
@@ -203,7 +219,9 @@ package org.vancura.vaclav.widgets.widgets {
 				else {
 					// roll out
 					_isOver = false;
+					
 					$hoverOutTween();
+					
 					dispatchEvent(new ButtonEvent(ButtonEvent.HOVER_OUT, true));
 				}
 			}
@@ -215,8 +233,11 @@ package org.vancura.vaclav.widgets.widgets {
 			if(_areEventsEnabled) {
 				_isDown = true;
 				_currentDrag = this;
+				
 				$focusInTween();
+				
 				stage.addEventListener(MouseEvent.MOUSE_UP, _onRelease, false, 0, true);
+				
 				dispatchEvent(new ButtonEvent(ButtonEvent.FOCUS_IN, true));
 			}
 		}
@@ -235,13 +256,16 @@ package org.vancura.vaclav.widgets.widgets {
 				else if(_currentDrag != this) {
 					// drag confirm
 					$dragConfirmedTween();
+					
 					dispatchEvent(new ButtonEvent(ButtonEvent.DRAG_CONFIRM, true));
 				}
 				
 				else {
 					// release inside
 					_currentDrag = null;
+					
 					$releasedInsideTween();
+					
 					dispatchEvent(new ButtonEvent(ButtonEvent.RELEASE_INSIDE, true));
 				}
 	

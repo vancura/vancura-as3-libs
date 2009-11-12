@@ -43,23 +43,44 @@ package org.vancura.vaclav.widgets.widgets {
 								parent:DisplayObjectContainer = null,
 								debugLevel:String = null):void {
 										
-			if(config == null) $config = new Object();
-			else $config = config;
+			if(config == null) {
+				$config = new Object();
+			}
+			else {
+				$config = config;
+			}
 			
 			var sm:SkinManager = SkinManager.getInstance();
 			$debugColor = sm.debugColor;
 
 			super(config);
 			
-			if(config.x != undefined) this.x = config.x;
-			if(config.y != undefined) this.y = config.y;
-			if(config.width != undefined) this.width = config.width;
-			if(config.height != undefined) this.height = config.height;
-			 
-			if(parent != null) parent.addChild(this);
+			if(config.x != undefined) {
+				this.x = config.x;
+			}
 			
-			if($allWidgets == null) $allWidgets = new Array();
+			if(config.y != undefined) {
+				this.y = config.y;
+			}
+			
+			if(config.width != undefined) {
+				this.width = config.width;
+			}
+			
+			if(config.height != undefined) {
+				this.height = config.height;
+			}
+			 
+			if(parent != null) {
+				parent.addChild(this);
+			}
+			
+			if($allWidgets == null) {
+				$allWidgets = new Array();
+			}
+			
 			$allWidgets.push(this);
+			
 			$allIdx = $allWidgets.length - 1;
 			
 			$init();
@@ -121,6 +142,7 @@ package org.vancura.vaclav.widgets.widgets {
 		override public function setSize(width:Number, height:Number):void {
 			$width = width;
 			$height = height;
+			
 			$invalidate();
 		}
 
@@ -130,6 +152,7 @@ package org.vancura.vaclav.widgets.widgets {
 			if($debugLevel == DebugLevel.ALWAYS || $debugLevel == DebugLevel.HOVER) {
 				if($width != 0 && $height != 0) {
 					$debugSpr.graphics.clear();
+					
 					GraphicsUtil.drawRect($debugSpr, 0, 0, $width, $height, $debugColor, .15);
 					GraphicsUtil.strokeBounds($debugSpr, 0, 0, $width, $height, 5, $debugColor);
 				}
@@ -142,7 +165,9 @@ package org.vancura.vaclav.widgets.widgets {
 		
 		public static function set allDebugLevel(value:String):void {
 			for each(var i:IWidget in $allWidgets) {
-				if(i != null) i.debugLevel = value;
+				if(i != null) {
+					i.debugLevel = value;
+				}
 			}
 		}
 		
@@ -150,7 +175,9 @@ package org.vancura.vaclav.widgets.widgets {
 		
 		override public function set width(w:Number):void {
 			$width = Math.round(w);
+			
 			$invalidate();
+			
 			dispatchEvent(new Event(Event.RESIZE));
 		}
 
@@ -164,7 +191,9 @@ package org.vancura.vaclav.widgets.widgets {
 		
 		override public function set height(h:Number):void {
 			$height = Math.round(h);
+			
 			$invalidate();
+			
 			dispatchEvent(new Event(Event.RESIZE));
 		}
 
@@ -197,11 +226,13 @@ package org.vancura.vaclav.widgets.widgets {
 		public function set debugLevel(value:String):void {
 			if(value == DebugLevel.ALWAYS) {
 				$debugSpr.visible = true;
+				
 				this.removeEventListener(MouseEvent.ROLL_OVER, $onDebugOver);
 				this.removeEventListener(MouseEvent.ROLL_OUT, $onDebugOut);
 			}
 			else {
 				$debugSpr.visible = false;
+				
 				this.addEventListener(MouseEvent.ROLL_OVER, $onDebugOver, false, 0, true);
 				this.addEventListener(MouseEvent.ROLL_OUT, $onDebugOut, false, 0, true);
 			}
@@ -244,6 +275,7 @@ package org.vancura.vaclav.widgets.widgets {
 		
 		private function _onInvalidate(event:Event):void {
 			removeEventListener(Event.ENTER_FRAME, _onInvalidate);
+			
 			draw();
 		}
 	}

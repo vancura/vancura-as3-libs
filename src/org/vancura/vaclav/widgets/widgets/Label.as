@@ -37,7 +37,9 @@ package org.vancura.vaclav.widgets.widgets {
 								parent:DisplayObjectContainer = null,
 								debugLevel:String = null) {
 									
-			if(config == null) config = new Object();
+			if(config == null) {
+				config = new Object();
+			}
 			
 			if(skin != null) {
 				var sm:SkinManager = SkinManager.getInstance();
@@ -100,8 +102,12 @@ package org.vancura.vaclav.widgets.widgets {
 				$textField.height = h;
 				
 				// non-top alignment
-				if(_vAlign == Align.CENTER) $textField.y = Math.round((h - $textField.textHeight) / 2) + $skin.paddingTop;
-				if(_vAlign == Align.BOTTOM) $textField.y = h - $textField.textHeight + $skin.paddingTop;
+				if(_vAlign == Align.CENTER) {
+					$textField.y = Math.round((h - $textField.textHeight) / 2) + $skin.paddingTop;
+				}
+				if(_vAlign == Align.BOTTOM) {
+					$textField.y = h - $textField.textHeight + $skin.paddingTop;
+				}
 			}
 		}
 
@@ -109,6 +115,7 @@ package org.vancura.vaclav.widgets.widgets {
 		
 		override public function set debugLevel(value:String):void {
 			super.debugLevel = value;
+			
 			$textField.border = ($debugLevel == DebugLevel.ALWAYS);
 		}
 
@@ -140,8 +147,13 @@ package org.vancura.vaclav.widgets.widgets {
 			$textField.alpha = $skin.alpha;
 			$textField.embedFonts = ($skin.font != '');
 			
-			if($width == 0) $width = $skin.assetWidth;
-			if($height == 0) $height = $skin.assetHeight;
+			if($width == 0) {
+				$width = $skin.assetWidth;
+			}
+			
+			if($height == 0) {
+				$height = $skin.assetHeight;
+			}
 			
 			draw();
 		}
@@ -159,6 +171,7 @@ package org.vancura.vaclav.widgets.widgets {
 				if(value != null) {
 					$textField.htmlText = value;
 				}
+				
 				$textField.setTextFormat($textFormat);
 			}
 			

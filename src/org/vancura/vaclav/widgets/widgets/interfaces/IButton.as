@@ -14,6 +14,7 @@ package org.vancura.vaclav.widgets.widgets.interfaces {
 		function get areEventsEnabled():Boolean;
 		
 		function get isDown():Boolean;
+		
 		function get isOver():Boolean;
 
 	}

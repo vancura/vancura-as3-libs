@@ -44,7 +44,9 @@ package org.vancura.vaclav.widgets.skin {
 		
 		
 		public function getAssetsFromComposition(source:BitmapData):void {
-			if(source.width % 4 != 0) throw new Error('Width has to be multiple of 4');
+			if(source.width % 4 != 0) {
+				throw new Error('Width has to be multiple of 4');
+			}
 			
 			$assetWidth = source.width / 4;
 			$assetHeight = source.height;
@@ -76,10 +78,21 @@ package org.vancura.vaclav.widgets.skin {
 			_oldFocusInDuration = $focusInDuration;
 			_oldFocusOutDuration = $focusOutDuration;
 			
-			if(source.hoverInDuration != undefined) $hoverInDuration = source.hoverInDuration;
-			if(source.hoverOutDuration != undefined) $hoverOutDuration = source.hoverOutDuration;
-			if(source.pressInDuration != undefined) $focusInDuration = source.pressInDuration;
-			if(source.pressOutDuration != undefined) $focusOutDuration = source.pressOutDuration;
+			if(source.hoverInDuration != undefined) {
+				$hoverInDuration = source.hoverInDuration;
+			}
+			
+			if(source.hoverOutDuration != undefined) {
+				$hoverOutDuration = source.hoverOutDuration;
+			}
+			
+			if(source.pressInDuration != undefined) {
+				$focusInDuration = source.pressInDuration;
+			}
+			
+			if(source.pressOutDuration != undefined) {
+				$focusOutDuration = source.pressOutDuration;
+			}
 		}
 		
 		

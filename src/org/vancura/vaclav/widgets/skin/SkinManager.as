@@ -40,7 +40,11 @@ package org.vancura.vaclav.widgets.skin {
 		
 		public function attach(mc:MovieClip, debugLevel:String = _DEFAULT_DEBUG_LEVEL, debugColor:uint = _DEFAULT_DEBUG_COLOR, themeElements:Array = null, themeConfig:Array = null, isVerbose:Boolean = false):void {
 			// prevent reattaching
-			if(_isAttached) throw new Error('Skin already applied');
+			if(_isAttached) {
+				throw new Error('Skin already applied');
+			}
+			
+			// initial setting
 			_isAttached = true;
 			_skinMC = mc;
 			
@@ -54,8 +58,12 @@ package org.vancura.vaclav.widgets.skin {
 			
 			// get skin loaderInfo.
 			// used to get assets from skin asset library.
-			if(_skinMC.loaderInfo == null) throw new Error('Could not get skin loaderInfo (skin asset library)');
-			_loaderInfo = _skinMC.loaderInfo;
+			if(_skinMC.loaderInfo == null) {
+				throw new Error('Could not get skin loaderInfo (skin asset library)');
+			}
+			else {
+				_loaderInfo = _skinMC.loaderInfo;
+			}
 			
 			// get config
 			try {
@@ -66,8 +74,12 @@ package org.vancura.vaclav.widgets.skin {
 			}
 			
 			// set global parameters
-			if(_debugLevel == null) _debugLevel = (_skinConfig.debugLevel != undefined) ? _skinConfig.debugLevel : _DEFAULT_DEBUG_LEVEL;
-			if(_debugColor != _DEFAULT_DEBUG_COLOR) _debugColor = (_skinConfig.debugColor != undefined) ? _skinConfig.debugColor : _DEFAULT_DEBUG_COLOR;
+			if(_debugLevel == null) {
+				_debugLevel = (_skinConfig.debugLevel != undefined) ? _skinConfig.debugLevel : _DEFAULT_DEBUG_LEVEL;
+			}
+			if(_debugColor != _DEFAULT_DEBUG_COLOR) {
+				_debugColor = (_skinConfig.debugColor != undefined) ? _skinConfig.debugColor : _DEFAULT_DEBUG_COLOR;
+			}
 			
 			// get skins
 			if(_skinConfig.skins != null && _skinConfig.skins.length > 0) {
@@ -126,21 +138,29 @@ package org.vancura.vaclav.widgets.skin {
 						}
 						
 						if(isOK && isSupported) {
-							if(_isVerbose) trace(printf('SkinManager: Adding "%s" skin "%s"', i.type, i.id));
+							if(_isVerbose) {
+								trace(printf('SkinManager: Adding "%s" skin "%s"', i.type, i.id));
+							}
 							_skinList.push(skin);
 						}
 						else if(isOK) {
-							if(_isVerbose) trace(printf('SkinManager: "%s" skin is unsupported (type "%s")', i.id, i.type));
+							if(_isVerbose) {
+								trace(printf('SkinManager: "%s" skin is unsupported (type "%s")', i.id, i.type));
+							}
 						}
 						 
 					}
 					else {
-						if(_isVerbose) trace('SkinManager: Found skin without id or type fields defined');
+						if(_isVerbose) {
+							trace('SkinManager: Found skin without id or type fields defined');
+						}
 					}
 				}
 			}
 			else {
-				if(_isVerbose) trace('SkinManager: No skins defined');
+				if(_isVerbose) {
+					trace('SkinManager: No skins defined');
+				}
 			}
 		}
 		
@@ -148,7 +168,9 @@ package org.vancura.vaclav.widgets.skin {
 		
 		public function getSkin(id:String):* {
 			for each(var item:ISkinnable in skinList) {
-				if(item.id == id) return item;
+				if(item.id == id) {
+					return item;
+				}
 			}
 			
 			return null;
@@ -167,7 +189,9 @@ package org.vancura.vaclav.widgets.skin {
 				
 				return printf('SkinManager info:\n  isAttached=true\n  debugLevel=%s\n  debugColor=%x\n  registered skins: "%s"', _debugLevel, _debugColor, list);
 			}
-			else return printf('SkinManager info:\n  isAttached=false');
+			else {
+				return printf('SkinManager info:\n  isAttached=false');
+			}
 		}
 		
 		
@@ -251,13 +275,17 @@ package org.vancura.vaclav.widgets.skin {
 						return true;
 					}
 					else {
-						if(_isVerbose) trace(printf('SkinManager: "%s" skin requires symbol "%s", but it was not found in the library', i.id, i.symbol));
+						if(_isVerbose) {
+							trace(printf('SkinManager: "%s" skin requires symbol "%s", but it was not found in the library', i.id, i.symbol));
+						}
 						return false;
 					}
 				}
 			}
 			else {
-				if(_isVerbose) trace(printf('SkinManager: "%s" skin requires symbol field', i.id));
+				if(_isVerbose) {
+					trace(printf('SkinManager: "%s" skin requires symbol field', i.id));
+				}
 				return false;
 			}
 		}

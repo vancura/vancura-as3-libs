@@ -75,19 +75,57 @@ package org.vancura.vaclav.widgets.skin {
 			_oldPaddingLeft = $paddingLeft;
 			_oldPaddingRight = $paddingRight;
 			
-			if(source.font != undefined) $font = source.font;
-			if(source.size != undefined) $size = source.size;
-			if(source.color != undefined) $color = source.color;
-			if(source.alpha != undefined) $alpha = source.alpha;
-			if(source.hAlign != undefined) $hAlign = source.hAlign;
-			if(source.vAlign != undefined) $vAlign = source.vAlign;
-			if(source.filters != undefined) $filters = source.filters;
-			if(source.sharpness != undefined) $sharpness = source.sharpness;
-			if(source.thickness != undefined) $thickness = source.thickness;
-			if(source.paddingTop != undefined) $paddingTop = source.paddingTop;
-			if(source.paddingBottom != undefined) $paddingBottom = source.paddingBottom;
-			if(source.paddingLeft != undefined) $paddingLeft = source.paddingLeft;
-			if(source.paddingRight != undefined) $paddingRight = source.paddingRight;
+			if(source.font != undefined) {
+				$font = source.font;
+			}
+			
+			if(source.size != undefined) {
+				$size = source.size;
+			}
+			
+			if(source.color != undefined) {
+				$color = source.color;
+			}
+			
+			if(source.alpha != undefined) {
+				$alpha = source.alpha;
+			}
+			
+			if(source.hAlign != undefined) {
+				$hAlign = source.hAlign;
+			}
+			
+			if(source.vAlign != undefined) {
+				$vAlign = source.vAlign;
+			}
+			
+			if(source.filters != undefined) {
+				$filters = source.filters;
+			}
+			
+			if(source.sharpness != undefined) {
+				$sharpness = source.sharpness;
+			}
+			
+			if(source.thickness != undefined) {
+				$thickness = source.thickness;
+			}
+			
+			if(source.paddingTop != undefined) {
+				$paddingTop = source.paddingTop;
+			}
+			
+			if(source.paddingBottom != undefined) {
+				$paddingBottom = source.paddingBottom;
+			}
+			
+			if(source.paddingLeft != undefined) {
+				$paddingLeft = source.paddingLeft;
+			}
+			
+			if(source.paddingRight != undefined) {
+				$paddingRight = source.paddingRight;
+			}
 		}
 
 		

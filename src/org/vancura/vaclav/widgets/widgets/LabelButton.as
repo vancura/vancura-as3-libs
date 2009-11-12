@@ -30,7 +30,9 @@ package org.vancura.vaclav.widgets.widgets {
 										parent:DisplayObjectContainer = null,
 										debugLevel:String = null) {
 										
-			if(config == null) config = new Object();
+			if(config == null) {
+				config = new Object();
+			}
 			
 			var sm:SkinManager = SkinManager.getInstance();
 			var dl:String = (debugLevel != null) ? debugLevel : sm.debugLevel;
@@ -115,6 +117,7 @@ package org.vancura.vaclav.widgets.widgets {
 		override public function set width(value:Number):void {
 			$button.width = value;
 			$label.width = value;
+			
 			draw();
 		}
 
@@ -129,6 +132,7 @@ package org.vancura.vaclav.widgets.widgets {
 		override public function set height(value:Number):void {
 			$button.height = value;
 			$label.y = Math.round((value - $label.height) / 2);
+			
 			draw();
 		}
 
@@ -138,6 +142,7 @@ package org.vancura.vaclav.widgets.widgets {
 			$button.areEventsEnabled = value;
 			this.buttonMode = value;
 			this.useHandCursor = value;
+			
 			draw();
 		}
 
@@ -183,6 +188,7 @@ package org.vancura.vaclav.widgets.widgets {
 		
 		public function set text(value:String):void {
 			$label.text = value;
+			
 			draw();
 		}
 		

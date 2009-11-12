@@ -32,9 +32,12 @@ package org.vancura.vaclav.widgets.widgets {
 										parent:DisplayObjectContainer = null,
 										debugLevel:String = null) {
 											
-			if(config == null) config = new Object();
+			if(config == null) {
+				config = new Object();
+			}
 			
 			var sm:SkinManager = SkinManager.getInstance();
+			
 			super(skin, config, parent, (debugLevel != null) ? debugLevel : sm.debugLevel);
 		}
 
