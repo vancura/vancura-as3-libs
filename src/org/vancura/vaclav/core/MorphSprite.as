@@ -28,7 +28,7 @@ package org.vancura.vaclav.core {
 		 * Variables: Default config
 		 *
 		 * 		defMorphDuration			- Default morphing duration in seconds (1)
-		 * 		defMorphEase				- Default morphing transition function (mx.effects.easing.Cubic.easeInOut)
+		 * 		defMorphEase				- Default morphing transition function (com.greensock.easing.Elastic.easeOut)
 		 * 		defIsChangeWidthEnabled		- Default width change flag (true)
 		 * 		defIsChangeHeightEnabled	- Default height change flag (true)
 		 * 		defIsMorphXEnabled			- Default X morphing flag (true)
