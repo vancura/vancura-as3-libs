@@ -1,14 +1,23 @@
 package {
+	import br.com.stimuli.string.printf;
+
 	import org.vancura.vaclav.widgets.DebugLevel;
-	import org.vancura.vaclav.widgets.skin.ButtonSkin;
-	import org.vancura.vaclav.widgets.widgets.ScaleButton;
+	import org.vancura.vaclav.widgets.skin.LabelButtonSkin;
+	import org.vancura.vaclav.widgets.skin.SkinManager;
+	import org.vancura.vaclav.widgets.widgets.LabelButton;
 	import org.vancura.vaclav.widgets.widgets.events.ButtonEvent;
 
-	import flash.display.BitmapData;
+	import flash.display.Loader;
 	import flash.display.MovieClip;
-	
-	
-	
+	import flash.events.ErrorEvent;
+	import flash.events.Event;
+	import flash.events.IOErrorEvent;
+	import flash.events.SecurityErrorEvent;
+	import flash.net.URLLoader;
+	import flash.net.URLLoaderDataFormat;
+	import flash.net.URLRequest;
+	import flash.system.LoaderContext;
+
 	[SWF(width="1000",height="400",frameRate="60",backgroundColor="#FFFFFF")]
 
 	
@@ -20,20 +29,86 @@ package {
 
 		
 		
-		private var _buttonTest:ScaleButton;
+		private static const _SKIN_URI:String = 'test-skin.swf';
 		
+		private var _buttonTest:LabelButton;
+		private var _skinURLLoader:URLLoader;
+		private var _skinSWFLoader:Loader;
+		private var _isError:Boolean;
+		private var _skinManager:SkinManager;
+
 		
 		
 		public function Test() {
-			var skin:ButtonSkin = new ButtonSkin();
+			_skinURLLoader = new URLLoader();
+			_skinURLLoader.dataFormat = URLLoaderDataFormat.BINARY;
+			_skinURLLoader.addEventListener(Event.COMPLETE, _onURLLoaderComplete, false, 0, true);
+			_skinURLLoader.addEventListener(IOErrorEvent.IO_ERROR, _onURLLoaderError, false, 0, true);
+			_skinURLLoader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, _onURLLoaderError, false, 0, true);
+				
+			_skinSWFLoader = new Loader();
+			_skinSWFLoader.contentLoaderInfo.addEventListener(Event.INIT, _onSWFLoaderInit, false, 0, true);
+				
+			_skinURLLoader.load(new URLRequest(_SKIN_URI));
+		}
+		
+		
+		
+		private function _onURLLoaderComplete(event:Event):void {
+			if(_isError) {
+				return;
+			}
 			
-			var source:BitmapData = new BitmapData(400, 100);
+			var lc:LoaderContext = new LoaderContext(false, null);
 			
-			skin.getAssetsFromComposition(source);
+			// FIXME: allowLoadBytesCodeExecution may be broken one day
+			// We have to find a way how to load content from another sandbox
+			// More info: http://richardleggett.co.uk/blog/index.php/2009/04/02/loading-swfs-into-air-1-5-and-loaderinfo
+			// As seen here, it even doesn't compile, I have to put the parameter using Array. Damn!
+			// lc['allowLoadBytesCodeExecution'] = true;
 			
-			_buttonTest = new ScaleButton(skin, {x:10, y:10}, this, DebugLevel.HOVER);
+			_skinSWFLoader.loadBytes(_skinURLLoader.data, lc);
+		}
+		
+		
+		
+		private function _onURLLoaderError(event:ErrorEvent):void {
+			_isError = true;
+			
+			trace(printf('Skin could not be loaded. Is the URL ("%s") correct?', _SKIN_URI));
+		}
+		
+		
+		
+		private function _onSWFLoaderInit(event:Event):void {
+			if(_isError) return;
+			
+			_skinManager = SkinManager.getInstance();
+			
+			try {
+				_skinManager.attachMovieClip(_skinSWFLoader.contentLoaderInfo.content as MovieClip, DebugLevel.NONE, 0xFF0000, null, null, true);
+			}
+			catch(err:Error) {
+				trace(printf('Skin could not be attached (%s)', err.message));
+				return;
+			}
+								
+			_skinURLLoader.removeEventListener(Event.COMPLETE, _onURLLoaderComplete);
+			_skinURLLoader.removeEventListener(IOErrorEvent.IO_ERROR, _onURLLoaderError);
+			_skinURLLoader.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, _onURLLoaderError);
+			_skinSWFLoader.contentLoaderInfo.removeEventListener(Event.INIT, _onSWFLoaderInit);
+			
+			trace('Skin loaded');
+			trace(_skinManager.toString());
+			
+			// --------
+			
+			var skin:LabelButtonSkin = _skinManager.getSkin('label_button');
+			
+			_buttonTest = new LabelButton(skin, {x:10, y:10}, 'Lorem ipsum', this, DebugLevel.NONE);
 			
 			_buttonTest.addEventListener(ButtonEvent.RELEASE_INSIDE, _onTest);
+			
 		}
 		
 		

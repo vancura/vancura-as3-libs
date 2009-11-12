@@ -38,7 +38,7 @@ package org.vancura.vaclav.widgets.skin {
 		
 		
 		
-		public function attach(mc:MovieClip, debugLevel:String = _DEFAULT_DEBUG_LEVEL, debugColor:uint = _DEFAULT_DEBUG_COLOR, themeElements:Array = null, themeConfig:Array = null, isVerbose:Boolean = false):void {
+		public function attachMovieClip(mc:MovieClip, debugLevel:String = _DEFAULT_DEBUG_LEVEL, debugColor:uint = _DEFAULT_DEBUG_COLOR, themeElements:Array = null, themeConfig:Array = null, isVerbose:Boolean = false):void {
 			// prevent reattaching
 			if(_isAttached) {
 				throw new Error('Skin already applied');
