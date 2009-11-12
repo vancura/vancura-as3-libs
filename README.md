@@ -54,6 +54,7 @@ The library uses several 3rd party components:
 * [Greensock Tweening Platform](http://tweenmax.com) (known as TweenNano, TweenLite and TweenMax)
 * [Printf-AS3](http://code.google.com/p/printf-as3), an article [here](http://www.stimuli.com.br/trane/2009/feb/21/printf-as3).
 * [Vanrijkom Flashlibs](http://code.google.com/p/vanrijkom-flashlibs)
+* [Quasimondo ColorMatrix class](http://www.quasimondo.com/colormatrix/ColorMatrix.as)
 * [Uni fonts](http://www.dafont.com/search.php?psize=m&q=uni_05_x) by [miniml.com](http://miniml.com)
 
 All these files are downloaded from internet and not included in the source package. Hence you'll get the most up-to-date SWC if you compile.

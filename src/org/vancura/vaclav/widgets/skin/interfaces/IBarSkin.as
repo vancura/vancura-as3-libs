@@ -1,5 +1,5 @@
 package org.vancura.vaclav.widgets.skin.interfaces {
-	import flash.display.BitmapData;	
+	import flash.display.BitmapData;
 
 	
 	
