@@ -156,7 +156,7 @@ var indexSectionsWithContent = {
       "B": false,
       "C": false,
       "D": false,
-      "E": false,
+      "E": true,
       "F": false,
       "G": false,
       "H": true,
