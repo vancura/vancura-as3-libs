@@ -48,92 +48,12 @@ package org.vancura.vaclav.widgets.globals {
 				throw new Error('Could not get skin config. Usually it means there was a compile error while publishing skin SWF. Go check it out into Compiler Errors panel in Flash.');
 			}
 			
-			// get skins
-			if($skinConfig.skins != null && $skinConfig.skins.length > 0) {
-				for each(var i:Object in $skinConfig.skins) {
-					if(i.id != undefined && i.type != undefined) {
-						
-						var skin:ISkinnable;
-						var isSupported:Boolean = true;
-						var isOK:Boolean = true;
-						
-						switch(i.type) {
-							case Skin.TYPE_BAR:
-								skin = new BarSkin(i.id);
-								_applyAsset(skin, BarSkin, i);
-								(skin as BarSkin).parseConfig($mergeConfig(i));
-								break;
-								
-							case Skin.TYPE_IMAGE:
-								skin = new ImageSkin(i.id);
-								_applyAsset(skin, ImageSkin, i);
-								(skin as ImageSkin).parseConfig($mergeConfig(i));
-								break;
-								
-							case Skin.TYPE_BUTTON:
-								skin = new ButtonSkin(i.id);
-								_applyAsset(skin, ButtonSkin, i);
-								(skin as ButtonSkin).parseConfig($mergeConfig(i));
-								break;
-								
-							case Skin.TYPE_LABEL:
-								skin = new LabelSkin(i.id);
-								(skin as LabelSkin).parseConfig($mergeConfig(i));
-								break;
-								
-							case Skin.TYPE_LABEL_BUTTON:
-								skin = new LabelButtonSkin(i.id);
-								_applyAsset((skin as LabelButtonSkin).buttonSkin, ButtonSkin, i.button);
-								(skin as LabelButtonSkin).parseConfig($mergeConfig(i));
-								break;
-								
-							case Skin.TYPE_CHECK_BUTTON:
-								skin = new CheckButtonSkin(i.id);
-								_applyAsset((skin as CheckButtonSkin).buttonOffSkin, ButtonSkin, i.buttonOff);
-								_applyAsset((skin as CheckButtonSkin).buttonOnSkin, ButtonSkin, i.buttonOn);
-								(skin as CheckButtonSkin).parseConfig($mergeConfig(i));
-								break;
-								
-							case Skin.TYPE_INPUT_BAR:
-								skin = new InputBarSkin(i.id);
-								_applyAsset((skin as InputBarSkin).barSkin, BarSkin, i.bar);
-								(skin as InputBarSkin).parseConfig($mergeConfig(i));
-								break;
-								
-							default:
-								isSupported = false;
-						}
-						
-						if(isOK && isSupported) {
-							if($isVerbose) {
-								trace(printf('SkinManager: Adding "%s" skin "%s"', i.type, i.id));
-							}
-							$skinList.push(skin);
-						}
-						else if(isOK) {
-							if($isVerbose) {
-								trace(printf('SkinManager: "%s" skin is unsupported (type "%s")', i.id, i.type));
-							}
-						}
-						 
-					}
-					else {
-						if($isVerbose) {
-							trace('SkinManager: Found skin without id or type fields defined');
-						}
-					}
-				}
-			}
-			else {
-				if($isVerbose) {
-					trace('SkinManager: No skins defined');
-				}
-			}
+			$getSkins();
 		}
 
 		
 		
-		private function _getAsset(name:String):MovieClip {
+		override protected function $getAsset(name:String):MovieClip {
 			try {
 				return new(_loaderInfo.applicationDomain.getDefinition(name) as Class) as MovieClip;
 			}
@@ -145,8 +65,8 @@ package org.vancura.vaclav.widgets.globals {
 		
 		
 		
-		private function _applyAsset(skin:ISkinnable, cls:Class, i:Object):Boolean {
-			var asset:MovieClip = _getAsset(i.symbol);
+		override protected function $applyAsset(skin:ISkinnable, cls:Class, i:Object):Boolean {
+			var asset:MovieClip = $getAsset(i.symbol);
 			
 			if(i.symbol != undefined) {
 				with(skin as cls) {
