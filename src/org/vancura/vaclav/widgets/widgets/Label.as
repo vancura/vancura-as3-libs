@@ -226,7 +226,7 @@ package org.vancura.vaclav.widgets.widgets {
 		override protected function $onDebugOver(event:MouseEvent):void {
 			super.$onDebugOver(event);
 			
-			if($debugLevel == DebugLevel.HOVERED) $textField.border = true;
+			if($debugLevel == DebugLevel.HOVER) $textField.border = true;
 		}
 
 		
@@ -234,7 +234,7 @@ package org.vancura.vaclav.widgets.widgets {
 		override protected function $onDebugOut(event:MouseEvent):void {
 			super.$onDebugOut(event);
 			
-			if($debugLevel == DebugLevel.HOVERED) $textField.border = false;
+			if($debugLevel == DebugLevel.HOVER) $textField.border = false;
 		}
 	}
 }

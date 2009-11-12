@@ -47,7 +47,7 @@ package org.vancura.vaclav.widgets.widgets {
 			this.isMorphHeightEnabled = false;
 			this.isMorphWidthEnabled = false;
 			
-			$buttonOff.addEventListener(ButtonEvent.RELEASED_INSIDE, _onToggle, false, 0, true);			$buttonOn.addEventListener(ButtonEvent.RELEASED_INSIDE, _onToggle, false, 0, true);
+			$buttonOff.addEventListener(ButtonEvent.RELEASE_INSIDE, _onToggle, false, 0, true);			$buttonOn.addEventListener(ButtonEvent.RELEASE_INSIDE, _onToggle, false, 0, true);
 			
 			if(skin != null) {
 				super(config, parent);
@@ -62,7 +62,7 @@ package org.vancura.vaclav.widgets.widgets {
 		
 		
 		public function destroy():void {
-			$buttonOff.removeEventListener(ButtonEvent.RELEASED_INSIDE, _onToggle);
+			$buttonOff.removeEventListener(ButtonEvent.RELEASE_INSIDE, _onToggle);
 			
 			removeChildren(this, $buttonOff, $buttonOn);
 			

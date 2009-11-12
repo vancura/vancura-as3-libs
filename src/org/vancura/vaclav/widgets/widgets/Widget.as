@@ -127,7 +127,7 @@ package org.vancura.vaclav.widgets.widgets {
 		
 		
 		public function draw():void {
-			if($debugLevel == DebugLevel.ALWAYS || $debugLevel == DebugLevel.HOVERED) {
+			if($debugLevel == DebugLevel.ALWAYS || $debugLevel == DebugLevel.HOVER) {
 				if($width != 0 && $height != 0) {
 					$debugSpr.graphics.clear();
 					Drawing.drawRect($debugSpr, 0, 0, $width, $height, $debugColor, .15);

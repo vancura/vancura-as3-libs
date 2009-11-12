@@ -11,33 +11,34 @@ package org.vancura.vaclav.widgets.skin {
 
 		
 		
-		protected var $hoveredInDuration:Number;
-		protected var $hoveredOutDuration:Number;
-		protected var $pressedInDuration:Number;
-		protected var $pressedOutDuration:Number;
+		protected var $hoverInDuration:Number;
+		protected var $hoverOutDuration:Number;
+		protected var $focusInDuration:Number;
+		protected var $focusOutDuration:Number;
 		protected var $guideBD:BitmapData;
 		protected var $backBD:BitmapData;
-		protected var $hoveredBD:BitmapData;
-		protected var $pressedBD:BitmapData;
+		protected var $hoverBD:BitmapData;
+		protected var $focusBD:BitmapData;
 
-		private var _oldHoveredInDuration:Number;
-		private var _oldHoveredOutDuration:Number;
-		private var _oldPressedInDuration:Number;
-		private var _oldPressedOutDuration:Number;
+		private var _oldHoverInDuration:Number;
+		private var _oldHoverOutDuration:Number;
+		private var _oldFocusInDuration:Number;
+		private var _oldFocusOutDuration:Number;
 
 		
 		
 		public function ButtonSkin(id:String = null) {
 			super(Skin.TYPE_BUTTON, id);
 			
-			$hoveredInDuration = 0;
-			$hoveredOutDuration = .15;
-			$pressedInDuration = 0;
-			$pressedOutDuration = .1;
+			$hoverInDuration = 0;
+			$hoverOutDuration = .15;
+			$focusInDuration = 0;
+			$focusOutDuration = .1;
+			
 			$guideBD = new BitmapData(1, 1, true, 0x00000000);
 			$backBD = new BitmapData(1, 1, true, 0x00000000);
-			$hoveredBD = new BitmapData(1, 1, true, 0x00000000);
-			$pressedBD = new BitmapData(1, 1, true, 0x00000000);
+			$hoverBD = new BitmapData(1, 1, true, 0x00000000);
+			$focusBD = new BitmapData(1, 1, true, 0x00000000);
 		}
 
 		
@@ -50,8 +51,8 @@ package org.vancura.vaclav.widgets.skin {
 			
 			$guideBD = Bitmapping.crop(source, 0, 0, $assetWidth, $assetHeight);
 			$backBD = Bitmapping.crop(source, $assetWidth * 1, 0, $assetWidth, $assetHeight);
-			$hoveredBD = Bitmapping.crop(source, $assetWidth * 2, 0, $assetWidth, $assetHeight);
-			$pressedBD = Bitmapping.crop(source, $assetWidth * 3, 0, $assetWidth, $assetHeight);
+			$hoverBD = Bitmapping.crop(source, $assetWidth * 2, 0, $assetWidth, $assetHeight);
+			$focusBD = Bitmapping.crop(source, $assetWidth * 3, 0, $assetWidth, $assetHeight);
 		}
 
 		
@@ -60,8 +61,8 @@ package org.vancura.vaclav.widgets.skin {
 			$getSkinSize(source, (labels[3] == undefined || labels[3] == '') ? 'guide' : labels[3]);
 			
 			$backBD = $getSkinFrame(source, elements, (labels[0] == undefined || labels[0] == '') ? 'back' : labels[0]);
-			$hoveredBD = $getSkinFrame(source, elements, (labels[1] == undefined || labels[1] == '') ? 'hovered' : labels[1]);
-			$pressedBD = $getSkinFrame(source, elements, (labels[2] == undefined || labels[2] == '') ? 'pressed' : labels[2]);
+			$hoverBD = $getSkinFrame(source, elements, (labels[1] == undefined || labels[1] == '') ? 'hover' : labels[1]);
+			$focusBD = $getSkinFrame(source, elements, (labels[2] == undefined || labels[2] == '') ? 'focus' : labels[2]);
 			$guideBD = $getSkinFrame(source, elements, (labels[3] == undefined || labels[3] == '') ? 'guide' : labels[3]);
 		}
 
@@ -70,15 +71,15 @@ package org.vancura.vaclav.widgets.skin {
 		override public function parseConfig(source:Object):void {
 			super.parseConfig(source);
 			
-			_oldHoveredInDuration = $hoveredInDuration;
-			_oldHoveredOutDuration = $hoveredOutDuration;
-			_oldPressedInDuration = $pressedInDuration;
-			_oldPressedOutDuration = $pressedOutDuration;
+			_oldHoverInDuration = $hoverInDuration;
+			_oldHoverOutDuration = $hoverOutDuration;
+			_oldFocusInDuration = $focusInDuration;
+			_oldFocusOutDuration = $focusOutDuration;
 			
-			if(source.hoveredInDuration != undefined) $hoveredInDuration = source.hoveredInDuration;
-			if(source.hoveredOutDuration != undefined) $hoveredOutDuration = source.hoveredOutDuration;
-			if(source.pressedInDuration != undefined) $pressedInDuration = source.pressedInDuration;
-			if(source.pressedOutDuration != undefined) $pressedOutDuration = source.pressedOutDuration;
+			if(source.hoverInDuration != undefined) $hoverInDuration = source.hoverInDuration;
+			if(source.hoverOutDuration != undefined) $hoverOutDuration = source.hoverOutDuration;
+			if(source.pressInDuration != undefined) $focusInDuration = source.pressInDuration;
+			if(source.pressOutDuration != undefined) $focusOutDuration = source.pressOutDuration;
 		}
 		
 		
@@ -86,58 +87,58 @@ package org.vancura.vaclav.widgets.skin {
 		override public function revertConfig():void {
 			super.revertConfig();
 			
-			$hoveredInDuration = _oldHoveredInDuration;
-			$hoveredOutDuration = _oldHoveredOutDuration;
-			$pressedInDuration = _oldPressedInDuration;
-			$pressedOutDuration = _oldPressedOutDuration;
+			$hoverInDuration = _oldHoverInDuration;
+			$hoverOutDuration = _oldHoverOutDuration;
+			$focusInDuration = _oldFocusInDuration;
+			$focusOutDuration = _oldFocusOutDuration;
 		}
 
 		
 		
-		public function set hoveredInDuration(value:Number):void {
-			$hoveredInDuration = value;
+		public function set hoverInDuration(value:Number):void {
+			$hoverInDuration = value;
 		}
 
 		
 		
-		public function get hoveredInDuration():Number {
-			return $hoveredInDuration;
+		public function get hoverInDuration():Number {
+			return $hoverInDuration;
 		}
 
 		
 		
-		public function set hoveredOutDuration(value:Number):void {
-			$hoveredOutDuration = value;
+		public function set hoverOutDuration(value:Number):void {
+			$hoverOutDuration = value;
 		}
 
 		
 		
-		public function get hoveredOutDuration():Number {
-			return $hoveredOutDuration;
+		public function get hoverOutDuration():Number {
+			return $hoverOutDuration;
 		}
 
 		
 		
-		public function set pressedInDuration(value:Number):void {
-			$pressedInDuration = value;
+		public function set focusInDuration(value:Number):void {
+			$focusInDuration = value;
 		}
 
 		
 		
-		public function get pressedInDuration():Number {
-			return $pressedInDuration;
+		public function get focusInDuration():Number {
+			return $focusInDuration;
 		}
 
 		
 		
-		public function set pressedOutDuration(value:Number):void {
-			$pressedOutDuration = value;
+		public function set focusOutDuration(value:Number):void {
+			$focusOutDuration = value;
 		}
 
 		
 		
-		public function get pressedOutDuration():Number {
-			return $pressedOutDuration;
+		public function get focusOutDuration():Number {
+			return $focusOutDuration;
 		}
 
 		
@@ -155,28 +156,28 @@ package org.vancura.vaclav.widgets.skin {
 
 		
 		
-		public function set hoveredBD(source:BitmapData):void {
+		public function set hoverBD(source:BitmapData):void {
 			$checkSize(source);
-			$hoveredBD = source;
+			$hoverBD = source;
 		}
 
 		
 		
-		public function get hoveredBD():BitmapData {
-			return $hoveredBD;
+		public function get hoverBD():BitmapData {
+			return $hoverBD;
 		}
 
 		
 		
-		public function set pressedBD(source:BitmapData):void {
+		public function set focusBD(source:BitmapData):void {
 			$checkSize(source);
-			$pressedBD = source;
+			$focusBD = source;
 		}
 
 		
 		
-		public function get pressedBD():BitmapData {
-			return $pressedBD;
+		public function get focusBD():BitmapData {
+			return $focusBD;
 		}
 
 		

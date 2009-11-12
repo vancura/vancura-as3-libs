@@ -33,9 +33,9 @@ package {
 			
 			skin.getAssetsFromComposition(source);
 			
-			_buttonTest = new ScaleButton(skin, {x:10, y:10}, this, DebugLevel.ALWAYS);
+			_buttonTest = new ScaleButton(skin, {x:10, y:10}, this, DebugLevel.HOVER);
 			
-			_buttonTest.addEventListener(ButtonEvent.RELEASED_INSIDE, _onTest);
+			_buttonTest.addEventListener(ButtonEvent.RELEASE_INSIDE, _onTest);
 		}
 		
 		

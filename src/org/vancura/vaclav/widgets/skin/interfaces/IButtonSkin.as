@@ -5,22 +5,29 @@ package org.vancura.vaclav.widgets.skin.interfaces {
 	
 	public interface IButtonSkin extends ISkinnable, IAssetSkin, IConfigSkin {
 
-		function set hoveredInDuration(value:Number):void;
-		function get hoveredInDuration():Number;
-		function set hoveredOutDuration(value:Number):void;
-		function get hoveredOutDuration():Number;
-		function set pressedInDuration(value:Number):void;
-		function get pressedInDuration():Number;
-		function set pressedOutDuration(value:Number):void;
-		function get pressedOutDuration():Number;
+		function set hoverInDuration(value:Number):void;
+		function get hoverInDuration():Number;
+		
+		function set hoverOutDuration(value:Number):void;
+		function get hoverOutDuration():Number;
+		
+		function set focusInDuration(value:Number):void;
+		function get focusInDuration():Number;
+		
+		function set focusOutDuration(value:Number):void;
+		function get focusOutDuration():Number;
+		
 		function set guideBD(source:BitmapData):void;
 		function get guideBD():BitmapData;
+		
 		function set backBD(source:BitmapData):void;
 		function get backBD():BitmapData;
-		function set hoveredBD(source:BitmapData):void;
-		function get hoveredBD():BitmapData;
-		function set pressedBD(source:BitmapData):void;
-		function get pressedBD():BitmapData;
+		
+		function set hoverBD(source:BitmapData):void;
+		function get hoverBD():BitmapData;
+		
+		function set focusBD(source:BitmapData):void;
+		function get focusBD():BitmapData;
 
 	}
 }

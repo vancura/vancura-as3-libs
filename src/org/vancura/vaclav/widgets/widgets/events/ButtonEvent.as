@@ -7,14 +7,14 @@ package org.vancura.vaclav.widgets.widgets.events {
 
 		
 		
-		public static const DRAGGED_OVER:String = 'dragged_over';
-		public static const DRAGGED_OUT:String = 'dragged_out';
+		public static const DRAG_OVER:String = 'drag_over';
+		public static const DRAG_OUT:String = 'drag_out';
 		public static const DRAG_CONFIRM:String = 'drag_confirm';
-		public static const HOVERED_IN:String = 'hovered_in';
-		public static const HOVERED_OUT:String = 'hovered_out';
-		public static const PRESSED_IN:String = 'pressed_in';
-		public static const RELEASED_INSIDE:String = 'released_inside';
-		public static const RELEASED_OUTSIDE:String = 'released_outside';
+		public static const HOVER_IN:String = 'hover_in';
+		public static const HOVER_OUT:String = 'hover_out';
+		public static const FOCUS_IN:String = 'focus_in';
+		public static const RELEASE_INSIDE:String = 'release_inside';
+		public static const RELEASE_OUTSIDE:String = 'release_outside';
 
 		
 		

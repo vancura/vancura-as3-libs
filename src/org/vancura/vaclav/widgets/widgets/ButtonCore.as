@@ -17,7 +17,7 @@ package org.vancura.vaclav.widgets.widgets {
 
 		
 		
-		private static var _currentDragged:ButtonCore;
+		private static var _currentDrag:ButtonCore;
 		
 		protected var $skin:IButtonSkin;
 		protected var $activeSpr:QSprite;
@@ -82,10 +82,10 @@ package org.vancura.vaclav.widgets.widgets {
 		
 		public function forceRelease():void {
 			if(_isDown) {
-				_currentDragged = null;
+				_currentDrag = null;
 				_isDown = false;
 				$releasedOutsideTween();
-				dispatchEvent(new ButtonEvent(ButtonEvent.RELEASED_OUTSIDE, true));
+				dispatchEvent(new ButtonEvent(ButtonEvent.RELEASE_OUTSIDE, true));
 			}
 		}
 
@@ -147,17 +147,17 @@ package org.vancura.vaclav.widgets.widgets {
 
 		
 		
-		protected function $hoveredInTween():void {
+		protected function $hoverInTween():void {
 		}
 
 		
 		
-		protected function $hoveredOutTween():void {
+		protected function $hoverOutTween():void {
 		}
 
 		
 		
-		protected function $pressedInTween():void {
+		protected function $focusInTween():void {
 		}
 
 		
@@ -181,13 +181,13 @@ package org.vancura.vaclav.widgets.widgets {
 			if(_areEventsEnabled) {
 				if(event.buttonDown) {
 					// drag over
-					dispatchEvent(new ButtonEvent(ButtonEvent.DRAGGED_OVER, true));
+					dispatchEvent(new ButtonEvent(ButtonEvent.DRAG_OVER, true));
 				}
 				else {
 					// roll over
 					_isOver = true;
-					$hoveredInTween();
-					dispatchEvent(new ButtonEvent(ButtonEvent.HOVERED_IN, true));
+					$hoverInTween();
+					dispatchEvent(new ButtonEvent(ButtonEvent.HOVER_IN, true));
 				}
 			}
 		}
@@ -198,13 +198,13 @@ package org.vancura.vaclav.widgets.widgets {
 			if(_areEventsEnabled) {
 				if(event.buttonDown) {
 					// drag out
-					dispatchEvent(new ButtonEvent(ButtonEvent.DRAGGED_OUT, true));
+					dispatchEvent(new ButtonEvent(ButtonEvent.DRAG_OUT, true));
 				}
 				else {
 					// roll out
 					_isOver = false;
-					$hoveredOutTween();
-					dispatchEvent(new ButtonEvent(ButtonEvent.HOVERED_OUT, true));
+					$hoverOutTween();
+					dispatchEvent(new ButtonEvent(ButtonEvent.HOVER_OUT, true));
 				}
 			}
 		}
@@ -214,10 +214,10 @@ package org.vancura.vaclav.widgets.widgets {
 		private function _onPress(event:MouseEvent):void {
 			if(_areEventsEnabled) {
 				_isDown = true;
-				_currentDragged = this;
-				$pressedInTween();
+				_currentDrag = this;
+				$focusInTween();
 				stage.addEventListener(MouseEvent.MOUSE_UP, _onRelease, false, 0, true);
-				dispatchEvent(new ButtonEvent(ButtonEvent.PRESSED_IN, true));
+				dispatchEvent(new ButtonEvent(ButtonEvent.FOCUS_IN, true));
 			}
 		}
 
@@ -232,7 +232,7 @@ package org.vancura.vaclav.widgets.widgets {
 					forceRelease();
 				}
 				
-				else if(_currentDragged != this) {
+				else if(_currentDrag != this) {
 					// drag confirm
 					$dragConfirmedTween();
 					dispatchEvent(new ButtonEvent(ButtonEvent.DRAG_CONFIRM, true));
@@ -240,9 +240,9 @@ package org.vancura.vaclav.widgets.widgets {
 				
 				else {
 					// release inside
-					_currentDragged = null;
+					_currentDrag = null;
 					$releasedInsideTween();
-					dispatchEvent(new ButtonEvent(ButtonEvent.RELEASED_INSIDE, true));
+					dispatchEvent(new ButtonEvent(ButtonEvent.RELEASE_INSIDE, true));
 				}
 	
 				dispatchEvent(new MouseEvent(MouseEvent.MOUSE_UP, true));
