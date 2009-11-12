@@ -27,6 +27,7 @@ package org.vancura.vaclav.core {
 		
 		private static const _GRAPH_WIDTH:uint = 80;
 		private static const _GRAPH_HEIGHT:uint = 40;
+		
 		private var _c:uint = 0;
 		private var _graphScrollSpr:Sprite;
 		private var _graphMaskSpr:Sprite;
