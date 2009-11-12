@@ -85,7 +85,8 @@ package {
 			if(_isError) return;
 			
 			_skinManager = SkinManager.getInstance();
-			_skinManager.init(DebugLevel.ALWAYS, 0xFF0000);
+			_skinManager.debugLevel = DebugLevel.HOVER;
+			_skinManager.debugColor = 0x123456;
 			
 			var skinProvider:SWFLibraryProvider;
 			
@@ -110,7 +111,7 @@ package {
 			
 			var skin:LabelButtonSkin = _skinManager.getSkin('label_button');
 			
-			_buttonTest = new LabelButton(skin, {x:10, y:10}, 'Lorem ipsum', this, DebugLevel.NONE);
+			_buttonTest = new LabelButton(skin, {x:10, y:10}, 'Lorem ipsum', this);
 			
 			_buttonTest.addEventListener(ButtonEvent.RELEASE_INSIDE, _onTest);
 			

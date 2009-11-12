@@ -12,13 +12,10 @@ package org.vancura.vaclav.widgets.globals {
 
 		
 		
-		private static const _DEFAULT_DEBUG_LEVEL:String = DebugLevel.NONE;
-		private static const _DEFAULT_DEBUG_COLOR:uint = 0xFF0000;
-		
 		private static var _instance:SkinManager;
 		
-		private var _debugLevel:String;
-		private var _debugColor:uint;
+		private var _debugLevel:String = DebugLevel.NONE;
+		private var _debugColor:uint = 0xFF0000;
 		private var _isAttached:Boolean;
 		private var _skinProvider:SkinProvider;
 
@@ -26,13 +23,6 @@ package org.vancura.vaclav.widgets.globals {
 		
 		public static function getInstance():SkinManager {
 			return _instance || (_instance = new SkinManager());
-		}
-		
-		
-		
-		public function init(debugLevel:String = _DEFAULT_DEBUG_LEVEL, debugColor:uint = _DEFAULT_DEBUG_COLOR):void {
-			_debugLevel = debugLevel;
-			_debugColor = debugColor;
 		}
 		
 		
