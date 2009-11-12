@@ -4,13 +4,13 @@
 	
 	
 	/*
-	 * Class: Drawing
+	 * Class: GraphicsUtil
 	 * 
-	 * Container for a few drawing methods I can't put anywhere else.
+	 * Container for a few graphics methods I can't put anywhere else.
 	 * 
 	 * Author: Vaclav Vancura <http://vaclav.vancura.org>
 	 */
-	public final class Drawing {
+	public final class GraphicsUtil {
 
 		
 		

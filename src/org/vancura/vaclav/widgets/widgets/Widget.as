@@ -1,5 +1,5 @@
 package org.vancura.vaclav.widgets.widgets {
-	import org.vancura.vaclav.core.Drawing;
+	import org.vancura.vaclav.core.GraphicsUtil;
 	import org.vancura.vaclav.core.MorphSprite;
 	import org.vancura.vaclav.core.QSprite;
 	import org.vancura.vaclav.core.removeChildren;
@@ -130,8 +130,8 @@ package org.vancura.vaclav.widgets.widgets {
 			if($debugLevel == DebugLevel.ALWAYS || $debugLevel == DebugLevel.HOVER) {
 				if($width != 0 && $height != 0) {
 					$debugSpr.graphics.clear();
-					Drawing.drawRect($debugSpr, 0, 0, $width, $height, $debugColor, .15);
-					Drawing.strokeBounds($debugSpr, 0, 0, $width, $height, 5, $debugColor);
+					GraphicsUtil.drawRect($debugSpr, 0, 0, $width, $height, $debugColor, .15);
+					GraphicsUtil.strokeBounds($debugSpr, 0, 0, $width, $height, 5, $debugColor);
 				}
 			}
 			

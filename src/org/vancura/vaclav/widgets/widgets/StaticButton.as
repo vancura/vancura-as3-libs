@@ -1,7 +1,7 @@
 package org.vancura.vaclav.widgets.widgets {
 	import com.greensock.TweenMax;
 
-	import org.vancura.vaclav.core.Drawing;
+	import org.vancura.vaclav.core.GraphicsUtil;
 	import org.vancura.vaclav.core.QBitmap;
 	import org.vancura.vaclav.core.removeChildren;
 	import org.vancura.vaclav.widgets.skin.SkinManager;
@@ -75,7 +75,7 @@ package org.vancura.vaclav.widgets.widgets {
 			_focusBM.bitmapData = $skin.focusBD;
 			
 			$activeSpr.graphics.clear();
-			Drawing.drawRect($activeSpr, 0, 0, $skin.assetWidth, $skin.assetHeight);
+			GraphicsUtil.drawRect($activeSpr, 0, 0, $skin.assetWidth, $skin.assetHeight);
 		}
 
 		

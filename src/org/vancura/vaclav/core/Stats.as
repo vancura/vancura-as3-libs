@@ -86,7 +86,7 @@ package org.vancura.vaclav.core {
 			
 			_fpsGraphBM = new QBitmap({bitmapData: _fpsGraphBD, y:27, alpha:.33, blendMode:BlendMode.SCREEN});			_msGraphBM = new QBitmap({bitmapData: _msGraphBD, y:27, alpha:.33, blendMode:BlendMode.SCREEN});			_memGraphBM = new QBitmap({bitmapData: _memGraphBD, y:27, alpha:.33, blendMode:BlendMode.SCREEN});
 			
-			Drawing.drawRect(this, 0, 0, _WIDTH, 27 + 50, 0x000000, .75);
+			GraphicsUtil.drawRect(this, 0, 0, _WIDTH, 27 + 50, 0x000000, .75);
 		
 			_fpsText = new QTextField({defaultTextFormat: _textFormat, antiAliasType:AntiAliasType.NORMAL, y:-3, width:_WIDTH, height:10, textColor:0xFFFF00});
 			_msText = new QTextField({defaultTextFormat: _textFormat, antiAliasType:AntiAliasType.NORMAL, y:5, width:_WIDTH, height:10, textColor:0x00FF00});

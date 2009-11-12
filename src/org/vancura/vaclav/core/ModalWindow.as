@@ -44,7 +44,7 @@ package org.vancura.vaclav.core {
 			_descText = new QTextField({embedFonts:false, x:_TEXT_HORIZ_PADDING, y:_TEXT_VERT_PADDING, height:400, defaultTextFormat:new TextFormat(_FONT, _DESCRIPTION_FONT_SIZE, _DESCRIPTION_COLOR)}, this);
 
 			// drawing
-			Drawing.drawRect(_fillSPR, 0, 0, 2880, 100, _BACKGROUND_COLOR, _BACKGROUND_ALPHA);
+			GraphicsUtil.drawRect(_fillSPR, 0, 0, 2880, 100, _BACKGROUND_COLOR, _BACKGROUND_ALPHA);
 
 			// set visual properties
 			this.visible = false;

@@ -1,5 +1,5 @@
 package org.vancura.vaclav.widgets.skin {
-	import org.vancura.vaclav.core.Bitmapping;
+	import org.vancura.vaclav.core.BitmapUtil;
 	import org.vancura.vaclav.widgets.skin.interfaces.IBarSkin;
 
 	import flash.display.BitmapData;
@@ -44,8 +44,8 @@ package org.vancura.vaclav.widgets.skin {
 			$assetWidth = source.width / 2;
 			$assetHeight = source.height;
 			
-			$guideBD = Bitmapping.crop(source, 0, 0, $assetWidth, $assetHeight);
-			$backBD = Bitmapping.crop(source, $assetWidth * 1, 0, $assetWidth, $assetHeight);
+			$guideBD = BitmapUtil.crop(source, 0, 0, $assetWidth, $assetHeight);
+			$backBD = BitmapUtil.crop(source, $assetWidth * 1, 0, $assetWidth, $assetHeight);
 		}
 
 		

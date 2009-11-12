@@ -29,8 +29,6 @@ package {
 			
 			var source:BitmapData = new BitmapData(400, 100);
 			
-			
-			
 			skin.getAssetsFromComposition(source);
 			
 			_buttonTest = new ScaleButton(skin, {x:10, y:10}, this, DebugLevel.HOVER);

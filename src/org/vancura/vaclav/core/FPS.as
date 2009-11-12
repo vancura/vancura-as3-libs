@@ -56,8 +56,8 @@ package org.vancura.vaclav.core {
 			_textTF = new QTextField({y: _GRAPH_HEIGHT - 15, defaultTextFormat: tf, width: _GRAPH_WIDTH, autoSize: TextFieldAutoSize.LEFT}, this);
 			
 			// drawing
-			Drawing.drawRect(_graphMaskSpr, 0, 0, _GRAPH_WIDTH, _GRAPH_HEIGHT, 0xFF0000, .2);
-			Drawing.drawRoundRect(_backSpr, 0, 0, _GRAPH_WIDTH, _GRAPH_HEIGHT, 8, bc, .8);
+			GraphicsUtil.drawRect(_graphMaskSpr, 0, 0, _GRAPH_WIDTH, _GRAPH_HEIGHT, 0xFF0000, .2);
+			GraphicsUtil.drawRoundRect(_backSpr, 0, 0, _GRAPH_WIDTH, _GRAPH_HEIGHT, 8, bc, .8);
 			
 			// set visual properties
 			_graphScrollSpr.graphics.lineStyle(0, gc);

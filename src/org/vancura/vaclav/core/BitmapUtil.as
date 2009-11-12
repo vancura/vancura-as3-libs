@@ -7,13 +7,13 @@ package org.vancura.vaclav.core {
 	
 	
 	/*
-	 * Class: Bitmapping
+	 * Class: BitmapUtil
 	 * 
-	 * Container for a few bitmapping methods I can't put anywhere else.
+	 * Container for a few bitmap methods I can't put anywhere else.
 	 * 
 	 * Author: Vaclav Vancura <http://vaclav.vancura.org>
 	 */
-	public final class Bitmapping {
+	public final class BitmapUtil {
 
 		
 		

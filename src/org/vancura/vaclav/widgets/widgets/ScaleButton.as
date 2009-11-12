@@ -2,7 +2,7 @@ package org.vancura.vaclav.widgets.widgets {
 	import com.greensock.TweenMax;
 
 	import org.bytearray.display.ScaleBitmap;
-	import org.vancura.vaclav.core.Drawing;
+	import org.vancura.vaclav.core.GraphicsUtil;
 	import org.vancura.vaclav.core.addChildren;
 	import org.vancura.vaclav.core.removeChildren;
 	import org.vancura.vaclav.widgets.skin.SkinManager;
@@ -96,7 +96,7 @@ package org.vancura.vaclav.widgets.widgets {
 			}
 			
 			$activeSpr.graphics.clear();
-			Drawing.drawRect($activeSpr, 0, 0, $width, $height);
+			GraphicsUtil.drawRect($activeSpr, 0, 0, $width, $height);
 		}
 
 		
