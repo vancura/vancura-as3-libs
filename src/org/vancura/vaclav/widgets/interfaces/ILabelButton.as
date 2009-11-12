@@ -1,5 +1,5 @@
-package org.vancura.vaclav.widgets.widgets.interfaces {
-	import org.vancura.vaclav.widgets.skin.interfaces.ILabelButtonSkin;
+package org.vancura.vaclav.widgets.interfaces {
+	
 
 	
 	

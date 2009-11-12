@@ -1,4 +1,4 @@
-package org.vancura.vaclav.widgets {
+package org.vancura.vaclav.widgets.constants {
 
 	
 	

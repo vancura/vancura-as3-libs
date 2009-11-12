@@ -1,8 +1,8 @@
 package org.vancura.vaclav.widgets.skin {
 	import br.com.stimuli.string.printf;
 
-	import org.vancura.vaclav.widgets.DebugLevel;
-	import org.vancura.vaclav.widgets.skin.interfaces.ISkinnable;
+	import org.vancura.vaclav.widgets.constants.DebugLevel;
+	import org.vancura.vaclav.widgets.interfaces.ISkinnable;
 
 	import flash.display.LoaderInfo;
 	import flash.display.MovieClip;

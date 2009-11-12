@@ -1,6 +1,6 @@
 package org.vancura.vaclav.widgets.skin {
-	import org.vancura.vaclav.widgets.skin.interfaces.IButtonSkin;
-	import org.vancura.vaclav.widgets.skin.interfaces.ICheckButtonSkin;
+	import org.vancura.vaclav.widgets.interfaces.IButtonSkin;
+	import org.vancura.vaclav.widgets.interfaces.ICheckButtonSkin;
 
 	
 	

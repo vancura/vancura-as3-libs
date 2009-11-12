@@ -1,16 +1,15 @@
 package org.vancura.vaclav.widgets.widgets {
 	import com.greensock.TweenMax;
+	import com.greensock.easing.Sine;
 
 	import org.bytearray.display.ScaleBitmap;
 	import org.vancura.vaclav.core.GraphicsUtil;
 	import org.vancura.vaclav.core.addChildren;
 	import org.vancura.vaclav.core.removeChildren;
+	import org.vancura.vaclav.widgets.interfaces.IButton;
+	import org.vancura.vaclav.widgets.interfaces.IButtonSkin;
+	import org.vancura.vaclav.widgets.interfaces.IWidget;
 	import org.vancura.vaclav.widgets.skin.SkinManager;
-	import org.vancura.vaclav.widgets.skin.interfaces.IButtonSkin;
-	import org.vancura.vaclav.widgets.widgets.interfaces.IButton;
-	import org.vancura.vaclav.widgets.widgets.interfaces.IWidget;
-
-	import mx.effects.easing.Sine;
 
 	import flash.display.DisplayObjectContainer;
 	import flash.geom.Rectangle;

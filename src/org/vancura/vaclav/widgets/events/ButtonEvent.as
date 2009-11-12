@@ -1,4 +1,4 @@
-package org.vancura.vaclav.widgets.widgets.events {
+package org.vancura.vaclav.widgets.events {
 	import flash.events.Event;
 
 	

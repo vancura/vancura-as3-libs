@@ -1,9 +1,9 @@
 package org.vancura.vaclav.widgets.widgets {
 	import org.vancura.vaclav.core.addChildren;
 	import org.vancura.vaclav.core.removeChildren;
+	import org.vancura.vaclav.widgets.interfaces.IImage;
+	import org.vancura.vaclav.widgets.interfaces.IImageSkin;
 	import org.vancura.vaclav.widgets.skin.SkinManager;
-	import org.vancura.vaclav.widgets.skin.interfaces.IImageSkin;
-	import org.vancura.vaclav.widgets.widgets.interfaces.IImage;
 
 	import flash.display.Bitmap;
 	import flash.display.DisplayObjectContainer;

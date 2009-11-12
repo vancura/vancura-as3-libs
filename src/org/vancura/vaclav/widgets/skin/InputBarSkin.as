@@ -1,7 +1,7 @@
 package org.vancura.vaclav.widgets.skin {
-	import org.vancura.vaclav.widgets.skin.interfaces.IBarSkin;
-	import org.vancura.vaclav.widgets.skin.interfaces.IInputBarSkin;
-	import org.vancura.vaclav.widgets.skin.interfaces.ILabelSkin;
+	import org.vancura.vaclav.widgets.interfaces.IBarSkin;
+	import org.vancura.vaclav.widgets.interfaces.IInputBarSkin;
+	import org.vancura.vaclav.widgets.interfaces.ILabelSkin;
 
 	
 	

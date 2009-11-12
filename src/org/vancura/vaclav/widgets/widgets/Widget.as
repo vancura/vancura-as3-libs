@@ -3,9 +3,9 @@ package org.vancura.vaclav.widgets.widgets {
 	import org.vancura.vaclav.core.MorphSprite;
 	import org.vancura.vaclav.core.QSprite;
 	import org.vancura.vaclav.core.removeChildren;
-	import org.vancura.vaclav.widgets.DebugLevel;
+	import org.vancura.vaclav.widgets.constants.DebugLevel;
+	import org.vancura.vaclav.widgets.interfaces.IWidget;
 	import org.vancura.vaclav.widgets.skin.SkinManager;
-	import org.vancura.vaclav.widgets.widgets.interfaces.IWidget;
 
 	import flash.display.DisplayObjectContainer;
 	import flash.display.Stage;

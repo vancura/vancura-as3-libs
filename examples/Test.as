@@ -1,7 +1,7 @@
 package {
 	import br.com.stimuli.string.printf;
 
-	import org.vancura.vaclav.widgets.DebugLevel;
+	import org.vancura.vaclav.widgets.constants.DebugLevel;
 	import org.vancura.vaclav.widgets.skin.LabelButtonSkin;
 	import org.vancura.vaclav.widgets.skin.SkinManager;
 	import org.vancura.vaclav.widgets.widgets.LabelButton;

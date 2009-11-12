@@ -2,9 +2,9 @@ package org.vancura.vaclav.widgets.widgets {
 	import org.bytearray.display.ScaleBitmap;
 	import org.vancura.vaclav.core.addChildren;
 	import org.vancura.vaclav.core.removeChildren;
+	import org.vancura.vaclav.widgets.interfaces.IBar;
+	import org.vancura.vaclav.widgets.interfaces.IBarSkin;
 	import org.vancura.vaclav.widgets.skin.SkinManager;
-	import org.vancura.vaclav.widgets.skin.interfaces.IBarSkin;
-	import org.vancura.vaclav.widgets.widgets.interfaces.IBar;
 
 	import flash.display.DisplayObjectContainer;
 	import flash.geom.Rectangle;

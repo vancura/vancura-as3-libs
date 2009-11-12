@@ -1,4 +1,4 @@
-package org.vancura.vaclav.widgets.widgets.interfaces {
+package org.vancura.vaclav.widgets.interfaces {
 
 	
 	

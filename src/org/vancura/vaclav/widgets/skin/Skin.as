@@ -5,7 +5,7 @@ package org.vancura.vaclav.widgets.skin {
 
 	import org.vancura.vaclav.core.duplicateMovieClip;
 	import org.vancura.vaclav.core.randomString;
-	import org.vancura.vaclav.widgets.skin.interfaces.ISkinnable;
+	import org.vancura.vaclav.widgets.interfaces.ISkinnable;
 
 	import flash.display.BitmapData;
 	import flash.display.MovieClip;

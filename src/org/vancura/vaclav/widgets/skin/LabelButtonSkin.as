@@ -1,7 +1,7 @@
 package org.vancura.vaclav.widgets.skin {
-	import org.vancura.vaclav.widgets.skin.interfaces.IButtonSkin;
-	import org.vancura.vaclav.widgets.skin.interfaces.ILabelButtonSkin;
-	import org.vancura.vaclav.widgets.skin.interfaces.ILabelSkin;
+	import org.vancura.vaclav.widgets.interfaces.IButtonSkin;
+	import org.vancura.vaclav.widgets.interfaces.ILabelButtonSkin;
+	import org.vancura.vaclav.widgets.interfaces.ILabelSkin;
 
 	
 	

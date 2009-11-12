@@ -1,6 +1,6 @@
 package org.vancura.vaclav.widgets.skin {
 	import org.vancura.vaclav.core.BitmapUtil;
-	import org.vancura.vaclav.widgets.skin.interfaces.IImageSkin;
+	import org.vancura.vaclav.widgets.interfaces.IImageSkin;
 
 	import flash.display.BitmapData;
 	import flash.display.MovieClip;

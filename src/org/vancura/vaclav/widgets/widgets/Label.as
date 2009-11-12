@@ -1,11 +1,11 @@
 package org.vancura.vaclav.widgets.widgets {
 	import org.vancura.vaclav.core.QTextField;
 	import org.vancura.vaclav.core.removeChildren;
-	import org.vancura.vaclav.widgets.Align;
-	import org.vancura.vaclav.widgets.DebugLevel;
+	import org.vancura.vaclav.widgets.constants.Align;
+	import org.vancura.vaclav.widgets.constants.DebugLevel;
+	import org.vancura.vaclav.widgets.interfaces.ILabel;
+	import org.vancura.vaclav.widgets.interfaces.ILabelSkin;
 	import org.vancura.vaclav.widgets.skin.SkinManager;
-	import org.vancura.vaclav.widgets.skin.interfaces.ILabelSkin;
-	import org.vancura.vaclav.widgets.widgets.interfaces.ILabel;
 
 	import flash.display.DisplayObjectContainer;
 	import flash.events.MouseEvent;

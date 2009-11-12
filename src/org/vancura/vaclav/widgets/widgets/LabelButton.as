@@ -1,12 +1,12 @@
 package org.vancura.vaclav.widgets.widgets {
 	import org.vancura.vaclav.core.MorphSprite;
 	import org.vancura.vaclav.core.removeChildren;
-	import org.vancura.vaclav.widgets.Align;
+	import org.vancura.vaclav.widgets.constants.Align;
+	import org.vancura.vaclav.widgets.interfaces.IButton;
+	import org.vancura.vaclav.widgets.interfaces.ILabel;
+	import org.vancura.vaclav.widgets.interfaces.ILabelButton;
+	import org.vancura.vaclav.widgets.interfaces.ILabelButtonSkin;
 	import org.vancura.vaclav.widgets.skin.SkinManager;
-	import org.vancura.vaclav.widgets.skin.interfaces.ILabelButtonSkin;
-	import org.vancura.vaclav.widgets.widgets.interfaces.IButton;
-	import org.vancura.vaclav.widgets.widgets.interfaces.ILabel;
-	import org.vancura.vaclav.widgets.widgets.interfaces.ILabelButton;
 
 	import flash.display.DisplayObjectContainer;
 
