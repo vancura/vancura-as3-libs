@@ -2,10 +2,10 @@ package {
 	import br.com.stimuli.string.printf;
 
 	import org.vancura.vaclav.widgets.constants.DebugLevel;
+	import org.vancura.vaclav.widgets.events.ButtonEvent;
 	import org.vancura.vaclav.widgets.skin.LabelButtonSkin;
 	import org.vancura.vaclav.widgets.skin.SkinManager;
 	import org.vancura.vaclav.widgets.widgets.LabelButton;
-	import org.vancura.vaclav.widgets.widgets.events.ButtonEvent;
 
 	import flash.display.Loader;
 	import flash.display.MovieClip;

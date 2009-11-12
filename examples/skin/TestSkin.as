@@ -1,10 +1,9 @@
-﻿package {
+﻿package skin {
 	import flash.display.MovieClip;
 	import flash.filters.DropShadowFilter;
-	import flash.filters.GlowFilter;
 
-
-
+	
+	
 	public class TestSkin extends MovieClip {
 
 
