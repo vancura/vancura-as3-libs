@@ -1,24 +1,20 @@
 package {
 	import br.com.stimuli.string.printf;
-	
-	import flash.display.*;
-	import flash.events.*;
-	import flash.net.*;
-	import flash.system.*;
-	import flash.utils.*;
-	
-	import org.vancura.vaclav.core.QSprite;
+
+	import com.greensock.TweenNano;
+
 	import org.vancura.vaclav.core.Stats;
-	import org.vancura.vaclav.core.GraphicsUtil;
 	import org.vancura.vaclav.widgets.constants.DebugLevel;
 	import org.vancura.vaclav.widgets.events.ButtonEvent;
 	import org.vancura.vaclav.widgets.globals.SWFLibraryProvider;
 	import org.vancura.vaclav.widgets.globals.SkinManager;
-	import org.vancura.vaclav.widgets.skin.ImageSkin;
 	import org.vancura.vaclav.widgets.skin.LabelButtonSkin;
 	import org.vancura.vaclav.widgets.widgets.LabelButton;
-	import com.greensock.TweenNano;
-	import org.vancura.vaclav.widgets.widgets.Image;
+
+	import flash.display.*;
+	import flash.events.*;
+	import flash.net.*;
+	import flash.system.*;
 
 	[SWF(width="1000",height="400",frameRate="60",backgroundColor="#FFFFFF")]
 
@@ -32,13 +28,11 @@ package {
 		
 		
 		private static const _SKIN_URI:String = 'test-skin.swf';
-		
 		private var _buttonTest:LabelButton;
 		private var _skinURLLoader:URLLoader;
 		private var _skinSWFLoader:Loader;
 		private var _isError:Boolean;
 		private var _skinManager:SkinManager;
-		
 		private var skin:LabelButtonSkin;
 		private var _stressRemove:int;
 		private var _stressList:Array = new Array();
@@ -57,7 +51,7 @@ package {
 				
 			_skinURLLoader.load(new URLRequest(_SKIN_URI));
 		}
-		
+
 		
 		
 		private function _onURLLoaderComplete(event:Event):void {
@@ -72,10 +66,9 @@ package {
 			// More info: http://richardleggett.co.uk/blog/index.php/2009/04/02/loading-swfs-into-air-1-5-and-loaderinfo
 			// As seen here, it even doesn't compile, I have to put the parameter using Array. Damn!
 			// lc['allowLoadBytesCodeExecution'] = true;
-			
 			_skinSWFLoader.loadBytes(_skinURLLoader.data, lc);
 		}
-		
+
 		
 		
 		private function _onURLLoaderError(event:ErrorEvent):void {
@@ -83,7 +76,7 @@ package {
 			
 			trace(printf('Skin could not be loaded. Is the URL ("%s") correct?', _SKIN_URI));
 		}
-		
+
 		
 		
 		private function _onSWFLoaderInit(event:Event):void {
@@ -113,7 +106,6 @@ package {
 			trace(_skinManager.toString());
 			
 			// --------
-			
 			var skin:LabelButtonSkin = _skinManager.getSkin('label_button');
 			
 			_buttonTest = new LabelButton(skin, {x:10, y:100, width:200}, 'Lorem ipsum', this);
@@ -121,11 +113,10 @@ package {
 			_buttonTest.addEventListener(ButtonEvent.RELEASE_INSIDE, _onTest);
 			
 			// --------
-			
 			var stats:Stats = new Stats();
 			addChild(stats);
 		}
-		
+
 		
 		
 		private function _onTest(event:ButtonEvent):void {
@@ -135,7 +126,7 @@ package {
 			_buttonTest.morph({width:400, morphDuration:2});
 			_stressTest();
 		}
-		
+
 		
 		
 		private function _stressTest():void {
@@ -144,9 +135,8 @@ package {
 			var mx:int = Math.random() * (stage.stageWidth - mw);
 			var my:int = Math.random() * (stage.stageHeight - mh);
 			var image:LabelButton = new LabelButton(skin, {x:mx, y:my, width:mw, height:mh}, 'Lorem ipsum', this);
-//			var image:Image = new Image(skin, {x:mx, y:my}, this);
-//			var image:QSprite = new QSprite({x:mx, y:my}, this);
-			
+			//			var image:Image = new Image(skin, {x:mx, y:my}, this);
+			//			var image:QSprite = new QSprite({x:mx, y:my}, this);
 			_stressList.push(image);
 			_stressRemove++;
 			
