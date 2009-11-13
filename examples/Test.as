@@ -1,21 +1,24 @@
 package {
 	import br.com.stimuli.string.printf;
-
+	
+	import flash.display.*;
+	import flash.events.*;
+	import flash.net.*;
+	import flash.system.*;
+	import flash.utils.*;
+	
+	import org.vancura.vaclav.core.QSprite;
 	import org.vancura.vaclav.core.Stats;
+	import org.vancura.vaclav.core.GraphicsUtil;
 	import org.vancura.vaclav.widgets.constants.DebugLevel;
 	import org.vancura.vaclav.widgets.events.ButtonEvent;
 	import org.vancura.vaclav.widgets.globals.SWFLibraryProvider;
 	import org.vancura.vaclav.widgets.globals.SkinManager;
 	import org.vancura.vaclav.widgets.skin.ImageSkin;
 	import org.vancura.vaclav.widgets.skin.LabelButtonSkin;
-	import org.vancura.vaclav.widgets.widgets.Image;
 	import org.vancura.vaclav.widgets.widgets.LabelButton;
-
-	import flash.display.*;
-	import flash.events.*;
-	import flash.net.*;
-	import flash.system.*;
-	import flash.utils.*;
+	import com.greensock.TweenNano;
+	import org.vancura.vaclav.widgets.widgets.Image;
 
 	[SWF(width="1000",height="400",frameRate="60",backgroundColor="#FFFFFF")]
 
@@ -36,7 +39,7 @@ package {
 		private var _isError:Boolean;
 		private var _skinManager:SkinManager;
 		
-		private var skin:ImageSkin;
+		private var skin:LabelButtonSkin;
 		private var _stressRemove:int;
 		private var _stressList:Array = new Array();
 
@@ -126,7 +129,7 @@ package {
 		
 		
 		private function _onTest(event:ButtonEvent):void {
-			skin = _skinManager.getSkin('welcome_back_image');
+			skin = _skinManager.getSkin('label_button');
 			_stressRemove = -50;
 			
 			_buttonTest.morph({width:400, morphDuration:2});
@@ -136,25 +139,25 @@ package {
 		
 		
 		private function _stressTest():void {
-//			var skin:LabelButtonSkin = _skinManager.getSkin('label_button');
-//			var skin:ImageSkin = _skinManager.getSkin('welcome_back_image');
 			var mw:int = Math.random() * 200;
 			var mh:int = Math.random() * 200;
 			var mx:int = Math.random() * (stage.stageWidth - mw);
 			var my:int = Math.random() * (stage.stageHeight - mh);
-//			var btn:LabelButton = new LaqbelButton(skin, {x:mx, y:my, width:mw, height:mh}, 'Lorem ipsum', this);
-			var image:Image = new Image(skin, {x:mx, y:my}, this);
+			var image:LabelButton = new LabelButton(skin, {x:mx, y:my, width:mw, height:mh}, 'Lorem ipsum', this);
+//			var image:Image = new Image(skin, {x:mx, y:my}, this);
+//			var image:QSprite = new QSprite({x:mx, y:my}, this);
 			
 			_stressList.push(image);
 			_stressRemove++;
 			
-			setTimeout(_stressTest, 10);
+			TweenNano.delayedCall(.001, _stressTest);
 			
-			var xxx:Image = _stressList[_stressRemove];
+			var xxx:LabelButton = _stressList[_stressRemove] as LabelButton;
 			if(xxx != null) {
 				xxx.destroy();
-				xxx = null;
+				removeChild(xxx);
 			}
+			_stressList[_stressRemove] = null;
 		}
 	}
 }
