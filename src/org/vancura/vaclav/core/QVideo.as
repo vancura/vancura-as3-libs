@@ -18,7 +18,7 @@ package org.vancura.vaclav.core {
 		/*
 		 * Constructor: QVideo
 		 * 
-		 * Create new QVideo instance.
+		 * Create a new QVideo instance.
 		 * 
 		 * Parameters:
 		 * 

@@ -19,7 +19,7 @@ package org.vancura.vaclav.core {
 		/*
 		 * Constructor: QBitmap
 		 * 
-		 * Create new QBitmap instance.
+		 * Create a new QBitmap instance.
 		 * 
 		 * Parameters:
 		 * 

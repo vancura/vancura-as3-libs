@@ -22,7 +22,7 @@ package org.vancura.vaclav.core {
 		/*
 		 * Constructor: QSprite
 		 * 
-		 * Create new QSprite instance.
+		 * Create a new QSprite instance.
 		 * 
 		 * Parameters:
 		 * 

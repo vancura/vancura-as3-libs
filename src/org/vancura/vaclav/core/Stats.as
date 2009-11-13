@@ -79,7 +79,7 @@ package org.vancura.vaclav.core {
 		/*
 		 * Constructor: Stats
 		 * 
-		 * Create new Stats instance.
+		 * Create a new Stats instance.
 		 */
 		public function Stats():void {
 			_fpsGraphBD = new BitmapData(_WIDTH, 50, false, 0x000000);			_msGraphBD = new BitmapData(_WIDTH, 50, false, 0x000000);			_memGraphBD = new BitmapData(_WIDTH, 50, false, 0x000000);

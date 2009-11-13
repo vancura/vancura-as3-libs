@@ -21,7 +21,7 @@ package org.vancura.vaclav.core {
 		/*
 		 * Constructor: QTextField
 		 * 
-		 * Create new QTextField instance.
+		 * Create a new QTextField instance.
 		 * 
 		 * Parameters:
 		 * 

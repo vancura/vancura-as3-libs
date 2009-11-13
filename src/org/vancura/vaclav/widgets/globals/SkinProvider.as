@@ -1,4 +1,5 @@
 package org.vancura.vaclav.widgets.globals {
+	import flash.events.EventDispatcher;
 	import br.com.stimuli.string.printf;
 
 	import org.vancura.vaclav.widgets.interfaces.ISkinnable;
@@ -15,11 +16,10 @@ package org.vancura.vaclav.widgets.globals {
 
 	
 	
-	public class SkinProvider {
+	public class SkinProvider extends EventDispatcher {
 
 		
 		
-		protected var $skinConfig:Object;
 		protected var $skinList:Array;
 		protected var $themeElements:Array;
 		protected var $themeConfig:Array;
@@ -56,16 +56,26 @@ package org.vancura.vaclav.widgets.globals {
 		
 		
 		
-		protected function $getSkins():void {
-			// get skins
-			if($skinConfig.skins != null && $skinConfig.skins.length > 0) {
-				for each(var i:Object in $skinConfig.skins) {
+		/*
+		 * Function: $getSkins
+		 * 
+		 * Get all skins from the skin config object.
+		 * 
+		 * Parameters:
+		 */
+		protected function $getSkins(skinConfig:Object):void {
+			if(skinConfig.skins != null && skinConfig.skins.length > 0) {
+				// at least one skin is inside
+				
+				for each(var i:Object in skinConfig.skins) {
 					if(i.id != undefined && i.type != undefined) {
+						// id and type fields are required
 						
 						var skin:ISkinnable;
 						var isSupported:Boolean = true;
 						var isOK:Boolean = true;
 						
+						// check for skin type
 						switch(i.type) {
 							case Skin.TYPE_BAR:
 								skin = new BarSkin(i.id);
@@ -114,12 +124,15 @@ package org.vancura.vaclav.widgets.globals {
 						}
 						
 						if(isOK && isSupported) {
+							// type is ok
 							if($isVerbose) {
 								trace(printf('SkinManager: Adding "%s" skin "%s"', i.type, i.id));
 							}
+							
 							$skinList.push(skin);
 						}
 						else if(isOK) {
+							// type is not supported
 							if($isVerbose) {
 								trace(printf('SkinManager: "%s" skin is unsupported (type "%s")', i.id, i.type));
 							}
@@ -127,13 +140,16 @@ package org.vancura.vaclav.widgets.globals {
 						 
 					}
 					else {
+						// no id and/or type fields available
 						if($isVerbose) {
 							trace('SkinManager: Found skin without id or type fields defined');
 						}
 					}
 				}
 			}
+			
 			else {
+				// no skins defined
 				if($isVerbose) {
 					trace('SkinManager: No skins defined');
 				}
@@ -150,12 +166,6 @@ package org.vancura.vaclav.widgets.globals {
 		
 		protected function $applyAsset(skin:ISkinnable, cls:Class, i:Object):Boolean {
 			return false;
-		}
-		
-		
-		
-		public function get skinConfig():Object {
-			return $skinConfig;
 		}
 		
 		
