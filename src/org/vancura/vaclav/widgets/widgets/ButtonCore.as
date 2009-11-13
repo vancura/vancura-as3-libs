@@ -236,7 +236,9 @@ package org.vancura.vaclav.widgets.widgets {
 				
 				$focusInTween();
 				
-				stage.addEventListener(MouseEvent.MOUSE_UP, _onRelease, false, 0, true);
+				if(stage != null) {
+					stage.addEventListener(MouseEvent.MOUSE_UP, _onRelease, false, 0, true);
+				}
 				
 				dispatchEvent(new ButtonEvent(ButtonEvent.FOCUS_IN, true));
 			}
@@ -245,7 +247,9 @@ package org.vancura.vaclav.widgets.widgets {
 		
 		
 		private function _onRelease(event:MouseEvent):void {
-			stage.removeEventListener(MouseEvent.MOUSE_UP, _onRelease);
+			if(stage != null) {
+				stage.removeEventListener(MouseEvent.MOUSE_UP, _onRelease);
+			}
 			
 			if(_areEventsEnabled && _isDown) {
 				if(event.currentTarget == stage) {

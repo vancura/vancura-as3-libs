@@ -2,14 +2,6 @@ package org.vancura.vaclav.widgets.globals {
 	import br.com.stimuli.string.printf;
 
 	import org.vancura.vaclav.widgets.interfaces.ISkinnable;
-	import org.vancura.vaclav.widgets.skin.BarSkin;
-	import org.vancura.vaclav.widgets.skin.ButtonSkin;
-	import org.vancura.vaclav.widgets.skin.CheckButtonSkin;
-	import org.vancura.vaclav.widgets.skin.ImageSkin;
-	import org.vancura.vaclav.widgets.skin.InputBarSkin;
-	import org.vancura.vaclav.widgets.skin.LabelButtonSkin;
-	import org.vancura.vaclav.widgets.skin.LabelSkin;
-	import org.vancura.vaclav.widgets.skin.Skin;
 
 	import flash.display.LoaderInfo;
 	import flash.display.MovieClip;

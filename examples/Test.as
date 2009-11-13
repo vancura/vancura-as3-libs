@@ -1,23 +1,21 @@
 package {
-	import org.vancura.vaclav.widgets.globals.SWFLibraryProvider;
 	import br.com.stimuli.string.printf;
 
+	import org.vancura.vaclav.core.Stats;
 	import org.vancura.vaclav.widgets.constants.DebugLevel;
 	import org.vancura.vaclav.widgets.events.ButtonEvent;
+	import org.vancura.vaclav.widgets.globals.SWFLibraryProvider;
 	import org.vancura.vaclav.widgets.globals.SkinManager;
+	import org.vancura.vaclav.widgets.skin.ImageSkin;
 	import org.vancura.vaclav.widgets.skin.LabelButtonSkin;
+	import org.vancura.vaclav.widgets.widgets.Image;
 	import org.vancura.vaclav.widgets.widgets.LabelButton;
 
-	import flash.display.Loader;
-	import flash.display.MovieClip;
-	import flash.events.ErrorEvent;
-	import flash.events.Event;
-	import flash.events.IOErrorEvent;
-	import flash.events.SecurityErrorEvent;
-	import flash.net.URLLoader;
-	import flash.net.URLLoaderDataFormat;
-	import flash.net.URLRequest;
-	import flash.system.LoaderContext;
+	import flash.display.*;
+	import flash.events.*;
+	import flash.net.*;
+	import flash.system.*;
+	import flash.utils.*;
 
 	[SWF(width="1000",height="400",frameRate="60",backgroundColor="#FFFFFF")]
 
@@ -37,6 +35,10 @@ package {
 		private var _skinSWFLoader:Loader;
 		private var _isError:Boolean;
 		private var _skinManager:SkinManager;
+		
+		private var skin:ImageSkin;
+		private var _stressRemove:int;
+		private var _stressList:Array = new Array();
 
 		
 		
@@ -111,16 +113,48 @@ package {
 			
 			var skin:LabelButtonSkin = _skinManager.getSkin('label_button');
 			
-			_buttonTest = new LabelButton(skin, {x:10, y:10}, 'Lorem ipsum', this);
+			_buttonTest = new LabelButton(skin, {x:10, y:100, width:200}, 'Lorem ipsum', this);
 			
 			_buttonTest.addEventListener(ButtonEvent.RELEASE_INSIDE, _onTest);
 			
+			// --------
+			
+			var stats:Stats = new Stats();
+			addChild(stats);
 		}
 		
 		
 		
 		private function _onTest(event:ButtonEvent):void {
+			skin = _skinManager.getSkin('welcome_back_image');
+			_stressRemove = -50;
+			
 			_buttonTest.morph({width:400, morphDuration:2});
+			_stressTest();
+		}
+		
+		
+		
+		private function _stressTest():void {
+//			var skin:LabelButtonSkin = _skinManager.getSkin('label_button');
+//			var skin:ImageSkin = _skinManager.getSkin('welcome_back_image');
+			var mw:int = Math.random() * 200;
+			var mh:int = Math.random() * 200;
+			var mx:int = Math.random() * (stage.stageWidth - mw);
+			var my:int = Math.random() * (stage.stageHeight - mh);
+//			var btn:LabelButton = new LaqbelButton(skin, {x:mx, y:my, width:mw, height:mh}, 'Lorem ipsum', this);
+			var image:Image = new Image(skin, {x:mx, y:my}, this);
+			
+			_stressList.push(image);
+			_stressRemove++;
+			
+			setTimeout(_stressTest, 10);
+			
+			var xxx:Image = _stressList[_stressRemove];
+			if(xxx != null) {
+				xxx.destroy();
+				xxx = null;
+			}
 		}
 	}
 }
