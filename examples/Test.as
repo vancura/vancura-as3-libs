@@ -12,6 +12,7 @@ package {
 	import org.vancura.vaclav.widgets.widgets.LabelButton;
 
 	import flash.display.MovieClip;
+	import flash.events.ErrorEvent;
 	import flash.events.Event;
 
 	[SWF(width="1000",height="400",frameRate="60",backgroundColor="#FFFFFF")]
@@ -40,6 +41,8 @@ package {
 			try {
 				skinProvider = new SWFLibraryProvider('test-skin.swf', null, null, true);
 				skinProvider.addEventListener(Event.COMPLETE, _onSkinComplete, false, 0, true);
+				skinProvider.addEventListener(ErrorEvent.ERROR, _onSkinError, false, 0, true);
+				
 				_skinManager.attach(skinProvider);
 			}
 			catch(err:Error) {
@@ -48,6 +51,12 @@ package {
 			}
 		}
 		
+		
+		
+		private function _onSkinError(event:ErrorEvent):void {
+			trace(printf('Error: %s', event.text));
+		}
+
 		
 		
 		private function _onSkinComplete(event:Event):void {

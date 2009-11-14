@@ -17,15 +17,16 @@ package org.vancura.vaclav.widgets.globals {
 
 	
 	
-	public class SWFLibraryProvider extends SkinProvider {
+	public class SWFLibraryProvider extends Provider {
 
 		
 		
 		private var _skinMC:MovieClip;
 		private var _loaderInfo:LoaderInfo;
-		private var _skinURLLoader:URLLoader;
-		private var _skinSWFLoader:Loader;
+		private var _urlLoader:URLLoader;
+		private var _swfLoader:Loader;
 		private var _isError:Boolean;
+		private var _uri:String;
 
 		
 		
@@ -44,20 +45,37 @@ package org.vancura.vaclav.widgets.globals {
 			// initialize super
 			super(themeElements, themeConfig, isVerbose);
 			
-			_skinURLLoader = new URLLoader();
-			_skinURLLoader.dataFormat = URLLoaderDataFormat.BINARY;
-			_skinURLLoader.addEventListener(Event.COMPLETE, _onURLLoaderComplete, false, 0, true);
-			_skinURLLoader.addEventListener(IOErrorEvent.IO_ERROR, _onURLLoaderError, false, 0, true);
-			_skinURLLoader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, _onURLLoaderError, false, 0, true);
+			// store parameters
+			_uri = uri;
+			
+			// create url loader
+			_urlLoader = new URLLoader();
+			_urlLoader.dataFormat = URLLoaderDataFormat.BINARY;
+			_urlLoader.addEventListener(Event.COMPLETE, _onURLLoaderComplete, false, 0, true);
+			_urlLoader.addEventListener(IOErrorEvent.IO_ERROR, _onURLLoaderError, false, 0, true);
+			_urlLoader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, _onURLLoaderError, false, 0, true);
 				
-			_skinSWFLoader = new Loader();
-			_skinSWFLoader.contentLoaderInfo.addEventListener(Event.INIT, _onSWFLoaderInit, false, 0, true);
-				
-			_skinURLLoader.load(new URLRequest(uri));
+			// create swf loader
+			_swfLoader = new Loader();
+			_swfLoader.contentLoaderInfo.addEventListener(Event.INIT, _onSWFLoaderInit, false, 0, true);
+			
+			// load
+			_urlLoader.load(new URLRequest(uri));
 		}
 
 		
 		
+		/*
+		 * Method: $getAsset
+		 * 
+		 * Get asset by its name.
+		 * 
+		 * Parameters:
+		 * 		name	- Asset name
+		 * 		
+		 * Returns:
+		 * 		Asset MovieClip
+		 */
 		override protected function $getAsset(name:String):MovieClip {
 			try {
 				return new(_loaderInfo.applicationDomain.getDefinition(name) as Class) as MovieClip;
@@ -70,6 +88,17 @@ package org.vancura.vaclav.widgets.globals {
 		
 		
 		
+		/*
+		 * Method: $applyAsset
+		 * 
+		 * Apply asset.
+		 * Placeholder to be replaced by providers.
+		 * 
+		 * Parameters:
+		 * 		skin	- ISkinnable Skin
+		 * 		cls		- Class of the skin
+		 * 		i		- TODO: WTF 
+		 */
 		override protected function $applyAsset(skin:ISkinnable, cls:Class, i:Object):Boolean {
 			var asset:MovieClip = $getAsset(i.symbol);
 			
@@ -105,6 +134,20 @@ package org.vancura.vaclav.widgets.globals {
 		
 		
 		
+		/*
+		 * Getter: uri
+		 * 
+		 * Get Skin URI.
+		 * 
+		 * Returns:
+		 * 		Skin URI
+		 */
+		public function get uri():String {
+			return _uri;
+		}
+		
+		
+		
 		private function _onURLLoaderComplete(event:Event):void {
 			if(_isError) {
 				return;
@@ -117,7 +160,7 @@ package org.vancura.vaclav.widgets.globals {
 			// More info: http://richardleggett.co.uk/blog/index.php/2009/04/02/loading-swfs-into-air-1-5-and-loaderinfo
 			// As seen here, it even doesn't compile, I have to put the parameter using Array. Damn!
 			// lc['allowLoadBytesCodeExecution'] = true;
-			_skinSWFLoader.loadBytes(_skinURLLoader.data, lc);
+			_swfLoader.loadBytes(_urlLoader.data, lc);
 		}
 
 		
@@ -125,21 +168,24 @@ package org.vancura.vaclav.widgets.globals {
 		private function _onURLLoaderError(event:ErrorEvent):void {
 			_isError = true;
 			
-			trace('Skin could not be loaded. Is the URI correct?');
+			dispatchEvent(new ErrorEvent(ErrorEvent.ERROR, true, false, printf('Skin could not be loaded. Is the URI "%s" correct?', _uri)));
 		}
 
 		
 		
 		private function _onSWFLoaderInit(event:Event):void {
-			if(_isError) return;
+			if(_isError) {
+				return;
+			}
 			
-			_skinURLLoader.removeEventListener(Event.COMPLETE, _onURLLoaderComplete);
-			_skinURLLoader.removeEventListener(IOErrorEvent.IO_ERROR, _onURLLoaderError);
-			_skinURLLoader.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, _onURLLoaderError);
-			_skinSWFLoader.contentLoaderInfo.removeEventListener(Event.INIT, _onSWFLoaderInit);
+			// remove event listeners
+			_urlLoader.removeEventListener(Event.COMPLETE, _onURLLoaderComplete);
+			_urlLoader.removeEventListener(IOErrorEvent.IO_ERROR, _onURLLoaderError);
+			_urlLoader.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, _onURLLoaderError);
+			_swfLoader.contentLoaderInfo.removeEventListener(Event.INIT, _onSWFLoaderInit);
 			
 			// initial setting
-			_skinMC = _skinSWFLoader.contentLoaderInfo.content as MovieClip;
+			_skinMC = _swfLoader.contentLoaderInfo.content as MovieClip;
 			
 			// get skin loaderInfo.
 			// used to get assets from skin asset library.

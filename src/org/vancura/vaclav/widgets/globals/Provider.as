@@ -16,7 +16,7 @@ package org.vancura.vaclav.widgets.globals {
 
 	
 	
-	public class SkinProvider extends EventDispatcher {
+	public class Provider extends EventDispatcher {
 
 		
 		
@@ -27,7 +27,17 @@ package org.vancura.vaclav.widgets.globals {
 		
 		
 		
-		public function SkinProvider(themeElements:Array = null, themeConfig:Array = null, isVerbose:Boolean = false) {
+		/*
+		 * Constructor: Provider
+		 * 
+		 * Create a new Provider instance.
+		 * 
+		 * Parameters:
+		 * 		themeElements	- Theming element names
+		 * 		themeConfig		- Theming element config
+		 * 		isVerbose		- Verbose flag
+		 */
+		public function Provider(themeElements:Array = null, themeConfig:Array = null, isVerbose:Boolean = false) {
 			$skinList = new Array();
 			$themeElements = (themeElements != null) ? themeElements : new Array();
 			$themeConfig = (themeConfig != null) ? themeConfig : new Array();
@@ -36,9 +46,21 @@ package org.vancura.vaclav.widgets.globals {
 
 		
 		
+		/*
+		 * Method: $mergeConfig
+		 * 
+		 * Merge config from Skin with config in parameter.
+		 * 
+		 * Parameters:
+		 * 		source	- Source config object
+		 * 		
+		 * Returns:
+		 * 		Merged config object
+		 */
 		protected function $mergeConfig(source:Object):Object {
 			for each(var o:Object in themeConfig) {
-				var parameter:String = o.parameter as String; 
+				var parameter:String = o.parameter as String;
+				 
 				if(parameter.indexOf(source.id) == 0) {
 					try {
 						var value:String = o.value as String;
@@ -57,7 +79,7 @@ package org.vancura.vaclav.widgets.globals {
 		
 		
 		/*
-		 * Function: $getSkins
+		 * Method: $getSkins
 		 * 
 		 * Get all skins from the skin config object.
 		 * 
@@ -158,36 +180,80 @@ package org.vancura.vaclav.widgets.globals {
 
 		
 		
+		/*
+		 * Method: $getAsset
+		 * 
+		 * Get asset by its name.
+		 * Placeholder to be replaced by providers.
+		 */
 		protected function $getAsset(name:String):MovieClip {
 			return null;
 		}
 		
 		
 		
+		/*
+		 * Method: $applyAsset
+		 * 
+		 * Apply asset.
+		 * Placeholder to be replaced by providers.
+		 */
 		protected function $applyAsset(skin:ISkinnable, cls:Class, i:Object):Boolean {
 			return false;
 		}
 		
 		
 		
+		/*
+		 * Getter: skinList
+		 * 
+		 * Get Skins list.
+		 * 
+		 * Returns:
+		 * 		Skins list
+		 */
 		public function get skinList():Array {
 			return $skinList;
 		}
 		
 		
 		
+		/*
+		 * Getter: themeElements
+		 * 
+		 * Get Theme element names.
+		 * 
+		 * Returns:
+		 * 		Theme element names
+		 */
 		public function get themeElements():Array {
 			return $themeElements;
 		}
 		
 		
 		
+		/*
+		 * Getter: themeConfig
+		 * 
+		 * Get Theme element config.
+		 * 
+		 * Returns:
+		 * 		Theme element config
+		 */
 		public function get themeConfig():Array {
 			return $themeConfig;
 		}
 		
 		
 		
+		/*
+		 * Getter: isVerbose
+		 * 
+		 * Get verbose flag.
+		 * 
+		 * Returns:
+		 * 		Verbose flag
+		 */
 		public function get isVerbose():Boolean {
 			return $isVerbose;
 		}

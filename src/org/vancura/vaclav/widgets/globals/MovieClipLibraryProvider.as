@@ -9,7 +9,7 @@ package org.vancura.vaclav.widgets.globals {
 
 	
 	
-	public class MovieClipLibraryProvider extends SkinProvider {
+	public class MovieClipLibraryProvider extends Provider {
 
 		
 		

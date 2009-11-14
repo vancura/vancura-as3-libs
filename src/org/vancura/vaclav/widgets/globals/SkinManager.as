@@ -17,7 +17,7 @@ package org.vancura.vaclav.widgets.globals {
 		private var _debugLevel:String = DebugLevel.NONE;
 		private var _debugColor:uint = 0xFF0000;
 		private var _isAttached:Boolean;
-		private var _skinProvider:SkinProvider;
+		private var _skinProvider:Provider;
 
 		
 		
@@ -27,7 +27,7 @@ package org.vancura.vaclav.widgets.globals {
 		
 		
 		
-		public function attach(skinProvider:SkinProvider):void {
+		public function attach(skinProvider:Provider):void {
 			// prevent reattaching
 			if(_isAttached) {
 				throw new Error('Skin provider already attached');
