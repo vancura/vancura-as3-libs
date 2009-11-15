@@ -5,10 +5,10 @@
 # =====================
 
 FLEX_DIR="/Developer/SDKs/FlexSDK4";
-# Set $flex_dir to point to your Flex SDK directory
+# Set to point to your Flex SDK directory
 
 NATURAL_DOCS_DIR="/Developer/Applications/NaturalDocs";
-# Set $natural_docs_dir to point to your NaturalDocs installation directory
+# Set to point to your NaturalDocs installation directory
 
 IS_NATURAL_DOCS_DISABLED="no";
 # Disable NaturalDocs if you don't have it

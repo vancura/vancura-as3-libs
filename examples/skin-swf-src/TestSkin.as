@@ -1,4 +1,4 @@
-﻿package skin {
+﻿package {
 	import flash.display.MovieClip;
 	import flash.filters.DropShadowFilter;
 

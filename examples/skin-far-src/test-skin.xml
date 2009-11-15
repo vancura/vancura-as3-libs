@@ -1,0 +1,11 @@
+<far-manifest target="../../bin/test-skin.far">
+	
+	<priorities>
+		<priority>high</priority>
+		<priority>medium</priority>
+		<priority>default</priority>
+	</priorities>
+	
+	<source compress="1" priority="high"><path>assets/button.png</path><index>button</index></source>
+	
+</far-manifest>
