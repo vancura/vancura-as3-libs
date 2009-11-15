@@ -19,7 +19,7 @@ package {
 
 	
 	
-	public class Test extends MovieClip {
+	public class SWFTest extends MovieClip {
 
 		
 		
@@ -31,7 +31,7 @@ package {
 
 		
 		
-		public function Test() {
+		public function SWFTest() {
 			_skinManager = SkinManager.getInstance();
 			_skinManager.debugLevel = DebugLevel.HOVER;
 			_skinManager.debugColor = 0x123456;

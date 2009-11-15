@@ -1,5 +1,4 @@
 package org.vancura.vaclav.widgets.globals {
-	import flash.events.EventDispatcher;
 	import br.com.stimuli.string.printf;
 
 	import org.vancura.vaclav.widgets.interfaces.ISkinnable;
@@ -13,6 +12,7 @@ package org.vancura.vaclav.widgets.globals {
 	import org.vancura.vaclav.widgets.skin.Skin;
 
 	import flash.display.MovieClip;
+	import flash.events.EventDispatcher;
 
 	
 	
