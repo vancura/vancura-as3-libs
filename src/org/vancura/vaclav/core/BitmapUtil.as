@@ -9,7 +9,7 @@ package org.vancura.vaclav.core {
 	/*
 	 * Class: BitmapUtil
 	 * 
-	 * Container for a few bitmap methods I can't put anywhere else.
+	 * A class covering few bitmap methods I can't put anywhere else.
 	 * 
 	 * Author: Vaclav Vancura <http://vaclav.vancura.org>
 	 */
@@ -20,7 +20,8 @@ package org.vancura.vaclav.core {
 		/*
 		 * Function: embed2BD
 		 *
-		 * Get BitmapData from the source. If the source is Bitmap, it's converted, if it is already BitmapData, the reference is returned.
+		 * Get BitmapData from the source.
+		 * If the source is Bitmap, it's converted, if it is already BitmapData, the reference is returned.
 		 * Serves as a quick filter for Bitmap and BitmapData.
 		 * Throws a TypeError if the source is not Bitmap nor BitmapData.
 		 * 
@@ -33,9 +34,17 @@ package org.vancura.vaclav.core {
 		 * 		Source converted to BitmapData
 		 */
 		public static function embed2BD(source:*):BitmapData {
-			if(source is Bitmap) return source.bitmapData;
-			else if(source is BitmapData) return source;
-			else throw new TypeError('Bitmap or BitmapData needed');
+			if(source is Bitmap) {
+				return source.bitmapData;
+			}
+			
+			else if(source is BitmapData) {
+				return source;
+			}
+			
+			else {
+				throw new TypeError('Bitmap or BitmapData needed');
+			}
 		}
 
 		
@@ -59,7 +68,9 @@ package org.vancura.vaclav.core {
 		 */
 		public static function crop(source:BitmapData, x:uint, y:uint, width:uint, height:uint):BitmapData {
 			var o:BitmapData = new BitmapData(width, height);
+			
 			o.copyPixels(source, new Rectangle(x, y, width, height), new Point(0, 0));
+			
 			return o;
 		}
 	}

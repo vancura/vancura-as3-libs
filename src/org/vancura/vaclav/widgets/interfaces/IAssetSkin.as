@@ -6,7 +6,7 @@ package org.vancura.vaclav.widgets.interfaces {
 	
 	public interface IAssetSkin {
 		
-		function getAssetsFromComposition(source:BitmapData):void;
+		function getAssetsFromAtlas(source:BitmapData):void;
 		
 		function getAssetsFromMovieClip(source:MovieClip, elements:Array = null, ... labels:Array):void;
 

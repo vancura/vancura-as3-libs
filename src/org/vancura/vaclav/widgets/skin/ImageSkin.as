@@ -31,7 +31,7 @@ package org.vancura.vaclav.widgets.skin {
 
 		
 		
-		public function getAssetsFromComposition(source:BitmapData):void {
+		public function getAssetsFromAtlas(source:BitmapData):void {
 			$assetWidth = source.width;
 			$assetHeight = source.height;
 			

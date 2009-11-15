@@ -20,6 +20,7 @@ package org.vancura.vaclav.core {
 	 */
 	public function duplicateMovieClip(source:MovieClip):MovieClip {
 		var targetClass:Class = Object(source).constructor as Class;
+		
 		return(new targetClass() as MovieClip);
 	}
 }

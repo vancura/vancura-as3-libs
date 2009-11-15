@@ -99,7 +99,9 @@ package org.vancura.vaclav.core {
 										parent:DisplayObjectContainer = null) {
 											
 			// if config is not defined, prepare it
-			if(c == null) c = new Object();
+			if(c == null) {
+				c = new Object();
+			}
 
 			// create parent QSprite
 			super(c, parent);
@@ -149,10 +151,22 @@ package org.vancura.vaclav.core {
 			this.cacheAsBitmap = false;
 
 			var t:Object = new Object();
-			if(isMorphXEnabled && c.x != undefined) t.x = c.x;
-			if(isMorphYEnabled && c.y != undefined) t.y = c.y;
-			if(isMorphWidthEnabled && c.width != undefined) t.width = c.width;
-			if(isMorphHeightEnabled && c.height != undefined) t.height = c.height;
+			
+			if(isMorphXEnabled && c.x != undefined) {
+				t.x = c.x;
+			}
+			
+			if(isMorphYEnabled && c.y != undefined) {
+				t.y = c.y;
+			}
+			
+			if(isMorphWidthEnabled && c.width != undefined) {
+				t.width = c.width;
+			}
+			
+			if(isMorphHeightEnabled && c.height != undefined) {
+				t.height = c.height;
+			}
 			
 			t.ease = (c.morphEase != undefined) ? c.morphEase : morphEase;
 			t.roundProps = ['x', 'y', 'width', 'height'];
@@ -187,7 +201,9 @@ package org.vancura.vaclav.core {
 		 * 		value	- New width
 		 */
 		override public function set width(value:Number):void {
-			if(isChangeWidthEnabled) super.width = value;
+			if(isChangeWidthEnabled) {
+				super.width = value;
+			}
 		}
 
 		
@@ -202,7 +218,9 @@ package org.vancura.vaclav.core {
 		 * 		value	- New height
 		 */
 		override public function set height(value:Number):void {
-			if(isChangeHeightEnabled) super.height = value;
+			if(isChangeHeightEnabled) {
+				super.height = value;
+			}
 		}
 	}
 }

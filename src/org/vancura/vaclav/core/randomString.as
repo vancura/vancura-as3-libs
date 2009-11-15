@@ -2,12 +2,6 @@ package org.vancura.vaclav.core {
 
 	
 	
-	/**
-	 * Generate a random string.
-	 * @param newLength Length of the result string
-	 * @param userAlphabet Set of chars to be used
-	 * @return Random string
-	 */
 	/*
 	 *	Method: randomString
 	 *	
@@ -24,7 +18,9 @@ package org.vancura.vaclav.core {
 	 *			
 	 *		Random String
 	 */
-	public function randomString(length:uint = 10, chars:String = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'):String {
+	public function randomString(	length:uint = 10,
+									chars:String = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'):String {
+										
 		var alphabet:Array = chars.split('');
 		var alphabetLength:int = alphabet.length;
 		var randomLetters:String = '';

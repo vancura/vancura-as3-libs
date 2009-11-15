@@ -6,7 +6,7 @@
 	/*
 	 * Class: GraphicsUtil
 	 * 
-	 * Container for a few graphics methods I can't put anywhere else.
+	 * A class covering few graphics methods I can't put anywhere else.
 	 * 
 	 * Author: Vaclav Vancura <http://vaclav.vancura.org>
 	 */
@@ -137,7 +137,8 @@
 				x1 = radius + x;
 				y1 = y;
 				canvas.graphics.moveTo(x1, y1);
-			} else {
+			}
+			else {
 				// not a full circle
 				if(angle1 > angle2) angle1 -= 360;
 				x1 = radius * Math.cos(angle1 * rad) + x;

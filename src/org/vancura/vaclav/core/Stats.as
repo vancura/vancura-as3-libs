@@ -101,8 +101,13 @@ package org.vancura.vaclav.core {
 		
 		
 		private function _onMouseClick(e:MouseEvent):void {
-			if(this.mouseY > this.height * .35) stage.frameRate--;
-			else stage.frameRate++;
+			if(this.mouseY > this.height * .35) {
+				stage.frameRate--;
+			}
+			else {
+				stage.frameRate++;
+			}
+			
 			_fpsText.text = 'FPS: ' + _fps + '/' + stage.frameRate;
 		}	
 

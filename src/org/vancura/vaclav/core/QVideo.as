@@ -70,14 +70,21 @@ package org.vancura.vaclav.core {
 								parent:DisplayObjectContainer = null) {
 									
 			// if config is not defined, prepare it
-			if(c == null) c = new Object();
+			if(c == null) {
+				c = new Object();
+			}
 
 			try {
 				super(c.width, c.height);
 			}
 			catch(err:Error) {
-				if(c.width == undefined) throw new Error('Video width undefined');
-				if(c.height == undefined) throw new Error('Video height undefined');
+				if(c.width == undefined) {
+					throw new Error('Video width undefined');
+				}
+				
+				if(c.height == undefined) {
+					throw new Error('Video height undefined');
+				}
 			}
 
 			// Video overrides and custom config
@@ -88,7 +95,9 @@ package org.vancura.vaclav.core {
 			assign(this, c);
 			
 			// add child if requested
-			if(parent != null) parent.addChild(this);
+			if(parent != null) {
+				parent.addChild(this);
+			}
 		}
 		
 		

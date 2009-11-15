@@ -5,7 +5,7 @@ package org.vancura.vaclav.core {
 	/*
 	 *	Method: assign
 	 *	
-	 *	Assign properties from params to Object.
+	 *	Assign properties from params to an Object.
 	 *
 	 *	Author: Vaclav Vancura <http://vaclav.vancura.org>
 	 *
@@ -20,7 +20,11 @@ package org.vancura.vaclav.core {
 	 */
 	public function assign(obj:Object, params:Object):Object {
 		var out:Object = (obj);
-		for(var i:String in params) out[i] = params[i];
+		
+		for(var i:String in params) {
+			out[i] = params[i];
+		}
+		
 		return out;
 	}
 }

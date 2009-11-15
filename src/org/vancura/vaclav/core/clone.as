@@ -6,7 +6,7 @@ package org.vancura.vaclav.core {
 	/*
 	 *	Method: clone
 	 *	
-	 *	Clone Object.
+	 *	Clone an Object.
 	 *
 	 *	Author: Vaclav Vancura <http://vaclav.vancura.org>
 	 *
@@ -20,9 +20,10 @@ package org.vancura.vaclav.core {
 	 */
 	public function clone(source:*):Object {
 		var copier:ByteArray = new ByteArray();
+		
 		copier.writeObject(source as Object);
 		copier.position = 0;
-		var result:Object = copier.readObject();
-		return result;
+		
+		return copier.readObject();
 	}
 }

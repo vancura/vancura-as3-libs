@@ -85,7 +85,9 @@ package org.vancura.vaclav.core {
 									parent:DisplayObjectContainer = null) {
 										
 			// if config is not defined, prepare it
-			if(c == null) c = new Object();
+			if(c == null) {
+				c = new Object();
+			}
 
 			super();
 			
@@ -103,7 +105,9 @@ package org.vancura.vaclav.core {
 			assign(this, c);
 			
 			// add child if requested
-			if(parent != null) parent.addChild(this);
+			if(parent != null) {
+				parent.addChild(this);
+			}
 		}
 		
 		

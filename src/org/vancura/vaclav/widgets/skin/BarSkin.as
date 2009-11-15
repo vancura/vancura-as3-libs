@@ -39,7 +39,7 @@ package org.vancura.vaclav.widgets.skin {
 
 		
 		
-		public function getAssetsFromComposition(source:BitmapData):void {
+		public function getAssetsFromAtlas(source:BitmapData):void {
 			if(source.width % 2 != 0) {
 				throw new Error('Width has to be multiple of 2');
 			}

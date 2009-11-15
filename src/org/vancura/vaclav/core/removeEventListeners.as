@@ -6,7 +6,7 @@ package org.vancura.vaclav.core {
 	/*
 	 *	Method: removeEventListeners
 	 *	
-	 *	Basically an removeEventListener() for more events at one time.
+	 *	Basically an removeEventListener() for more events at once.
 	 *	Just saves few lines of code, nothing special.
 	 *
 	 *	Author: Vaclav Vancura <http://vaclav.vancura.org>
@@ -18,8 +18,14 @@ package org.vancura.vaclav.core {
 	 */
 	public function removeEventListeners(obj:EventDispatcher, ... params):void {
 		for each(var i:Object in params) {
-			if(i.event == undefined) throw new Error('Event undefined');
-			if(i.method == undefined) throw new Error('Method undefined');
+			if(i.event == undefined) {
+				throw new Error('Event undefined');
+			}
+			
+			if(i.method == undefined) {
+				throw new Error('Method undefined');
+			}
+			
 			obj.removeEventListener(i.event, i.method);
 		}
 	}

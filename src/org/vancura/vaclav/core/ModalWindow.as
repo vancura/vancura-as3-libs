@@ -1,7 +1,7 @@
 package org.vancura.vaclav.core {
-	import flash.display.*;
-	import flash.events.*;
-	import flash.text.*;
+	import flash.display.Sprite;
+	import flash.events.MouseEvent;
+	import flash.text.TextFormat;
 
 	
 	

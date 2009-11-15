@@ -6,7 +6,7 @@ package org.vancura.vaclav.core {
 	/*
 	 *	Function: addChildren
 	 *	
-	 *	Basically an addChild() for more children at one time.
+	 *	Basically an addChild() for more children at once.
 	 *	Just saves few lines of code, nothing special.
 	 *
 	 *	Author: Vaclav Vancura <http://vaclav.vancura.org>
