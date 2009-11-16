@@ -1,4 +1,5 @@
-package org.vancura.vaclav.widgets.globals {
+package org.vancura.vaclav.assets {
+	import org.vancura.vaclav.widgets.globals.Provider;
 	import br.com.stimuli.string.printf;
 
 	import org.vancura.vaclav.widgets.interfaces.ISkinnable;

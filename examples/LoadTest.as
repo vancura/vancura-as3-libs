@@ -1,8 +1,10 @@
 package {
+	import org.vancura.vaclav.assets.Asset;
+	import org.vancura.vaclav.assets.AssetManager;
 	import org.vancura.vaclav.assets.AssetManagerErrorEvent;
 	import org.vancura.vaclav.assets.FARAssetProvider;
-	import org.vancura.vaclav.assets.AssetManager;
-	import org.vancura.vaclav.assets.Asset;
+	import org.vancura.vaclav.widgets.globals.SkinManager;
+
 	import flash.display.MovieClip;
 	import flash.events.Event;
 
@@ -15,11 +17,13 @@ package {
 		
 		
 		private var _assetManager:AssetManager;
+		private var _skinManager:SkinManager;
 
 		
 		
 		public function LoadTest() {
 			_assetManager = AssetManager.getInstance();
+			_skinManager = SkinManager.getInstance();
 			
 			_assetManager.addEventListener(Event.COMPLETE, _onProviderComplete, false, 0, true);
 			_assetManager.addEventListener(AssetManagerErrorEvent.PROVIDER_ERROR, _onProviderError, false, 0, true);
@@ -40,8 +44,10 @@ package {
 			
 			var asset:Asset = _assetManager.getAsset('button');
 			
-			trace(asset);
-			trace(asset.config);
+//			_skinManager.
+			
+//			trace(asset);
+//			trace(asset.config.widget.@atlas_uri);
 		}
 	}
 }

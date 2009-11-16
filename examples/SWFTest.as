@@ -6,7 +6,7 @@ package {
 	import org.vancura.vaclav.core.Stats;
 	import org.vancura.vaclav.widgets.constants.DebugLevel;
 	import org.vancura.vaclav.widgets.events.ButtonEvent;
-	import org.vancura.vaclav.widgets.globals.SWFLibraryProvider;
+	import org.vancura.vaclav.assets.SWFLibraryProvider;
 	import org.vancura.vaclav.widgets.globals.SkinManager;
 	import org.vancura.vaclav.widgets.skin.LabelButtonSkin;
 	import org.vancura.vaclav.widgets.widgets.LabelButton;

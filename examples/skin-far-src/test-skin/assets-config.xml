@@ -1,3 +1,7 @@
 <assets_library>
-	<asset id="button" type="bitmap" my_value="23" my_another_value="42" />
+	
+	<asset id="button" type="bitmap">
+		<widget atlas_uri="button" />
+	</asset>
+	
 </assets_library>
