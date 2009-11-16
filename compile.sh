@@ -46,6 +46,7 @@ curl http://www.quasimondo.com/colormatrix/ColorMatrix.as -o lib/src/quasimondo/
 curl http://gist.github.com/raw/232800/642574cb739ea4fa4b9e8527d0c7d86e56334aaf/ScaleBitmap.as -o lib/src/bytearray/src/org/bytearray/display/ScaleBitmap.as >/dev/null 2>&1
 svn checkout http://printf-as3.googlecode.com/svn/trunk lib/src/printf-as3 >/dev/null 2>&1
 svn checkout http://vanrijkom-flashlibs.googlecode.com/svn/trunk lib/src/vanrijkom-flashlibs >/dev/null 2>&1
+svn checkout http://as3corelib.googlecode.com/svn/trunk lib/src/as3corelib >/dev/null 2>&1
 
 # Unzip curled files
 echo "---------------------------------------------------------------------------------------------------"
@@ -56,7 +57,7 @@ unzip tmp/uni_05_x.zip -d lib/fonts >/dev/null 2>&1
 # Compile the SWC
 echo "---------------------------------------------------------------------------------------------------"
 echo "Compiling vancura-as3-libs.swc"
-$FLEX_DIR/bin/compc --target-player=10.0.0 -o bin/vancura-as3-libs.swc -l $FLEX_DIR/frameworks/libs/player/10/playerglobal.swc -l $FLEX_DIR/frameworks/libs/flex.swc  -l $FLEX_DIR/frameworks/libs/framework.swc  -l $FLEX_DIR/frameworks/libs/rpc.swc  -l $FLEX_DIR/frameworks/libs/utilities.swc -is src -sp lib/src/vanrijkom-flashlibs -sp lib/src/printf-as3/src -sp lib/src/greensock-tweening-platform-as3 -sp lib/src/quasimondo/src -sp lib/src/bytearray/src
+$FLEX_DIR/bin/compc --target-player=10.0.0 -o bin/vancura-as3-libs.swc -l $FLEX_DIR/frameworks/libs/player/10/playerglobal.swc -l $FLEX_DIR/frameworks/libs/flex.swc  -l $FLEX_DIR/frameworks/libs/framework.swc  -l $FLEX_DIR/frameworks/libs/rpc.swc  -l $FLEX_DIR/frameworks/libs/utilities.swc -is src -sp lib/src/vanrijkom-flashlibs -sp lib/src/printf-as3/src -sp lib/src/greensock-tweening-platform-as3 -sp lib/src/quasimondo/src -sp lib/src/bytearray/src -sp lib/src/as3corelib/src
 
 # Generate documentation
 if [ "$IS_NATURAL_DOCS_DISABLED" == "no" ]; then
