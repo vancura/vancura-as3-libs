@@ -1,21 +1,32 @@
 [
 	{
-		"id":"button",
-		"type":"bitmap",
+		"id":"label_button",
+		"chunks":[
+			{"id":"background_chunk", "index":"button2.png", "type":"bitmap"}
+		],
 		"widget":{
 			"type":"label_button",
-			"atlasURI":"button",
+			"button":{
+				"background":{
+					"chunk":"background_chunk"
+				}
+			},
 			"label":{
-				"size":20
+				"size":15,
+				"hAlign":"left"
 			}
 		}
 	},
 	{
-		"id":"button2",
-		"type":"bitmap",
+		"id":"scale_button",
+		"chunks":[
+			{"id":"background_chunk", "index":"button.png", "type":"bitmap"}
+		],
 		"widget":{
 			"type":"button",
-			"atlasURI":"button"
+			"background":{
+				"chunk":"background_chunk"
+			}
 		}
 	}
 ]

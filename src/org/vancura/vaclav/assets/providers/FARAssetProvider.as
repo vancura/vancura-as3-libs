@@ -4,7 +4,7 @@ package org.vancura.vaclav.assets.providers {
 	import com.adobe.serialization.json.JSON;
 
 	import org.vancura.vaclav.assets.Asset;
-	import org.vancura.vaclav.assets.constants.AssetType;
+	import org.vancura.vaclav.assets.Chunk;
 	import org.vancura.vaclav.assets.events.AssetManagerErrorEvent;
 	import org.vancura.vaclav.assets.events.AssetManagerItemEvent;
 	import org.vancura.vaclav.assets.interfaces.IAssetProvider;
@@ -21,11 +21,11 @@ package org.vancura.vaclav.assets.providers {
 
 		
 		
-		private static const _ASSETS_CONFIG_INDEX:String = 'assets_config';
+		private static const _ASSETS_CONFIG_INDEX:String = 'assets_config.json';
 		
 		private var _contentURI:String;
 		private var _farHelper:FarHelper;
-		private var _assetLoadCounter:Number = 0;
+		private var _chunkLoadCounter:uint = 0;
 
 		
 		
@@ -117,20 +117,31 @@ package org.vancura.vaclav.assets.providers {
 				var config:Array = JSON.decode(itemHelper.farItem.data.toString());
 				
 				for each(var assetConfig:Object in config) {
-					var newAsset:Asset = new Asset(assetConfig.type, assetConfig.id);
-					newAsset.config = assetConfig;
+					var newAsset:Asset = new Asset(assetConfig.id, assetConfig);
+					
+					if(assetConfig.chunks != null) {
+						for each(var chunkConfig:Object in assetConfig.chunks) {
+							var c:Chunk = new Chunk(chunkConfig.id, chunkConfig.index, chunkConfig.type);
+							
+							newAsset.addChunk(c);
+							
+							_chunkLoadCounter++;
+							
+							_farHelper.loadItem(chunkConfig.index);
+						}
+					}
+					
 					$assetsList.push(newAsset);
-					_farHelper.loadItem(assetConfig.id);
 				}
 			}
 			else {
 				// standard asset
 				
 				for each(var oldAsset:Asset in $assetsList) {
-					if(itemHelper.index == oldAsset.id) {
-						if(oldAsset.type == AssetType.BITMAP) {
+					for each(var chunk:Chunk in oldAsset.chunksList) {
+						if(chunk.uri == itemHelper.index) {
 							itemHelper.addEventListener(FarHelperAssignEvent.ITEM_READY, _onItemReady, false, 0, true);
-							itemHelper.assignBitmap(oldAsset.bitmap);
+							itemHelper.assignBitmap(chunk.bitmap);
 						}
 					}
 				}
@@ -140,10 +151,14 @@ package org.vancura.vaclav.assets.providers {
 		
 		
 		private function _onItemReady(event:FarHelperAssignEvent):void {
-			_assetLoadCounter++;
+			var itemHelper:FarHelperItem = event.helperItem as FarHelperItem;
+			
+			itemHelper.removeEventListener(FarHelperAssignEvent.ITEM_READY, _onItemReady);
+			
+			_chunkLoadCounter--;
 			
 			// check if all items are loaded
-			if(_assetLoadCounter == $assetsList.length) {
+			if(_chunkLoadCounter == 0) {
 				$isLoaded = true;
 			
 				dispatchEvent(new Event(Event.COMPLETE));

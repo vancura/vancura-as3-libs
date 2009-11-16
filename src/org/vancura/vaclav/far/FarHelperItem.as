@@ -27,6 +27,7 @@ package org.vancura.vaclav.far {
 		private var _assignChildSpriteOutput:Sprite;
 		private var _assignBitmapLoader:Loader;
 		private var _assignBitmapOutput:Bitmap;
+		private var _isLoaded:Boolean;
 
 		
 		
@@ -114,8 +115,15 @@ package org.vancura.vaclav.far {
 		
 		
 		
+		public function get isLoaded():Boolean {
+			return _isLoaded;
+		}
+		
+		
+		
 		private function _itemLoadComplete():void {
 			_removeItemEvents();
+			_isLoaded = true;
 			
 			dispatchEvent(new FarHelperEvent(FarHelperEvent.ITEM_LOAD_COMPLETE, false, false, this));
 			dispatchEvent(new Event(Event.COMPLETE));

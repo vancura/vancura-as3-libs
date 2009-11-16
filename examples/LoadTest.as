@@ -1,4 +1,5 @@
 package {
+	import org.vancura.vaclav.assets.Asset;
 	import org.vancura.vaclav.assets.events.AssetManagerErrorEvent;
 	import org.vancura.vaclav.assets.globals.AssetManager;
 	import org.vancura.vaclav.assets.providers.FARAssetProvider;
@@ -46,10 +47,13 @@ package {
 		private function _onProviderComplete(event:Event):void {
 			SkinManager.debugLevel = DebugLevel.ALWAYS;
 			
-			_buttonTest = new LabelButton(SkinManager.assetToSkin(_assetManager.getAsset('button')), {x:300, y:100}, 'Test', this);
+			var asset:Asset = _assetManager.getAsset('label_button');
+			var skin:* = SkinManager.assetToSkin(asset);
+			
+			_buttonTest = new LabelButton(skin, {x:300, y:100, width:400}, 'Test', this);
 			_buttonTest.addEventListener(ButtonEvent.RELEASE_INSIDE, _onTest, false, 0, true);
 			
-			var anotherSkin:ButtonSkin = SkinManager.assetToSkin(_assetManager.getAsset('button2')) as ButtonSkin;
+			var anotherSkin:ButtonSkin = SkinManager.assetToSkin(_assetManager.getAsset('scale_button')) as ButtonSkin;
 			var anotherButton:StaticButton = new StaticButton(anotherSkin, {x:50, y:200}, this);
 			
 			// --------

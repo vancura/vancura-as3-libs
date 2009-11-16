@@ -29,7 +29,7 @@ package org.vancura.vaclav.widgets.globals {
 		
 		
 		public static function assetToSkin(asset:Asset):* {
-			if(asset.isValid && asset.config.widget != null) {
+			if(asset.config.widget != null) {
 				var skin:*;
 				var isSupported:Boolean = true;
 				var config:Object = asset.config.widget;
@@ -39,7 +39,7 @@ package org.vancura.vaclav.widgets.globals {
 						skin = new BarSkin();
 						
 						with(skin as BarSkin) {
-							getAssetsFromAtlas(asset.bitmap.bitmapData);
+//							getAssetsFromAtlas(asset.bitmap.bitmapData);
 							parseConfig(config);
 						}
 						
@@ -49,7 +49,7 @@ package org.vancura.vaclav.widgets.globals {
 						skin = new ImageSkin();
 						
 						with(skin as ImageSkin) {
-							getAssetsFromAtlas(asset.bitmap.bitmapData);
+//							getAssetsFromAtlas(asset.bitmap.bitmapData);
 							parseConfig(config);
 						}
 						
@@ -59,7 +59,7 @@ package org.vancura.vaclav.widgets.globals {
 						skin = new ButtonSkin();
 						
 						with(skin as ButtonSkin) {
-							getAssetsFromAtlas(asset.bitmap.bitmapData);
+							getAssetsFromAtlas(asset.getChunkByID(config.background.chunk).bitmap.bitmapData);
 							parseConfig(config);
 						}
 						
@@ -78,7 +78,7 @@ package org.vancura.vaclav.widgets.globals {
 						skin = new LabelButtonSkin();
 						
 						with(skin as LabelButtonSkin) {
-							buttonSkin.getAssetsFromAtlas(asset.bitmap.bitmapData);
+							buttonSkin.getAssetsFromAtlas(asset.getChunkByID(config.button.background.chunk).bitmap.bitmapData);
 							parseConfig(config);
 						}
 						
@@ -88,8 +88,8 @@ package org.vancura.vaclav.widgets.globals {
 						skin = new CheckButtonSkin();
 						
 						with(skin as CheckButtonSkin) {
-							buttonOffSkin.getAssetsFromAtlas(asset.bitmap.bitmapData);
-							buttonOnSkin.getAssetsFromAtlas(asset.bitmap.bitmapData);
+//							buttonOffSkin.getAssetsFromAtlas(asset.bitmap.bitmapData);
+//							buttonOnSkin.getAssetsFromAtlas(asset.bitmap.bitmapData);
 							parseConfig(config);
 						}
 						
@@ -99,7 +99,7 @@ package org.vancura.vaclav.widgets.globals {
 						skin = new InputBarSkin();
 						
 						with(skin as InputBarSkin) {
-							barSkin.getAssetsFromAtlas(asset.bitmap.bitmapData);
+//							barSkin.getAssetsFromAtlas(asset.bitmap.bitmapData);
 							parseConfig(config);
 						}
 						

@@ -59,7 +59,7 @@ package org.vancura.vaclav.assets.globals {
 				var list:String = '';
 				
 				for each(var i:Asset in assetsList) {
-					list += printf('%s (%s), ', i.id, i.type);
+					list += printf('%s, ', i.id);
 				}
 				list = list.substr(0, list.length - 2);
 				

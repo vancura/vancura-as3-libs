@@ -68,7 +68,7 @@ package org.vancura.vaclav.far {
 		
 		public function loadItem(index:String):void {
 			for each(var i:FarHelperItem in _itemList) {
-				if(i.index == index) {
+				if(i.index == index && i.isLoaded) {
 					i.getData(index);
 					
 					return;
