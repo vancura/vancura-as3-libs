@@ -33,14 +33,13 @@ package org.vancura.vaclav.widgets.widgets {
 				config = new Object();
 			}
 			
-			var sm:SkinManager = SkinManager.getInstance();
-			var dl:String = (debugLevel != null) ? debugLevel : sm.debugLevel;
+			var dl:String = (debugLevel != null) ? debugLevel : SkinManager.debugLevel;
 			
 			$buttonOff = new StaticButton(skin.buttonOffSkin, {}, this, dl);
 			$buttonOn = new StaticButton(skin.buttonOnSkin, {visible:false}, this, dl);
 			
-			$buttonOff.debugColor = sm.debugColor;
-			$buttonOn.debugColor = sm.debugColor;
+			$buttonOff.debugColor = SkinManager.debugColor;
+			$buttonOn.debugColor = SkinManager.debugColor;
 			
 			this.buttonMode = true;
 			this.useHandCursor = true;

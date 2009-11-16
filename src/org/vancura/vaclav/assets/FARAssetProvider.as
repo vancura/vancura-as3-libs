@@ -111,7 +111,7 @@ package org.vancura.vaclav.assets {
 				for each(var assetConfig:XML in config.asset) {
 					var asset1:Asset = new Asset(assetConfig.@type, assetConfig.@id);
 					
-					asset1.config = assetConfig;
+					asset1.xml = assetConfig;
 					
 					$assetsList.push(asset1);
 					
@@ -123,7 +123,7 @@ package org.vancura.vaclav.assets {
 				
 				for each(var asset2:Asset in $assetsList) {
 					if(itemHelper.index == asset2.id) {
-						asset2.data = itemHelper.farItem.data;
+						asset2.byteArray = itemHelper.farItem.data;
 						_assetLoadCounter++;
 					}
 				}

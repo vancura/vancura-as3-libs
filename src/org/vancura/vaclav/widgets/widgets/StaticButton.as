@@ -31,8 +31,7 @@ package org.vancura.vaclav.widgets.widgets {
 											
 			if(config == null) config = new Object();
 			
-			var sm:SkinManager = SkinManager.getInstance();
-			super(skin, config, parent, (debugLevel != null) ? debugLevel : sm.debugLevel);
+			super(skin, config, parent, (debugLevel != null) ? debugLevel : SkinManager.debugLevel);
 		}
 
 		

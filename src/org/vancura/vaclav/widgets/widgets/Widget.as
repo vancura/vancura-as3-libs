@@ -50,8 +50,7 @@ package org.vancura.vaclav.widgets.widgets {
 				$config = config;
 			}
 			
-			var sm:SkinManager = SkinManager.getInstance();
-			$debugColor = sm.debugColor;
+			$debugColor = SkinManager.debugColor;
 
 			super(config);
 			

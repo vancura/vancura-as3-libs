@@ -36,18 +36,17 @@ package {
 		
 		
 		public function FARTest() {
-			_skinManager = SkinManager.getInstance();
-			_skinManager.debugLevel = DebugLevel.HOVER;
-			_skinManager.debugColor = 0x123456;
+			SkinManager.debugLevel = DebugLevel.HOVER;
+			SkinManager.debugColor = 0x123456;
 			
 			var skinProvider:SWFLibraryProvider;
 			
 			try {
 				skinProvider = new SWFLibraryProvider('test-skin.swf', null, null, true);
-				skinProvider.addEventListener(Event.COMPLETE, _onSkinComplete, false, 0, true);
-				skinProvider.addEventListener(ErrorEvent.ERROR, _onSkinError, false, 0, true);
+//				skinProvider.addEventListener(Event.COMPLETE, _onSkinComplete, false, 0, true);
+//				skinProvider.addEventListener(ErrorEvent.ERROR, _onSkinError, false, 0, true);
 				
-				_skinManager.attach(skinProvider);
+//				_skinManager.attach(skinProvider);
 			}
 			catch(err:Error) {
 				trace(printf('Skin could not be attached (%s)', err.message));
@@ -76,14 +75,14 @@ package {
 		
 		private function _onSkinComplete(event:Event):void {
 			trace('Skin loaded');
-			trace(_skinManager.toString());
+//			trace(_skinManager.toString());
 			
 			// --------
-			var skin:LabelButtonSkin = _skinManager.getSkin('label_button');
+//			var skin:LabelButtonSkin = _skinManager.getSkin('label_button');
 			
-			_buttonTest = new LabelButton(skin, {x:10, y:100, width:200}, 'Lorem ipsum', this);
+//			_buttonTest = new LabelButton(skin, {x:10, y:100, width:200}, 'Lorem ipsum', this);
 			
-			_buttonTest.addEventListener(ButtonEvent.RELEASE_INSIDE, _onTest);
+//			_buttonTest.addEventListener(ButtonEvent.RELEASE_INSIDE, _onTest);
 			
 			// --------
 			var stats:Stats = new Stats();
@@ -93,7 +92,7 @@ package {
 		
 		
 		private function _onTest(event:ButtonEvent):void {
-			_skin = _skinManager.getSkin('label_button');
+//			_skin = _skinManager.getSkin('label_button');
 			_stressRemove = -50;
 			
 			_buttonTest.morph({width:400, morphDuration:2});

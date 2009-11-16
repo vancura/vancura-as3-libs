@@ -30,8 +30,7 @@ package org.vancura.vaclav.widgets.widgets {
 			}
 			
 			if(skin != null) {
-				var sm:SkinManager = SkinManager.getInstance();
-				super(config, parent, (debugLevel != null) ? debugLevel : sm.debugLevel);
+				super(config, parent, (debugLevel != null) ? debugLevel : SkinManager.debugLevel);
 			}
 			else {
 				throw new Error('No skin defined');

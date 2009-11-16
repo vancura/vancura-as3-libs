@@ -1,6 +1,7 @@
 package org.vancura.vaclav.assets {
 	import br.com.stimuli.string.printf;
 
+	import flash.display.BitmapData;
 	import flash.utils.ByteArray;
 
 	
@@ -41,26 +42,38 @@ package org.vancura.vaclav.assets {
 		
 		
 		
-		public function set data(value:ByteArray):void {
+		public function set byteArray(value:ByteArray):void {
 			_data = value;
 		}
 		
 		
 		
-		public function get data():ByteArray {
+		public function get byteArray():ByteArray {
 			return _data;
 		}
 		
 		
 		
-		public function set config(value:XML):void {
+		public function set xml(value:XML):void {
 			_config = value;
 		}
 		
 		
 		
-		public function get config():XML {
+		public function get xml():XML {
 			return _config;
+		}
+		
+		
+		
+		public function get bitmapData():BitmapData {
+			return null;
+		}
+		
+		
+		
+		public function get isValid():Boolean {
+			return _type != '' && _type != null && _id != '' && _id != null;
 		}
 	}
 }

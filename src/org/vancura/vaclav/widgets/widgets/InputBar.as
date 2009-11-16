@@ -33,14 +33,13 @@ package org.vancura.vaclav.widgets.widgets {
 				config = new Object();
 			}
 			
-			var sm:SkinManager = SkinManager.getInstance();
-			var dl:String = (debugLevel != null) ? debugLevel : sm.debugLevel;
+			var dl:String = (debugLevel != null) ? debugLevel : SkinManager.debugLevel;
 			
 			$bar = new Bar(skin.barSkin, {}, this, dl);
 			$label = new Label(skin.labelSkin, {}, '', this, dl);
 			
-			$bar.debugColor = sm.debugColor;
-			$label.debugColor = sm.debugColor;
+			$bar.debugColor = SkinManager.debugColor;
+			$label.debugColor = SkinManager.debugColor;
 			$label.isInput = true;
 			
 			this.isMorphHeightEnabled = true;

@@ -1,9 +1,9 @@
 package org.vancura.vaclav.widgets.widgets {
 	import org.vancura.vaclav.core.addChildren;
 	import org.vancura.vaclav.core.removeChildren;
+	import org.vancura.vaclav.widgets.globals.SkinManager;
 	import org.vancura.vaclav.widgets.interfaces.IImage;
 	import org.vancura.vaclav.widgets.interfaces.IImageSkin;
-	import org.vancura.vaclav.widgets.globals.SkinManager;
 
 	import flash.display.Bitmap;
 	import flash.display.DisplayObjectContainer;
@@ -29,8 +29,7 @@ package org.vancura.vaclav.widgets.widgets {
 			}
 			
 			if(skin != null) {
-				var sm:SkinManager = SkinManager.getInstance();
-				super(config, parent, (debugLevel != null) ? debugLevel : sm.debugLevel);
+				super(config, parent, (debugLevel != null) ? debugLevel : SkinManager.debugLevel);
 			}
 			else {
 				throw new Error('No skin defined');

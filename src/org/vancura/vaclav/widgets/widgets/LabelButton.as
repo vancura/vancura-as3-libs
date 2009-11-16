@@ -34,13 +34,12 @@ package org.vancura.vaclav.widgets.widgets {
 				config = new Object();
 			}
 			
-			var sm:SkinManager = SkinManager.getInstance();
-			var dl:String = (debugLevel != null) ? debugLevel : sm.debugLevel;
+			var dl:String = (debugLevel != null) ? debugLevel : SkinManager.debugLevel;
 			
 			$button = new ScaleButton(skin.buttonSkin, {}, this, dl);
 			$label = new Label(skin.labelSkin, {mouseEnabled:false, mouseChildren:false}, '', this, dl);
-			$button.debugColor = sm.debugColor;
-			$label.debugColor = sm.debugColor;
+			$button.debugColor = SkinManager.debugColor;
+			$label.debugColor = SkinManager.debugColor;
 			
 			this.skin = skin;
 			this.text = text;

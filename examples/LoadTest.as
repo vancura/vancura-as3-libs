@@ -3,7 +3,10 @@ package {
 	import org.vancura.vaclav.assets.AssetManager;
 	import org.vancura.vaclav.assets.AssetManagerErrorEvent;
 	import org.vancura.vaclav.assets.FARAssetProvider;
+	import org.vancura.vaclav.core.Stats;
 	import org.vancura.vaclav.widgets.globals.SkinManager;
+	import org.vancura.vaclav.widgets.skin.ButtonSkin;
+	import org.vancura.vaclav.widgets.widgets.ScaleButton;
 
 	import flash.display.MovieClip;
 	import flash.events.Event;
@@ -17,13 +20,12 @@ package {
 		
 		
 		private var _assetManager:AssetManager;
-		private var _skinManager:SkinManager;
+		private var _buttonTest:ScaleButton;
 
 		
 		
 		public function LoadTest() {
 			_assetManager = AssetManager.getInstance();
-			_skinManager = SkinManager.getInstance();
 			
 			_assetManager.addEventListener(Event.COMPLETE, _onProviderComplete, false, 0, true);
 			_assetManager.addEventListener(AssetManagerErrorEvent.PROVIDER_ERROR, _onProviderError, false, 0, true);
@@ -48,6 +50,17 @@ package {
 			
 //			trace(asset);
 //			trace(asset.config.widget.@atlas_uri);
+
+
+
+			var skin:ButtonSkin = SkinManager.assetToSkin(asset);
+			
+			_buttonTest = new ScaleButton(skin, {x:10, y:100, width:200}, this);
+			
+			// --------
+			
+			var stats:Stats = new Stats();
+			addChild(stats);
 		}
 	}
 }

@@ -1,16 +1,14 @@
 package org.vancura.vaclav.assets {
-	import org.vancura.vaclav.widgets.globals.Provider;
 	import br.com.stimuli.string.printf;
 
 	import org.vancura.vaclav.widgets.interfaces.ISkinnable;
 
 	import flash.display.LoaderInfo;
 	import flash.display.MovieClip;
-	import flash.events.Event;
 
 	
 	
-	public class MovieClipLibraryProvider extends Provider {
+	public class MovieClipLibraryProvider extends AssetProvider {
 
 		
 		
@@ -32,7 +30,7 @@ package org.vancura.vaclav.assets {
 		 */
 		public function MovieClipLibraryProvider(mc:MovieClip, themeElements:Array = null, themeConfig:Array = null, isVerbose:Boolean = false):void {
 			// initialize super
-			super(themeElements, themeConfig, isVerbose);
+//			super(themeElements, themeConfig, isVerbose);
 			
 			// initial setting
 			_skinMC = mc;
@@ -56,57 +54,57 @@ package org.vancura.vaclav.assets {
 			}
 			
 			// get skins from the $skinConfig
-			$getSkins(skinConfig);
+//			$getSkins(skinConfig);
 			
 			// send COMPLETE event
-			dispatchEvent(new Event(Event.COMPLETE, true));
+//			dispatchEvent(new Event(Event.COMPLETE, true));
 		}
 
 		
 		
-		override protected function $getAsset(name:String):MovieClip {
-			try {
-				return new(_loaderInfo.applicationDomain.getDefinition(name) as Class) as MovieClip;
-			}
-			catch(err:ReferenceError) {
-			}
-			
-			return null;
-		}
+//		override protected function $getAsset(name:String):MovieClip {
+//			try {
+//				return new(_loaderInfo.applicationDomain.getDefinition(name) as Class) as MovieClip;
+//			}
+//			catch(err:ReferenceError) {
+//			}
+//			
+//			return null;
+//		}
 		
 		
 		
-		override protected function $applyAsset(skin:ISkinnable, cls:Class, i:Object):Boolean {
-			var asset:MovieClip = $getAsset(i.symbol);
-			
-			if(i.symbol != undefined) {
-				try {
-					with(skin as cls) {
-						if(asset != null) {
-							getAssetsFromMovieClip(asset, $themeElements);
-							parseConfig($mergeConfig(i));
-							return true;
-						}
-						else {
-							if(_isVerbose) {
-								trace(printf('MovieClipLibraryProvider: "%s" skin requires symbol "%s", but it was not found in the library', i.id, i.symbol));
-							}
-							return false;
-						}
-					}
-				}
-				catch(err:Error) {
-					throw new Error(printf('Could not apply asset (%s)', err.message));
-				}
-			}
-			else {
-				if($isVerbose) {
-					trace(printf('MovieClipLibraryProvider: "%s" skin requires symbol field', i.id));
-				}
-				return false;
-			}
-			
-			return false;
-		}
+//		override protected function $applyAsset(skin:ISkinnable, cls:Class, i:Object):Boolean {
+//			var asset:MovieClip = $getAsset(i.symbol);
+//			
+//			if(i.symbol != undefined) {
+//				try {
+//					with(skin as cls) {
+//						if(asset != null) {
+//							getAssetsFromMovieClip(asset, $themeElements);
+//							parseConfig($mergeConfig(i));
+//							return true;
+//						}
+//						else {
+//							if(_isVerbose) {
+//								trace(printf('MovieClipLibraryProvider: "%s" skin requires symbol "%s", but it was not found in the library', i.id, i.symbol));
+//							}
+//							return false;
+//						}
+//					}
+//				}
+//				catch(err:Error) {
+//					throw new Error(printf('Could not apply asset (%s)', err.message));
+//				}
+//			}
+//			else {
+//				if($isVerbose) {
+//					trace(printf('MovieClipLibraryProvider: "%s" skin requires symbol field', i.id));
+//				}
+//				return false;
+//			}
+//			
+//			return false;
+//		}
 	}
 }
