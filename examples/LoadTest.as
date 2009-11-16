@@ -1,12 +1,11 @@
 package {
-	import org.vancura.vaclav.assets.Asset;
 	import org.vancura.vaclav.assets.AssetManager;
 	import org.vancura.vaclav.assets.AssetManagerErrorEvent;
 	import org.vancura.vaclav.assets.FARAssetProvider;
 	import org.vancura.vaclav.core.Stats;
+	import org.vancura.vaclav.widgets.constants.DebugLevel;
 	import org.vancura.vaclav.widgets.globals.SkinManager;
-	import org.vancura.vaclav.widgets.skin.ButtonSkin;
-	import org.vancura.vaclav.widgets.widgets.ScaleButton;
+	import org.vancura.vaclav.widgets.widgets.LabelButton;
 
 	import flash.display.MovieClip;
 	import flash.events.Event;
@@ -20,7 +19,7 @@ package {
 		
 		
 		private var _assetManager:AssetManager;
-		private var _buttonTest:ScaleButton;
+		private var _buttonTest:LabelButton;
 
 		
 		
@@ -42,20 +41,10 @@ package {
 		
 		
 		private function _onProviderComplete(event:Event):void {
-			trace('PROVIDER COMPLETE');
+			SkinManager.debugColor = 0xFF0000;
+			SkinManager.debugLevel = DebugLevel.HOVER;
 			
-			var asset:Asset = _assetManager.getAsset('button');
-			
-//			_skinManager.
-			
-//			trace(asset);
-//			trace(asset.config.widget.@atlas_uri);
-
-
-
-			var skin:ButtonSkin = SkinManager.assetToSkin(asset);
-			
-			_buttonTest = new ScaleButton(skin, {x:10, y:100, width:200}, this);
+			_buttonTest = new LabelButton(SkinManager.assetToSkin(_assetManager.getAsset('button')), {x:300, y:100, width:300}, 'Test', this, DebugLevel.NONE);
 			
 			// --------
 			

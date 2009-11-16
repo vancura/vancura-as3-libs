@@ -112,20 +112,20 @@ package org.vancura.vaclav.assets {
 				var config:Array = JSON.decode(itemHelper.farItem.data.toString());
 				
 				for each(var assetConfig:Object in config) {
-					var asset1:Asset = new Asset(assetConfig.type, assetConfig.id);
-					asset1.config = assetConfig;
-					$assetsList.push(asset1);
+					var newAsset:Asset = new Asset(assetConfig.type, assetConfig.id);
+					newAsset.config = assetConfig;
+					$assetsList.push(newAsset);
 					_farHelper.loadItem(assetConfig.id);
 				}
 			}
 			else {
 				// standard asset
 				
-				for each(var asset2:Asset in $assetsList) {
-					if(itemHelper.index == asset2.id) {
-						if(asset2.type == Asset.BITMAP) {
+				for each(var oldAsset:Asset in $assetsList) {
+					if(itemHelper.index == oldAsset.id) {
+						if(oldAsset.type == Asset.BITMAP) {
 							itemHelper.addEventListener(FarHelperAssignEvent.ITEM_READY, _onItemReady, false, 0, true);
-							itemHelper.assignBitmap(asset2.bitmap);
+							itemHelper.assignBitmap(oldAsset.bitmap);
 						}
 					}
 				}

@@ -1,20 +1,26 @@
+// TODO: Caching
+// TODO: Mergin with settings from FlashVar
+// TODO: Theming
+// TODO: Better error handling
+
+
+
 package org.vancura.vaclav.widgets.globals {
 	import org.vancura.vaclav.assets.Asset;
 	import org.vancura.vaclav.widgets.constants.DebugLevel;
 	import org.vancura.vaclav.widgets.skin.BarSkin;
 	import org.vancura.vaclav.widgets.skin.ButtonSkin;
+	import org.vancura.vaclav.widgets.skin.CheckButtonSkin;
+	import org.vancura.vaclav.widgets.skin.ImageSkin;
+	import org.vancura.vaclav.widgets.skin.InputBarSkin;
+	import org.vancura.vaclav.widgets.skin.LabelButtonSkin;
+	import org.vancura.vaclav.widgets.skin.LabelSkin;
 	import org.vancura.vaclav.widgets.skin.Skin;
 
 	
 	
 	public class SkinManager {
 		
-		
-		
-		// TODO: Caching
-		// TODO: Mergin with settings from FlashVar
-		// TODO: Theming
-
 		
 		
 		private static var _debugLevel:String = DebugLevel.NONE;
@@ -39,11 +45,15 @@ package org.vancura.vaclav.widgets.globals {
 						
 						break;
 						
-//					case Skin.TYPE_IMAGE:
-//						skin = new ImageSkin(i.id);
-//						$applyAsset(skin, ImageSkin, i);
-//						(skin as ImageSkin).parseConfig($mergeConfig(i));
-//						break;
+					case Skin.TYPE_IMAGE:
+						skin = new ImageSkin();
+						
+						with(skin as ImageSkin) {
+							getAssetsFromAtlas(asset.bitmap.bitmapData);
+							parseConfig(config);
+						}
+						
+						break;
 						
 					case Skin.TYPE_BUTTON:
 						skin = new ButtonSkin();
@@ -55,29 +65,45 @@ package org.vancura.vaclav.widgets.globals {
 						
 						break;
 						
-//					case Skin.TYPE_LABEL:
-//						skin = new LabelSkin(i.id);
-//						(skin as LabelSkin).parseConfig($mergeConfig(i));
-//						break;
-//						
-//					case Skin.TYPE_LABEL_BUTTON:
-//						skin = new LabelButtonSkin(i.id);
-//						$applyAsset((skin as LabelButtonSkin).buttonSkin, ButtonSkin, i.button);
-//						(skin as LabelButtonSkin).parseConfig($mergeConfig(i));
-//						break;
-//						
-//					case Skin.TYPE_CHECK_BUTTON:
-//						skin = new CheckButtonSkin(i.id);
-//						$applyAsset((skin as CheckButtonSkin).buttonOffSkin, ButtonSkin, i.buttonOff);
-//						$applyAsset((skin as CheckButtonSkin).buttonOnSkin, ButtonSkin, i.buttonOn);
-//						(skin as CheckButtonSkin).parseConfig($mergeConfig(i));
-//						break;
-//						
-//					case Skin.TYPE_INPUT_BAR:
-//						skin = new InputBarSkin(i.id);
-//						$applyAsset((skin as InputBarSkin).barSkin, BarSkin, i.bar);
-//						(skin as InputBarSkin).parseConfig($mergeConfig(i));
-//						break;
+					case Skin.TYPE_LABEL:
+						skin = new LabelSkin();
+						
+						with(skin as LabelSkin) {
+							parseConfig(config);
+						}
+						
+						break;
+						
+					case Skin.TYPE_LABEL_BUTTON:
+						skin = new LabelButtonSkin();
+						
+						with(skin as LabelButtonSkin) {
+							buttonSkin.getAssetsFromAtlas(asset.bitmap.bitmapData);
+							parseConfig(config);
+						}
+						
+						break;
+						
+					case Skin.TYPE_CHECK_BUTTON:
+						skin = new CheckButtonSkin();
+						
+						with(skin as CheckButtonSkin) {
+							buttonOffSkin.getAssetsFromAtlas(asset.bitmap.bitmapData);
+							buttonOnSkin.getAssetsFromAtlas(asset.bitmap.bitmapData);
+							parseConfig(config);
+						}
+						
+						break;
+						
+					case Skin.TYPE_INPUT_BAR:
+						skin = new InputBarSkin();
+						
+						with(skin as InputBarSkin) {
+							barSkin.getAssetsFromAtlas(asset.bitmap.bitmapData);
+							parseConfig(config);
+						}
+						
+						break;
 						
 					default:
 						isSupported = false;
@@ -87,9 +113,8 @@ package org.vancura.vaclav.widgets.globals {
 			if(isSupported) {
 				return skin;
 			}
-			else {
-				return null;
-			}
+			
+			return null;
 		}
 
 		

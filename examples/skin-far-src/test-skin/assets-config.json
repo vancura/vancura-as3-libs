@@ -3,8 +3,11 @@
 		"id":"button",
 		"type":"bitmap",
 		"widget":{
-			"type":"button",
-			"atlasURI":"button"
+			"type":"label_button",
+			"atlasURI":"button",
+			"label":{
+				"size":20
+			}
 		}
 	}
 ]

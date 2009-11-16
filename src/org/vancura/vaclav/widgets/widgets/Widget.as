@@ -1,3 +1,7 @@
+// TODO: Width & height not applied in the constructor
+
+
+
 package org.vancura.vaclav.widgets.widgets {
 	import org.vancura.vaclav.core.GraphicsUtil;
 	import org.vancura.vaclav.core.MorphSprite;
