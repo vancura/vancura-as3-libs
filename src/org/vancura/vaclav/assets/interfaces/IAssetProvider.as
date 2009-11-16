@@ -1,5 +1,6 @@
-package {
+package org.vancura.vaclav.assets.interfaces {
 	import org.vancura.vaclav.assets.Asset;
+
 	import flash.events.IEventDispatcher;
 
 	

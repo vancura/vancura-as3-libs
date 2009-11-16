@@ -1,5 +1,13 @@
+// TODO: Add MovieClipLibrary provider
+// TODO: Add SWFLibrary provider
+// TODO: Add folder provider
+
+
+
 package org.vancura.vaclav.assets.providers {
 	import org.vancura.vaclav.assets.Asset;
+	import org.vancura.vaclav.assets.interfaces.IAssetProvider;
+
 	import flash.events.EventDispatcher;
 
 	

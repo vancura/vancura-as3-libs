@@ -1,5 +1,6 @@
 package org.vancura.vaclav.assets.events {
 	import org.vancura.vaclav.assets.Asset;
+
 	import flash.events.Event;
 
 	

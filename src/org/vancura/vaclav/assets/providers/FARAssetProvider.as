@@ -7,6 +7,7 @@ package org.vancura.vaclav.assets.providers {
 	import org.vancura.vaclav.assets.constants.AssetType;
 	import org.vancura.vaclav.assets.events.AssetManagerErrorEvent;
 	import org.vancura.vaclav.assets.events.AssetManagerItemEvent;
+	import org.vancura.vaclav.assets.interfaces.IAssetProvider;
 	import org.vancura.vaclav.far.FarHelper;
 	import org.vancura.vaclav.far.FarHelperItem;
 	import org.vancura.vaclav.far.events.FarHelperAssignEvent;

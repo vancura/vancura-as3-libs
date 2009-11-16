@@ -1,8 +1,4 @@
 package org.vancura.vaclav.assets.providers {
-	import br.com.stimuli.string.printf;
-
-	import org.vancura.vaclav.widgets.interfaces.ISkinnable;
-
 	import flash.display.Loader;
 	import flash.display.LoaderInfo;
 	import flash.display.MovieClip;

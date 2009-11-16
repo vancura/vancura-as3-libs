@@ -1,7 +1,9 @@
 package org.vancura.vaclav.assets.globals {
-	import org.vancura.vaclav.assets.events.AssetManagerErrorEvent;
-	import org.vancura.vaclav.assets.Asset;
 	import br.com.stimuli.string.printf;
+
+	import org.vancura.vaclav.assets.Asset;
+	import org.vancura.vaclav.assets.events.AssetManagerErrorEvent;
+	import org.vancura.vaclav.assets.interfaces.IAssetProvider;
 
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
