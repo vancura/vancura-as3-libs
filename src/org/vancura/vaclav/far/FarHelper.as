@@ -9,7 +9,6 @@ package org.vancura.vaclav.far {
 	import flash.events.EventDispatcher;
 	import flash.events.IOErrorEvent;
 	import flash.events.SecurityErrorEvent;
-	import flash.net.URLRequest;
 
 	
 	
@@ -31,8 +30,10 @@ package org.vancura.vaclav.far {
 			_stream.addEventListener(IOErrorEvent.IO_ERROR, _onFarIOError, false, 0, true);
 			_stream.addEventListener(SecurityErrorEvent.SECURITY_ERROR, _onFarSecurityError, false, 0, true);
 			_stream.addEventListener(Event.COMPLETE, _onFarDownloadDone, false, 0, true);
+			
+			// TODO: Unhandled IOError when 404
 		}
-
+		
 		
 		
 		public function destroy():void {
@@ -59,7 +60,7 @@ package org.vancura.vaclav.far {
 			if(!_isLoading && !_isLoaded) {
 				_url = url;
 				_isLoading = true;
-				_stream.load(new URLRequest(_url));
+				_stream.loadFromURL(_url);
 			}
 		}
 
@@ -128,6 +129,7 @@ package org.vancura.vaclav.far {
 			_isLoaded = false;
 			
 			dispatchEvent(new FarHelperEvent(FarHelperEvent.STREAM_SECURITY_ERROR, false, false, null, event.text));
+			dispatchEvent(event.clone());
 		}
 
 		
@@ -137,6 +139,7 @@ package org.vancura.vaclav.far {
 			_isLoaded = false;
 			
 			dispatchEvent(new FarHelperEvent(FarHelperEvent.STREAM_IO_ERROR, false, false, null, event.text));
+			dispatchEvent(event.clone());
 		}
 
 		

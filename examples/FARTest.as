@@ -22,7 +22,7 @@ package {
 
 	
 	
-	public class FarTest extends MovieClip {
+	public class FARTest extends MovieClip {
 
 		
 		
@@ -35,7 +35,7 @@ package {
 
 		
 		
-		public function FarTest() {
+		public function FARTest() {
 			_skinManager = SkinManager.getInstance();
 			_skinManager.debugLevel = DebugLevel.HOVER;
 			_skinManager.debugColor = 0x123456;

@@ -118,6 +118,7 @@ package org.vancura.vaclav.far {
 			_removeItemEvents();
 			
 			dispatchEvent(new FarHelperEvent(FarHelperEvent.ITEM_LOAD_COMPLETE, false, false, this));
+			dispatchEvent(new Event(Event.COMPLETE));
 		}
 
 		
@@ -126,6 +127,7 @@ package org.vancura.vaclav.far {
 			_removeItemEvents();
 			
 			dispatchEvent(new FarHelperEvent(FarHelperEvent.ITEM_LOAD_FAILED, false, false, this, event.text));
+			dispatchEvent(event.clone());
 		}
 
 		
@@ -134,6 +136,7 @@ package org.vancura.vaclav.far {
 			var p:Number = 1 / (event.bytesTotal / event.bytesLoaded);
 			
 			dispatchEvent(new FarHelperProgressEvent(FarHelperProgressEvent.ITEM_LOAD_PROGRESS, false, false, this, p));
+			dispatchEvent(event.clone());
 		}
 
 		
