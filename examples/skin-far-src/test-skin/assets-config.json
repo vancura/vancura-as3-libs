@@ -1,0 +1,10 @@
+[
+	{
+		"id":"button",
+		"type":"bitmap",
+		"widget":{
+			"type":"button",
+			"atlasURI":"button"
+		}
+	}
+]

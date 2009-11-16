@@ -1,8 +1,11 @@
 package org.vancura.vaclav.assets {
 	import br.com.stimuli.string.printf;
 
+	import com.adobe.serialization.json.JSON;
+
 	import org.vancura.vaclav.far.FarHelper;
 	import org.vancura.vaclav.far.FarHelperItem;
+	import org.vancura.vaclav.far.events.FarHelperAssignEvent;
 	import org.vancura.vaclav.far.events.FarHelperEvent;
 
 	import flash.events.Event;
@@ -106,16 +109,13 @@ package org.vancura.vaclav.assets {
 			if(itemHelper.index == _ASSETS_CONFIG_INDEX) {
 				// assets library config found
 				
-				var config:XML = new XML(itemHelper.farItem.data);
+				var config:Array = JSON.decode(itemHelper.farItem.data.toString());
 				
-				for each(var assetConfig:XML in config.asset) {
-					var asset1:Asset = new Asset(assetConfig.@type, assetConfig.@id);
-					
-					asset1.xml = assetConfig;
-					
+				for each(var assetConfig:Object in config) {
+					var asset1:Asset = new Asset(assetConfig.type, assetConfig.id);
+					asset1.config = assetConfig;
 					$assetsList.push(asset1);
-					
-					_farHelper.loadItem(assetConfig.@id);
+					_farHelper.loadItem(assetConfig.id);
 				}
 			}
 			else {
@@ -123,11 +123,19 @@ package org.vancura.vaclav.assets {
 				
 				for each(var asset2:Asset in $assetsList) {
 					if(itemHelper.index == asset2.id) {
-						asset2.byteArray = itemHelper.farItem.data;
-						_assetLoadCounter++;
+						if(asset2.type == Asset.BITMAP) {
+							itemHelper.addEventListener(FarHelperAssignEvent.ITEM_READY, _onItemReady, false, 0, true);
+							itemHelper.assignBitmap(asset2.bitmap);
+						}
 					}
 				}
 			}
+		}
+		
+		
+		
+		private function _onItemReady(event:FarHelperAssignEvent):void {
+			_assetLoadCounter++;
 			
 			// check if all items are loaded
 			if(_assetLoadCounter == $assetsList.length) {

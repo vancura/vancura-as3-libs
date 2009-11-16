@@ -1,8 +1,7 @@
 package org.vancura.vaclav.assets {
 	import br.com.stimuli.string.printf;
 
-	import flash.display.BitmapData;
-	import flash.utils.ByteArray;
+	import flash.display.Bitmap;
 
 	
 	
@@ -10,16 +9,30 @@ package org.vancura.vaclav.assets {
 		
 		
 		
+		public static const BITMAP:String = 'bitmap';
+		
+		
+		
 		private var _type:String;
 		private var _id:String;
-		private var _data:ByteArray;
-		private var _config:XML;
+		private var _config:Object;
+		private var _bitmap:Bitmap;
 
 		
 		
 		public function Asset(type:String, id:String) {
+			// TODO: Other than bitmap types
+			
+			if(type != BITMAP) {
+				throw new TypeError('Invalid asset type');
+			}
+			
 			_type = type;
 			_id = id;
+			
+			if(_type == BITMAP) {
+				_bitmap = new Bitmap();
+			}
 		}
 		
 		
@@ -42,32 +55,34 @@ package org.vancura.vaclav.assets {
 		
 		
 		
-		public function set byteArray(value:ByteArray):void {
-			_data = value;
-		}
-		
-		
-		
-		public function get byteArray():ByteArray {
-			return _data;
-		}
-		
-		
-		
-		public function set xml(value:XML):void {
+		public function set config(value:Object):void {
 			_config = value;
 		}
 		
 		
 		
-		public function get xml():XML {
+		public function get config():Object {
 			return _config;
 		}
 		
 		
 		
-		public function get bitmapData():BitmapData {
-			return null;
+		public function set bitmap(value:Bitmap):void {
+			if(type != BITMAP) {
+				throw new TypeError('Invalid asset type');
+			}
+			
+			_bitmap = value;
+		}
+		
+		
+		
+		public function get bitmap():Bitmap {
+			if(type != BITMAP) {
+				throw new TypeError('Invalid asset type');
+			}
+			
+			return _bitmap;
 		}
 		
 		

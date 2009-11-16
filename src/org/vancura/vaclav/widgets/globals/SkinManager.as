@@ -1,7 +1,6 @@
 package org.vancura.vaclav.widgets.globals {
 	import org.vancura.vaclav.assets.Asset;
 	import org.vancura.vaclav.widgets.constants.DebugLevel;
-	import org.vancura.vaclav.widgets.interfaces.ISkinnable;
 	import org.vancura.vaclav.widgets.skin.BarSkin;
 	import org.vancura.vaclav.widgets.skin.ButtonSkin;
 	import org.vancura.vaclav.widgets.skin.Skin;
@@ -24,18 +23,18 @@ package org.vancura.vaclav.widgets.globals {
 		
 		
 		public static function assetToSkin(asset:Asset):* {
-			if(asset.isValid && asset.xml.widget != null) {
-				var skin:ISkinnable;
+			if(asset.isValid && asset.config.widget != null) {
+				var skin:*;
 				var isSupported:Boolean = true;
-				var config:XML = asset.xml.widget[0];
+				var config:Object = asset.config.widget;
 				
-				switch(config.@type) {
+				switch(config.type) {
 					case Skin.TYPE_BAR:
 						skin = new BarSkin();
 						
 						with(skin as BarSkin) {
-							getAssetsFromAtlas(asset.bitmapData);
-							parseConfig(_xmlToConfig(config));
+							getAssetsFromAtlas(asset.bitmap.bitmapData);
+							parseConfig(config);
 						}
 						
 						break;
@@ -50,8 +49,8 @@ package org.vancura.vaclav.widgets.globals {
 						skin = new ButtonSkin();
 						
 						with(skin as ButtonSkin) {
-							getAssetsFromAtlas(asset.bitmapData);
-							parseConfig(_xmlToConfig(config));
+							getAssetsFromAtlas(asset.bitmap.bitmapData);
+							parseConfig(config);
 						}
 						
 						break;
@@ -84,6 +83,13 @@ package org.vancura.vaclav.widgets.globals {
 						isSupported = false;
 				}
 			}
+			
+			if(isSupported) {
+				return skin;
+			}
+			else {
+				return null;
+			}
 		}
 
 		
@@ -108,12 +114,6 @@ package org.vancura.vaclav.widgets.globals {
 		
 		public static function set debugColor(debugColor:uint):void {
 			_debugColor = debugColor;
-		}
-		
-		
-		
-		private function _xmlToConfig(config:XML):Object {
-			return null;
 		}
 	}
 }
