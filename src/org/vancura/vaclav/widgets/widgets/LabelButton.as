@@ -48,6 +48,14 @@ package org.vancura.vaclav.widgets.widgets {
 			this.focusRect = false;
 			this.tabEnabled = false;
 			
+			if(config.width == undefined) {
+				config.width = skin.buttonSkin.assetWidth;
+			}
+			
+			if(config.height == undefined) {
+				config.height = skin.buttonSkin.assetHeight;
+			}
+			
 			if(skin != null) {
 				super(config, parent);
 			}

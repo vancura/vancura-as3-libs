@@ -1,11 +1,14 @@
 package {
-	import org.vancura.vaclav.assets.globals.AssetManager;
 	import org.vancura.vaclav.assets.events.AssetManagerErrorEvent;
+	import org.vancura.vaclav.assets.globals.AssetManager;
 	import org.vancura.vaclav.assets.providers.FARAssetProvider;
 	import org.vancura.vaclav.core.Stats;
 	import org.vancura.vaclav.widgets.constants.DebugLevel;
+	import org.vancura.vaclav.widgets.events.ButtonEvent;
 	import org.vancura.vaclav.widgets.globals.SkinManager;
+	import org.vancura.vaclav.widgets.skin.ButtonSkin;
 	import org.vancura.vaclav.widgets.widgets.LabelButton;
+	import org.vancura.vaclav.widgets.widgets.StaticButton;
 
 	import flash.display.MovieClip;
 	import flash.events.Event;
@@ -41,15 +44,24 @@ package {
 		
 		
 		private function _onProviderComplete(event:Event):void {
-			SkinManager.debugColor = 0xFF0000;
-			SkinManager.debugLevel = DebugLevel.HOVER;
+			SkinManager.debugLevel = DebugLevel.ALWAYS;
 			
-			_buttonTest = new LabelButton(SkinManager.assetToSkin(_assetManager.getAsset('button')), {x:300, y:100, width:300}, 'Test', this, DebugLevel.NONE);
+			_buttonTest = new LabelButton(SkinManager.assetToSkin(_assetManager.getAsset('button')), {x:300, y:100}, 'Test', this);
+			_buttonTest.addEventListener(ButtonEvent.RELEASE_INSIDE, _onTest, false, 0, true);
+			
+			var anotherSkin:ButtonSkin = SkinManager.assetToSkin(_assetManager.getAsset('button2')) as ButtonSkin;
+			var anotherButton:StaticButton = new StaticButton(anotherSkin, {x:50, y:200}, this);
 			
 			// --------
 			
 			var stats:Stats = new Stats();
 			addChild(stats);
+		}
+		
+		
+		
+		private function _onTest(event:ButtonEvent):void {
+			_buttonTest.morph({height:Math.random() * 300 + 100});
 		}
 	}
 }

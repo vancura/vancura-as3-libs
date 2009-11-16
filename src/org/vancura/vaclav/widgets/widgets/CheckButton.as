@@ -50,6 +50,14 @@ package org.vancura.vaclav.widgets.widgets {
 			
 			$buttonOff.addEventListener(ButtonEvent.RELEASE_INSIDE, _onToggle, false, 0, true);			$buttonOn.addEventListener(ButtonEvent.RELEASE_INSIDE, _onToggle, false, 0, true);
 			
+			if(config.width == undefined) {
+				config.width = skin.buttonOffSkin.assetWidth;
+			}
+			
+			if(config.height == undefined) {
+				config.height = skin.buttonOffSkin.assetHeight;
+			}
+			
 			if(skin != null) {
 				super(config, parent);
 			}

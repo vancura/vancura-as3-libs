@@ -9,5 +9,13 @@
 				"size":20
 			}
 		}
+	},
+	{
+		"id":"button2",
+		"type":"bitmap",
+		"widget":{
+			"type":"button",
+			"atlasURI":"button"
+		}
 	}
 ]

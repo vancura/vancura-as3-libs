@@ -28,6 +28,14 @@ package org.vancura.vaclav.widgets.widgets {
 				config = new Object();
 			}
 			
+			if(config.width == undefined) {
+				config.width = skin.assetWidth;
+			}
+			
+			if(config.height == undefined) {
+				config.height = skin.assetHeight;
+			}
+			
 			if(skin != null) {
 				super(config, parent, (debugLevel != null) ? debugLevel : SkinManager.debugLevel);
 			}

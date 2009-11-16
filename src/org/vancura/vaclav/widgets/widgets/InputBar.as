@@ -45,6 +45,14 @@ package org.vancura.vaclav.widgets.widgets {
 			this.isMorphHeightEnabled = true;
 			this.isMorphWidthEnabled = false;
 			
+			if(config.width == undefined) {
+				config.width = skin.assetWidth;
+			}
+			
+			if(config.height == undefined) {
+				config.height = skin.assetHeight;
+			}
+			
 			if(skin != null) {
 				super(config, parent);
 			}
