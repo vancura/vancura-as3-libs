@@ -17,14 +17,6 @@ package org.vancura.vaclav.widgets.skin {
 
 		
 
-		public static const TYPE_BAR:String = 'bar';
-		public static const TYPE_IMAGE:String = 'image';
-		public static const TYPE_BUTTON:String = 'button';
-		public static const TYPE_LABEL:String = 'label';
-		public static const TYPE_LABEL_BUTTON:String = 'label_button';
-		public static const TYPE_CHECK_BUTTON:String = 'check_button';
-		public static const TYPE_INPUT_BAR:String = 'input_bar';
-
 		protected var $id:String;
 		protected var $type:String;
 		protected var $assetWidth:Number = 0;

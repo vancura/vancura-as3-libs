@@ -1,5 +1,6 @@
 package org.vancura.vaclav.widgets.skin {
 	import org.vancura.vaclav.core.BitmapUtil;
+	import org.vancura.vaclav.widgets.constants.SkinType;
 	import org.vancura.vaclav.widgets.interfaces.IImageSkin;
 
 	import flash.display.BitmapData;
@@ -21,7 +22,7 @@ package org.vancura.vaclav.widgets.skin {
 		
 		
 		public function ImageSkin(id:String = null) {
-			super(Skin.TYPE_IMAGE, id);
+			super(SkinType.IMAGE, id);
 			
 			$paddingTop = 0;
 			$paddingLeft = 0;

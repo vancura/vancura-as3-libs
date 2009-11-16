@@ -1,5 +1,6 @@
 package org.vancura.vaclav.widgets.skin {
 	import org.vancura.vaclav.core.BitmapUtil;
+	import org.vancura.vaclav.widgets.constants.SkinType;
 	import org.vancura.vaclav.widgets.interfaces.IButtonSkin;
 
 	import flash.display.BitmapData;
@@ -28,7 +29,7 @@ package org.vancura.vaclav.widgets.skin {
 		
 		
 		public function ButtonSkin(id:String = null) {
-			super(Skin.TYPE_BUTTON, id);
+			super(SkinType.BUTTON, id);
 			
 			$hoverInDuration = 0;
 			$hoverOutDuration = .15;

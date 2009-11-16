@@ -1,8 +1,12 @@
-package org.vancura.vaclav.assets {
+package org.vancura.vaclav.assets.providers {
 	import br.com.stimuli.string.printf;
 
 	import com.adobe.serialization.json.JSON;
 
+	import org.vancura.vaclav.assets.Asset;
+	import org.vancura.vaclav.assets.constants.AssetType;
+	import org.vancura.vaclav.assets.events.AssetManagerErrorEvent;
+	import org.vancura.vaclav.assets.events.AssetManagerItemEvent;
 	import org.vancura.vaclav.far.FarHelper;
 	import org.vancura.vaclav.far.FarHelperItem;
 	import org.vancura.vaclav.far.events.FarHelperAssignEvent;
@@ -123,7 +127,7 @@ package org.vancura.vaclav.assets {
 				
 				for each(var oldAsset:Asset in $assetsList) {
 					if(itemHelper.index == oldAsset.id) {
-						if(oldAsset.type == Asset.BITMAP) {
+						if(oldAsset.type == AssetType.BITMAP) {
 							itemHelper.addEventListener(FarHelperAssignEvent.ITEM_READY, _onItemReady, false, 0, true);
 							itemHelper.assignBitmap(oldAsset.bitmap);
 						}

@@ -1,5 +1,5 @@
 // TODO: Caching
-// TODO: Mergin with settings from FlashVar
+// TODO: Mergin with settings from FlashVar etc.
 // TODO: Theming
 // TODO: Better error handling
 
@@ -8,6 +8,7 @@
 package org.vancura.vaclav.widgets.globals {
 	import org.vancura.vaclav.assets.Asset;
 	import org.vancura.vaclav.widgets.constants.DebugLevel;
+	import org.vancura.vaclav.widgets.constants.SkinType;
 	import org.vancura.vaclav.widgets.skin.BarSkin;
 	import org.vancura.vaclav.widgets.skin.ButtonSkin;
 	import org.vancura.vaclav.widgets.skin.CheckButtonSkin;
@@ -15,7 +16,6 @@ package org.vancura.vaclav.widgets.globals {
 	import org.vancura.vaclav.widgets.skin.InputBarSkin;
 	import org.vancura.vaclav.widgets.skin.LabelButtonSkin;
 	import org.vancura.vaclav.widgets.skin.LabelSkin;
-	import org.vancura.vaclav.widgets.skin.Skin;
 
 	
 	
@@ -35,7 +35,7 @@ package org.vancura.vaclav.widgets.globals {
 				var config:Object = asset.config.widget;
 				
 				switch(config.type) {
-					case Skin.TYPE_BAR:
+					case SkinType.BAR:
 						skin = new BarSkin();
 						
 						with(skin as BarSkin) {
@@ -45,7 +45,7 @@ package org.vancura.vaclav.widgets.globals {
 						
 						break;
 						
-					case Skin.TYPE_IMAGE:
+					case SkinType.IMAGE:
 						skin = new ImageSkin();
 						
 						with(skin as ImageSkin) {
@@ -55,7 +55,7 @@ package org.vancura.vaclav.widgets.globals {
 						
 						break;
 						
-					case Skin.TYPE_BUTTON:
+					case SkinType.BUTTON:
 						skin = new ButtonSkin();
 						
 						with(skin as ButtonSkin) {
@@ -65,7 +65,7 @@ package org.vancura.vaclav.widgets.globals {
 						
 						break;
 						
-					case Skin.TYPE_LABEL:
+					case SkinType.LABEL:
 						skin = new LabelSkin();
 						
 						with(skin as LabelSkin) {
@@ -74,7 +74,7 @@ package org.vancura.vaclav.widgets.globals {
 						
 						break;
 						
-					case Skin.TYPE_LABEL_BUTTON:
+					case SkinType.LABEL_BUTTON:
 						skin = new LabelButtonSkin();
 						
 						with(skin as LabelButtonSkin) {
@@ -84,7 +84,7 @@ package org.vancura.vaclav.widgets.globals {
 						
 						break;
 						
-					case Skin.TYPE_CHECK_BUTTON:
+					case SkinType.CHECK_BUTTON:
 						skin = new CheckButtonSkin();
 						
 						with(skin as CheckButtonSkin) {
@@ -95,7 +95,7 @@ package org.vancura.vaclav.widgets.globals {
 						
 						break;
 						
-					case Skin.TYPE_INPUT_BAR:
+					case SkinType.INPUT_BAR:
 						skin = new InputBarSkin();
 						
 						with(skin as InputBarSkin) {

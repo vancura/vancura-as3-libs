@@ -1,7 +1,7 @@
 package {
-	import org.vancura.vaclav.assets.AssetManager;
-	import org.vancura.vaclav.assets.AssetManagerErrorEvent;
-	import org.vancura.vaclav.assets.FARAssetProvider;
+	import org.vancura.vaclav.assets.globals.AssetManager;
+	import org.vancura.vaclav.assets.events.AssetManagerErrorEvent;
+	import org.vancura.vaclav.assets.providers.FARAssetProvider;
 	import org.vancura.vaclav.core.Stats;
 	import org.vancura.vaclav.widgets.constants.DebugLevel;
 	import org.vancura.vaclav.widgets.globals.SkinManager;

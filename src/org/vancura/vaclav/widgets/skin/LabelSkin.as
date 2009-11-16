@@ -1,5 +1,6 @@
 package org.vancura.vaclav.widgets.skin {
 	import org.vancura.vaclav.widgets.constants.Align;
+	import org.vancura.vaclav.widgets.constants.SkinType;
 	import org.vancura.vaclav.widgets.interfaces.ILabelSkin;
 
 	
@@ -39,7 +40,7 @@ package org.vancura.vaclav.widgets.skin {
 		
 		
 		public function LabelSkin(id:String = null) {
-			super(Skin.TYPE_LABEL, id);
+			super(SkinType.LABEL, id);
 			
 			$font = '';
 			$size = 10;

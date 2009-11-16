@@ -1,4 +1,4 @@
-package org.vancura.vaclav.assets {
+package org.vancura.vaclav.assets.events {
 	import flash.events.ErrorEvent;
 	import flash.events.Event;
 

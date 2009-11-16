@@ -1,5 +1,6 @@
 package org.vancura.vaclav.widgets.skin {
 	import org.vancura.vaclav.core.BitmapUtil;
+	import org.vancura.vaclav.widgets.constants.SkinType;
 	import org.vancura.vaclav.widgets.interfaces.IBarSkin;
 
 	import flash.display.BitmapData;
@@ -26,7 +27,7 @@ package org.vancura.vaclav.widgets.skin {
 		
 		
 		public function BarSkin(id:String = null) {
-			super(Skin.TYPE_BAR, id);
+			super(SkinType.BAR, id);
 			
 			$paddingTop = 0;
 			$paddingBottom = 0;

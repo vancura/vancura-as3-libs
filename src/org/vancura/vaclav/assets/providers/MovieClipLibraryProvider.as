@@ -1,4 +1,4 @@
-package org.vancura.vaclav.assets {
+package org.vancura.vaclav.assets.providers {
 	import br.com.stimuli.string.printf;
 
 	import org.vancura.vaclav.widgets.interfaces.ISkinnable;

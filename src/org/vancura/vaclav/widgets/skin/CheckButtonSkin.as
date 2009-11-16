@@ -1,4 +1,5 @@
 package org.vancura.vaclav.widgets.skin {
+	import org.vancura.vaclav.widgets.constants.SkinType;
 	import org.vancura.vaclav.widgets.interfaces.IButtonSkin;
 	import org.vancura.vaclav.widgets.interfaces.ICheckButtonSkin;
 
@@ -14,7 +15,7 @@ package org.vancura.vaclav.widgets.skin {
 		
 		
 		public function CheckButtonSkin(id:String = null) {
-			super(Skin.TYPE_CHECK_BUTTON, id);
+			super(SkinType.CHECK_BUTTON, id);
 			
 			$buttonOffSkin = new ButtonSkin(id + '#buttonOff');
 			$buttonOnSkin = new ButtonSkin(id + '#buttonOn');

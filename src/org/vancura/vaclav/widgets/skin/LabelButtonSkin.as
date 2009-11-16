@@ -1,4 +1,5 @@
 package org.vancura.vaclav.widgets.skin {
+	import org.vancura.vaclav.widgets.constants.SkinType;
 	import org.vancura.vaclav.widgets.interfaces.IButtonSkin;
 	import org.vancura.vaclav.widgets.interfaces.ILabelButtonSkin;
 	import org.vancura.vaclav.widgets.interfaces.ILabelSkin;
@@ -15,7 +16,7 @@ package org.vancura.vaclav.widgets.skin {
 		
 		
 		public function LabelButtonSkin(id:String = null) {
-			super(Skin.TYPE_LABEL_BUTTON, id);
+			super(SkinType.LABEL_BUTTON, id);
 			
 			$buttonSkin = new ButtonSkin(id + '#button');
 			$labelSkin = new LabelSkin(id + '#label');

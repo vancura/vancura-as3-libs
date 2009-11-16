@@ -1,4 +1,5 @@
 package org.vancura.vaclav.widgets.skin {
+	import org.vancura.vaclav.widgets.constants.SkinType;
 	import org.vancura.vaclav.widgets.interfaces.IBarSkin;
 	import org.vancura.vaclav.widgets.interfaces.IInputBarSkin;
 	import org.vancura.vaclav.widgets.interfaces.ILabelSkin;
@@ -15,7 +16,7 @@ package org.vancura.vaclav.widgets.skin {
 		
 		
 		public function InputBarSkin(id:String = null) {
-			super(Skin.TYPE_INPUT_BAR, id);
+			super(SkinType.INPUT_BAR, id);
 			
 			$barSkin = new BarSkin(id + '#bar');
 			$labelSkin = new LabelSkin(id + '#label');
