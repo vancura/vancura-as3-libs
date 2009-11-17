@@ -1,0 +1,15 @@
+[
+	{
+		"id":"label_button",
+		"widget":{
+			"type":"label_button",
+			"button":{
+				"backgroundImage":"index:button.png"
+			},
+			"label":{
+				"size":15,
+				"hAlign":"left"
+			}
+		}
+	}
+]

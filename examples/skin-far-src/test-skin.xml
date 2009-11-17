@@ -6,7 +6,7 @@
 		<priority>default</priority>
 	</priorities>
 	
-	<source compress="1" priority="high"><path>test-skin/assets-config.json</path><index>assets_config.json</index></source>
+	<source compress="1" priority="high"><path>test-skin/config.json</path><index>config.json</index></source>
 	<source compress="1" priority="medium"><path>test-skin/button.png</path><index>button.png</index></source>
 	
 </far-manifest>

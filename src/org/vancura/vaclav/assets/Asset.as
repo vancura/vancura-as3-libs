@@ -26,8 +26,8 @@ package org.vancura.vaclav.assets {
 		
 		public function addChunk(chunk:Chunk):void {
 			for each(var c:Chunk in _chunksList) {
-				if(c.id == chunk.id) {
-					throw new Error(printf('Chunk with id %s already added', chunk.id));
+				if(c.uri == chunk.uri) {
+					throw new Error(printf('Chunk with URI %s already added', chunk.uri));
 				}
 			}
 			
@@ -36,9 +36,9 @@ package org.vancura.vaclav.assets {
 		
 		
 		
-		public function getChunkByID(id:String):Chunk {
+		public function getChunkByURI(uri:String):Chunk {
 			for each(var c:Chunk in _chunksList) {
-				if(c.id == id) {
+				if(c.uri == uri) {
 					return c;
 				}
 			}

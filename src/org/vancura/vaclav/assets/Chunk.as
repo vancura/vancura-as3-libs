@@ -9,25 +9,16 @@ package org.vancura.vaclav.assets {
 		
 		public static const BITMAP:String = 'bitmap';
 		
-		private var _id:String;
 		private var _uri:String;
 		private var _type:String;
 		private var _bitmap:Bitmap;
-		private var _isAssigned:Boolean;
 
 		
 		
-		public function Chunk(id:String, uri:String, type:String = BITMAP) {
-			_id = id;
+		public function Chunk(uri:String, type:String = BITMAP) {
 			_uri = uri;
 			_type = type;
 			_bitmap = new Bitmap();
-		}
-		
-		
-		
-		public function get id():String {
-			return _id;
 		}
 		
 		
@@ -52,18 +43,6 @@ package org.vancura.vaclav.assets {
 		
 		public function get bitmap():Bitmap {
 			return _bitmap;
-		}
-		
-		
-		
-		public function get isAssigned():Boolean {
-			return _isAssigned;
-		}
-		
-		
-		
-		public function set isAssigned(isAssigned:Boolean):void {
-			_isAssigned = isAssigned;
 		}
 	}
 }

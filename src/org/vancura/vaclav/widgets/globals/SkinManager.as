@@ -59,7 +59,7 @@ package org.vancura.vaclav.widgets.globals {
 						skin = new ButtonSkin();
 						
 						with(skin as ButtonSkin) {
-							getAssetsFromAtlas(asset.getChunkByID(config.background.chunk).bitmap.bitmapData);
+							getAssetsFromAtlas(asset.getChunkByURI(config.backgroundImage).bitmap.bitmapData);
 							parseConfig(config);
 						}
 						
@@ -78,7 +78,7 @@ package org.vancura.vaclav.widgets.globals {
 						skin = new LabelButtonSkin();
 						
 						with(skin as LabelButtonSkin) {
-							buttonSkin.getAssetsFromAtlas(asset.getChunkByID(config.button.background.chunk).bitmap.bitmapData);
+							buttonSkin.getAssetsFromAtlas(asset.getChunkByURI(config.button.backgroundImage).bitmap.bitmapData);
 							parseConfig(config);
 						}
 						

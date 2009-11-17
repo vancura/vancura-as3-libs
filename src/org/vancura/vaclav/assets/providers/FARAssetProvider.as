@@ -21,7 +21,8 @@ package org.vancura.vaclav.assets.providers {
 
 		
 		
-		private static const _ASSETS_CONFIG_INDEX:String = 'assets_config.json';
+		private static const _ASSETS_CONFIG_INDEX:String = 'config.json';
+		private static const _INDEX_URI_PREFIX:String = 'index:';
 		
 		private var _contentURI:String;
 		private var _farHelper:FarHelper;
@@ -119,17 +120,7 @@ package org.vancura.vaclav.assets.providers {
 				for each(var assetConfig:Object in config) {
 					var newAsset:Asset = new Asset(assetConfig.id, assetConfig);
 					
-					if(assetConfig.chunks != null) {
-						for each(var chunkConfig:Object in assetConfig.chunks) {
-							var c:Chunk = new Chunk(chunkConfig.id, chunkConfig.index, chunkConfig.type);
-							
-							newAsset.addChunk(c);
-							
-							_chunkLoadCounter++;
-							
-							_farHelper.loadItem(chunkConfig.index);
-						}
-					}
+					_findURIs(newAsset, assetConfig);
 					
 					$assetsList.push(newAsset);
 				}
@@ -139,10 +130,13 @@ package org.vancura.vaclav.assets.providers {
 				
 				for each(var oldAsset:Asset in $assetsList) {
 					for each(var chunk:Chunk in oldAsset.chunksList) {
-						if(chunk.uri == itemHelper.index && !chunk.isAssigned) {
-							chunk.isAssigned = true;
-							itemHelper.addEventListener(FarHelperAssignEvent.ITEM_READY, _onItemReady, false, 0, true);
-							itemHelper.assignBitmap(chunk.bitmap);
+						if(chunk.uri.indexOf(_INDEX_URI_PREFIX) == 0) {
+							var index:String = chunk.uri.substr(_INDEX_URI_PREFIX.length);
+							
+							if(index == itemHelper.index) {
+								itemHelper.addEventListener(FarHelperAssignEvent.ITEM_READY, _onItemReady, false, 0, true);
+								itemHelper.assignBitmap(chunk.bitmap);
+							}
 						}
 					}
 				}
@@ -151,8 +145,36 @@ package org.vancura.vaclav.assets.providers {
 		
 		
 		
+		private function _findURIs(asset:Asset, branch:Object):void {
+			for each(var leaf:Object in branch) {
+				if(leaf is String) {
+					var l:String = leaf as String;
+					
+					if(l.indexOf(_INDEX_URI_PREFIX) == 0) {
+						var index:String = l.substr(_INDEX_URI_PREFIX.length);
+						var c:Chunk = new Chunk(l, Chunk.BITMAP);
+						
+						asset.addChunk(c);
+						
+						_chunkLoadCounter++;
+						
+						trace(index);
+						
+						_farHelper.loadItem(index);
+					}
+				}
+				else if(leaf is Object) {
+					_findURIs(asset, leaf);
+				}
+			}
+		}
+
+		
+		
 		private function _onItemReady(event:FarHelperAssignEvent):void {
 			var itemHelper:FarHelperItem = event.helperItem as FarHelperItem;
+			
+			trace('loaded: ' + itemHelper.index);
 			
 			itemHelper.removeEventListener(FarHelperAssignEvent.ITEM_READY, _onItemReady);
 			

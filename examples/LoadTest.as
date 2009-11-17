@@ -7,9 +7,7 @@ package {
 	import org.vancura.vaclav.widgets.constants.DebugLevel;
 	import org.vancura.vaclav.widgets.events.ButtonEvent;
 	import org.vancura.vaclav.widgets.globals.SkinManager;
-	import org.vancura.vaclav.widgets.skin.ButtonSkin;
 	import org.vancura.vaclav.widgets.widgets.LabelButton;
-	import org.vancura.vaclav.widgets.widgets.StaticButton;
 
 	import flash.display.MovieClip;
 	import flash.events.Event;
@@ -32,10 +30,24 @@ package {
 			
 			_assetManager.addEventListener(Event.COMPLETE, _onProviderComplete, false, 0, true);
 			_assetManager.addEventListener(AssetManagerErrorEvent.PROVIDER_ERROR, _onProviderError, false, 0, true);
+			_assetManager.addEventListener(AssetManagerErrorEvent.ITEM_NOT_FOUND, _onItemNotFound, false, 0, true);
+			_assetManager.addEventListener(AssetManagerErrorEvent.ITEM_LOAD_FAILED, _onItemLoadFailed, false, 0, true);
 			
 			_assetManager.attachProvider(new FARAssetProvider('test-skin.far'));
 		}
 		
+		
+		
+		private function _onItemLoadFailed(event:AssetManagerErrorEvent):void {
+			trace('ITEM LOAD FAILED: ' + event.text);
+		}
+
+		
+		
+		private function _onItemNotFound(event:AssetManagerErrorEvent):void {
+			trace('ITEM NOT FOUND: ' + event.text);
+		}
+
 		
 		
 		private function _onProviderError(event:AssetManagerErrorEvent):void {
@@ -53,8 +65,8 @@ package {
 			_buttonTest = new LabelButton(skin, {x:300, y:100, width:400}, 'Test', this);
 			_buttonTest.addEventListener(ButtonEvent.RELEASE_INSIDE, _onTest, false, 0, true);
 			
-			var anotherSkin:ButtonSkin = SkinManager.assetToSkin(_assetManager.getAsset('scale_button')) as ButtonSkin;
-			var anotherButton:StaticButton = new StaticButton(anotherSkin, {x:50, y:200}, this);
+//			var anotherSkin:ButtonSkin = SkinManager.assetToSkin(_assetManager.getAsset('scale_button')) as ButtonSkin;
+//			var anotherButton:StaticButton = new StaticButton(anotherSkin, {x:50, y:200}, this);
 			
 			// --------
 			
