@@ -13,6 +13,7 @@ package org.vancura.vaclav.assets {
 		private var _uri:String;
 		private var _type:String;
 		private var _bitmap:Bitmap;
+		private var _isAssigned:Boolean;
 
 		
 		
@@ -51,6 +52,18 @@ package org.vancura.vaclav.assets {
 		
 		public function get bitmap():Bitmap {
 			return _bitmap;
+		}
+		
+		
+		
+		public function get isAssigned():Boolean {
+			return _isAssigned;
+		}
+		
+		
+		
+		public function set isAssigned(isAssigned:Boolean):void {
+			_isAssigned = isAssigned;
 		}
 	}
 }

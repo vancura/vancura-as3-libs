@@ -139,7 +139,8 @@ package org.vancura.vaclav.assets.providers {
 				
 				for each(var oldAsset:Asset in $assetsList) {
 					for each(var chunk:Chunk in oldAsset.chunksList) {
-						if(chunk.uri == itemHelper.index) {
+						if(chunk.uri == itemHelper.index && !chunk.isAssigned) {
+							chunk.isAssigned = true;
 							itemHelper.addEventListener(FarHelperAssignEvent.ITEM_READY, _onItemReady, false, 0, true);
 							itemHelper.assignBitmap(chunk.bitmap);
 						}

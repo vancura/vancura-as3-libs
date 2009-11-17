@@ -2,7 +2,7 @@
 	{
 		"id":"label_button",
 		"chunks":[
-			{"id":"background_chunk", "index":"button2.png", "type":"bitmap"}
+			{"id":"background_chunk", "index":"button.png", "type":"bitmap"}
 		],
 		"widget":{
 			"type":"label_button",
