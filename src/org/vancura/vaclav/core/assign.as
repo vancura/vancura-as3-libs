@@ -22,7 +22,11 @@ package org.vancura.vaclav.core {
 		var out:Object = (obj);
 		
 		for(var i:String in params) {
-			out[i] = params[i];
+			try {
+				out[i] = params[i];
+			}
+			catch(err:Error) {
+			}
 		}
 		
 		return out;
