@@ -158,8 +158,6 @@ package org.vancura.vaclav.assets.providers {
 						
 						_chunkLoadCounter++;
 						
-						trace(index);
-						
 						_farHelper.loadItem(index);
 					}
 				}
@@ -173,8 +171,6 @@ package org.vancura.vaclav.assets.providers {
 		
 		private function _onItemReady(event:FarHelperAssignEvent):void {
 			var itemHelper:FarHelperItem = event.helperItem as FarHelperItem;
-			
-			trace('loaded: ' + itemHelper.index);
 			
 			itemHelper.removeEventListener(FarHelperAssignEvent.ITEM_READY, _onItemReady);
 			

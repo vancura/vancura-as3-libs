@@ -39,7 +39,7 @@ package org.vancura.vaclav.widgets.globals {
 						skin = new BarSkin();
 						
 						with(skin as BarSkin) {
-//							getAssetsFromAtlas(asset.bitmap.bitmapData);
+							getAssetsFromAtlas(asset.getChunkByURI(config.backgroundImage).bitmap.bitmapData);
 							parseConfig(config);
 						}
 						

@@ -184,6 +184,9 @@
 		 *		thickness	- Thickness (if not specified, <DEFAULT_THICKNESS> used)
 		 */
 		public static function strokeRect(canvas:Sprite, x:Number = 0, y:Number = 0, width:Number = DEFAULT_WIDTH, height:Number = DEFAULT_HEIGHT, color:uint = DEFAULT_COLOR, alpha:Number = DEFAULT_ALPHA, thickness:Number = DEFAULT_THICKNESS):void {
+			width--;
+			height--;
+			
 			canvas.graphics.lineStyle(thickness, color, alpha, true);
 			canvas.graphics.drawRect(x, y, width, height);
 		}
