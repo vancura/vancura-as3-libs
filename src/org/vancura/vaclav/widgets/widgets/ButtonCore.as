@@ -165,31 +165,67 @@ package org.vancura.vaclav.widgets.widgets {
 		
 		
 		protected function $hoverInTween():void {
+			dispatchEvent(new ButtonEvent(ButtonEvent.HOVER_IN_TWEEN, true));
+			
+			// duration: $skin.hoverInDuration
+			// out -> hidden, sineIn
+			// hover -> visible, easeOut
+			// focus -> hidden, easeIn
 		}
 
 		
 		
 		protected function $hoverOutTween():void {
+			dispatchEvent(new ButtonEvent(ButtonEvent.HOVER_OUT_TWEEN, true));
+			
+			// duration: $skin.hoverOutDuration
+			// out -> visible, easeOut
+			// hover -> hidden, easeIn
+			// focus -> hidden, easeIn
 		}
 
 		
 		
 		protected function $focusInTween():void {
+			dispatchEvent(new ButtonEvent(ButtonEvent.FOCUS_IN_TWEEN, true));
+			
+			// duration: $skin.focusInDuration
+			// out -> hidden, easeIn
+			// hover -> hidden, easeIn
+			// focus -> visible, easeOut
 		}
 
 		
 		
 		protected function $dragConfirmedTween():void {
+			dispatchEvent(new ButtonEvent(ButtonEvent.DRAG_CONFIRMED_TWEEN, true));
+			
+			// duration: $skin.hoverInDuration
+			// out -> hidden, easeIn
+			// hover -> visible, easeOut
+			// focus -> hidden, easeIn
 		}
 
 		
 		
 		protected function $releasedInsideTween():void {
+			dispatchEvent(new ButtonEvent(ButtonEvent.RELEASED_INSIDE_TWEEN, true));
+			
+			// duration: $skin.focusOutDuration
+			// out -> hidden, easeIn
+			// hover -> visible, easeOut
+			// focus -> hidden, easeIn
 		}
 
 		
 		
 		protected function $releasedOutsideTween():void {
+			dispatchEvent(new ButtonEvent(ButtonEvent.RELEASED_OUTSIDE_TWEEN, true));
+			
+			// duration: $skin.focusOutDuration
+			// out -> visible, easeOut
+			// hover -> hidden, easeIn
+			// focus -> hidden, easeIn
 		}
 
 		

@@ -1,8 +1,12 @@
 package org.vancura.vaclav.widgets.widgets {
+	import com.greensock.TweenMax;
+	import com.greensock.easing.Sine;
+
 	import org.vancura.vaclav.core.MorphSprite;
 	import org.vancura.vaclav.core.removeChildren;
 	import org.vancura.vaclav.widgets.constants.Align;
 	import org.vancura.vaclav.widgets.constants.MouseStatus;
+	import org.vancura.vaclav.widgets.events.ButtonEvent;
 	import org.vancura.vaclav.widgets.globals.SkinManager;
 	import org.vancura.vaclav.widgets.interfaces.IButton;
 	import org.vancura.vaclav.widgets.interfaces.ILabel;
@@ -38,7 +42,7 @@ package org.vancura.vaclav.widgets.widgets {
 			var dl:String = (debugLevel != null) ? debugLevel : SkinManager.debugLevel;
 			
 			$button = new ScaleButton(skin.buttonSkin, {}, this, dl);
-			$labelOut = new Label(skin.labelOutSkin, {mouseEnabled:false, mouseChildren:false}, '', this, dl);			$labelHover = new Label(skin.labelHoverSkin, {visible:false, mouseEnabled:false, mouseChildren:false}, '', this, dl);			$labelFocus = new Label(skin.labelFocusSkin, {visible:false, mouseEnabled:false, mouseChildren:false}, '', this, dl);
+			$labelOut = new Label(skin.labelOutSkin, {mouseEnabled:false, mouseChildren:false}, '', this, dl);			$labelHover = new Label(skin.labelHoverSkin, {alpha:0, mouseEnabled:false, mouseChildren:false}, '', this, dl);			$labelFocus = new Label(skin.labelFocusSkin, {alpha:0, mouseEnabled:false, mouseChildren:false}, '', this, dl);
 			$button.debugColor = SkinManager.debugColor;
 			$labelOut.debugColor = SkinManager.debugColor;			$labelHover.debugColor = SkinManager.debugColor;			$labelFocus.debugColor = SkinManager.debugColor;
 			
@@ -49,6 +53,7 @@ package org.vancura.vaclav.widgets.widgets {
 			this.focusRect = false;
 			this.tabEnabled = false;
 			
+			$button.addEventListener(ButtonEvent.HOVER_IN_TWEEN, _onButtonHoverInTween, false, 0, true);			$button.addEventListener(ButtonEvent.HOVER_OUT_TWEEN, _onButtonHoverOutTween, false, 0, true);			$button.addEventListener(ButtonEvent.FOCUS_IN_TWEEN, _onButtonFocusInTween, false, 0, true);			$button.addEventListener(ButtonEvent.DRAG_CONFIRMED_TWEEN, _onButtonDragConfirmedTween, false, 0, true);			$button.addEventListener(ButtonEvent.RELEASED_INSIDE_TWEEN, _onButtonReleasedInsideTween, false, 0, true);			$button.addEventListener(ButtonEvent.RELEASED_OUTSIDE_TWEEN, _onButtonReleasedOutsideTween, false, 0, true);			
 			if(config.width == undefined) {
 				config.width = skin.buttonSkin.assetWidth;
 			}
@@ -70,6 +75,13 @@ package org.vancura.vaclav.widgets.widgets {
 		
 		
 		public function destroy():void {
+			$button.removeEventListener(ButtonEvent.HOVER_IN_TWEEN, _onButtonHoverInTween);
+			$button.removeEventListener(ButtonEvent.HOVER_OUT_TWEEN, _onButtonHoverOutTween);
+			$button.removeEventListener(ButtonEvent.FOCUS_IN_TWEEN, _onButtonFocusInTween);
+			$button.removeEventListener(ButtonEvent.DRAG_CONFIRMED_TWEEN, _onButtonDragConfirmedTween);
+			$button.removeEventListener(ButtonEvent.RELEASED_INSIDE_TWEEN, _onButtonReleasedInsideTween);
+			$button.removeEventListener(ButtonEvent.RELEASED_OUTSIDE_TWEEN, _onButtonReleasedOutsideTween);
+			
 			removeChildren(this, $button, $labelOut, $labelHover, $labelFocus);
 			
 			$button.destroy();
@@ -106,7 +118,7 @@ package org.vancura.vaclav.widgets.widgets {
 		public function set skin(skin:ILabelButtonSkin):void {
 			$skin = skin;
 			
-			$skin.labelOutSkin.hAlign = Align.CENTER;
+			$skin.labelOutSkin.hAlign = Align.CENTER;			$skin.labelHoverSkin.hAlign = Align.CENTER;			$skin.labelFocusSkin.hAlign = Align.CENTER;
 			
 			$button.skin = $skin.buttonSkin;
 			$labelOut.skin = $skin.labelOutSkin;			$labelHover.skin = $skin.labelHoverSkin;			$labelFocus.skin = $skin.labelFocusSkin;
@@ -200,6 +212,8 @@ package org.vancura.vaclav.widgets.widgets {
 			if($button.mouseStatus == MouseStatus.OUT) return $labelOut;
 			if($button.mouseStatus == MouseStatus.HOVER) return $labelHover;
 			if($button.mouseStatus == MouseStatus.FOCUS) return $labelFocus;
+			
+			return null;
 		}
 		
 		
@@ -224,6 +238,54 @@ package org.vancura.vaclav.widgets.widgets {
 		
 		public function get button():IButton {
 			return $button;
+		}
+		
+		
+		
+		private function _onButtonHoverInTween(event:ButtonEvent):void {
+			new TweenMax($labelOut, $skin.buttonSkin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
+			new TweenMax($labelHover, $skin.buttonSkin.hoverInDuration, {alpha:1, ease:Sine.easeOut});
+			new TweenMax($labelFocus, $skin.buttonSkin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
+		}
+
+		
+		
+		private function _onButtonHoverOutTween(event:ButtonEvent):void {
+			new TweenMax($labelOut, $skin.buttonSkin.hoverOutDuration, {alpha:1, ease:Sine.easeOut});
+			new TweenMax($labelHover, $skin.buttonSkin.hoverOutDuration, {alpha:0, ease:Sine.easeIn});		
+			new TweenMax($labelFocus, $skin.buttonSkin.hoverOutDuration, {alpha:0, ease:Sine.easeIn});
+		}
+
+		
+
+		private function _onButtonFocusInTween(event:ButtonEvent):void {
+			new TweenMax($labelOut, $skin.buttonSkin.focusInDuration, {alpha:0, ease:Sine.easeIn});
+			new TweenMax($labelHover, $skin.buttonSkin.focusInDuration, {alpha:0, ease:Sine.easeIn});		
+			new TweenMax($labelFocus, $skin.buttonSkin.focusInDuration, {alpha:1, ease:Sine.easeOut});
+		}
+		
+		
+		
+		private function _onButtonDragConfirmedTween(event:ButtonEvent):void {
+			new TweenMax($labelOut, $skin.buttonSkin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
+			new TweenMax($labelHover, $skin.buttonSkin.hoverInDuration, {alpha:1, ease:Sine.easeOut});
+			new TweenMax($labelFocus, $skin.buttonSkin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
+		}
+
+		
+		
+		private function _onButtonReleasedInsideTween(event:ButtonEvent):void {
+			new TweenMax($labelOut, $skin.buttonSkin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
+			new TweenMax($labelHover, $skin.buttonSkin.focusOutDuration, {alpha:1, ease:Sine.easeOut});
+			new TweenMax($labelFocus, $skin.buttonSkin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
+		}
+
+		
+		
+		private function _onButtonReleasedOutsideTween(event:ButtonEvent):void {
+			new TweenMax($labelOut, $skin.buttonSkin.focusOutDuration, {alpha:1, ease:Sine.easeOut});
+			new TweenMax($labelHover, $skin.buttonSkin.focusOutDuration, {alpha:0, ease:Sine.easeIn});		
+			new TweenMax($labelFocus, $skin.buttonSkin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
 		}
 	}
 }

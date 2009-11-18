@@ -105,6 +105,8 @@ package org.vancura.vaclav.widgets.widgets {
 			new TweenMax(_outSBM, $skin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
 			new TweenMax(_hoverSBM, $skin.hoverInDuration, {alpha:1, ease:Sine.easeOut});
 			new TweenMax(_focusSBM, $skin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
+			
+			super.$hoverInTween();
 		}
 
 		
@@ -113,6 +115,8 @@ package org.vancura.vaclav.widgets.widgets {
 			new TweenMax(_outSBM, $skin.hoverOutDuration, {alpha:1, ease:Sine.easeOut});
 			new TweenMax(_hoverSBM, $skin.hoverOutDuration, {alpha:0, ease:Sine.easeIn});		
 			new TweenMax(_focusSBM, $skin.hoverOutDuration, {alpha:0, ease:Sine.easeIn});
+			
+			super.$hoverOutTween();
 		}
 
 		
@@ -121,6 +125,8 @@ package org.vancura.vaclav.widgets.widgets {
 			new TweenMax(_outSBM, $skin.focusInDuration, {alpha:0, ease:Sine.easeIn});
 			new TweenMax(_hoverSBM, $skin.focusInDuration, {alpha:0, ease:Sine.easeIn});		
 			new TweenMax(_focusSBM, $skin.focusInDuration, {alpha:1, ease:Sine.easeOut});
+			
+			super.$focusInTween();
 		}
 
 		
@@ -129,6 +135,8 @@ package org.vancura.vaclav.widgets.widgets {
 			new TweenMax(_outSBM, $skin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
 			new TweenMax(_hoverSBM, $skin.hoverInDuration, {alpha:1, ease:Sine.easeOut});
 			new TweenMax(_focusSBM, $skin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
+			
+			super.$dragConfirmedTween();
 		}
 
 		
@@ -137,6 +145,8 @@ package org.vancura.vaclav.widgets.widgets {
 			new TweenMax(_outSBM, $skin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
 			new TweenMax(_hoverSBM, $skin.focusOutDuration, {alpha:1, ease:Sine.easeOut});
 			new TweenMax(_focusSBM, $skin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
+			
+			super.$releasedInsideTween();
 		}
 
 		
@@ -145,6 +155,8 @@ package org.vancura.vaclav.widgets.widgets {
 			new TweenMax(_outSBM, $skin.focusOutDuration, {alpha:1, ease:Sine.easeOut});
 			new TweenMax(_hoverSBM, $skin.focusOutDuration, {alpha:0, ease:Sine.easeIn});		
 			new TweenMax(_focusSBM, $skin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
+			
+			super.$releasedOutsideTween();
 		}
 	}
 }

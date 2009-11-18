@@ -15,6 +15,12 @@ package org.vancura.vaclav.widgets.events {
 		public static const FOCUS_IN:String = 'focus_in';
 		public static const RELEASE_INSIDE:String = 'release_inside';
 		public static const RELEASE_OUTSIDE:String = 'release_outside';
+		public static const HOVER_IN_TWEEN:String = 'hover_in_tween';
+		public static const HOVER_OUT_TWEEN:String = 'hover_out_tween';
+		public static const FOCUS_IN_TWEEN:String = 'focus_in_tween';
+		public static const DRAG_CONFIRMED_TWEEN:String = 'drag_confirmed_tween';
+		public static const RELEASED_INSIDE_TWEEN:String = 'released_inside_tween';
+		public static const RELEASED_OUTSIDE_TWEEN:String = 'released_outside_tween';
 
 		
 		
