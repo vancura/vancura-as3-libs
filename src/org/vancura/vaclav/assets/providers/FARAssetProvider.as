@@ -13,8 +13,6 @@ package org.vancura.vaclav.assets.providers {
 	import org.vancura.vaclav.far.events.FarHelperAssignEvent;
 	import org.vancura.vaclav.far.events.FarHelperEvent;
 
-	import flash.events.Event;
-
 	
 	
 	public class FARAssetProvider extends AssetProvider implements IAssetProvider {
@@ -26,7 +24,8 @@ package org.vancura.vaclav.assets.providers {
 		
 		private var _contentURI:String;
 		private var _farHelper:FarHelper;
-		private var _chunkLoadCounter:uint = 0;
+		private var _chunkLoadCounter:uint;
+		private var _chunksList:Array;
 
 		
 		
@@ -34,6 +33,8 @@ package org.vancura.vaclav.assets.providers {
 			super();
 			
 			_contentURI = contentURI;
+			_chunksList = new Array();
+			_chunkLoadCounter = 0;
 			
 			_farHelper = new FarHelper();
 			
@@ -120,7 +121,7 @@ package org.vancura.vaclav.assets.providers {
 				for each(var assetConfig:Object in config) {
 					var newAsset:Asset = new Asset(assetConfig.id, assetConfig);
 					
-					_findURIs(newAsset, assetConfig);
+					_findURIs(assetConfig);
 					
 					$assetsList.push(newAsset);
 				}
@@ -128,13 +129,17 @@ package org.vancura.vaclav.assets.providers {
 			else {
 				// standard asset
 				
-				for each(var oldAsset:Asset in $assetsList) {
-					for each(var chunk:Chunk in oldAsset.chunksList) {
+				trace('Loaded ' + itemHelper.index);
+				
+				for each(var processedAsset:Asset in $assetsList) {
+					for each(var chunk:Chunk in processedAsset.chunksList) {
 						if(chunk.uri.indexOf(_INDEX_URI_PREFIX) == 0) {
 							var index:String = chunk.uri.substr(_INDEX_URI_PREFIX.length);
 							
+							trace('X = ' + index);
+							
 							if(index == itemHelper.index) {
-								trace('ZASE JEDNA ' + index + ' DO ' + oldAsset.id);
+								trace('ZASE JEDNA ' + index + ' DO ' + processedAsset.id);
 								
 								itemHelper.addEventListener(FarHelperAssignEvent.ITEM_READY, _onItemReady, false, 0, true);
 								itemHelper.assignBitmap(chunk.bitmap);
@@ -147,27 +152,34 @@ package org.vancura.vaclav.assets.providers {
 		
 		
 		
-		private function _findURIs(asset:Asset, branch:Object):void {
+		private function _findURIs(branch:Object):void {
 			for each(var leaf:Object in branch) {
 				if(leaf is String) {
-					var l:String = leaf as String;
+					var leafAsString:String = leaf as String;
 					
-					if(l.indexOf(_INDEX_URI_PREFIX) == 0) {
-						var index:String = l.substr(_INDEX_URI_PREFIX.length);
-						var c:Chunk = new Chunk(l, Chunk.BITMAP);
+					if(leafAsString.indexOf(_INDEX_URI_PREFIX) == 0) {
+						var isNewChunk:Boolean = true;
 						
-						asset.addChunk(c);
+						for each(var testedChunk:Chunk in _chunksList) {
+							if(testedChunk.uri == leafAsString) {
+								isNewChunk = false;
+							}
+						}
 						
-						_chunkLoadCounter++;
-						
-						trace('Loading ' + index + ' TO ' + asset.id);
-						trace(_chunkLoadCounter);
-						
-						_farHelper.loadItem(index);
+						if(isNewChunk) {
+							var index:String = leafAsString.substr(_INDEX_URI_PREFIX.length);
+							var newChunk:Chunk = new Chunk(leafAsString, Chunk.BITMAP);
+								
+							_chunkLoadCounter++;
+							_farHelper.loadItem(index);
+							_chunksList.push(newChunk);
+								
+							trace('Loading ' + index);
+						}
 					}
 				}
 				else if(leaf is Object) {
-					_findURIs(asset, leaf);
+					_findURIs(leaf);
 				}
 			}
 		}
@@ -178,7 +190,6 @@ package org.vancura.vaclav.assets.providers {
 			var itemHelper:FarHelperItem = event.helperItem as FarHelperItem;
 			
 			trace('Loaded ' + itemHelper.index);
-			trace(_chunkLoadCounter);
 			
 			itemHelper.removeEventListener(FarHelperAssignEvent.ITEM_READY, _onItemReady);
 			
