@@ -15,7 +15,7 @@ package org.vancura.vaclav.widgets.widgets {
 		
 		
 		protected var $skin:IImageSkin;
-		protected var $backBM:Bitmap;
+		protected var $imageBM:Bitmap;
 
 		
 		
@@ -62,9 +62,9 @@ package org.vancura.vaclav.widgets.widgets {
 		override protected function $addChildren():void {
 			super.$addChildren();
 			
-			$backBM = new Bitmap();
+			$imageBM = new Bitmap();
 			
-			addChildren($contentSpr, $backBM);
+			addChildren($contentSpr, $imageBM);
 		}
 
 		
@@ -72,7 +72,7 @@ package org.vancura.vaclav.widgets.widgets {
 		override protected function $removeChildren():void {
 			super.$removeChildren();
 			
-			removeChildren($contentSpr, $backBM);
+			removeChildren($contentSpr, $imageBM);
 		}
 
 		
@@ -80,10 +80,10 @@ package org.vancura.vaclav.widgets.widgets {
 		override public function draw():void {
 			super.draw();
 			
-			$backBM.bitmapData = $skin.backBD;
-			$backBM.smoothing = true;
-			$backBM.x = $skin.paddingLeft;
-			$backBM.y = $skin.paddingTop;
+			$imageBM.bitmapData = $skin.imageBD;
+			$imageBM.smoothing = true;
+			$imageBM.x = $skin.paddingLeft;
+			$imageBM.y = $skin.paddingTop;
 		}
 
 		
@@ -111,7 +111,7 @@ package org.vancura.vaclav.widgets.widgets {
 		
 		
 		public function get bitmap():Bitmap {
-			return $backBM;
+			return $imageBM;
 		}
 	}
 }

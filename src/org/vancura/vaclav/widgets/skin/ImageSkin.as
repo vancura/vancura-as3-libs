@@ -1,5 +1,4 @@
 package org.vancura.vaclav.widgets.skin {
-	import org.vancura.vaclav.core.BitmapUtil;
 	import org.vancura.vaclav.widgets.constants.SkinType;
 	import org.vancura.vaclav.widgets.interfaces.IImageSkin;
 
@@ -14,7 +13,7 @@ package org.vancura.vaclav.widgets.skin {
 		
 		protected var $paddingTop:Number;
 		protected var $paddingLeft:Number;
-		protected var $backBD:BitmapData;
+		protected var $imageBD:BitmapData;
 
 		private var _oldPaddingTop:Number;
 		private var _oldPaddingLeft:Number;
@@ -27,7 +26,7 @@ package org.vancura.vaclav.widgets.skin {
 			$paddingTop = 0;
 			$paddingLeft = 0;
 			
-			$backBD = new BitmapData(1, 1, true, 0x00000000);
+			$imageBD = new BitmapData(1, 1, true, 0x00000000);
 		}
 
 		
@@ -36,7 +35,7 @@ package org.vancura.vaclav.widgets.skin {
 			$assetWidth = source.width;
 			$assetHeight = source.height;
 			
-			$backBD = BitmapUtil.crop(source, $assetWidth * 1, 0, $assetWidth, $assetHeight);
+			$imageBD = source;
 		}
 
 		
@@ -44,7 +43,7 @@ package org.vancura.vaclav.widgets.skin {
 		public function getAssetsFromMovieClip(source:MovieClip, elements:Array = null, ... labels:Array):void {
 			$getSkinSize(source, (labels[1] == undefined || labels[1] == '') ? 'guide' : labels[1]);
 			
-			$backBD = $getSkinFrame(source, elements, (labels[0] == undefined || labels[0] == '') ? 'back' : labels[0]);
+			$imageBD = $getSkinFrame(source, elements, (labels[0] == undefined || labels[0] == '') ? 'image' : labels[0]);
 		}
 
 		
@@ -99,15 +98,15 @@ package org.vancura.vaclav.widgets.skin {
 
 		
 		
-		public function set backBD(source:BitmapData):void {
+		public function set imageBD(source:BitmapData):void {
 			$checkSize(source);
-			$backBD = source;
+			$imageBD = source;
 		}
 
 		
 		
-		public function get backBD():BitmapData {
-			return $backBD;
+		public function get imageBD():BitmapData {
+			return $imageBD;
 		}
 	}
 }

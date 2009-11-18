@@ -12,6 +12,7 @@ package org.vancura.vaclav.widgets.globals {
 	import org.vancura.vaclav.widgets.skin.BarSkin;
 	import org.vancura.vaclav.widgets.skin.ButtonSkin;
 	import org.vancura.vaclav.widgets.skin.CheckButtonSkin;
+	import org.vancura.vaclav.widgets.skin.GlyphButtonSkin;
 	import org.vancura.vaclav.widgets.skin.ImageSkin;
 	import org.vancura.vaclav.widgets.skin.InputBarSkin;
 	import org.vancura.vaclav.widgets.skin.LabelButtonSkin;
@@ -49,7 +50,7 @@ package org.vancura.vaclav.widgets.globals {
 						skin = new ImageSkin();
 						
 						with(skin as ImageSkin) {
-//							getAssetsFromAtlas(asset.bitmap.bitmapData);
+							getAssetsFromAtlas(asset.getChunkByURI(config.image).bitmap.bitmapData);
 							parseConfig(config);
 						}
 						
@@ -79,6 +80,17 @@ package org.vancura.vaclav.widgets.globals {
 						
 						with(skin as LabelButtonSkin) {
 							buttonSkin.getAssetsFromAtlas(asset.getChunkByURI(config.button.backgroundImage).bitmap.bitmapData);
+							parseConfig(config);
+						}
+						
+						break;
+						
+					case SkinType.GLYPH_BUTTON:
+						skin = new GlyphButtonSkin();
+						
+						with(skin as GlyphButtonSkin) {
+							buttonSkin.getAssetsFromAtlas(asset.getChunkByURI(config.button.backgroundImage).bitmap.bitmapData);
+							glyphsSkin.getAssetsFromAtlas(asset.getChunkByURI(config.glyph.image).bitmap.bitmapData);
 							parseConfig(config);
 						}
 						

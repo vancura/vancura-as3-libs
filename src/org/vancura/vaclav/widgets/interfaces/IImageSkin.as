@@ -5,8 +5,8 @@ package org.vancura.vaclav.widgets.interfaces {
 	
 	public interface IImageSkin extends ISkinnable, IAssetSkin, IConfigSkin {
 
-		function set backBD(source:BitmapData):void;
-		function get backBD():BitmapData;
+		function set imageBD(source:BitmapData):void;
+		function get imageBD():BitmapData;
 		
 		function get paddingTop():Number;
 		function set paddingTop(value:Number):void;
