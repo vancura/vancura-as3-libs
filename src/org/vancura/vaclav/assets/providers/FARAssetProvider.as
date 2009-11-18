@@ -134,6 +134,8 @@ package org.vancura.vaclav.assets.providers {
 							var index:String = chunk.uri.substr(_INDEX_URI_PREFIX.length);
 							
 							if(index == itemHelper.index) {
+								trace('ZASE JEDNA ' + index + ' DO ' + oldAsset.id);
+								
 								itemHelper.addEventListener(FarHelperAssignEvent.ITEM_READY, _onItemReady, false, 0, true);
 								itemHelper.assignBitmap(chunk.bitmap);
 							}
@@ -158,6 +160,9 @@ package org.vancura.vaclav.assets.providers {
 						
 						_chunkLoadCounter++;
 						
+						trace('Loading ' + index + ' TO ' + asset.id);
+						trace(_chunkLoadCounter);
+						
 						_farHelper.loadItem(index);
 					}
 				}
@@ -172,15 +177,20 @@ package org.vancura.vaclav.assets.providers {
 		private function _onItemReady(event:FarHelperAssignEvent):void {
 			var itemHelper:FarHelperItem = event.helperItem as FarHelperItem;
 			
+			trace('Loaded ' + itemHelper.index);
+			trace(_chunkLoadCounter);
+			
 			itemHelper.removeEventListener(FarHelperAssignEvent.ITEM_READY, _onItemReady);
 			
 			_chunkLoadCounter--;
 			
 			// check if all items are loaded
 			if(_chunkLoadCounter == 0) {
+				trace('DONE');
+				
 				$isLoaded = true;
 			
-				dispatchEvent(new Event(Event.COMPLETE));
+//				dispatchEvent(new Event(Event.COMPLETE));
 			}
 		}
 	}

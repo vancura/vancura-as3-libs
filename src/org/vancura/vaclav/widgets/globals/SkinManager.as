@@ -7,6 +7,7 @@
 
 package org.vancura.vaclav.widgets.globals {
 	import org.vancura.vaclav.assets.Asset;
+	import org.vancura.vaclav.assets.Chunk;
 	import org.vancura.vaclav.widgets.constants.DebugLevel;
 	import org.vancura.vaclav.widgets.constants.SkinType;
 	import org.vancura.vaclav.widgets.skin.BarSkin;
@@ -79,7 +80,8 @@ package org.vancura.vaclav.widgets.globals {
 						skin = new LabelButtonSkin();
 						
 						with(skin as LabelButtonSkin) {
-							buttonSkin.getAssetsFromAtlas(asset.getChunkByURI(config.button.backgroundImage).bitmap.bitmapData);
+							var chunk:Chunk = asset.getChunkByURI(config.button.backgroundImage);
+							buttonSkin.getAssetsFromAtlas(chunk.bitmap.bitmapData);
 							parseConfig(config);
 						}
 						
