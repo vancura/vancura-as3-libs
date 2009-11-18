@@ -11,7 +11,7 @@ package org.vancura.vaclav.widgets.skin {
 		
 		
 		protected var $buttonSkin:IButtonSkin;
-		protected var $labelSkin:ILabelSkin;
+		protected var $labelBackSkin:ILabelSkin;		protected var $labelHoverSkin:ILabelSkin;		protected var $labelFocusSkin:ILabelSkin;
 
 		
 		
@@ -19,7 +19,7 @@ package org.vancura.vaclav.widgets.skin {
 			super(SkinType.LABEL_BUTTON, id);
 			
 			$buttonSkin = new ButtonSkin(id + '#button');
-			$labelSkin = new LabelSkin(id + '#label');
+			$labelBackSkin = new LabelSkin(id + '#labelBack');			$labelHoverSkin = new LabelSkin(id + '#labelHover');			$labelFocusSkin = new LabelSkin(id + '#labelFocus');
 		}
 
 		
@@ -31,8 +31,16 @@ package org.vancura.vaclav.widgets.skin {
 				$buttonSkin.parseConfig(source.button);
 			}
 			
-			if(source.label != undefined) {
-				$labelSkin.parseConfig(source.label);
+			if(source.labelBack != undefined) {
+				$labelBackSkin.parseConfig(source.labelBack);
+			}
+			
+			if(source.labelHover != undefined) {
+				$labelHoverSkin.parseConfig(source.labelHover);
+			}
+			
+			if(source.labelFocus != undefined) {
+				$labelFocusSkin.parseConfig(source.labelFocus);
 			}
 		}
 		
@@ -42,7 +50,7 @@ package org.vancura.vaclav.widgets.skin {
 			super.revertConfig();
 			
 			$buttonSkin.revertConfig();
-			$labelSkin.revertConfig();
+			$labelBackSkin.revertConfig();			$labelHoverSkin.revertConfig();			$labelFocusSkin.revertConfig();
 		}
 
 		
@@ -59,14 +67,38 @@ package org.vancura.vaclav.widgets.skin {
 
 		
 		
-		public function get labelSkin():ILabelSkin {
-			return $labelSkin;
+		public function get labelBackSkin():ILabelSkin {
+			return $labelBackSkin;
 		}
 
 		
 		
-		public function set labelSkin(source:ILabelSkin):void {
-			$labelSkin = source;
+		public function set labelBackSkin(source:ILabelSkin):void {
+			$labelBackSkin = source;
+		}
+
+		
+		
+		public function get labelHoverSkin():ILabelSkin {
+			return $labelHoverSkin;
+		}
+
+		
+		
+		public function set labelHoverSkin(source:ILabelSkin):void {
+			$labelHoverSkin = source;
+		}
+
+		
+		
+		public function get labelFocusSkin():ILabelSkin {
+			return $labelFocusSkin;
+		}
+
+		
+		
+		public function set labelFocusSkin(source:ILabelSkin):void {
+			$labelFocusSkin = source;
 		}
 	}
 }

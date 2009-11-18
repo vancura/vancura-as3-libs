@@ -1,11 +1,12 @@
 package org.vancura.vaclav.widgets.widgets {
 	import org.vancura.vaclav.core.QSprite;
 	import org.vancura.vaclav.core.removeChildren;
+	import org.vancura.vaclav.widgets.constants.MouseStatus;
 	import org.vancura.vaclav.widgets.events.ButtonEvent;
+	import org.vancura.vaclav.widgets.globals.SkinManager;
 	import org.vancura.vaclav.widgets.interfaces.IButton;
 	import org.vancura.vaclav.widgets.interfaces.IButtonSkin;
 	import org.vancura.vaclav.widgets.interfaces.IWidget;
-	import org.vancura.vaclav.widgets.globals.SkinManager;
 	import org.vancura.vaclav.widgets.skin.ButtonSkin;
 
 	import flash.display.DisplayObjectContainer;
@@ -22,8 +23,7 @@ package org.vancura.vaclav.widgets.widgets {
 		protected var $skin:IButtonSkin;
 		protected var $activeSpr:QSprite;
 		
-		private var _isOver:Boolean;
-		private var _isDown:Boolean;
+		private var _mouseStatus:String;
 		private var _areEventsEnabled:Boolean = true;
 
 		
@@ -53,6 +53,8 @@ package org.vancura.vaclav.widgets.widgets {
 			}
 			
 			this.skin = skin;
+			
+			_mouseStatus = MouseStatus.BACK;
 		}
 
 		
@@ -90,9 +92,9 @@ package org.vancura.vaclav.widgets.widgets {
 		
 		
 		public function forceRelease():void {
-			if(_isDown) {
+			if(_mouseStatus == MouseStatus.FOCUS) {
 				_currentDrag = null;
-				_isDown = false;
+				_mouseStatus = MouseStatus.BACK;
 				
 				$releasedOutsideTween();
 				
@@ -156,14 +158,8 @@ package org.vancura.vaclav.widgets.widgets {
 
 		
 		
-		public function get isDown():Boolean {
-			return _isDown;
-		}
-
-		
-		
-		public function get isOver():Boolean {
-			return _isOver;
+		public function get mouseStatus():String {
+			return _mouseStatus;
 		}
 
 		
@@ -206,7 +202,7 @@ package org.vancura.vaclav.widgets.widgets {
 				}
 				else {
 					// roll over
-					_isOver = true;
+					_mouseStatus = MouseStatus.HOVER;
 					
 					$hoverInTween();
 					
@@ -225,7 +221,7 @@ package org.vancura.vaclav.widgets.widgets {
 				}
 				else {
 					// roll out
-					_isOver = false;
+					_mouseStatus = MouseStatus.BACK;
 					
 					$hoverOutTween();
 					
@@ -238,7 +234,7 @@ package org.vancura.vaclav.widgets.widgets {
 		
 		private function _onPress(event:MouseEvent):void {
 			if(_areEventsEnabled) {
-				_isDown = true;
+				_mouseStatus = MouseStatus.FOCUS;
 				_currentDrag = this;
 				
 				$focusInTween();
@@ -258,7 +254,7 @@ package org.vancura.vaclav.widgets.widgets {
 				stage.removeEventListener(MouseEvent.MOUSE_UP, _onRelease);
 			}
 			
-			if(_areEventsEnabled && _isDown) {
+			if(_areEventsEnabled && _mouseStatus == MouseStatus.FOCUS) {
 				if(event.currentTarget == stage) {
 					// release outside
 					forceRelease();

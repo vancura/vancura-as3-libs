@@ -142,14 +142,8 @@ package org.vancura.vaclav.widgets.widgets {
 
 		
 		
-		public function get isDown():Boolean {
-			return $buttonOff.isDown;
-		}
-
-		
-		
-		public function get isOver():Boolean {
-			return $buttonOff.isOver;
+		public function get mouseStatus():String {
+			return button.mouseStatus;
 		}
 
 		

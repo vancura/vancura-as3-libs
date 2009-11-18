@@ -2,11 +2,12 @@ package org.vancura.vaclav.widgets.widgets {
 	import org.vancura.vaclav.core.MorphSprite;
 	import org.vancura.vaclav.core.removeChildren;
 	import org.vancura.vaclav.widgets.constants.Align;
+	import org.vancura.vaclav.widgets.constants.MouseStatus;
+	import org.vancura.vaclav.widgets.globals.SkinManager;
 	import org.vancura.vaclav.widgets.interfaces.IButton;
 	import org.vancura.vaclav.widgets.interfaces.ILabel;
 	import org.vancura.vaclav.widgets.interfaces.ILabelButton;
 	import org.vancura.vaclav.widgets.interfaces.ILabelButtonSkin;
-	import org.vancura.vaclav.widgets.globals.SkinManager;
 
 	import flash.display.DisplayObjectContainer;
 
@@ -18,7 +19,7 @@ package org.vancura.vaclav.widgets.widgets {
 		
 		protected var $skin:ILabelButtonSkin;		
 		protected var $button:ScaleButton;
-		protected var $label:Label;
+		protected var $labelBack:Label;		protected var $labelHover:Label;		protected var $labelFocus:Label;
 
 		private var _debugLevel:String;
 
@@ -37,9 +38,9 @@ package org.vancura.vaclav.widgets.widgets {
 			var dl:String = (debugLevel != null) ? debugLevel : SkinManager.debugLevel;
 			
 			$button = new ScaleButton(skin.buttonSkin, {}, this, dl);
-			$label = new Label(skin.labelSkin, {mouseEnabled:false, mouseChildren:false}, '', this, dl);
+			$labelBack = new Label(skin.labelBackSkin, {mouseEnabled:false, mouseChildren:false}, '', this, dl);			$labelHover = new Label(skin.labelHoverSkin, {visible:false, mouseEnabled:false, mouseChildren:false}, '', this, dl);			$labelFocus = new Label(skin.labelFocusSkin, {visible:false, mouseEnabled:false, mouseChildren:false}, '', this, dl);
 			$button.debugColor = SkinManager.debugColor;
-			$label.debugColor = SkinManager.debugColor;
+			$labelBack.debugColor = SkinManager.debugColor;			$labelHover.debugColor = SkinManager.debugColor;			$labelFocus.debugColor = SkinManager.debugColor;
 			
 			this.skin = skin;
 			this.text = text;
@@ -69,17 +70,17 @@ package org.vancura.vaclav.widgets.widgets {
 		
 		
 		public function destroy():void {
-			removeChildren(this, $button, $label);
+			removeChildren(this, $button, $labelBack, $labelHover, $labelFocus);
 			
 			$button.destroy();
-			$label.destroy();
+			$labelBack.destroy();			$labelHover.destroy();			$labelFocus.destroy();
 		}
 
 		
 		
 		public function draw():void {
 			$button.draw();
-			$label.draw();
+			$labelBack.draw();			$labelHover.draw();			$labelFocus.draw();
 		}
 
 		
@@ -105,10 +106,10 @@ package org.vancura.vaclav.widgets.widgets {
 		public function set skin(skin:ILabelButtonSkin):void {
 			$skin = skin;
 			
-			$skin.labelSkin.hAlign = Align.CENTER;
+			$skin.labelBackSkin.hAlign = Align.CENTER;
 			
 			$button.skin = $skin.buttonSkin;
-			$label.skin = $skin.labelSkin;
+			$labelBack.skin = $skin.labelBackSkin;			$labelHover.skin = $skin.labelHoverSkin;			$labelFocus.skin = $skin.labelFocusSkin;
 			
 			draw();
 		}
@@ -123,7 +124,7 @@ package org.vancura.vaclav.widgets.widgets {
 		
 		override public function set width(value:Number):void {
 			$button.width = value;
-			$label.width = value;
+			$labelBack.width = value;			$labelHover.width = value;			$labelFocus.width = value;
 			
 			draw();
 		}
@@ -138,7 +139,7 @@ package org.vancura.vaclav.widgets.widgets {
 		
 		override public function set height(value:Number):void {
 			$button.height = value;
-			$label.y = Math.round((value - $label.height) / 2);
+			$labelBack.y = Math.round((value - $labelBack.height) / 2);			$labelHover.y = Math.round((value - $labelHover.height) / 2);			$labelFocus.y = Math.round((value - $labelFocus.height) / 2);
 			
 			draw();
 		}
@@ -161,14 +162,8 @@ package org.vancura.vaclav.widgets.widgets {
 
 		
 		
-		public function get isDown():Boolean {
-			return $button.isDown;
-		}
-
-		
-		
-		public function get isOver():Boolean {
-			return $button.isOver;
+		public function get mouseStatus():String {
+			return $button.mouseStatus;
 		}
 
 		
@@ -182,19 +177,19 @@ package org.vancura.vaclav.widgets.widgets {
 		public function set debugLevel(value:String):void {
 			_debugLevel = value;
 			$button.debugLevel = value;
-			$label.debugLevel = value;
+			$labelBack.debugLevel = value;			$labelHover.debugLevel = value;			$labelFocus.debugLevel = value;
 		}
 
 		
 		
 		public function get text():String {
-			return $label.text;
+			return $labelBack.text;
 		}
 
 		
 		
 		public function set text(value:String):void {
-			$label.text = value;
+			$labelBack.text = value;			$labelHover.text = value;			$labelFocus.text = value;
 			
 			draw();
 		}
@@ -202,7 +197,27 @@ package org.vancura.vaclav.widgets.widgets {
 		
 		
 		public function get label():ILabel {
-			return $label;
+			if($button.mouseStatus == MouseStatus.BACK) return $labelBack;
+			if($button.mouseStatus == MouseStatus.HOVER) return $labelHover;
+			if($button.mouseStatus == MouseStatus.FOCUS) return $labelFocus;
+		}
+		
+		
+		
+		public function get labelBack():ILabel {
+			return $labelBack;
+		}
+		
+		
+		
+		public function get labelHover():ILabel {
+			return $labelHover;
+		}
+		
+		
+		
+		public function get labelFocus():ILabel {
+			return $labelFocus;
 		}
 		
 		

@@ -13,14 +13,15 @@ package org.vancura.vaclav.widgets.interfaces {
 		function set areEventsEnabled(value:Boolean):void;
 		function get areEventsEnabled():Boolean;
 		
-		function get isDown():Boolean;
-		
-		function get isOver():Boolean;
+		function get mouseStatus():String;
 		
 		function get text():String;
 		function set text(value:String):void;
 		
 		function get label():ILabel;
+		function get labelBack():ILabel;
+		function get labelHover():ILabel;
+		function get labelFocus():ILabel;
 		
 		function get button():IButton;
 
