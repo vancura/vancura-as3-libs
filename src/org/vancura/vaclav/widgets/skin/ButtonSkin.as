@@ -17,7 +17,7 @@ package org.vancura.vaclav.widgets.skin {
 		protected var $focusInDuration:Number;
 		protected var $focusOutDuration:Number;
 		protected var $guideBD:BitmapData;
-		protected var $backBD:BitmapData;
+		protected var $outBD:BitmapData;
 		protected var $hoverBD:BitmapData;
 		protected var $focusBD:BitmapData;
 
@@ -37,7 +37,7 @@ package org.vancura.vaclav.widgets.skin {
 			$focusOutDuration = .1;
 			
 			$guideBD = new BitmapData(1, 1, true, 0x00000000);
-			$backBD = new BitmapData(1, 1, true, 0x00000000);
+			$outBD = new BitmapData(1, 1, true, 0x00000000);
 			$hoverBD = new BitmapData(1, 1, true, 0x00000000);
 			$focusBD = new BitmapData(1, 1, true, 0x00000000);
 		}
@@ -53,7 +53,7 @@ package org.vancura.vaclav.widgets.skin {
 			$assetHeight = source.height;
 			
 			$guideBD = BitmapUtil.crop(source, 0, 0, $assetWidth, $assetHeight);
-			$backBD = BitmapUtil.crop(source, $assetWidth * 1, 0, $assetWidth, $assetHeight);
+			$outBD = BitmapUtil.crop(source, $assetWidth * 1, 0, $assetWidth, $assetHeight);
 			$hoverBD = BitmapUtil.crop(source, $assetWidth * 2, 0, $assetWidth, $assetHeight);
 			$focusBD = BitmapUtil.crop(source, $assetWidth * 3, 0, $assetWidth, $assetHeight);
 		}
@@ -63,7 +63,7 @@ package org.vancura.vaclav.widgets.skin {
 		public function getAssetsFromMovieClip(source:MovieClip, elements:Array = null, ... labels:Array):void {
 			$getSkinSize(source, (labels[3] == undefined || labels[3] == '') ? 'guide' : labels[3]);
 			
-			$backBD = $getSkinFrame(source, elements, (labels[0] == undefined || labels[0] == '') ? 'back' : labels[0]);
+			$outBD = $getSkinFrame(source, elements, (labels[0] == undefined || labels[0] == '') ? 'out' : labels[0]);
 			$hoverBD = $getSkinFrame(source, elements, (labels[1] == undefined || labels[1] == '') ? 'hover' : labels[1]);
 			$focusBD = $getSkinFrame(source, elements, (labels[2] == undefined || labels[2] == '') ? 'focus' : labels[2]);
 			$guideBD = $getSkinFrame(source, elements, (labels[3] == undefined || labels[3] == '') ? 'guide' : labels[3]);
@@ -157,15 +157,15 @@ package org.vancura.vaclav.widgets.skin {
 
 		
 		
-		public function set backBD(source:BitmapData):void {
+		public function set outBD(source:BitmapData):void {
 			$checkSize(source);
-			$backBD = source;
+			$outBD = source;
 		}
 
 		
 		
-		public function get backBD():BitmapData {
-			return $backBD;
+		public function get outBD():BitmapData {
+			return $outBD;
 		}
 
 		

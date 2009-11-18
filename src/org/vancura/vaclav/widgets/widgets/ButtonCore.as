@@ -54,7 +54,7 @@ package org.vancura.vaclav.widgets.widgets {
 			
 			this.skin = skin;
 			
-			_mouseStatus = MouseStatus.BACK;
+			_mouseStatus = MouseStatus.OUT;
 		}
 
 		
@@ -94,7 +94,7 @@ package org.vancura.vaclav.widgets.widgets {
 		public function forceRelease():void {
 			if(_mouseStatus == MouseStatus.FOCUS) {
 				_currentDrag = null;
-				_mouseStatus = MouseStatus.BACK;
+				_mouseStatus = MouseStatus.OUT;
 				
 				$releasedOutsideTween();
 				
@@ -221,7 +221,7 @@ package org.vancura.vaclav.widgets.widgets {
 				}
 				else {
 					// roll out
-					_mouseStatus = MouseStatus.BACK;
+					_mouseStatus = MouseStatus.OUT;
 					
 					$hoverOutTween();
 					

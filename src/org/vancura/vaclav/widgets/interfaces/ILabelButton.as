@@ -19,7 +19,7 @@ package org.vancura.vaclav.widgets.interfaces {
 		function set text(value:String):void;
 		
 		function get label():ILabel;
-		function get labelBack():ILabel;
+		function get labelOut():ILabel;
 		function get labelHover():ILabel;
 		function get labelFocus():ILabel;
 		

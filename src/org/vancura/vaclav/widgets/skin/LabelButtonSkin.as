@@ -11,7 +11,7 @@ package org.vancura.vaclav.widgets.skin {
 		
 		
 		protected var $buttonSkin:IButtonSkin;
-		protected var $labelBackSkin:ILabelSkin;		protected var $labelHoverSkin:ILabelSkin;		protected var $labelFocusSkin:ILabelSkin;
+		protected var $labelOutSkin:ILabelSkin;		protected var $labelHoverSkin:ILabelSkin;		protected var $labelFocusSkin:ILabelSkin;
 
 		
 		
@@ -19,7 +19,7 @@ package org.vancura.vaclav.widgets.skin {
 			super(SkinType.LABEL_BUTTON, id);
 			
 			$buttonSkin = new ButtonSkin(id + '#button');
-			$labelBackSkin = new LabelSkin(id + '#labelBack');			$labelHoverSkin = new LabelSkin(id + '#labelHover');			$labelFocusSkin = new LabelSkin(id + '#labelFocus');
+			$labelOutSkin = new LabelSkin(id + '#labelOut');			$labelHoverSkin = new LabelSkin(id + '#labelHover');			$labelFocusSkin = new LabelSkin(id + '#labelFocus');
 		}
 
 		
@@ -31,8 +31,8 @@ package org.vancura.vaclav.widgets.skin {
 				$buttonSkin.parseConfig(source.button);
 			}
 			
-			if(source.labelBack != undefined) {
-				$labelBackSkin.parseConfig(source.labelBack);
+			if(source.labelOut != undefined) {
+				$labelOutSkin.parseConfig(source.labelOut);
 			}
 			
 			if(source.labelHover != undefined) {
@@ -50,7 +50,7 @@ package org.vancura.vaclav.widgets.skin {
 			super.revertConfig();
 			
 			$buttonSkin.revertConfig();
-			$labelBackSkin.revertConfig();			$labelHoverSkin.revertConfig();			$labelFocusSkin.revertConfig();
+			$labelOutSkin.revertConfig();			$labelHoverSkin.revertConfig();			$labelFocusSkin.revertConfig();
 		}
 
 		
@@ -67,14 +67,14 @@ package org.vancura.vaclav.widgets.skin {
 
 		
 		
-		public function get labelBackSkin():ILabelSkin {
-			return $labelBackSkin;
+		public function get labelOutSkin():ILabelSkin {
+			return $labelOutSkin;
 		}
 
 		
 		
-		public function set labelBackSkin(source:ILabelSkin):void {
-			$labelBackSkin = source;
+		public function set labelOutSkin(source:ILabelSkin):void {
+			$labelOutSkin = source;
 		}
 
 		

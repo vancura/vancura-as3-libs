@@ -20,8 +20,8 @@ package org.vancura.vaclav.widgets.interfaces {
 		function set guideBD(source:BitmapData):void;
 		function get guideBD():BitmapData;
 		
-		function set backBD(source:BitmapData):void;
-		function get backBD():BitmapData;
+		function set outBD(source:BitmapData):void;
+		function get outBD():BitmapData;
 		
 		function set hoverBD(source:BitmapData):void;
 		function get hoverBD():BitmapData;

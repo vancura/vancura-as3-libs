@@ -7,8 +7,8 @@ package org.vancura.vaclav.widgets.interfaces {
 		function get buttonSkin():IButtonSkin;
 		function set buttonSkin(source:IButtonSkin):void;
 		
-		function get labelBackSkin():ILabelSkin;
-		function set labelBackSkin(source:ILabelSkin):void;
+		function get labelOutSkin():ILabelSkin;
+		function set labelOutSkin(source:ILabelSkin):void;
 		
 		function get labelHoverSkin():ILabelSkin;
 		function set labelHoverSkin(source:ILabelSkin):void;
