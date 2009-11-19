@@ -14,6 +14,7 @@ package org.vancura.vaclav.widgets.interfaces {
 		function get areEventsEnabled():Boolean;
 		
 		function get mouseStatus():String;
+		function set mouseStatus(value:String):void;
 		
 		function get glyph():IImage;
 		function get glyphOut():IImage;

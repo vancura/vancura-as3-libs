@@ -116,5 +116,17 @@ package org.vancura.vaclav.widgets.widgets {
 			
 			draw();
 		}
+
+		
+		
+		override public function get width():Number {
+			return $width + $skin.paddingLeft + $skin.paddingRight;
+		}
+
+		
+		
+		override public function get height():Number {
+			return $height + $skin.paddingTop + $skin.paddingBottom;
+		}
 	}
 }

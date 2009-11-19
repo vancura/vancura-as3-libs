@@ -77,7 +77,7 @@ package org.vancura.vaclav.widgets.widgets {
 			
 			$activeSpr.addEventListener(MouseEvent.MOUSE_OVER, _onOver, false, 0, true);
 			$activeSpr.addEventListener(MouseEvent.MOUSE_OUT, _onOut, false, 0, true);
-			$activeSpr.addEventListener(MouseEvent.MOUSE_DOWN, _onPress, false, 0, true);
+			$activeSpr.addEventListener(MouseEvent.MOUSE_DOWN, _onFocus, false, 0, true);
 			$activeSpr.addEventListener(MouseEvent.MOUSE_UP, _onRelease, false, 0, true);
 		}
 
@@ -161,6 +161,24 @@ package org.vancura.vaclav.widgets.widgets {
 		public function get mouseStatus():String {
 			return _mouseStatus;
 		}
+		
+		
+		
+		public function set mouseStatus(value:String):void {
+			switch(value) {
+				case MouseStatus.OUT:
+					_onOut();
+					break;
+					
+				case MouseStatus.HOVER:
+					_onOver();
+					break;
+					
+				case MouseStatus.FOCUS:
+					_onFocus();
+					break;
+			}
+		}
 
 		
 		
@@ -230,9 +248,9 @@ package org.vancura.vaclav.widgets.widgets {
 
 		
 		
-		private function _onOver(event:MouseEvent):void {
+		private function _onOver(event:MouseEvent = null):void {
 			if(_areEventsEnabled) {
-				if(event.buttonDown) {
+				if(event != null && event.buttonDown) {
 					// drag over
 					dispatchEvent(new ButtonEvent(ButtonEvent.DRAG_OVER, true));
 				}
@@ -249,9 +267,9 @@ package org.vancura.vaclav.widgets.widgets {
 
 		
 		
-		private function _onOut(event:MouseEvent):void {
+		private function _onOut(event:MouseEvent = null):void {
 			if(_areEventsEnabled) {
-				if(event.buttonDown) {
+				if(event != null && event.buttonDown) {
 					// drag out
 					dispatchEvent(new ButtonEvent(ButtonEvent.DRAG_OUT, true));
 				}
@@ -268,7 +286,7 @@ package org.vancura.vaclav.widgets.widgets {
 
 		
 		
-		private function _onPress(event:MouseEvent):void {
+		private function _onFocus(event:MouseEvent = null):void {
 			if(_areEventsEnabled) {
 				_mouseStatus = MouseStatus.FOCUS;
 				_currentDrag = this;
@@ -285,13 +303,13 @@ package org.vancura.vaclav.widgets.widgets {
 
 		
 		
-		private function _onRelease(event:MouseEvent):void {
+		private function _onRelease(event:MouseEvent = null):void {
 			if(stage != null) {
 				stage.removeEventListener(MouseEvent.MOUSE_UP, _onRelease);
 			}
 			
 			if(_areEventsEnabled && _mouseStatus == MouseStatus.FOCUS) {
-				if(event.currentTarget == stage) {
+				if(event != null && event.currentTarget == stage) {
 					// release outside
 					forceRelease();
 				}

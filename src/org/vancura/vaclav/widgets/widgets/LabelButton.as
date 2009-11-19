@@ -48,8 +48,6 @@ package org.vancura.vaclav.widgets.widgets {
 			
 			this.skin = skin;
 			this.text = text;
-			this.buttonMode = true;
-			this.useHandCursor = true;
 			this.focusRect = false;
 			this.tabEnabled = false;
 			
@@ -176,6 +174,12 @@ package org.vancura.vaclav.widgets.widgets {
 		
 		public function get mouseStatus():String {
 			return $button.mouseStatus;
+		}
+
+		
+		
+		public function set mouseStatus(value:String):void {
+			$button.mouseStatus = value;
 		}
 
 		

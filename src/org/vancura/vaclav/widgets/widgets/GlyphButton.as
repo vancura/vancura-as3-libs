@@ -177,6 +177,12 @@ package org.vancura.vaclav.widgets.widgets {
 
 		
 		
+		public function set mouseStatus(value:String):void {
+			$button.mouseStatus = value;
+		}
+
+		
+		
 		public function get debugLevel():String {
 			return _debugLevel;
 		}

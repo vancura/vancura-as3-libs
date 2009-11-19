@@ -58,8 +58,6 @@ package org.vancura.vaclav.widgets.widgets {
 			
 			this.skin = skin;
 			this.text = text;
-			this.buttonMode = true;
-			this.useHandCursor = true;
 			this.focusRect = false;
 			this.tabEnabled = false;
 			
@@ -165,9 +163,6 @@ package org.vancura.vaclav.widgets.widgets {
 			$glyphOut.x = Math.round((value - maxWidth) / 2);
 			$glyphHover.x = Math.round((value - maxWidth) / 2);
 			$glyphFocus.x = Math.round((value - maxWidth) / 2);
-			$labelOut.width = outWidth;
-			$labelHover.width = hoverWidth;
-			$labelFocus.width = focusWidth;
 			$labelOut.x = $glyphOut.x + $glyphOut.width;
 			$labelHover.x = $glyphHover.x + $glyphHover.width;
 			$labelFocus.x = $glyphFocus.x + $glyphFocus.width;
@@ -213,6 +208,12 @@ package org.vancura.vaclav.widgets.widgets {
 		
 		public function get mouseStatus():String {
 			return $button.mouseStatus;
+		}
+
+		
+		
+		public function set mouseStatus(value:String):void {
+			$button.mouseStatus = value;
 		}
 
 		

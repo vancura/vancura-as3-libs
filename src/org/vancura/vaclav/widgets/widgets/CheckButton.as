@@ -145,6 +145,12 @@ package org.vancura.vaclav.widgets.widgets {
 		public function get mouseStatus():String {
 			return button.mouseStatus;
 		}
+		
+		
+		
+		public function set mouseStatus(value:String):void {
+			button.mouseStatus = value;
+		}
 
 		
 		

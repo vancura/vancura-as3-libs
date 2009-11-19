@@ -1,3 +1,7 @@
+// FIXME: When asset needs an image which is not bundled in the far, it silently fails
+
+
+
 package org.vancura.vaclav.assets.providers {
 	import br.com.stimuli.string.printf;
 
