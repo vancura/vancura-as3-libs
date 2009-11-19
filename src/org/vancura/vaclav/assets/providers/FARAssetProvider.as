@@ -13,6 +13,8 @@ package org.vancura.vaclav.assets.providers {
 	import org.vancura.vaclav.far.events.FarHelperAssignEvent;
 	import org.vancura.vaclav.far.events.FarHelperEvent;
 
+	import flash.events.Event;
+
 	
 	
 	public class FARAssetProvider extends AssetProvider implements IAssetProvider {
@@ -26,6 +28,8 @@ package org.vancura.vaclav.assets.providers {
 		private var _farHelper:FarHelper;
 		private var _chunkLoadCounter:uint;
 		private var _chunksList:Array;
+		private var _assetsConfig:Object;
+		private var _indexList:Array;
 
 		
 		
@@ -35,6 +39,7 @@ package org.vancura.vaclav.assets.providers {
 			_contentURI = contentURI;
 			_chunksList = new Array();
 			_chunkLoadCounter = 0;
+			_indexList = new Array();
 			
 			_farHelper = new FarHelper();
 			
@@ -116,12 +121,12 @@ package org.vancura.vaclav.assets.providers {
 			if(itemHelper.index == _ASSETS_CONFIG_INDEX) {
 				// assets library config found
 				
-				var config:Array = JSON.decode(itemHelper.farItem.data.toString());
+				_assetsConfig = JSON.decode(itemHelper.farItem.data.toString());
 				
-				for each(var assetConfig:Object in config) {
+				for each(var assetConfig:Object in _assetsConfig) {
 					var newAsset:Asset = new Asset(assetConfig.id, assetConfig);
 					
-					_findURIs(assetConfig);
+					_findURIs(newAsset, assetConfig);
 					
 					$assetsList.push(newAsset);
 				}
@@ -131,20 +136,12 @@ package org.vancura.vaclav.assets.providers {
 				
 				trace('Loaded ' + itemHelper.index);
 				
-				for each(var processedAsset:Asset in $assetsList) {
-					for each(var chunk:Chunk in processedAsset.chunksList) {
-						if(chunk.uri.indexOf(_INDEX_URI_PREFIX) == 0) {
-							var index:String = chunk.uri.substr(_INDEX_URI_PREFIX.length);
-							
-							trace('X = ' + index);
-							
-							if(index == itemHelper.index) {
-								trace('ZASE JEDNA ' + index + ' DO ' + processedAsset.id);
-								
-								itemHelper.addEventListener(FarHelperAssignEvent.ITEM_READY, _onItemReady, false, 0, true);
-								itemHelper.assignBitmap(chunk.bitmap);
-							}
-						}
+				for each(var chunk:Chunk in _chunksList) {
+					var chunkIndex:String = chunk.uri.substr(_INDEX_URI_PREFIX.length);
+					
+					if(chunkIndex == itemHelper.index) {
+						itemHelper.addEventListener(FarHelperAssignEvent.ITEM_READY, _onItemReady, false, 0, true);
+						itemHelper.assignBitmap(chunk.bitmap);
 					}
 				}
 			}
@@ -152,13 +149,15 @@ package org.vancura.vaclav.assets.providers {
 		
 		
 		
-		private function _findURIs(branch:Object):void {
+		private function _findURIs(asset:Asset, branch:Object):void {
 			for each(var leaf:Object in branch) {
 				if(leaf is String) {
 					var leafAsString:String = leaf as String;
 					
 					if(leafAsString.indexOf(_INDEX_URI_PREFIX) == 0) {
 						var isNewChunk:Boolean = true;
+						var isNewIndex:Boolean = true;
+						var index:String = leafAsString.substr(_INDEX_URI_PREFIX.length);
 						
 						for each(var testedChunk:Chunk in _chunksList) {
 							if(testedChunk.uri == leafAsString) {
@@ -166,8 +165,13 @@ package org.vancura.vaclav.assets.providers {
 							}
 						}
 						
+						for each(var ix:Asset in _indexList[index]) {
+							if(ix == asset) {
+								isNewIndex = true;
+							}
+						}
+						
 						if(isNewChunk) {
-							var index:String = leafAsString.substr(_INDEX_URI_PREFIX.length);
 							var newChunk:Chunk = new Chunk(leafAsString, Chunk.BITMAP);
 								
 							_chunkLoadCounter++;
@@ -176,24 +180,52 @@ package org.vancura.vaclav.assets.providers {
 								
 							trace('Loading ' + index);
 						}
+						
+						if(isNewIndex) {
+							if(_indexList[index] == null) {
+								_indexList[index] = new Array();
+							}
+							
+							_indexList[index].push(asset);
+						}
 					}
 				}
 				else if(leaf is Object) {
-					_findURIs(leaf);
+					_findURIs(asset, leaf);
 				}
 			}
 		}
-
+		
 		
 		
 		private function _onItemReady(event:FarHelperAssignEvent):void {
 			var itemHelper:FarHelperItem = event.helperItem as FarHelperItem;
 			
-			trace('Loaded ' + itemHelper.index);
+			trace('Attached ' + itemHelper.index);
 			
 			itemHelper.removeEventListener(FarHelperAssignEvent.ITEM_READY, _onItemReady);
 			
 			_chunkLoadCounter--;
+
+
+
+
+			
+			for(var i:String in _indexList) {
+				if(i == itemHelper.index) {
+					var chunk:Chunk;
+					
+					for each(var ch:Chunk in _chunksList) {
+						if(ch.uri.substr(_INDEX_URI_PREFIX.length) == itemHelper.index) {
+							chunk = ch;
+						}
+					}
+					
+					for each(var asset:Asset in _indexList[i]) {
+						asset.addChunk(chunk);
+					}
+				}
+			}
 			
 			// check if all items are loaded
 			if(_chunkLoadCounter == 0) {
@@ -201,7 +233,7 @@ package org.vancura.vaclav.assets.providers {
 				
 				$isLoaded = true;
 			
-//				dispatchEvent(new Event(Event.COMPLETE));
+				dispatchEvent(new Event(Event.COMPLETE));
 			}
 		}
 	}
