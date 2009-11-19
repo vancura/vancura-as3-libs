@@ -7,13 +7,13 @@
 
 package org.vancura.vaclav.widgets.globals {
 	import org.vancura.vaclav.assets.Asset;
-	import org.vancura.vaclav.assets.Chunk;
 	import org.vancura.vaclav.widgets.constants.DebugLevel;
 	import org.vancura.vaclav.widgets.constants.SkinType;
 	import org.vancura.vaclav.widgets.skin.BarSkin;
 	import org.vancura.vaclav.widgets.skin.ButtonSkin;
 	import org.vancura.vaclav.widgets.skin.CheckButtonSkin;
 	import org.vancura.vaclav.widgets.skin.GlyphButtonSkin;
+	import org.vancura.vaclav.widgets.skin.GlyphLabelButtonSkin;
 	import org.vancura.vaclav.widgets.skin.ImageSkin;
 	import org.vancura.vaclav.widgets.skin.InputBarSkin;
 	import org.vancura.vaclav.widgets.skin.LabelButtonSkin;
@@ -80,8 +80,7 @@ package org.vancura.vaclav.widgets.globals {
 						skin = new LabelButtonSkin();
 						
 						with(skin as LabelButtonSkin) {
-							var chunk:Chunk = asset.getChunkByURI(config.button.backgroundImage);
-							buttonSkin.getAssetsFromAtlas(chunk.bitmap.bitmapData);
+							buttonSkin.getAssetsFromAtlas(asset.getChunkByURI(config.button.backgroundImage).bitmap.bitmapData);
 							parseConfig(config);
 						}
 						
@@ -91,6 +90,17 @@ package org.vancura.vaclav.widgets.globals {
 						skin = new GlyphButtonSkin();
 						
 						with(skin as GlyphButtonSkin) {
+							buttonSkin.getAssetsFromAtlas(asset.getChunkByURI(config.button.backgroundImage).bitmap.bitmapData);
+							glyphsSkin.getAssetsFromAtlas(asset.getChunkByURI(config.glyph.image).bitmap.bitmapData);
+							parseConfig(config);
+						}
+						
+						break;
+						
+					case SkinType.GLYPH_LABEL_BUTTON:
+						skin = new GlyphLabelButtonSkin();
+						
+						with(skin as GlyphLabelButtonSkin) {
 							buttonSkin.getAssetsFromAtlas(asset.getChunkByURI(config.button.backgroundImage).bitmap.bitmapData);
 							glyphsSkin.getAssetsFromAtlas(asset.getChunkByURI(config.glyph.image).bitmap.bitmapData);
 							parseConfig(config);
