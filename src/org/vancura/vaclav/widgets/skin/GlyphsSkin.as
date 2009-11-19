@@ -33,7 +33,7 @@ package org.vancura.vaclav.widgets.skin {
 			$assetWidth = source.width / 3;
 			$assetHeight = source.height;
 			
-			$glyphOutSkin.getAssetsFromAtlas(BitmapUtil.crop(source, 0, 0, $assetWidth, $assetHeight));			$glyphHoverSkin.getAssetsFromAtlas(BitmapUtil.crop(source, $assetWidth, 0, $assetWidth, $assetHeight));			$glyphFocusSkin.getAssetsFromAtlas(BitmapUtil.crop(source, $assetHeight * 2, 0, $assetWidth, $assetHeight));
+			$glyphOutSkin.getAssetsFromAtlas(BitmapUtil.crop(source, 0, 0, $assetWidth, $assetHeight));			$glyphHoverSkin.getAssetsFromAtlas(BitmapUtil.crop(source, $assetWidth, 0, $assetWidth, $assetHeight));			$glyphFocusSkin.getAssetsFromAtlas(BitmapUtil.crop(source, $assetWidth * 2, 0, $assetWidth, $assetHeight));
 		}
 		
 		
