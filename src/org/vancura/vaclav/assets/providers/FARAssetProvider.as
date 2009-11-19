@@ -123,24 +123,31 @@ package org.vancura.vaclav.assets.providers {
 				
 				_assetsConfig = JSON.decode(itemHelper.farItem.data.toString());
 				
+				// find all assets specified in the config
 				for each(var assetConfig:Object in _assetsConfig) {
+					
+					// create new asset
+					// find all URIs referenced by the asset
+					// add it to the list for future reference
 					var newAsset:Asset = new Asset(assetConfig.id, assetConfig);
-					
 					_findURIs(newAsset, assetConfig);
-					
 					$assetsList.push(newAsset);
 				}
 			}
 			else {
 				// standard asset
-				
-				trace('Loaded ' + itemHelper.index);
-				
+
+				// find all chunks previously found by the _findURIs() method
 				for each(var chunk:Chunk in _chunksList) {
-					var chunkIndex:String = chunk.uri.substr(_INDEX_URI_PREFIX.length);
-					
-					if(chunkIndex == itemHelper.index) {
+					if(chunk.uri.substr(_INDEX_URI_PREFIX.length) == itemHelper.index) {
+						// chunk index contains even the prefix (like this:),
+						// but itemHelper.index contains just index
+						// hence we need to strip it this way
+						
+						// add event listener to check for bitmap assignment afterwards
 						itemHelper.addEventListener(FarHelperAssignEvent.ITEM_READY, _onItemReady, false, 0, true);
+						
+						// and assign a bitmap to the chunk
 						itemHelper.assignBitmap(chunk.bitmap);
 					}
 				}
@@ -150,47 +157,70 @@ package org.vancura.vaclav.assets.providers {
 		
 		
 		private function _findURIs(asset:Asset, branch:Object):void {
+			// browse all items in the list
 			for each(var leaf:Object in branch) {
+				// test for the leaf, if it's string, then it *may* contain an URI reference
+				
 				if(leaf is String) {
+					// ok, it's a String
+					
 					var leafAsString:String = leaf as String;
 					
 					if(leafAsString.indexOf(_INDEX_URI_PREFIX) == 0) {
+						// strip the trailing this
+						
 						var isNewChunk:Boolean = true;
 						var isNewIndex:Boolean = true;
 						var index:String = leafAsString.substr(_INDEX_URI_PREFIX.length);
 						
+						// browse all stored chunks and test if the chunk is already there
 						for each(var testedChunk:Chunk in _chunksList) {
 							if(testedChunk.uri == leafAsString) {
+								// it's there, so ignore it, preventing dupes
 								isNewChunk = false;
 							}
 						}
 						
+						// browse all stored assets and test if the asset is already there
 						for each(var ix:Asset in _indexList[index]) {
 							if(ix == asset) {
+								// it's there, so ignore it, preventing dupes
 								isNewIndex = true;
 							}
 						}
 						
 						if(isNewChunk) {
+							// ok, so it's a new chunk
+							
 							var newChunk:Chunk = new Chunk(leafAsString, Chunk.BITMAP);
 								
+							// increase counter to test for the last loaded chunk
 							_chunkLoadCounter++;
+							
+							// load item
+							// _onItemLoadComplete() is a handler called on successful load
 							_farHelper.loadItem(index);
+							
+							// add to the list
 							_chunksList.push(newChunk);
-								
-							trace('Loading ' + index);
 						}
 						
 						if(isNewIndex) {
+							// ok, so it's a ne asset
+							
+							// create a new list of assets if not created before
 							if(_indexList[index] == null) {
 								_indexList[index] = new Array();
 							}
 							
+							// add it to the list of assets
 							_indexList[index].push(asset);
 						}
 					}
-				}
+				} // if(leaf is String)
+				
 				else if(leaf is Object) {
+					// no, it's an Object, so go deeper
 					_findURIs(asset, leaf);
 				}
 			}
@@ -201,26 +231,26 @@ package org.vancura.vaclav.assets.providers {
 		private function _onItemReady(event:FarHelperAssignEvent):void {
 			var itemHelper:FarHelperItem = event.helperItem as FarHelperItem;
 			
-			trace('Attached ' + itemHelper.index);
-			
+			// remove all event listeners
 			itemHelper.removeEventListener(FarHelperAssignEvent.ITEM_READY, _onItemReady);
 			
-			_chunkLoadCounter--;
-
-
-
-
-			
+			// check for all assets where the item is used
 			for(var i:String in _indexList) {
+				// _indexList[] contains a list of all assets
+				
 				if(i == itemHelper.index) {
+					// now we got an asset list just for this particular farItem
+					
 					var chunk:Chunk;
 					
+					// find all chunks
 					for each(var ch:Chunk in _chunksList) {
 						if(ch.uri.substr(_INDEX_URI_PREFIX.length) == itemHelper.index) {
 							chunk = ch;
 						}
 					}
 					
+					// add this chunk to the asset
 					for each(var asset:Asset in _indexList[i]) {
 						asset.addChunk(chunk);
 					}
@@ -228,8 +258,8 @@ package org.vancura.vaclav.assets.providers {
 			}
 			
 			// check if all items are loaded
-			if(_chunkLoadCounter == 0) {
-				trace('DONE');
+			if(--_chunkLoadCounter == 0) {
+				// all is done
 				
 				$isLoaded = true;
 			
