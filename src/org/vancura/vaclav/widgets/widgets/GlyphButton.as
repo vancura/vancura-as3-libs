@@ -131,7 +131,9 @@ package org.vancura.vaclav.widgets.widgets {
 		
 		override public function set width(value:Number):void {
 			$button.width = value;
-			$glyphOut.width = value;			$glyphHover.width = value;			$glyphFocus.width = value;
+			$glyphOut.x = Math.round((value - $glyphOut.width) / 2);
+			$glyphHover.x = Math.round((value - $glyphHover.width) / 2);
+			$glyphFocus.x = Math.round((value - $glyphFocus.width) / 2);
 			
 			draw();
 		}
