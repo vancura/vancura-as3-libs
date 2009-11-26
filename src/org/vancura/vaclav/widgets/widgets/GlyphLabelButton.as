@@ -5,6 +5,7 @@ package org.vancura.vaclav.widgets.widgets {
 	import org.vancura.vaclav.core.MorphSprite;
 	import org.vancura.vaclav.core.removeChildren;
 	import org.vancura.vaclav.widgets.constants.Align;
+	import org.vancura.vaclav.widgets.constants.DebugLevel;
 	import org.vancura.vaclav.widgets.constants.MouseStatus;
 	import org.vancura.vaclav.widgets.events.ButtonEvent;
 	import org.vancura.vaclav.widgets.globals.SkinManager;
@@ -166,6 +167,11 @@ package org.vancura.vaclav.widgets.widgets {
 			$labelOut.x = $glyphOut.x + $glyphOut.width;
 			$labelHover.x = $glyphHover.x + $glyphHover.width;
 			$labelFocus.x = $glyphFocus.x + $glyphFocus.width;
+			
+			// FIXME: This is somewhat hack, fix it
+			$labelOut.width = $labelOut.width + 5;
+			$labelHover.width = $labelOut.width + 5;
+			$labelFocus.width = $labelFocus.width + 5;
 			
 			draw();
 		}
