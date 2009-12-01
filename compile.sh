@@ -4,7 +4,7 @@
 # = Customize me here =
 # =====================
 
-FLEX_DIR="/Developer/SDKs/FlexSDK4";
+FLEX_DIR="/Developer/SDKs/FlexSDK34";
 # Set to point to your Flex SDK directory
 
 NATURAL_DOCS_DIR="/Developer/Applications/NaturalDocs";
