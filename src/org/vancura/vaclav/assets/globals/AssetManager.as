@@ -43,9 +43,11 @@ package org.vancura.vaclav.assets.globals {
 		
 		
 		public function getAsset(id:String):* {
-			for each(var item:Asset in assetsList) {
-				if(item.id == id) {
-					return item;
+			if(_provider != null) {
+				for each(var item:Asset in _provider.assetsList) {
+					if(item.id == id) {
+						return item;
+					}
 				}
 			}
 			
@@ -58,7 +60,7 @@ package org.vancura.vaclav.assets.globals {
 			if(_provider != null) {
 				var list:String = '';
 				
-				for each(var i:Asset in assetsList) {
+				for each(var i:Asset in _provider.assetsList) {
 					list += printf('%s, ', i.id);
 				}
 				list = list.substr(0, list.length - 2);

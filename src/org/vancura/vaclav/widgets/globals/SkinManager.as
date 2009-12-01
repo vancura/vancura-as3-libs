@@ -27,7 +27,7 @@ package org.vancura.vaclav.widgets.globals {
 		
 		private static var _debugLevel:String = DebugLevel.NONE;
 		private static var _debugColor:uint = 0xFF0000;
-
+		
 		
 		
 		public static function assetToSkin(asset:Asset):* {

@@ -37,21 +37,11 @@ package org.vancura.vaclav.far {
 		
 		
 		public function destroy():void {
-			if(_stream.connected) {
-				_stream.close();
-			}
+			unload();
 			
 			_stream.removeEventListener(IOErrorEvent.IO_ERROR, _onFarIOError);
 			_stream.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, _onFarSecurityError);
 			_stream.removeEventListener(Event.COMPLETE, _onFarDownloadDone);
-			
-			for each(var i:FarHelperItem in _itemList) {
-				i.removeEventListener(FarHelperEvent.ITEM_LOAD_COMPLETE, _onItemLoadComplete);
-				i.removeEventListener(FarHelperProgressEvent.ITEM_LOAD_PROGRESS, _onItemLoadProgress);
-				i.removeEventListener(FarHelperEvent.ITEM_LOAD_FAILED, _onItemLoadIOError);
-				
-				i.destroy();
-			}
 		}
 
 		
@@ -61,6 +51,27 @@ package org.vancura.vaclav.far {
 				_url = url;
 				_isLoading = true;
 				_stream.loadFromURL(_url);
+			}
+		}
+		
+		
+		
+		public function unload():void {
+			_isLoading = false;
+			_isLoaded = false;
+			_url = null;
+			
+			for each(var i:FarHelperItem in _itemList) {
+				i.removeEventListener(FarHelperEvent.ITEM_LOAD_COMPLETE, _onItemLoadComplete);
+				i.removeEventListener(FarHelperProgressEvent.ITEM_LOAD_PROGRESS, _onItemLoadProgress);
+				i.removeEventListener(FarHelperEvent.ITEM_LOAD_FAILED, _onItemLoadIOError);
+				
+				i.destroy();
+			}
+			_itemList = new Array();
+			
+			if(_stream.connected) {
+				_stream.close();
 			}
 		}
 
