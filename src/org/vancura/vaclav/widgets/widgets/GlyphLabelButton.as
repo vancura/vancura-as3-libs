@@ -5,14 +5,14 @@
  * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
- * documentation files (the ÒSoftwareÓ), to deal in the Software without restriction, including without limitation
+ * documentation files (the Ã’SoftwareÃ“), to deal in the Software without restriction, including without limitation
  * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
  * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions
  * of the Software.
  *
- * THE SOFTWARE IS PROVIDED ÒAS ISÓ, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+ * THE SOFTWARE IS PROVIDED Ã’AS ISÃ“, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
  * TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
  * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
@@ -96,11 +96,11 @@ package org.vancura.vaclav.widgets.widgets {
 				config.height = skin.buttonSkin.assetHeight;
 			}
 
-			if(skin == null) {
-				throw new Error('No skin defined');
+			if(skin != null) {
+				super(config, parent);
 			}
 			else {
-				super(config, parent);
+				throw new Error('No skin defined');
 			}
 
 			$skin = skin;
