@@ -55,12 +55,11 @@ package org.vancura.vaclav.widgets.widgets {
 
 		public function GlyphLabelButton(skin:IGlyphLabelButtonSkin, config:Object = null, text:String = '', parent:DisplayObjectContainer = null,
 		                                 debugLevel:String = null) {
-
 			if(config == null) {
 				config = new Object();
 			}
 
-			var dl:String = (debugLevel != null) ? debugLevel : SkinManager.debugLevel;
+			var dl:String = (debugLevel == null) ? SkinManager.debugLevel : debugLevel;
 
 			$button = new ScaleButton(skin.buttonSkin, {}, this, dl);
 			$glyphOut = new Image(skin.glyphsSkin.glyphOutSkin, {mouseEnabled:false, mouseChildren:false}, this, dl);

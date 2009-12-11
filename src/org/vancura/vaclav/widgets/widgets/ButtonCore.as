@@ -20,6 +20,8 @@
  **********************************************************************************************************************/
 
 package org.vancura.vaclav.widgets.widgets {
+	import br.com.stimuli.string.printf;
+
 	import flash.display.DisplayObjectContainer;
 	import flash.events.MouseEvent;
 
@@ -61,11 +63,11 @@ package org.vancura.vaclav.widgets.widgets {
 				config.height = skin.assetHeight;
 			}
 
-			if(skin == null) {
-				throw new Error('No skin defined');
+			if(skin != null) {
+				super(config, parent, (debugLevel == null) ? SkinManager.debugLevel : debugLevel);
 			}
 			else {
-				super(config, parent, (debugLevel != null) ? debugLevel : SkinManager.debugLevel);
+				throw new Error('No skin defined');
 			}
 
 			this.skin = skin;
@@ -195,6 +197,9 @@ package org.vancura.vaclav.widgets.widgets {
 				case MouseStatus.FOCUS:
 					_onFocus();
 					break;
+
+				default:
+					throw new Error(printf('Unknown mouse status (%s)', value));
 			}
 		}
 

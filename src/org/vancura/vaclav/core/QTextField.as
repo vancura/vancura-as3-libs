@@ -100,26 +100,26 @@ package org.vancura.vaclav.core {
 		 *
 		 * (end)
 		 */
-		public function QTextField(c:Object = null, parent:DisplayObjectContainer = null) {
+		public function QTextField(config:Object = null, parent:DisplayObjectContainer = null) {
 			// if config is not defined, prepare it
-			if(c == null) {
-				c = new Object();
+			if(config == null) {
+				config = new Object();
 			}
 
 			super();
 
 			// TextField overrides and custom config
-			this.antiAliasType = (c.antiAliasType != undefined) ? c.antiAliasType : AntiAliasType.ADVANCED;
-			this.condenseWhite = (c.condenseWhite != undefined) ? c.condenseWhite : true;
-			this.embedFonts = (c.embedFonts != undefined) ? c.embedFonts : true;
-			this.gridFitType = (c.gridFitType != undefined) ? c.gridFitType : GridFitType.PIXEL;
-			this.multiline = (c.multiline != undefined) ? c.multiline : true;
-			this.selectable = (c.selectable != undefined) ? c.selectable : false;
-			this.type = (c.type != undefined) ? c.type : TextFieldType.DYNAMIC;
-			this.wordWrap = (c.wordWrap != undefined) ? c.wordWrap : true;
+			this.antiAliasType = (config.antiAliasType == undefined) ? AntiAliasType.ADVANCED : config.antiAliasType;
+			this.condenseWhite = (config.condenseWhite == undefined) ? true : config.condenseWhite;
+			this.embedFonts = (config.embedFonts == undefined) ? true : config.embedFonts;
+			this.gridFitType = (config.gridFitType == undefined) ? GridFitType.PIXEL : config.gridFitType;
+			this.multiline = (config.multiline == undefined) ? true : config.multiline;
+			this.selectable = (config.selectable == undefined) ? false : config.selectable;
+			this.type = (config.type == undefined) ? TextFieldType.DYNAMIC : config.type;
+			this.wordWrap = (config.wordWrap == undefined) ? true : config.wordWrap;
 
 			// assign parameters
-			assign(this, c);
+			assign(this, config);
 
 			// add child if requested
 			if(parent != null) {

@@ -111,25 +111,25 @@ package org.vancura.vaclav.core {
 		 *		isMorphWidthEnabled		- Width morphing flag. If not defined, <defIsMorphWidthEnabled> used instead.
 		 *		isMorphHeightEnabled	- Height morphing flag. If not defined, <defIsMorphHeightEnabled> used instead.
 		 */
-		public function MorphSprite(c:Object = null, parent:DisplayObjectContainer = null) {
+		public function MorphSprite(config:Object = null, parent:DisplayObjectContainer = null) {
 
 			// if config is not defined, prepare it
-			if(c == null) {
-				c = new Object();
+			if(config == null) {
+				config = new Object();
 			}
 
 			// create parent QSprite
-			super(c, parent);
+			super(config, parent);
 
 			// assign values
-			morphDuration = (c.morphDuration != undefined) ? c.morphDuration : defMorphDuration;
-			morphEase = (c.morphEase != undefined) ? c.morphEase : defMorphEase;
-			isChangeWidthEnabled = (c.changeWidthEnabled != undefined) ? c.changeWidthEnabled : defIsChangeWidthEnabled;
-			isChangeHeightEnabled = (c.changeHeightEnabled != undefined) ? c.changeHeightEnabled : defIsChangeHeightEnabled;
-			isMorphXEnabled = (c.morphXEnabled != undefined) ? c.morphXEnabled : defIsMorphXEnabled;
-			isMorphYEnabled = (c.morphYEnabled != undefined) ? c.morphYEnabled : defIsMorphYEnabled;
-			isMorphWidthEnabled = (c.morphWidthEnabled == undefined) ? defIsMorphWidthEnabled : c.morphWidthEnabled;
-			isMorphHeightEnabled = (c.morphHeightEnabled != undefined) ? c.morphHeightEnabled : defIsMorphHeightEnabled;
+			morphDuration = (config.morphDuration == undefined) ? defMorphDuration : config.morphDuration;
+			morphEase = (config.morphEase == undefined) ? defMorphEase : config.morphEase;
+			isChangeWidthEnabled = (config.changeWidthEnabled == undefined) ? defIsChangeWidthEnabled : config.changeWidthEnabled;
+			isChangeHeightEnabled = (config.changeHeightEnabled == undefined) ? defIsChangeHeightEnabled : config.changeHeightEnabled;
+			isMorphXEnabled = (config.morphXEnabled == undefined) ? defIsMorphXEnabled : config.morphXEnabled;
+			isMorphYEnabled = (config.morphYEnabled == undefined) ? defIsMorphYEnabled : config.morphYEnabled;
+			isMorphWidthEnabled = (config.morphWidthEnabled == undefined) ? defIsMorphWidthEnabled : config.morphWidthEnabled;
+			isMorphHeightEnabled = (config.morphHeightEnabled == undefined) ? defIsMorphHeightEnabled : config.morphHeightEnabled;
 		}
 
 
@@ -183,13 +183,13 @@ package org.vancura.vaclav.core {
 				t.height = c.height;
 			}
 
-			t.ease = (c.morphEase != undefined) ? c.morphEase : morphEase;
+			t.ease = (c.morphEase == undefined) ? morphEase : c.morphEase;
 			t.roundProps = ['x', 'y', 'width', 'height'];
 			t.onComplete = function():void {
 				cacheAsBitmap = _oldCacheAsBitmap;
 			};
 
-			new TweenLite(this, (c.morphDuration != undefined) ? c.morphDuration : morphDuration, t);
+			new TweenLite(this, (c.morphDuration == undefined) ? morphDuration : c.morphDuration, t);
 		}
 
 

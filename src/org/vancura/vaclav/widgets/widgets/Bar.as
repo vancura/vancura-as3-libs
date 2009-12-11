@@ -21,7 +21,6 @@
 
 package org.vancura.vaclav.widgets.widgets {
 	import flash.display.DisplayObjectContainer;
-	import flash.geom.Rectangle;
 
 	import org.bytearray.display.ScaleBitmap;
 	import org.vancura.vaclav.core.addChildren;
@@ -52,11 +51,11 @@ package org.vancura.vaclav.widgets.widgets {
 				config.height = skin.assetHeight;
 			}
 
-			if(skin == null) {
-				throw new Error('No skin defined');
+			if(skin != null) {
+				super(config, parent, (debugLevel == null) ? SkinManager.debugLevel : debugLevel);
 			}
 			else {
-				super(config, parent, (debugLevel != null) ? debugLevel : SkinManager.debugLevel);
+				throw new Error('No skin defined');
 			}
 
 			this.skin = skin;
@@ -97,9 +96,7 @@ package org.vancura.vaclav.widgets.widgets {
 			super.draw();
 
 			$bodySBM.bitmapData = $skin.backBD;
-
-			var rect:Rectangle = $skin.guideBD.getColorBoundsRect(0x00FF0000, 0x00000000, false);
-			$bodySBM.scale9Grid = rect;
+			$bodySBM.scale9Grid = $skin.guideBD.getColorBoundsRect(0x00FF0000, 0x00000000, false);
 
 			if($width != 0 && !isNaN($width)) {
 				$bodySBM.width = $width - $skin.paddingLeft - $skin.paddingRight;

@@ -19,7 +19,9 @@
  * DEALINGS IN THE SOFTWARE.
  **********************************************************************************************************************/
 
-// TODO: Width & height not applied in the constructor
+/**
+ * TODO: Width & height not applied in the constructor
+ */
 
 
 package org.vancura.vaclav.widgets.widgets {

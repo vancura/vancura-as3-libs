@@ -163,7 +163,7 @@ package org.vancura.vaclav.assets.globals {
 		 * @return Error happened flag
 		 */
 		public function get isError():Boolean {
-			return (_provider != null) ? _provider.isError : false;
+			return (_provider == null) ? false : _provider.isError;
 		}
 
 
@@ -173,7 +173,7 @@ package org.vancura.vaclav.assets.globals {
 		 * @return AssetManager active flag
 		 */
 		public function get isActive():Boolean {
-			return (_provider != null) ? _provider.isActive : false;
+			return (_provider == null) ? false : _provider.isActive;
 		}
 
 
@@ -183,7 +183,7 @@ package org.vancura.vaclav.assets.globals {
 		 * @return Loaded flag
 		 */
 		public function get isLoaded():Boolean {
-			return (_provider != null) ? _provider.isLoaded : false;
+			return (_provider == null) ? false : _provider.isLoaded;
 		}
 
 

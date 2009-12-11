@@ -19,11 +19,12 @@
  * DEALINGS IN THE SOFTWARE.
  **********************************************************************************************************************/
 
-// TODO: Caching
-// TODO: Mergin with settings from FlashVar etc.
-// TODO: Theming
-// TODO: Better error handling
-
+/**
+ * TODO: Caching
+ * TODO: Mergin with settings from FlashVar etc.
+ * TODO: Theming
+ * TODO: Better error handling
+ */
 
 package org.vancura.vaclav.widgets.globals {
 	import org.vancura.vaclav.assets.Asset;

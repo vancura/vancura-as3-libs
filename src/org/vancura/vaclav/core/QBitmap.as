@@ -86,20 +86,20 @@ package org.vancura.vaclav.core {
 		 *
 		 * (end)
 		 */
-		public function QBitmap(c:Object = null, parent:DisplayObjectContainer = null) {
+		public function QBitmap(config:Object = null, parent:DisplayObjectContainer = null) {
 			// if config is not defined, prepare it
-			if(c == null) {
-				c = new Object();
+			if(config == null) {
+				config = new Object();
 			}
 
 			super();
 
 			// Bitmap overrides and custom config
-			if(c.embed) {
-				if(c.embed is Bitmap) {
-					this.bitmapData = c.embed.bitmapData;
-				} else if(c.embed is BitmapData) {
-					this.bitmapData = c.embed;
+			if(config.embed) {
+				if(config.embed is Bitmap) {
+					this.bitmapData = config.embed.bitmapData;
+				} else if(config.embed is BitmapData) {
+					this.bitmapData = config.embed;
 				}
 				else {
 					throw new TypeError('Invalid embed object');
@@ -107,7 +107,7 @@ package org.vancura.vaclav.core {
 			}
 
 			// assign parameters
-			assign(this, c);
+			assign(this, config);
 
 			// add child if requested
 			if(parent != null) {

@@ -85,31 +85,31 @@ package org.vancura.vaclav.core {
 		 *
 		 * (end)
 		 */
-		public function QVideo(c:Object = null, parent:DisplayObjectContainer = null) {
+		public function QVideo(config:Object = null, parent:DisplayObjectContainer = null) {
 			// if config is not defined, prepare it
-			if(c == null) {
-				c = new Object();
+			if(config == null) {
+				config = new Object();
 			}
 
 			try {
-				super(c.width, c.height);
+				super(config.width, config.height);
 			}
 			catch(err:Error) {
-				if(c.width == undefined) {
+				if(config.width == undefined) {
 					throw new Error('Video width undefined');
 				}
 
-				if(c.height == undefined) {
+				if(config.height == undefined) {
 					throw new Error('Video height undefined');
 				}
 			}
 
 			// Video overrides and custom config
-			this.deblocking = (c.deblocking != undefined) ? c.deblocking : 5;
-			this.smoothing = (c.smoothing != undefined) ? c.smoothing : true;
+			this.deblocking = (config.deblocking == undefined) ? 5 : config.deblocking;
+			this.smoothing = (config.smoothing == undefined) ? true : config.smoothing;
 
 			// assign parameters
-			assign(this, c);
+			assign(this, config);
 
 			// add child if requested
 			if(parent != null) {

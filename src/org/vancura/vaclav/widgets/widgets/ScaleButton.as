@@ -46,12 +46,11 @@ package org.vancura.vaclav.widgets.widgets {
 
 		public function ScaleButton(skin:IButtonSkin, config:Object = null, parent:DisplayObjectContainer = null,
 		                            debugLevel:String = null) {
-
 			if(config == null) {
 				config = new Object();
 			}
 
-			super(skin, config, parent, (debugLevel != null) ? debugLevel : SkinManager.debugLevel);
+			super(skin, config, parent, (debugLevel == null) ? SkinManager.debugLevel : debugLevel);
 		}
 
 

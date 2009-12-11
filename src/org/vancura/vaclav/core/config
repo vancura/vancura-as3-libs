@@ -20,41 +20,34 @@
  **********************************************************************************************************************/
 
 package org.vancura.vaclav.core {
+	import flash.display.Bitmap;
+	import flash.display.BitmapData;
 	import flash.display.DisplayObjectContainer;
-	import flash.display.Sprite;
 
 	/*
-	 *	Class: QSprite
+	 *	Class: QBitmap
 	 *
-	 *	Quick creation of Sprite with initial data.
+	 *	Quick creation of Bitmap with initial data.
 	 *
 	 *	Author: Vaclav Vancura <http://vaclav.vancura.org>
 	 */
-	public class QSprite extends Sprite {
+	public class QBitmap extends Bitmap {
 
-
-		private var _embeddedSpr:Sprite;
 
 
 		/*
-		 * Constructor: QSprite
+		 * Constructor: QBitmap
 		 *
-		 * Create a new QSprite instance.
+		 * Create a new QBitmap instance.
 		 *
 		 * Parameters:
 		 *
 		 * 		c		- Config object
 		 * 		parent	- Parent DisplayObjectContainer
 		 *
-		 * Every sane parameter of Sprite, DisplayObjectContainer, InteractiveObject and
-		 * DisplayObject is supported, that means:
+		 * Every sane parameter of Bitmap and DisplayObject is supported, that means:
 		 *
-		 * Sprite parameters: buttonMode, hitArea, soundTransform, useHandCursor
-		 *
-		 * DisplayObjectContainer parameters: mouseChildren, tabChildren
-		 *
-		 * InteractiveObject parameters: contextMenu, doubleClickEnabled, focusRect,
-		 * mouseEnabled, tabEnabled, tabIndex
+		 * Bitmap parameters: bitmapData, pixelSnapping, smoothing
 		 *
 		 * DisplayObject parameters: accessibilityProperties, alpha, blendMode, cacheAsBitmap,
 		 * filters, height, mask, name, opaqueBackground, rotation, scale9Grid, scaleX, scaleY,
@@ -62,22 +55,24 @@ package org.vancura.vaclav.core {
 		 *
 		 * Additionally these parameters are added:
 		 *
-		 * 		embed	- Sprite object to be used as Sprite source (throws a TypeError if
-		 * 					the embed object is not Sprite)
+		 * 		embed	- Bitmap or BitmapData object to be used as Bitmap source (throws
+		 * 					a TypeError if the embed object is not Bitmap nor BitmapData)
 		 *
 		 * Example code:
 		 *
 		 * (start code)
 		 *
-		 * 		import org.vancura.graphics.QSprite;
+		 * 		import org.vancura.graphics.QBitmap;
 		 *
-		 * 		var mySprite:QSprite = new QSprite({
+		 * 		[Embed(source='bitmap-test.png')] private static var _bitmapTest:Class;
+		 *
+		 * 		var myBitmap:QBitmap = new QBitmap({
+		 * 			embed: new _bitmapTest(),
 		 * 			x: 100,
 		 * 			y: 50,
-		 * 			alpha: .5,
-		 * 			rotation: 10
+		 * 			alpha: .5
 		 * 		});
-		 * 		addChild(mySprite);
+		 * 		addChild(myBitmap);
 		 *
 		 * (end)
 		 *
@@ -87,30 +82,32 @@ package org.vancura.vaclav.core {
 		 *
 		 * 		import org.vancura.graphics.QSprite;
 		 *
-		 * 		var mySprite:QSprite = new QSprite(null, this);
+		 * 		var myBitmap:QBitmap = new QBitmap({embed: new _bitmapTest()}, this);
 		 *
 		 * (end)
 		 */
-		public function QSprite(config:Object = null, parent:DisplayObjectContainer = null) {
-
+		public function QBitmap(c:Object = null, parent:DisplayObjectContainer = null) {
 			// if config is not defined, prepare it
-			if(config == null) {
-				config = new Object();
+			if(c == null) {
+				c = new Object();
 			}
 
 			super();
 
-			// Sprite overrides and custom config
-			if(config.embed) {
-				if(!(config.embed is Sprite)) {
+			// Bitmap overrides and custom config
+			if(c.embed) {
+				if(c.embed is Bitmap) {
+					this.bitmapData = c.embed.bitmapData;
+				} else if(c.embed is BitmapData) {
+					this.bitmapData = c.embed;
+				}
+				else {
 					throw new TypeError('Invalid embed object');
 				}
-				_embeddedSpr = config.embed;
-				addChild(_embeddedSpr);
 			}
 
 			// assign parameters
-			assign(this, config);
+			assign(this, c);
 
 			// add child if requested
 			if(parent != null) {
@@ -122,16 +119,6 @@ package org.vancura.vaclav.core {
 
 		// Getters & setters
 		// -----------------
-
-
-		/**
-		 * Get embedded Sprite (nested)
-		 * @return Embedded Sprite
-		 */
-		public function get embeddedSpr():Sprite {
-			return _embeddedSpr;
-		}
-
 
 
 		/**

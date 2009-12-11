@@ -56,7 +56,7 @@ package org.vancura.vaclav.widgets.widgets {
 				config = new Object();
 			}
 
-			var dl:String = (debugLevel != null) ? debugLevel : SkinManager.debugLevel;
+			var dl:String = (debugLevel == null) ? SkinManager.debugLevel : debugLevel;
 
 			$button = new ScaleButton(skin.buttonSkin, {}, this, dl);
 			$labelOut = new Label(skin.labelOutSkin, {mouseEnabled:false, mouseChildren:false}, '', this, dl);
