@@ -1,19 +1,38 @@
-﻿package org.vancura.vaclav.core {
+/***********************************************************************************************************************
+ * Copyright (c) 2009. Vaclav Vancura.
+ * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
+ * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
+ * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+ * documentation files (the “Software”), to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+ * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions
+ * of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+ * TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ **********************************************************************************************************************/
+
+package org.vancura.vaclav.core {
 	import flash.display.Sprite;
 
-	
-	
 	/*
 	 * Class: GraphicsUtil
-	 * 
+	 *
 	 * A class covering few graphics methods I can't put anywhere else.
-	 * 
+	 *
 	 * Author: Vaclav Vancura <http://vaclav.vancura.org>
 	 */
 	public final class GraphicsUtil {
 
-		
-		
+
+
 		/*
 		 *	Constants: Default config
 		 *
@@ -33,8 +52,7 @@
 		public static const DEFAULT_RADIUS:Number = 20;
 		public static const DEFAULT_SEGMENTS:Number = 6;
 
-		
-		
+
 		/*
 		 *	Method: drawRect
 		 *
@@ -50,14 +68,15 @@
 		 *		color		- Color (if not specified, <DEFAULT_COLOR> used)
 		 *		alpha		- Alpha (if not specified, <DEFAULT_ALPHA> used)
 		 */
-		public static function drawRect(canvas:Sprite, x:Number = 0, y:Number = 0, width:Number = DEFAULT_WIDTH, height:Number = DEFAULT_HEIGHT, color:uint = DEFAULT_COLOR, alpha:Number = DEFAULT_ALPHA):void {
+		public static function drawRect(canvas:Sprite, x:Number = 0, y:Number = 0, width:Number = DEFAULT_WIDTH, height:Number = DEFAULT_HEIGHT,
+		                                color:uint = DEFAULT_COLOR, alpha:Number = DEFAULT_ALPHA):void {
 			canvas.graphics.beginFill(color, alpha);
 			canvas.graphics.drawRect(x, y, width, height);
 			canvas.graphics.endFill();
 		}
 
-		
-		
+
+
 		/*
 		 *	Method: drawCircle
 		 *
@@ -72,14 +91,15 @@
 		 *		color		- Color (if not specified, <DEFAULT_COLOR> used)
 		 *		alpha		- Alpha (if not specified, <DEFAULT_ALPHA> used)
 		 */
-		public static function drawCircle(canvas:Sprite, x:Number, y:Number, radius:Number = DEFAULT_RADIUS, color:uint = DEFAULT_COLOR, alpha:Number = DEFAULT_ALPHA):void {
+		public static function drawCircle(canvas:Sprite, x:Number, y:Number, radius:Number = DEFAULT_RADIUS, color:uint = DEFAULT_COLOR,
+		                                  alpha:Number = DEFAULT_ALPHA):void {
 			canvas.graphics.beginFill(color, alpha);
 			canvas.graphics.drawCircle(x, y, radius);
 			canvas.graphics.endFill();
 		}
 
-		
-		
+
+
 		/*
 		 *	Method: drawRoundRect
 		 *
@@ -96,14 +116,15 @@
 		 *		color		- Color (if not specified, <DEFAULT_COLOR> used)
 		 *		alpha		- Alpha (if not specified, <DEFAULT_ALPHA> used)
 		 */
-		public static function drawRoundRect(canvas:Sprite, x:Number, y:Number, width:Number = DEFAULT_WIDTH, height:Number = DEFAULT_HEIGHT, radius:Number = DEFAULT_RADIUS, color:uint = DEFAULT_COLOR, alpha:Number = DEFAULT_ALPHA):void {
+		public static function drawRoundRect(canvas:Sprite, x:Number, y:Number, width:Number = DEFAULT_WIDTH, height:Number = DEFAULT_HEIGHT,
+		                                     radius:Number = DEFAULT_RADIUS, color:uint = DEFAULT_COLOR, alpha:Number = DEFAULT_ALPHA):void {
 			canvas.graphics.beginFill(color, alpha);
 			canvas.graphics.drawRoundRect(x, y, width, height, radius, radius);
 			canvas.graphics.endFill();
 		}
 
-		
-		
+
+
 		/*
 		 *	Method: drawPie
 		 *
@@ -121,7 +142,8 @@
 		 *		color		- Color (if not specified, <DEFAULT_COLOR> used)
 		 *		alpha		- Alpha (if not specified, <DEFAULT_ALPHA> used)
 		 */
-		public static function drawPie(canvas:Sprite, x:Number, y:Number, radius:Number = DEFAULT_RADIUS, segments:int = DEFAULT_SEGMENTS, angle1:Number = 0, angle2:Number = 360, color:uint = DEFAULT_COLOR, alpha:Number = DEFAULT_ALPHA):void {
+		public static function drawPie(canvas:Sprite, x:Number, y:Number, radius:Number = DEFAULT_RADIUS, segments:int = DEFAULT_SEGMENTS,
+		                               angle1:Number = 0, angle2:Number = 360, color:uint = DEFAULT_COLOR, alpha:Number = DEFAULT_ALPHA):void {
 			var segm:Number;
 			var grad:Number;
 			var x1:Number;
@@ -149,7 +171,7 @@
 				canvas.graphics.lineTo(x1, y1);
 			}
 
-			for(var s:Number = segm + angle1;s < grad + 0.1 + angle1; s += segm) {
+			for(var s:Number = segm + angle1; s < grad + 0.1 + angle1; s += segm) {
 				var x2:Number = radius * Math.cos((s - segm / 2) * rad) + x;
 				var y2:Number = radius * Math.sin((s - segm / 2) * rad) + y;
 				var x3:Number = radius * Math.cos(s * rad) + x;
@@ -165,8 +187,8 @@
 			canvas.graphics.endFill();
 		}
 
-		
-		
+
+
 		/*
 		 *	Method: strokeRect
 		 *
@@ -183,16 +205,18 @@
 		 *		alpha		- Alpha (if not specified, <DEFAULT_ALPHA> used)
 		 *		thickness	- Thickness (if not specified, <DEFAULT_THICKNESS> used)
 		 */
-		public static function strokeRect(canvas:Sprite, x:Number = 0, y:Number = 0, width:Number = DEFAULT_WIDTH, height:Number = DEFAULT_HEIGHT, color:uint = DEFAULT_COLOR, alpha:Number = DEFAULT_ALPHA, thickness:Number = DEFAULT_THICKNESS):void {
+		public static function strokeRect(canvas:Sprite, x:Number = 0, y:Number = 0, width:Number = DEFAULT_WIDTH,
+		                                  height:Number = DEFAULT_HEIGHT, color:uint = DEFAULT_COLOR, alpha:Number = DEFAULT_ALPHA,
+		                                  thickness:Number = DEFAULT_THICKNESS):void {
 			width--;
 			height--;
-			
+
 			canvas.graphics.lineStyle(thickness, color, alpha, true);
 			canvas.graphics.drawRect(x, y, width, height);
 		}
 
-		
-		
+
+
 		/*
 		 *	Method: strokeLine
 		 *
@@ -209,14 +233,15 @@
 		 *		alpha		- Alpha (if not specified, <DEFAULT_ALPHA> used)
 		 *		thickness	- Thickness (if not specified, <DEFAULT_THICKNESS> used)
 		 */
-		public static function strokeLine(canvas:Sprite, x1:Number, y1:Number, x2:Number, y2:Number, color:uint = DEFAULT_COLOR, alpha:Number = DEFAULT_ALPHA, thickness:Number = DEFAULT_THICKNESS):void {
+		public static function strokeLine(canvas:Sprite, x1:Number, y1:Number, x2:Number, y2:Number, color:uint = DEFAULT_COLOR,
+		                                  alpha:Number = DEFAULT_ALPHA, thickness:Number = DEFAULT_THICKNESS):void {
 			canvas.graphics.lineStyle(thickness, color, alpha, true);
 			canvas.graphics.moveTo(x1, y1);
 			canvas.graphics.lineTo(x2, y2);
 		}
 
-		
-		
+
+
 		/*
 		 *	Method: strokeBounds
 		 *
@@ -232,12 +257,14 @@
 		 *		color		- Color (if not specified, <DEFAULT_COLOR> used)
 		 *		alpha		- Alpha (if not specified, <DEFAULT_ALPHA> used)
 		 */
-		public static function strokeBounds(canvas:Sprite, x:Number = 0, y:Number = 0, width:Number = DEFAULT_WIDTH, height:Number = DEFAULT_HEIGHT, padding:Number = 5, color:uint = DEFAULT_COLOR, alpha:Number = DEFAULT_ALPHA):void {
+		public static function strokeBounds(canvas:Sprite, x:Number = 0, y:Number = 0, width:Number = DEFAULT_WIDTH,
+		                                    height:Number = DEFAULT_HEIGHT, padding:Number = 5, color:uint = DEFAULT_COLOR,
+		                                    alpha:Number = DEFAULT_ALPHA):void {
 			width--;
 			height--;
-			
+
 			canvas.graphics.lineStyle(0, color, alpha, true);
-			canvas.graphics.moveTo(x, padding + y); 
+			canvas.graphics.moveTo(x, padding + y);
 			canvas.graphics.lineTo(x, y);
 			canvas.graphics.lineTo(padding + x, y);
 			canvas.graphics.moveTo(width - padding + x, y);

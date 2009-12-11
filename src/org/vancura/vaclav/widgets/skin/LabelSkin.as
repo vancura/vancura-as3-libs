@@ -1,14 +1,32 @@
+/***********************************************************************************************************************
+ * Copyright (c) 2009. Vaclav Vancura.
+ * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
+ * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
+ * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+ * documentation files (the “Software”), to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+ * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions
+ * of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+ * TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ **********************************************************************************************************************/
+
 package org.vancura.vaclav.widgets.skin {
 	import org.vancura.vaclav.widgets.constants.Align;
 	import org.vancura.vaclav.widgets.constants.SkinType;
 	import org.vancura.vaclav.widgets.interfaces.ILabelSkin;
 
-	
-	
 	public class LabelSkin extends Skin implements ILabelSkin {
 
-		
-		
+
 		protected var $font:String;
 		protected var $size:Number;
 		protected var $color:uint;
@@ -37,11 +55,11 @@ package org.vancura.vaclav.widgets.skin {
 		private var _oldPaddingLeft:Number;
 		private var _oldPaddingRight:Number;
 
-		
-		
+
+
 		public function LabelSkin(id:String = null) {
 			super(SkinType.LABEL, id);
-			
+
 			$font = '';
 			$size = 10;
 			$color = 0x000000;
@@ -57,11 +75,11 @@ package org.vancura.vaclav.widgets.skin {
 			$paddingRight = 0;
 		}
 
-		
-		
+
+
 		override public function parseConfig(source:Object):void {
 			super.parseConfig(source);
-			
+
 			_oldFont = $font;
 			_oldSize = $size;
 			_oldColor = $color;
@@ -75,66 +93,66 @@ package org.vancura.vaclav.widgets.skin {
 			_oldPaddingBottom = $paddingBottom;
 			_oldPaddingLeft = $paddingLeft;
 			_oldPaddingRight = $paddingRight;
-			
+
 			if(source.font != undefined) {
 				$font = source.font;
 			}
-			
+
 			if(source.size != undefined) {
 				$size = source.size;
 			}
-			
+
 			if(source.color != undefined) {
 				$color = source.color;
 			}
-			
+
 			if(source.alpha != undefined) {
 				$alpha = source.alpha;
 			}
-			
+
 			if(source.hAlign != undefined) {
 				$hAlign = source.hAlign;
 			}
-			
+
 			if(source.vAlign != undefined) {
 				$vAlign = source.vAlign;
 			}
-			
+
 			if(source.filters != undefined) {
 				$filters = source.filters;
 			}
-			
+
 			if(source.sharpness != undefined) {
 				$sharpness = source.sharpness;
 			}
-			
+
 			if(source.thickness != undefined) {
 				$thickness = source.thickness;
 			}
-			
+
 			if(source.paddingTop != undefined) {
 				$paddingTop = source.paddingTop;
 			}
-			
+
 			if(source.paddingBottom != undefined) {
 				$paddingBottom = source.paddingBottom;
 			}
-			
+
 			if(source.paddingLeft != undefined) {
 				$paddingLeft = source.paddingLeft;
 			}
-			
+
 			if(source.paddingRight != undefined) {
 				$paddingRight = source.paddingRight;
 			}
 		}
 
-		
-		
+
+
 		override public function revertConfig():void {
 			super.revertConfig();
 
-			$font = _oldFont;			
+			$font = _oldFont;
 			$size = _oldSize;
 			$color = _oldColor;
 			$alpha = _oldAlpha;
@@ -148,159 +166,159 @@ package org.vancura.vaclav.widgets.skin {
 			$paddingLeft = _oldPaddingLeft;
 			$paddingRight = _oldPaddingRight;
 		}
-		
-		
-		
+
+
+
 		public function get font():String {
 			return $font;
 		}
-		
-		
-		
+
+
+
 		public function set font(value:String):void {
 			$font = value;
 		}
 
-		
-		
+
+
 		public function get size():Number {
 			return $size;
 		}
 
-		
-		
+
+
 		public function set size(value:Number):void {
 			$size = value;
 		}
 
-		
-		
+
+
 		public function get color():uint {
 			return $color;
 		}
 
-		
-		
+
+
 		public function set color(value:uint):void {
 			$color = value;
 		}
 
-		
-		
+
+
 		public function get alpha():Number {
 			return $alpha;
 		}
 
-		
-		
+
+
 		public function set alpha(value:Number):void {
 			$alpha = value;
 		}
 
-		
-		
+
+
 		public function get hAlign():String {
 			return $hAlign;
 		}
 
-		
-		
+
+
 		public function set hAlign(value:String):void {
 			$hAlign = value;
 		}
-		
-		
-		
+
+
+
 		public function get vAlign():String {
 			return $vAlign;
 		}
 
-		
-		
+
+
 		public function set vAlign(value:String):void {
 			$vAlign = value;
 		}
-		
-		
-		
+
+
+
 		public function get filters():Array {
 			return $filters;
 		}
 
-		
-		
+
+
 		public function set filters(value:Array):void {
 			$filters = value;
 		}
-		
-		
-		
+
+
+
 		public function get sharpness():Number {
 			return $sharpness;
 		}
-		
-		
-		
+
+
+
 		public function set sharpness(value:Number):void {
 			$sharpness = value;
 		}
 
-		
-		
+
+
 		public function get thickness():Number {
 			return $thickness;
 		}
-		
-		
-		
+
+
+
 		public function set thickness(value:Number):void {
 			$thickness = value;
 		}
 
-		
-		
+
+
 		public function get paddingTop():Number {
 			return $paddingTop;
 		}
 
-		
-		
+
+
 		public function set paddingTop(value:Number):void {
 			$paddingTop = value;
 		}
 
-		
-		
+
+
 		public function get paddingBottom():Number {
 			return $paddingBottom;
 		}
 
-		
-		
+
+
 		public function set paddingBottom(value:Number):void {
 			$paddingBottom = value;
 		}
 
-		
-		
+
+
 		public function get paddingLeft():Number {
 			return $paddingLeft;
 		}
 
-		
-		
+
+
 		public function set paddingLeft(value:Number):void {
 			$paddingLeft = value;
 		}
 
-		
-		
+
+
 		public function get paddingRight():Number {
 			return $paddingRight;
 		}
 
-		
-		
+
+
 		public function set paddingRight(value:Number):void {
 			$paddingRight = value;
 		}
