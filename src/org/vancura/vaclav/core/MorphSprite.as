@@ -56,7 +56,7 @@ package org.vancura.vaclav.core {
 		 * 		defIsMorphWidthEnabled		- Default width morphing flag (true)
 		 * 		defIsMorphHeightEnabled		- Default height morphing flag (true)
 		 */
-		public static var defMorphDuration:Number = .75;
+		public static var defMorphDuration:Number = 0.75;
 		public static var defMorphEase:Function = Elastic.easeOut;
 		public static var defIsChangeWidthEnabled:Boolean = true;
 		public static var defIsChangeHeightEnabled:Boolean = true;
@@ -128,7 +128,7 @@ package org.vancura.vaclav.core {
 			isChangeHeightEnabled = (c.changeHeightEnabled != undefined) ? c.changeHeightEnabled : defIsChangeHeightEnabled;
 			isMorphXEnabled = (c.morphXEnabled != undefined) ? c.morphXEnabled : defIsMorphXEnabled;
 			isMorphYEnabled = (c.morphYEnabled != undefined) ? c.morphYEnabled : defIsMorphYEnabled;
-			isMorphWidthEnabled = (c.morphWidthEnabled != undefined) ? c.morphWidthEnabled : defIsMorphWidthEnabled;
+			isMorphWidthEnabled = (c.morphWidthEnabled == undefined) ? defIsMorphWidthEnabled : c.morphWidthEnabled;
 			isMorphHeightEnabled = (c.morphHeightEnabled != undefined) ? c.morphHeightEnabled : defIsMorphHeightEnabled;
 		}
 

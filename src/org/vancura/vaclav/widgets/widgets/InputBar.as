@@ -49,7 +49,7 @@ package org.vancura.vaclav.widgets.widgets {
 				config = new Object();
 			}
 
-			var dl:String = (debugLevel != null) ? debugLevel : SkinManager.debugLevel;
+			var dl:String = (debugLevel == null) ? SkinManager.debugLevel : debugLevel;
 
 			$bar = new Bar(skin.barSkin, {}, this, dl);
 			$label = new Label(skin.labelSkin, {}, '', this, dl);
@@ -69,11 +69,11 @@ package org.vancura.vaclav.widgets.widgets {
 				config.height = skin.assetHeight;
 			}
 
-			if(skin != null) {
-				super(config, parent);
+			if(skin == null) {
+				throw new Error('No skin defined');
 			}
 			else {
-				throw new Error('No skin defined');
+				super(config, parent);
 			}
 
 			$skin = skin;
@@ -127,7 +127,7 @@ package org.vancura.vaclav.widgets.widgets {
 
 		public function set areEventsEnabled(value:Boolean):void {
 			$label.isInput = value;
-			$label.alpha = (value) ? 1 : .5;
+			$label.alpha = (value) ? 1 : 0.5;
 
 			draw();
 		}

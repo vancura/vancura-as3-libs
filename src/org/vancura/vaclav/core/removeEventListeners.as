@@ -37,8 +37,12 @@ package org.vancura.vaclav.core {
 	 */
 	public function removeEventListeners(obj:EventDispatcher, ... params):void {
 		for each(var i:Object in params) {
-			if(i.event == undefined) throw new Error('Event undefined');
-			if(i.method == undefined) throw new Error('Method undefined');
+			if(i.event == undefined) {
+				throw new Error('Event undefined');
+			}
+			if(i.method == undefined) {
+				throw new Error('Method undefined');
+			}
 			obj.removeEventListener(i.event, i.method);
 		}
 	}

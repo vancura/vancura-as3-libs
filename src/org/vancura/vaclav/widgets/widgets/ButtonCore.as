@@ -61,11 +61,11 @@ package org.vancura.vaclav.widgets.widgets {
 				config.height = skin.assetHeight;
 			}
 
-			if(skin != null) {
-				super(config, parent, (debugLevel != null) ? debugLevel : SkinManager.debugLevel);
+			if(skin == null) {
+				throw new Error('No skin defined');
 			}
 			else {
-				throw new Error('No skin defined');
+				super(config, parent, (debugLevel != null) ? debugLevel : SkinManager.debugLevel);
 			}
 
 			this.skin = skin;
@@ -163,7 +163,9 @@ package org.vancura.vaclav.widgets.widgets {
 			this.buttonMode = value;
 			this.useHandCursor = value;
 
-			if(!value) forceRelease();
+			if(!value) {
+				forceRelease();
+			}
 		}
 
 

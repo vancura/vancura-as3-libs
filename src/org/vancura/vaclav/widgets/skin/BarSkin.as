@@ -67,7 +67,7 @@ package org.vancura.vaclav.widgets.skin {
 			$assetHeight = source.height;
 
 			$guideBD = BitmapUtil.crop(source, 0, 0, $assetWidth, $assetHeight);
-			$backBD = BitmapUtil.crop(source, $assetWidth * 1, 0, $assetWidth, $assetHeight);
+			$backBD = BitmapUtil.crop(source, $assetWidth, 0, $assetWidth, $assetHeight);
 		}
 
 

@@ -102,7 +102,9 @@ package org.vancura.vaclav.core {
 
 			// Sprite overrides and custom config
 			if(c.embed) {
-				if(!(c.embed is Sprite)) throw new TypeError('Invalid embed object');
+				if(!(c.embed is Sprite)) {
+					throw new TypeError('Invalid embed object');
+				}
 				_embeddedSpr = c.embed;
 				addChild(_embeddedSpr);
 			}

@@ -73,8 +73,8 @@ package org.vancura.vaclav.core {
 			_textTF = new QTextField({y: _GRAPH_HEIGHT - 15, defaultTextFormat: tf, width: _GRAPH_WIDTH, autoSize: TextFieldAutoSize.LEFT}, this);
 
 			// drawing
-			GraphicsUtil.drawRect(_graphMaskSpr, 0, 0, _GRAPH_WIDTH, _GRAPH_HEIGHT, 0xFF0000, .2);
-			GraphicsUtil.drawRoundRect(_backSpr, 0, 0, _GRAPH_WIDTH, _GRAPH_HEIGHT, 8, bc, .8);
+			GraphicsUtil.drawRect(_graphMaskSpr, 0, 0, _GRAPH_WIDTH, _GRAPH_HEIGHT, 0xFF0000, 0.2);
+			GraphicsUtil.drawRoundRect(_backSpr, 0, 0, _GRAPH_WIDTH, _GRAPH_HEIGHT, 8, bc, 0.8);
 
 			// set visual properties
 			_graphScrollSpr.graphics.lineStyle(0, gc);
@@ -137,7 +137,9 @@ package org.vancura.vaclav.core {
 		 * 		n	- Current time
 		 */
 		public function updateGraph(n:Number):void {
-			if(_graphCounter > _GRAPH_WIDTH) _graphScrollSpr.x--;
+			if(_graphCounter > _GRAPH_WIDTH) {
+				_graphScrollSpr.x--;
+			}
 			_graphCounter++;
 			_graphScrollSpr.graphics.lineTo(_graphCounter, 1 + (stage.frameRate - n) / 3);
 		}

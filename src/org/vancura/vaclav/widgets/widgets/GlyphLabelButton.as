@@ -21,7 +21,6 @@
 
 package org.vancura.vaclav.widgets.widgets {
 	import com.greensock.TweenMax;
-
 	import com.greensock.easing.Sine;
 
 	import flash.display.DisplayObjectContainer;
@@ -98,11 +97,11 @@ package org.vancura.vaclav.widgets.widgets {
 				config.height = skin.buttonSkin.assetHeight;
 			}
 
-			if(skin != null) {
-				super(config, parent);
+			if(skin == null) {
+				throw new Error('No skin defined');
 			}
 			else {
-				throw new Error('No skin defined');
+				super(config, parent);
 			}
 
 			$skin = skin;
@@ -201,10 +200,10 @@ package org.vancura.vaclav.widgets.widgets {
 			$labelHover.x = $glyphHover.x + $glyphHover.width;
 			$labelFocus.x = $glyphFocus.x + $glyphFocus.width;
 
-			// FIXME: This is somewhat hack, fix it
-			$labelOut.width = $labelOut.width + 5;
-			$labelHover.width = $labelOut.width + 5;
-			$labelFocus.width = $labelFocus.width + 5;
+			// TODO: This is somewhat hack, fix it
+			$labelOut.width += 5;
+			$labelFocus.width += 5;
+			$labelHover.width = $labelOut.width;
 
 			draw();
 		}
@@ -276,9 +275,15 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		public function get glyph():IImage {
-			if($button.mouseStatus == MouseStatus.OUT) return $glyphOut;
-			if($button.mouseStatus == MouseStatus.HOVER) return $glyphHover;
-			if($button.mouseStatus == MouseStatus.FOCUS) return $glyphFocus;
+			if($button.mouseStatus == MouseStatus.OUT) {
+				return $glyphOut;
+			}
+			if($button.mouseStatus == MouseStatus.HOVER) {
+				return $glyphHover;
+			}
+			if($button.mouseStatus == MouseStatus.FOCUS) {
+				return $glyphFocus;
+			}
 
 			return null;
 		}
@@ -320,9 +325,15 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		public function get label():ILabel {
-			if($button.mouseStatus == MouseStatus.OUT) return $labelOut;
-			if($button.mouseStatus == MouseStatus.HOVER) return $labelHover;
-			if($button.mouseStatus == MouseStatus.FOCUS) return $labelFocus;
+			if($button.mouseStatus == MouseStatus.OUT) {
+				return $labelOut;
+			}
+			if($button.mouseStatus == MouseStatus.HOVER) {
+				return $labelHover;
+			}
+			if($button.mouseStatus == MouseStatus.FOCUS) {
+				return $labelFocus;
+			}
 
 			return null;
 		}

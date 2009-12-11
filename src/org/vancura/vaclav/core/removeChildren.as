@@ -36,6 +36,8 @@ package org.vancura.vaclav.core {
 	 *		children	- Children to be removed
 	 */
 	public function removeChildren(obj:*, ... children:Array):void {
-		for each(var i:DisplayObject in children) obj.removeChild(i);
+		for each(var i:DisplayObject in children) {
+			obj.removeChild(i);
+		}
 	}
 }

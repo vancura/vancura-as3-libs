@@ -106,13 +106,13 @@ package org.vancura.vaclav.far {
 					return;
 				}
 
-				if(!_farItem.loaded) {
+				if(_farItem.loaded) {
+					_itemLoadComplete();
+				}
+				else {
 					_farItem.addEventListener(Event.COMPLETE, _onItemLoadComplete, false, 0, true);
 					_farItem.addEventListener(ProgressEvent.PROGRESS, _onItemLoadProgress, false, 0, true);
 					_farItem.addEventListener(IOErrorEvent.IO_ERROR, _onItemLoadIOError, false, 0, true);
-				}
-				else {
-					_itemLoadComplete();
 				}
 			}
 

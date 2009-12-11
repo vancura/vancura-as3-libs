@@ -50,9 +50,9 @@ package org.vancura.vaclav.widgets.skin {
 			super(SkinType.BUTTON, id);
 
 			$hoverInDuration = 0;
-			$hoverOutDuration = .15;
+			$hoverOutDuration = 0.15;
 			$focusInDuration = 0;
-			$focusOutDuration = .1;
+			$focusOutDuration = 0.1;
 
 			$guideBD = new BitmapData(1, 1, true, 0x00000000);
 			$outBD = new BitmapData(1, 1, true, 0x00000000);

@@ -101,14 +101,14 @@ package org.vancura.vaclav.core {
 			_fpsGraphBD = new BitmapData(_WIDTH, 50, false, 0x000000);
 			_msGraphBD = new BitmapData(_WIDTH, 50, false, 0x000000);
 			_memGraphBD = new BitmapData(_WIDTH, 50, false, 0x000000);
-			_fpsGraphBM = new QBitmap({bitmapData: _fpsGraphBD, y:27, alpha:.33, blendMode:BlendMode.SCREEN});
-			_msGraphBM = new QBitmap({bitmapData: _msGraphBD, y:27, alpha:.33, blendMode:BlendMode.SCREEN});
-			_memGraphBM = new QBitmap({bitmapData: _memGraphBD, y:27, alpha:.33, blendMode:BlendMode.SCREEN});
+			_fpsGraphBM = new QBitmap({bitmapData: _fpsGraphBD, y:27, alpha:0.33, blendMode:BlendMode.SCREEN});
+			_msGraphBM = new QBitmap({bitmapData: _msGraphBD, y:27, alpha:0.33, blendMode:BlendMode.SCREEN});
+			_memGraphBM = new QBitmap({bitmapData: _memGraphBD, y:27, alpha:0.33, blendMode:BlendMode.SCREEN});
 			_fpsText = new QTextField({defaultTextFormat: _textFormat, antiAliasType:AntiAliasType.NORMAL, y:-3, width:_WIDTH, height:10, textColor:0xFFFF00});
 			_msText = new QTextField({defaultTextFormat: _textFormat, antiAliasType:AntiAliasType.NORMAL, y:5, width:_WIDTH, height:10, textColor:0x00FF00});
 			_memText = new QTextField({defaultTextFormat: _textFormat, antiAliasType:AntiAliasType.NORMAL, y:13, width:_WIDTH, height:10, textColor:0x00FFFF});
 
-			GraphicsUtil.drawRect(this, 0, 0, _WIDTH, 27 + 50, 0x000000, .75);
+			GraphicsUtil.drawRect(this, 0, 0, _WIDTH, 27 + 50, 0x000000, 0.75);
 
 			addChildren(this, _fpsGraphBM, _msGraphBM, _memGraphBM, _fpsText, _msText, _memText);
 
@@ -123,7 +123,7 @@ package org.vancura.vaclav.core {
 
 
 		private function _onMouseClick(e:MouseEvent):void {
-			if(this.mouseY > this.height * .35) {
+			if(this.mouseY > this.height * 0.35) {
 				stage.frameRate--;
 			}
 			else {

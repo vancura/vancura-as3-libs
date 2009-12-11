@@ -60,9 +60,7 @@ package org.vancura.vaclav.assets.globals {
 		 * @see IAssetProvider
 		 */
 		public function attachProvider(provider:IAssetProvider):void {
-			if(_provider != null) throw new Error('Asset provider already attached');
-
-			else {
+			if(_provider == null) {
 				// attaching a new asset provider
 				_provider = provider;
 
@@ -71,6 +69,10 @@ package org.vancura.vaclav.assets.globals {
 				_provider.addEventListener(AssetManagerErrorEvent.PROVIDER_ERROR, _onProviderError, false, 0, true);
 				_provider.addEventListener(AssetManagerErrorEvent.ITEM_LOAD_FAILED, _onItemLoadFailed, false, 0, true);
 				_provider.addEventListener(AssetManagerErrorEvent.ITEM_NOT_FOUND, _onItemNotFound, false, 0, true);
+			}
+
+			else {
+				throw new Error('Asset provider already attached');
 			}
 		}
 
@@ -82,12 +84,16 @@ package org.vancura.vaclav.assets.globals {
 		 * @return Asset (if defined, null if not)
 		 */
 		public function getAsset(id:String):* {
-			if(_provider == null) throw new Error('Asset provider not attached');
+			if(_provider == null) {
+				throw new Error('Asset provider not attached');
+			}
 
 			else {
 				// try to find the asset
 				for each(var item:Asset in _provider.assetsList) {
-					if(item.id == id) return item;
+					if(item.id == id) {
+						return item;
+					}
 				}
 			}
 
@@ -129,7 +135,9 @@ package org.vancura.vaclav.assets.globals {
 		 * @return List of assets as Array
 		 */
 		public function get assetsList():Array {
-			if(_provider == null) throw new Error('Asset provider not attached');
+			if(_provider == null) {
+				throw new Error('Asset provider not attached');
+			}
 
 			else {
 				// return asset list

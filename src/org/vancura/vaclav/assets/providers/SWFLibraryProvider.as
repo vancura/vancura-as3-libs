@@ -145,7 +145,7 @@ package org.vancura.vaclav.assets.providers {
 
 			var lc:LoaderContext = new LoaderContext(false, null);
 
-			// FIXME: allowLoadBytesCodeExecution may be broken one day
+			// TODO: allowLoadBytesCodeExecution may be broken one day
 			// We have to find a way how to load content from another sandbox
 			// More info: http://richardleggett.co.uk/blog/index.php/2009/04/02/loading-swfs-into-air-1-5-and-loaderinfo
 			// As seen here, it even doesn't compile, I have to put the parameter using Array. Damn!

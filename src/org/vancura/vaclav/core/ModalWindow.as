@@ -37,7 +37,7 @@ package org.vancura.vaclav.core {
 
 		private static const _FONT:String = '_sans';
 		private static const _BACKGROUND_COLOR:uint = 0xFFAAAA;
-		private static const _BACKGROUND_ALPHA:Number = .9;
+		private static const _BACKGROUND_ALPHA:Number = 0.9;
 		private static const _TEXT_HORIZ_PADDING:uint = 10;
 		private static const _TEXT_VERT_PADDING:uint = 5;
 		private static const _DESCRIPTION_COLOR:uint = 0x660000;

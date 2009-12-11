@@ -51,11 +51,11 @@ package org.vancura.vaclav.widgets.widgets {
 				config.height = skin.assetHeight;
 			}
 
-			if(skin != null) {
-				super(config, parent, (debugLevel != null) ? debugLevel : SkinManager.debugLevel);
+			if(skin == null) {
+				throw new Error('No skin defined');
 			}
 			else {
-				throw new Error('No skin defined');
+				super(config, parent, (debugLevel != null) ? debugLevel : SkinManager.debugLevel);
 			}
 
 			this.skin = skin;

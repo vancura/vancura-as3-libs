@@ -103,10 +103,13 @@ package org.vancura.vaclav.widgets.widgets {
 
 			$init();
 
-			if(debugLevel != null) {
+			if(debugLevel == null) {
+				if(initialDebugLevel != null) {
+					this.debugLevel = initialDebugLevel;
+				}
+			}
+			else {
 				this.debugLevel = debugLevel;
-			} else if(initialDebugLevel != null) {
-				this.debugLevel = initialDebugLevel;
 			}
 		}
 
@@ -170,7 +173,7 @@ package org.vancura.vaclav.widgets.widgets {
 				if($width != 0 && $height != 0) {
 					$debugSpr.graphics.clear();
 
-					GraphicsUtil.drawRect($debugSpr, 0, 0, $width, $height, $debugColor, .15);
+					GraphicsUtil.drawRect($debugSpr, 0, 0, $width, $height, $debugColor, 0.15);
 					GraphicsUtil.strokeBounds($debugSpr, 0, 0, $width, $height, 5, $debugColor);
 				}
 			}

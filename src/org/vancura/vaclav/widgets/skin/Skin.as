@@ -95,7 +95,9 @@ package org.vancura.vaclav.widgets.skin {
 		public function parseConfig(source:Object):void {
 			_oldData = $data;
 
-			if(source.data != undefined) $data = source.data;
+			if(source.data != undefined) {
+				$data = source.data;
+			}
 		}
 
 

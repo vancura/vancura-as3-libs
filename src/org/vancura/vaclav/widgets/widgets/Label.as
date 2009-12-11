@@ -56,11 +56,11 @@ package org.vancura.vaclav.widgets.widgets {
 				config = new Object();
 			}
 
-			if(skin != null) {
-				super(config, parent, (debugLevel != null) ? debugLevel : SkinManager.debugLevel);
+			if(skin == null) {
+				throw new Error('No skin defined');
 			}
 			else {
-				throw new Error('No skin defined');
+				super(config, parent, (debugLevel != null) ? debugLevel : SkinManager.debugLevel);
 			}
 
 			_isWidthOverriden = (config.width != undefined);
@@ -253,7 +253,9 @@ package org.vancura.vaclav.widgets.widgets {
 		override protected function $onDebugOver(event:MouseEvent):void {
 			super.$onDebugOver(event);
 
-			if($debugLevel == DebugLevel.HOVER) $textField.border = true;
+			if($debugLevel == DebugLevel.HOVER) {
+				$textField.border = true;
+			}
 		}
 
 
@@ -261,7 +263,9 @@ package org.vancura.vaclav.widgets.widgets {
 		override protected function $onDebugOut(event:MouseEvent):void {
 			super.$onDebugOut(event);
 
-			if($debugLevel == DebugLevel.HOVER) $textField.border = false;
+			if($debugLevel == DebugLevel.HOVER) {
+				$textField.border = false;
+			}
 		}
 	}
 }

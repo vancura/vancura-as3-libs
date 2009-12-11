@@ -86,7 +86,9 @@ package org.vancura.vaclav.assets.providers {
 		public function getAsset(id:String):Asset {
 			// try to find the asset in the asset list
 			for each(var asset:Asset in $assetsList) {
-				if(asset.id == id) return asset;
+				if(asset.id == id) {
+					return asset;
+				}
 			}
 
 			// not found

@@ -162,7 +162,9 @@ package org.vancura.vaclav.core {
 			}
 			else {
 				// not a full circle
-				if(angle1 > angle2) angle1 -= 360;
+				if(angle1 > angle2) {
+					angle1 -= 360;
+				}
 				x1 = radius * Math.cos(angle1 * rad) + x;
 				y1 = radius * Math.sin(angle1 * rad) + y;
 				grad = angle2 - angle1;
@@ -182,7 +184,9 @@ package org.vancura.vaclav.core {
 				y1 = y3;
 				canvas.graphics.curveTo(cx, cy, x3, y3);
 			}
-			if(grad != 360) canvas.graphics.lineTo(x, y);
+			if(grad != 360) {
+				canvas.graphics.lineTo(x, y);
+			}
 
 			canvas.graphics.endFill();
 		}

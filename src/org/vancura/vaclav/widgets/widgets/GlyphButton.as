@@ -87,11 +87,11 @@ package org.vancura.vaclav.widgets.widgets {
 				config.height = skin.buttonSkin.assetHeight;
 			}
 
-			if(skin != null) {
-				super(config, parent);
+			if(skin == null) {
+				throw new Error('No skin defined');
 			}
 			else {
-				throw new Error('No skin defined');
+				super(config, parent);
 			}
 
 			$skin = skin;
@@ -236,9 +236,15 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		public function get glyph():IImage {
-			if($button.mouseStatus == MouseStatus.OUT) return $glyphOut;
-			if($button.mouseStatus == MouseStatus.HOVER) return $glyphHover;
-			if($button.mouseStatus == MouseStatus.FOCUS) return $glyphFocus;
+			if($button.mouseStatus == MouseStatus.OUT) {
+				return $glyphOut;
+			}
+			if($button.mouseStatus == MouseStatus.HOVER) {
+				return $glyphHover;
+			}
+			if($button.mouseStatus == MouseStatus.FOCUS) {
+				return $glyphFocus;
+			}
 
 			return null;
 		}

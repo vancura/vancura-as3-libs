@@ -50,7 +50,7 @@ package org.vancura.vaclav.widgets.widgets {
 				config = new Object();
 			}
 
-			var dl:String = (debugLevel != null) ? debugLevel : SkinManager.debugLevel;
+			var dl:String = (debugLevel == null) ? SkinManager.debugLevel : debugLevel;
 
 			$buttonOff = new StaticButton(skin.buttonOffSkin, {}, this, dl);
 			$buttonOn = new StaticButton(skin.buttonOnSkin, {visible:false}, this, dl);
@@ -76,11 +76,11 @@ package org.vancura.vaclav.widgets.widgets {
 				config.height = skin.buttonOffSkin.assetHeight;
 			}
 
-			if(skin != null) {
-				super(config, parent);
+			if(skin == null) {
+				throw new Error('No skin defined');
 			}
 			else {
-				throw new Error('No skin defined');
+				super(config, parent);
 			}
 
 			$skin = skin;
