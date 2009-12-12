@@ -1,5 +1,7 @@
 .doc-config
 .idea
+.actionScriptProperties
+.gitignore
 
 mdocs.css
 lib
@@ -9,4 +11,3 @@ tools
 vancura-as3-libs.iml
 vancura-as3-libs_Flex_temp_flex_config.xml
 examples_temp_flex_main_class_config.xml
-examples/examples.iml
