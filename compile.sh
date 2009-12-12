@@ -16,20 +16,29 @@ IS_NATURAL_DOCS_DISABLED="no";
 IS_COMPILATION_DISABLED="no"
 # Disable compilation if you need that
 
+IS_EXAMPLES_DISABLED="no"
+# You may disable examples as well
+
 # ========================
 # = End of customization =
 # ========================
 
 
 
+# ==================
+# = Initialization =
+# ==================
+
 # Fix DTerm current directory problem
 cd "`dirname "$0"`"
 
 # Prepare all directories
 echo "---------------------------------------------------------------------------------------------------"
-echo "Making directories"
+echo "Creating directories"
 rm -rf tmp >/dev/null 2>&1
 rm -rf lib >/dev/null 2>&1
+rm -rf tools >/dev/null 2>&1
+rm -rf examples/bin 2>&1
 mkdir -p tmp >/dev/null 2>&1
 mkdir -p lib/src >/dev/null 2>&1
 mkdir -p lib/fonts >/dev/null 2>&1
@@ -38,9 +47,16 @@ mkdir -p lib/src/quasimondo/src/com/quasimondo/geom >/dev/null 2>&1
 mkdir -p lib/src/bytearray/src/org/bytearray/display >/dev/null 2>&1
 mkdir -p bin >/dev/null 2>&1
 mkdir -p doc >/dev/null 2>&1
+mkdir -p tools >/dev/null 2>&1
 mkdir -p .doc-config >/dev/null 2>&1
+mkdir -p examples/bin 2>&1
 
-# Compile
+
+
+# ===============
+# = Compilation =
+# ===============
+
 if [ "$IS_COMPILATION_DISABLED" == "no" ]; then
 	# Download my mDocs NaturalDocs style and all 3rd party libraries
 	echo "---------------------------------------------------------------------------------------------------"
@@ -98,7 +114,12 @@ else
 	echo "Compilation disabled"
 fi
 
-# Generate documentation
+
+
+# ==========================
+# = Generate documentation =
+# ==========================
+
 if [ "$IS_NATURAL_DOCS_DISABLED" == "no" ]; then
 	echo "---------------------------------------------------------------------------------------------------"
 	echo "Generating documentation in ./doc"
@@ -110,10 +131,54 @@ else
 	echo "Documentation generation disabled"
 fi
 
-# Cleanup
+
+
+# ============
+# = Examples =
+# ============
+
+if [ "$IS_EXAMPLES_DISABLED" == "no" ]; then
+	# Download FAR tool
+	echo "---------------------------------------------------------------------------------------------------"
+	echo "Downloading FAR tool"
+	curl http://vanrijkom-flashlibs.googlecode.com/files/far_beta_0.1.r1.zip -o tmp/far.zip >/dev/null 2>&1
+
+	# Unzip curled files
+	echo "---------------------------------------------------------------------------------------------------"
+	echo "Unzipping FAR tool"
+	unzip -j tmp/far.zip far/bin/osx/far -d tools >/dev/null 2>&1
+	
+	# Compile FARs
+	echo "---------------------------------------------------------------------------------------------------"
+	echo "Compiling example FARs"
+	cd examples/skins/skin-far-src
+	../../../tools/far -m test-skin.xml >/dev/null 2>&1
+	
+	# Compile examples
+	echo "---------------------------------------------------------------------------------------------------"
+	echo "Compiling examples"
+	cd ../..
+	$FLEX_DIR/bin/mxmlc -o bin/LoadTest.swf -l+=../lib/swc -sp src -sp ../src --target-player=10.0.0 -debug=false -optimize=true -- src/LoadTest.as
+	
+else
+	echo "---------------------------------------------------------------------------------------------------"
+	echo "Examples disabled"
+fi
+
+
+
+# ===========
+# = Cleanup =
+# ===========
+
 rm -rf tmp
 
-# Done
+
+
+# ========
+# = Done =
+# ========
+
 echo "---------------------------------------------------------------------------------------------------"
 echo "All operations done. Enjoy vancura-as3-libs.swc."
 echo "Feel free to contact me at vaclav@vancura.org or my homepage at http://vaclav.vancura.org."
