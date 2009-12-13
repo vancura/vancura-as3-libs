@@ -1,0 +1,22 @@
+<flex-config xmlns="http://www.adobe.com/2006/flex-config">
+  <target-player>10</target-player>
+  <compiler>
+    <debug>true</debug>
+    <source-path>
+      <path-element>examples/src</path-element>
+      <path-element>examples/lib/src/vancura-as3-libs/src</path-element>
+    </source-path>
+    <library-path append="true">
+      <path-element>lib/swc/as3corelib.swc</path-element>
+      <path-element>lib/swc/bytearray.swc</path-element>
+      <path-element>lib/swc/printf-as3.swc</path-element>
+      <path-element>lib/swc/greensock-tweening-platform-as3.swc</path-element>
+      <path-element>lib/swc/vanrijkom-flashlibs.swc</path-element>
+      <path-element>lib/swc/quasimondo.swc</path-element>
+    </library-path>
+  </compiler>
+  <file-specs>
+    <path-element>examples/src/LoadTest.as</path-element>
+  </file-specs>
+  <output>/Users/Shimray/Dropbox/Projects/AS3_Libraries/vancura-as3-libs/examples/bin/_LoadTest.swf</output>
+</flex-config>

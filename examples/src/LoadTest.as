@@ -23,7 +23,6 @@ package {
 	import flash.display.MovieClip;
 	import flash.events.Event;
 
-	import org.vancura.vaclav.assets.Asset;
 	import org.vancura.vaclav.assets.events.AssetManagerErrorEvent;
 	import org.vancura.vaclav.assets.globals.AssetManager;
 	import org.vancura.vaclav.assets.providers.FARAssetProvider;

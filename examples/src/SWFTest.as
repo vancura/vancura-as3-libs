@@ -24,24 +24,21 @@ package {
 
 	import com.greensock.TweenNano;
 
-	import org.vancura.vaclav.core.Stats;
-	import org.vancura.vaclav.widgets.constants.DebugLevel;
-	import org.vancura.vaclav.widgets.events.ButtonEvent;
-	import org.vancura.vaclav.assets.providers.SWFLibraryProvider;
-	import org.vancura.vaclav.widgets.globals.SkinManager;
-	import org.vancura.vaclav.widgets.skin.LabelButtonSkin;
-	import org.vancura.vaclav.widgets.widgets.LabelButton;
-
 	import flash.display.MovieClip;
 	import flash.events.ErrorEvent;
 	import flash.events.Event;
 
+	import org.vancura.vaclav.assets.providers.SWFLibraryProvider;
+	import org.vancura.vaclav.core.Stats;
+	import org.vancura.vaclav.widgets.events.ButtonEvent;
+	import org.vancura.vaclav.widgets.globals.SkinManager;
+	import org.vancura.vaclav.widgets.skin.LabelButtonSkin;
+	import org.vancura.vaclav.widgets.widgets.LabelButton;
+
 	[SWF(width="1000",height="400",frameRate="60",backgroundColor="#FFFFFF")]
 
 
-
 	public class SWFTest extends MovieClip {
-
 
 
 		private var _buttonTest:LabelButton;
@@ -53,18 +50,18 @@ package {
 
 
 		public function SWFTest() {
-//			_skinManager = SkinManager.getInstance();
-//			_skinManager.debugLevel = DebugLevel.HOVER;
-//			_skinManager.debugColor = 0x123456;
+			//			_skinManager = SkinManager.getInstance();
+			//			_skinManager.debugLevel = DebugLevel.HOVER;
+			//			_skinManager.debugColor = 0x123456;
 
 			var skinProvider:SWFLibraryProvider;
 
 			try {
 				skinProvider = new SWFLibraryProvider('test-skin.swf', null, null, true);
-//				skinProvider.addEventListener(Event.COMPLETE, _onSkinComplete, false, 0, true);
-//				skinProvider.addEventListener(ErrorEvent.ERROR, _onSkinError, false, 0, true);
+				//				skinProvider.addEventListener(Event.COMPLETE, _onSkinComplete, false, 0, true);
+				//				skinProvider.addEventListener(ErrorEvent.ERROR, _onSkinError, false, 0, true);
 
-//				_skinManager.attach(skinProvider);
+				//				_skinManager.attach(skinProvider);
 			}
 			catch(err:Error) {
 				trace(printf('Skin could not be attached (%s)', err.message));
@@ -82,14 +79,14 @@ package {
 
 		private function _onSkinComplete(event:Event):void {
 			trace('Skin loaded');
-//			trace(_skinManager.toString());
+			//			trace(_skinManager.toString());
 
 			// --------
-//			var skin:LabelButtonSkin = _skinManager.getSkin('label_button');
+			//			var skin:LabelButtonSkin = _skinManager.getSkin('label_button');
 
-//			_buttonTest = new LabelButton(skin, {x:10, y:100, width:200}, 'Lorem ipsum', this);
+			//			_buttonTest = new LabelButton(skin, {x:10, y:100, width:200}, 'Lorem ipsum', this);
 
-//			_buttonTest.addEventListener(ButtonEvent.RELEASE_INSIDE, _onTest);
+			//			_buttonTest.addEventListener(ButtonEvent.RELEASE_INSIDE, _onTest);
 
 			// --------
 			var stats:Stats = new Stats();
@@ -99,7 +96,7 @@ package {
 
 
 		private function _onTest(event:ButtonEvent):void {
-//			_skin = _skinManager.getSkin('label_button');
+			//			_skin = _skinManager.getSkin('label_button');
 			_stressRemove = -50;
 
 			_buttonTest.morph({width:400, morphDuration:2});
