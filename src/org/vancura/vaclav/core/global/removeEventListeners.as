@@ -19,7 +19,7 @@
  * DEALINGS IN THE SOFTWARE.
  **********************************************************************************************************************/
 
-package org.vancura.vaclav.core {
+package org.vancura.vaclav.core.global {
 	import flash.events.EventDispatcher;
 
 	/*

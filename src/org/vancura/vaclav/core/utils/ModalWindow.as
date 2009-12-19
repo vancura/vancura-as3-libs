@@ -19,10 +19,15 @@
  * DEALINGS IN THE SOFTWARE.
  **********************************************************************************************************************/
 
-package org.vancura.vaclav.core {
+package org.vancura.vaclav.core.utils {
 	import flash.display.Sprite;
 	import flash.events.MouseEvent;
 	import flash.text.TextFormat;
+
+	import org.vancura.vaclav.core.display.GraphicsUtil;
+	import org.vancura.vaclav.core.display.QSprite;
+	import org.vancura.vaclav.core.display.QTextField;
+	import org.vancura.vaclav.core.global.removeChildren;
 
 	/*
 	 *	Class: ModalWindow

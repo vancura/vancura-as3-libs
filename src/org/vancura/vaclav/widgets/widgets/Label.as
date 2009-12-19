@@ -27,8 +27,8 @@ package org.vancura.vaclav.widgets.widgets {
 	import flash.text.TextFieldType;
 	import flash.text.TextFormat;
 
-	import org.vancura.vaclav.core.QTextField;
-	import org.vancura.vaclav.core.removeChildren;
+	import org.vancura.vaclav.core.display.QTextField;
+	import org.vancura.vaclav.core.global.removeChildren;
 	import org.vancura.vaclav.widgets.constants.Align;
 	import org.vancura.vaclav.widgets.constants.DebugLevel;
 	import org.vancura.vaclav.widgets.globals.SkinManager;

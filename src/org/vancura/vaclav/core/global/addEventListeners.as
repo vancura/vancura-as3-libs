@@ -19,35 +19,33 @@
  * DEALINGS IN THE SOFTWARE.
  **********************************************************************************************************************/
 
-package org.vancura.vaclav.core {
-
-
+package org.vancura.vaclav.core.global {
+	import flash.events.EventDispatcher;
 
 	/*
-	 *	Method: randomString
+	 *	Method: addEventListeners
 	 *
-	 *	Generate random String.
+	 *	Basically an addEventListener() for more events at once.
+	 *	Just saves few lines of code, nothing special.
 	 *
 	 *	Author: Vaclav Vancura <http://vaclav.vancura.org>
 	 *
 	 *	Parameters:
 	 *
-	 *		length	- String length (default 10)
-	 *		chars	- Chars used (default 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
-	 *
-	 *	Returns:
-	 *
-	 *		Random String
+	 *		obj		- Target EventDispatcher
+	 *		params	- Multiple Objects with pairs {event: ..., method: ...}
 	 */
-	public function randomString(length:uint = 10, chars:String = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'):String {
-		var alphabet:Array = chars.split('');
-		var alphabetLength:int = alphabet.length;
-		var randomLetters:String = '';
+	public function addEventListeners(obj:EventDispatcher, ... params):void {
+		for each(var i:Object in params) {
+			if(i.event == undefined) {
+				throw new Error('Event undefined');
+			}
 
-		for(var j:uint = 0; j < length; j++) {
-			randomLetters += alphabet[int(Math.floor(Math.random() * alphabetLength))];
+			if(i.method == undefined) {
+				throw new Error('Method undefined');
+			}
+
+			obj.addEventListener(i.event, i.method, false, 0, true);
 		}
-
-		return randomLetters;
 	}
 }

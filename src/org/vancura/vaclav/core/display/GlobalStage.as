@@ -19,33 +19,72 @@
  * DEALINGS IN THE SOFTWARE.
  **********************************************************************************************************************/
 
-package org.vancura.vaclav.core {
-	import flash.events.EventDispatcher;
+package org.vancura.vaclav.core.display {
+	import flash.display.Sprite;
+	import flash.display.Stage;
 
 	/*
-	 *	Method: addEventListeners
+	 * Class: GlobalStage
 	 *
-	 *	Basically an addEventListener() for more events at once.
-	 *	Just saves few lines of code, nothing special.
+	 * Global Stage singleton.
 	 *
-	 *	Author: Vaclav Vancura <http://vaclav.vancura.org>
+	 * - Original: <http://www.kirupa.com/forum/showthread.php?p=1939920>
+	 * - Created by Matthew Lloyd <http://www.Matt-Lloyd.co.uk>
+	 * - This is release under a Creative Commons license, More information can be found here: <http://creativecommons.org/licenses/by-nc-sa/2.0/uk>
 	 *
-	 *	Parameters:
-	 *
-	 *		obj		- Target EventDispatcher
-	 *		params	- Multiple Objects with pairs {event: ..., method: ...}
+	 * Author: Pierluigi Pesenti <http://blog.oaxoa.com>
 	 */
-	public function addEventListeners(obj:EventDispatcher, ... params):void {
-		for each(var i:Object in params) {
-			if(i.event == undefined) {
-				throw new Error('Event undefined');
+	public class GlobalStage extends Sprite {
+
+
+		private static var _instance:GlobalStage = null;
+
+
+		/*
+		 * Method: init
+		 *
+		 * Init Global Stage singleton.
+		 *
+		 * Parameters:
+		 *
+		 * 		stg		- Stage
+		 */
+		public static function init(stg:Stage):void {
+			stg.addChild(GlobalStage.instance);
+		}
+
+
+
+		/*
+		 * Method: instance
+		 *
+		 * Get a Global Stage instance.
+		 *
+		 * Returns:
+		 *
+		 * 		Global Stage instance
+		 */
+		public static function get instance():GlobalStage {
+			if(_instance == null) {
+				_instance = new GlobalStage();
 			}
 
-			if(i.method == undefined) {
-				throw new Error('Method undefined');
-			}
+			return _instance;
+		}
 
-			obj.addEventListener(i.event, i.method, false, 0, true);
+
+
+		/*
+		 * method: stage
+		 *
+		 * Get Global Stage reference.
+		 *
+		 * Returns:
+		 *
+		 * 		Global Stage reference
+		 */
+		public static function get stage():Stage {
+			return instance.stage;
 		}
 	}
 }

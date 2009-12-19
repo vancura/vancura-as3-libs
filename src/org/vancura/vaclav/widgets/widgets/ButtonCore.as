@@ -25,8 +25,8 @@ package org.vancura.vaclav.widgets.widgets {
 	import flash.display.DisplayObjectContainer;
 	import flash.events.MouseEvent;
 
-	import org.vancura.vaclav.core.QSprite;
-	import org.vancura.vaclav.core.removeChildren;
+	import org.vancura.vaclav.core.display.QSprite;
+	import org.vancura.vaclav.core.global.removeChildren;
 	import org.vancura.vaclav.widgets.constants.MouseStatus;
 	import org.vancura.vaclav.widgets.events.ButtonEvent;
 	import org.vancura.vaclav.widgets.globals.SkinManager;

@@ -28,8 +28,8 @@ package org.vancura.vaclav.widgets.skin {
 	import flash.display.MovieClip;
 	import flash.filters.ColorMatrixFilter;
 
-	import org.vancura.vaclav.core.duplicateMovieClip;
-	import org.vancura.vaclav.core.randomString;
+	import org.vancura.vaclav.core.global.duplicateMovieClip;
+	import org.vancura.vaclav.core.global.randomString;
 	import org.vancura.vaclav.widgets.interfaces.ISkinnable;
 
 	public class Skin implements ISkinnable {

@@ -19,25 +19,37 @@
  * DEALINGS IN THE SOFTWARE.
  **********************************************************************************************************************/
 
-package org.vancura.vaclav.core {
-	import flash.display.DisplayObject;
+package org.vancura.vaclav.core.global {
+
+
 
 	/*
-	 *	Function: addChildren
+	 *	Method: assign
 	 *
-	 *	Basically an addChild() for more children at once.
-	 *	Just saves few lines of code, nothing special.
+	 *	Assign properties from params to an Object.
 	 *
 	 *	Author: Vaclav Vancura <http://vaclav.vancura.org>
 	 *
 	 *	Parameters:
 	 *
-	 *		obj			- Target DisplayObject
-	 *		children	- Children to be added
+	 *		obj		- Target Object
+	 *		params	- Source Object
+	 *
+	 *	Returns:
+	 *
+	 *		Resulting Object
 	 */
-	public function addChildren(obj:*, ... children:Array):void {
-		for each(var i:DisplayObject in children) {
-			obj.addChild(i);
+	public function assign(obj:Object, params:Object):Object {
+		var out:Object = (obj);
+
+		for(var i:String in params) {
+			try {
+				out[i] = params[i];
+			}
+			catch(err:Error) {
+			}
 		}
+
+		return out;
 	}
 }

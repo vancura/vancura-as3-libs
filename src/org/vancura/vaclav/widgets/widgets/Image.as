@@ -23,8 +23,8 @@ package org.vancura.vaclav.widgets.widgets {
 	import flash.display.Bitmap;
 	import flash.display.DisplayObjectContainer;
 
-	import org.vancura.vaclav.core.addChildren;
-	import org.vancura.vaclav.core.removeChildren;
+	import org.vancura.vaclav.core.global.addChildren;
+	import org.vancura.vaclav.core.global.removeChildren;
 	import org.vancura.vaclav.widgets.globals.SkinManager;
 	import org.vancura.vaclav.widgets.interfaces.IImage;
 	import org.vancura.vaclav.widgets.interfaces.IImageSkin;

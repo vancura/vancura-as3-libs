@@ -19,25 +19,27 @@
  * DEALINGS IN THE SOFTWARE.
  **********************************************************************************************************************/
 
-package org.vancura.vaclav.core {
-	import flash.display.DisplayObject;
+package org.vancura.vaclav.core.global {
+	import flash.display.MovieClip;
 
 	/*
-	 *	Function: removeChildren
+	 *	Method: duplicateMovieClip
 	 *
-	 *	Basically an addChild() for more children at once.
-	 *	Just saves few lines of code, nothing special.
+	 *	Duplicate a MovieClip
 	 *
 	 *	Author: Vaclav Vancura <http://vaclav.vancura.org>
 	 *
 	 *	Parameters:
 	 *
-	 *		obj			- Target DisplayObject
-	 *		children	- Children to be removed
+	 *		source	- Source MovieClip
+	 *
+	 *	Returns:
+	 *
+	 *		Duplicated MovieClip
 	 */
-	public function removeChildren(obj:*, ... children:Array):void {
-		for each(var i:DisplayObject in children) {
-			obj.removeChild(i);
-		}
+	public function duplicateMovieClip(source:MovieClip):MovieClip {
+		var targetClass:Class = Object(source).constructor as Class;
+
+		return(new targetClass() as MovieClip);
 	}
 }

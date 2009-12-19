@@ -19,65 +19,61 @@
  * DEALINGS IN THE SOFTWARE.
  **********************************************************************************************************************/
 
-package org.vancura.vaclav.core {
+package org.vancura.vaclav.core.display {
 	import flash.display.DisplayObjectContainer;
-	import flash.display.Sprite;
+	import flash.media.Video;
+
+	import org.vancura.vaclav.core.global.assign;
 
 	/*
-	 *	Class: QSprite
+	 *	Class: QVideo
 	 *
-	 *	Quick creation of Sprite with initial data.
+	 *	Quick creation of Video with initial data.
 	 *
 	 *	Author: Vaclav Vancura <http://vaclav.vancura.org>
 	 */
-	public class QSprite extends Sprite {
+	public class QVideo extends Video {
 
-
-		private var _embeddedSpr:Sprite;
 
 
 		/*
-		 * Constructor: QSprite
+		 * Constructor: QVideo
 		 *
-		 * Create a new QSprite instance.
+		 * Create a new QVideo instance.
 		 *
 		 * Parameters:
 		 *
 		 * 		c		- Config object
 		 * 		parent	- Parent DisplayObjectContainer
 		 *
-		 * Every sane parameter of Sprite, DisplayObjectContainer, InteractiveObject and
-		 * DisplayObject is supported, that means:
+		 * Every sane parameter of Video and DisplayObject is supported, that means:
 		 *
-		 * Sprite parameters: buttonMode, hitArea, soundTransform, useHandCursor
-		 *
-		 * DisplayObjectContainer parameters: mouseChildren, tabChildren
-		 *
-		 * InteractiveObject parameters: contextMenu, doubleClickEnabled, focusRect,
-		 * mouseEnabled, tabEnabled, tabIndex
+		 * Video parameters: deblocking, smoothing
 		 *
 		 * DisplayObject parameters: accessibilityProperties, alpha, blendMode, cacheAsBitmap,
 		 * filters, height, mask, name, opaqueBackground, rotation, scale9Grid, scaleX, scaleY,
 		 * scrollRect, transform, visible, width, x, y
 		 *
-		 * Additionally these parameters are added:
+		 * Additionally these parameters are set to new values if not specified:
 		 *
-		 * 		embed	- Sprite object to be used as Sprite source (throws a TypeError if
-		 * 					the embed object is not Sprite)
+		 * 		deblocking	- set to 5 if not specified
+		 * 		smoothing	- set to true if not specified
+		 *
+		 * Throws a Error if width and height are not specified.
 		 *
 		 * Example code:
 		 *
 		 * (start code)
 		 *
-		 * 		import org.vancura.graphics.QSprite;
+		 * 		import org.vancura.graphics.QVideo;
 		 *
-		 * 		var mySprite:QSprite = new QSprite({
+		 * 		var myVideo:QVideo = new QVideo({
 		 * 			x: 100,
 		 * 			y: 50,
-		 * 			alpha: .5,
-		 * 			rotation: 10
+		 * 			width: 512,
+		 * 			height: 384
 		 * 		});
-		 * 		addChild(mySprite);
+		 * 		addChild(myVideo);
 		 *
 		 * (end)
 		 *
@@ -85,29 +81,34 @@ package org.vancura.vaclav.core {
 		 *
 		 * (start code)
 		 *
-		 * 		import org.vancura.graphics.QSprite;
+		 * 		import org.vancura.graphics.QVideo;
 		 *
-		 * 		var mySprite:QSprite = new QSprite(null, this);
+		 * 		var myVideo:QVideo = new QVideo(null, this);
 		 *
 		 * (end)
 		 */
-		public function QSprite(config:Object = null, parent:DisplayObjectContainer = null) {
-
+		public function QVideo(config:Object = null, parent:DisplayObjectContainer = null) {
 			// if config is not defined, prepare it
 			if(config == null) {
 				config = new Object();
 			}
 
-			super();
-
-			// Sprite overrides and custom config
-			if(config.embed) {
-				if(!(config.embed is Sprite)) {
-					throw new TypeError('Invalid embed object');
-				}
-				_embeddedSpr = config.embed;
-				addChild(_embeddedSpr);
+			try {
+				super(config.width, config.height);
 			}
+			catch(err:Error) {
+				if(config.width == undefined) {
+					throw new Error('Video width undefined');
+				}
+
+				if(config.height == undefined) {
+					throw new Error('Video height undefined');
+				}
+			}
+
+			// Video overrides and custom config
+			this.deblocking = (config.deblocking == undefined) ? 5 : config.deblocking;
+			this.smoothing = (config.smoothing == undefined) ? true : config.smoothing;
 
 			// assign parameters
 			assign(this, config);
@@ -122,16 +123,6 @@ package org.vancura.vaclav.core {
 
 		// Getters & setters
 		// -----------------
-
-
-		/**
-		 * Get embedded Sprite (nested)
-		 * @return Embedded Sprite
-		 */
-		public function get embeddedSpr():Sprite {
-			return _embeddedSpr;
-		}
-
 
 
 		/**

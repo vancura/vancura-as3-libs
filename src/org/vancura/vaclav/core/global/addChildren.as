@@ -19,30 +19,25 @@
  * DEALINGS IN THE SOFTWARE.
  **********************************************************************************************************************/
 
-package org.vancura.vaclav.core {
-	import flash.utils.ByteArray;
+package org.vancura.vaclav.core.global {
+	import flash.display.DisplayObject;
 
 	/*
-	 *	Method: clone
+	 *	Function: addChildren
 	 *
-	 *	Clone an Object.
+	 *	Basically an addChild() for more children at once.
+	 *	Just saves few lines of code, nothing special.
 	 *
 	 *	Author: Vaclav Vancura <http://vaclav.vancura.org>
 	 *
 	 *	Parameters:
 	 *
-	 *		source		- Source Object
-	 *
-	 *	Returns:
-	 *
-	 *		Cloned Object
+	 *		obj			- Target DisplayObject
+	 *		children	- Children to be added
 	 */
-	public function clone(source:*):Object {
-		var copier:ByteArray = new ByteArray();
-
-		copier.writeObject(source as Object);
-		copier.position = 0;
-
-		return copier.readObject();
+	public function addChildren(obj:*, ... children:Array):void {
+		for each(var i:DisplayObject in children) {
+			obj.addChild(i);
+		}
 	}
 }

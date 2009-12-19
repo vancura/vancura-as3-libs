@@ -19,74 +19,62 @@
  * DEALINGS IN THE SOFTWARE.
  **********************************************************************************************************************/
 
-package org.vancura.vaclav.core {
+package org.vancura.vaclav.core.display {
+	import flash.display.Bitmap;
+	import flash.display.BitmapData;
 	import flash.display.DisplayObjectContainer;
-	import flash.text.AntiAliasType;
-	import flash.text.GridFitType;
-	import flash.text.TextField;
-	import flash.text.TextFieldType;
+
+	import org.vancura.vaclav.core.global.assign;
 
 	/*
-	 *	Class: QTextField
+	 *	Class: QBitmap
 	 *
-	 *	Quick creation of TextField with initial data.
+	 *	Quick creation of Bitmap with initial data.
 	 *
 	 *	Author: Vaclav Vancura <http://vaclav.vancura.org>
 	 */
-	public class QTextField extends TextField {
+	public class QBitmap extends Bitmap {
 
 
 
 		/*
-		 * Constructor: QTextField
+		 * Constructor: QBitmap
 		 *
-		 * Create a new QTextField instance.
+		 * Create a new QBitmap instance.
 		 *
 		 * Parameters:
 		 *
 		 * 		c		- Config object
 		 * 		parent	- Parent DisplayObjectContainer
 		 *
-		 * Every sane parameter of TextField, InteractiveObject and DisplayObject is supported,
-		 * that means:
+		 * Every sane parameter of Bitmap and DisplayObject is supported, that means:
 		 *
-		 * TextField parameters: autoSize, background, backgroundColor, border, borderColor,
-		 * defaultTextFormat, displayAsPassword, htmlText, maxChars, mouseWheelEnabled, restrict,
-		 * scrollH, scrollV, sharpness, styleSheet, text, textColor, thickness,
-		 * useRichTextClipboard
-		 *
-		 * InteractiveObject parameters: contextMenu, doubleClickEnabled, focusRect,
-		 * mouseEnabled, tabEnabled, tabIndex
+		 * Bitmap parameters: bitmapData, pixelSnapping, smoothing
 		 *
 		 * DisplayObject parameters: accessibilityProperties, alpha, blendMode, cacheAsBitmap,
 		 * filters, height, mask, name, opaqueBackground, rotation, scale9Grid, scaleX, scaleY,
 		 * scrollRect, transform, visible, width, x, y
 		 *
-		 * Additionally these parameters are set to new values if not specified:
+		 * Additionally these parameters are added:
 		 *
-		 * 		antiAliasType	- set to AntiAliasType.ADVANCED if not specified
-		 * 		condenseWhite	- set to true if not specified
-		 * 		embedFonts		- set to true if not specified
-		 * 		gridFitType		- set to GridFitType.PIXEL if not specified
-		 * 		multiline		- set to true if not specified
-		 * 		selectable		- set to false if not specified
-		 * 		type			- set to TextFieldType.DYNAMIC if not specified
-		 * 		wordWrap		- set to true if not specified
+		 * 		embed	- Bitmap or BitmapData object to be used as Bitmap source (throws
+		 * 					a TypeError if the embed object is not Bitmap nor BitmapData)
 		 *
 		 * Example code:
 		 *
 		 * (start code)
 		 *
-		 * 		import org.vancura.graphics.QTextField;
+		 * 		import org.vancura.graphics.QBitmap;
 		 *
-		 * 		var myTextField:QTextField = new QTextField({
+		 * 		[Embed(source='bitmap-test.png')] private static var _bitmapTest:Class;
+		 *
+		 * 		var myBitmap:QBitmap = new QBitmap({
+		 * 			embed: new _bitmapTest(),
 		 * 			x: 100,
 		 * 			y: 50,
-		 * 			width: 300,
-		 * 			embedFonts: false,
-		 * 			text: 'Lorem ipsum dolor sit amet.'
+		 * 			alpha: .5
 		 * 		});
-		 * 		addChild(myTextField);
+		 * 		addChild(myBitmap);
 		 *
 		 * (end)
 		 *
@@ -94,13 +82,13 @@ package org.vancura.vaclav.core {
 		 *
 		 * (start code)
 		 *
-		 * 		import org.vancura.graphics.QTextField;
+		 * 		import org.vancura.graphics.QSprite;
 		 *
-		 * 		var myTextField:QTextField = new QTextField(null, this);
+		 * 		var myBitmap:QBitmap = new QBitmap({embed: new _bitmapTest()}, this);
 		 *
 		 * (end)
 		 */
-		public function QTextField(config:Object = null, parent:DisplayObjectContainer = null) {
+		public function QBitmap(config:Object = null, parent:DisplayObjectContainer = null) {
 			// if config is not defined, prepare it
 			if(config == null) {
 				config = new Object();
@@ -108,15 +96,17 @@ package org.vancura.vaclav.core {
 
 			super();
 
-			// TextField overrides and custom config
-			this.antiAliasType = (config.antiAliasType == undefined) ? AntiAliasType.ADVANCED : config.antiAliasType;
-			this.condenseWhite = (config.condenseWhite == undefined) ? true : config.condenseWhite;
-			this.embedFonts = (config.embedFonts == undefined) ? true : config.embedFonts;
-			this.gridFitType = (config.gridFitType == undefined) ? GridFitType.PIXEL : config.gridFitType;
-			this.multiline = (config.multiline == undefined) ? true : config.multiline;
-			this.selectable = (config.selectable == undefined) ? false : config.selectable;
-			this.type = (config.type == undefined) ? TextFieldType.DYNAMIC : config.type;
-			this.wordWrap = (config.wordWrap == undefined) ? true : config.wordWrap;
+			// Bitmap overrides and custom config
+			if(config.embed) {
+				if(config.embed is Bitmap) {
+					this.bitmapData = config.embed.bitmapData;
+				} else if(config.embed is BitmapData) {
+					this.bitmapData = config.embed;
+				}
+				else {
+					throw new TypeError('Invalid embed object');
+				}
+			}
 
 			// assign parameters
 			assign(this, config);

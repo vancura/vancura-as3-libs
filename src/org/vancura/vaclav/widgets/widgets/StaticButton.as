@@ -25,9 +25,9 @@ package org.vancura.vaclav.widgets.widgets {
 
 	import flash.display.DisplayObjectContainer;
 
-	import org.vancura.vaclav.core.GraphicsUtil;
-	import org.vancura.vaclav.core.QBitmap;
-	import org.vancura.vaclav.core.removeChildren;
+	import org.vancura.vaclav.core.display.GraphicsUtil;
+	import org.vancura.vaclav.core.display.QBitmap;
+	import org.vancura.vaclav.core.global.removeChildren;
 	import org.vancura.vaclav.widgets.globals.SkinManager;
 	import org.vancura.vaclav.widgets.interfaces.IButton;
 	import org.vancura.vaclav.widgets.interfaces.IButtonSkin;

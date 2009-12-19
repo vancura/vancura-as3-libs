@@ -19,7 +19,7 @@
  * DEALINGS IN THE SOFTWARE.
  **********************************************************************************************************************/
 
-package org.vancura.vaclav.core {
+package org.vancura.vaclav.core.utils {
 	import br.com.stimuli.string.printf;
 
 	import flash.display.Sprite;
@@ -29,6 +29,11 @@ package org.vancura.vaclav.core {
 	import flash.text.TextFieldAutoSize;
 	import flash.text.TextFormat;
 	import flash.utils.Timer;
+
+	import org.vancura.vaclav.core.display.GraphicsUtil;
+	import org.vancura.vaclav.core.display.QSprite;
+	import org.vancura.vaclav.core.display.QTextField;
+	import org.vancura.vaclav.core.global.removeChildren;
 
 	/*
 	 * Class: FPS

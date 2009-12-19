@@ -32,10 +32,10 @@ package org.vancura.vaclav.widgets.widgets {
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 
-	import org.vancura.vaclav.core.GraphicsUtil;
-	import org.vancura.vaclav.core.MorphSprite;
-	import org.vancura.vaclav.core.QSprite;
-	import org.vancura.vaclav.core.removeChildren;
+	import org.vancura.vaclav.core.display.GraphicsUtil;
+	import org.vancura.vaclav.core.display.MorphSprite;
+	import org.vancura.vaclav.core.display.QSprite;
+	import org.vancura.vaclav.core.global.removeChildren;
 	import org.vancura.vaclav.widgets.constants.DebugLevel;
 	import org.vancura.vaclav.widgets.globals.SkinManager;
 	import org.vancura.vaclav.widgets.interfaces.IWidget;

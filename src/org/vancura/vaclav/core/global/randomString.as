@@ -19,27 +19,35 @@
  * DEALINGS IN THE SOFTWARE.
  **********************************************************************************************************************/
 
-package org.vancura.vaclav.core {
-	import flash.display.MovieClip;
+package org.vancura.vaclav.core.global {
+
+
 
 	/*
-	 *	Method: duplicateMovieClip
+	 *	Method: randomString
 	 *
-	 *	Duplicate a MovieClip
+	 *	Generate random String.
 	 *
 	 *	Author: Vaclav Vancura <http://vaclav.vancura.org>
 	 *
 	 *	Parameters:
 	 *
-	 *		source	- Source MovieClip
+	 *		length	- String length (default 10)
+	 *		chars	- Chars used (default 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
 	 *
 	 *	Returns:
 	 *
-	 *		Duplicated MovieClip
+	 *		Random String
 	 */
-	public function duplicateMovieClip(source:MovieClip):MovieClip {
-		var targetClass:Class = Object(source).constructor as Class;
+	public function randomString(length:uint = 10, chars:String = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'):String {
+		var alphabet:Array = chars.split('');
+		var alphabetLength:int = alphabet.length;
+		var randomLetters:String = '';
 
-		return(new targetClass() as MovieClip);
+		for(var j:uint = 0; j < length; j++) {
+			randomLetters += alphabet[int(Math.floor(Math.random() * alphabetLength))];
+		}
+
+		return randomLetters;
 	}
 }

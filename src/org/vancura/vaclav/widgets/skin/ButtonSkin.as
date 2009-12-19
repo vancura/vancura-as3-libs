@@ -23,7 +23,7 @@ package org.vancura.vaclav.widgets.skin {
 	import flash.display.BitmapData;
 	import flash.display.MovieClip;
 
-	import org.vancura.vaclav.core.BitmapUtil;
+	import org.vancura.vaclav.core.display.BitmapUtil;
 	import org.vancura.vaclav.widgets.constants.SkinType;
 	import org.vancura.vaclav.widgets.interfaces.IButtonSkin;
 

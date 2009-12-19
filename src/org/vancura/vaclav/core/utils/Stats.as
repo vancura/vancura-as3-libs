@@ -19,7 +19,7 @@
  * DEALINGS IN THE SOFTWARE.
  **********************************************************************************************************************/
 
-package org.vancura.vaclav.core {
+package org.vancura.vaclav.core.utils {
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;
 	import flash.display.BlendMode;
@@ -31,6 +31,11 @@ package org.vancura.vaclav.core {
 	import flash.text.AntiAliasType;
 	import flash.text.TextFormat;
 	import flash.utils.getTimer;
+
+	import org.vancura.vaclav.core.display.GraphicsUtil;
+	import org.vancura.vaclav.core.display.QBitmap;
+	import org.vancura.vaclav.core.display.QTextField;
+	import org.vancura.vaclav.core.global.addChildren;
 
 	/*
 	 * Class: Stats
@@ -69,7 +74,7 @@ package org.vancura.vaclav.core {
 	public class Stats extends Sprite {
 
 
-		[Embed(source='../../../../../lib/fonts/uni05_53.ttf', fontName='uni0553', mimeType='application/x-font', unicodeRange='U+0030-U+0039,U+002E,U+0046,U+0050,U+0053,U+004D,U+004D,U+0045,U+0020,U+003A,U+002F')]
+		[Embed(source='../../../../../../lib/fonts/uni05_53.ttf', fontName='uni0553', mimeType='application/x-font', unicodeRange='U+0030-U+0039,U+002E,U+0046,U+0050,U+0053,U+004D,U+004D,U+0045,U+0020,U+003A,U+002F')]
 		private static var _fontUni0553:Class;
 
 		private static const _WIDTH:Number = 80;
