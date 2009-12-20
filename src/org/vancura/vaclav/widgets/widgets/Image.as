@@ -32,39 +32,35 @@ package org.vancura.vaclav.widgets.widgets {
 	public class Image extends Widget implements IImage {
 
 
-		protected var $skin:IImageSkin;
-		protected var $imageBM:Bitmap;
+		protected var _skin:IImageSkin;
+		protected var _imageBM:Bitmap;
 
 
 
 		public function Image(skin:IImageSkin, config:Object = null, parent:DisplayObjectContainer = null, debugLevel:String = null) {
+			var c:Object;
 
-			if(config == null) {
-				config = new Object();
-			}
+			if(config === null) c = new Object();
+			else c = config;
 
-			if(config.width == undefined) {
-				config.width = skin.assetWidth;
-			}
-
-			if(config.height == undefined) {
-				config.height = skin.assetHeight;
+			if(c.width === undefined) {
+				c.width = skin.assetWidth;
 			}
 
-			if(skin != null) {
-				super(config, parent, (debugLevel == null) ? SkinManager.debugLevel : debugLevel);
+			if(c.height === undefined) {
+				c.height = skin.assetHeight;
 			}
-			else {
-				throw new Error('No skin defined');
-			}
+
+			if(skin === null) throw new Error('No skin defined');
+			else super(c, parent, (debugLevel === null) ? SkinManager.debugLevel : debugLevel);
 
 			this.skin = skin;
 		}
 
 
 
-		override protected function $init():void {
-			super.$init();
+		override protected function _init():void {
+			super._init();
 
 			isMorphWidthEnabled = false;
 			isMorphHeightEnabled = false;
@@ -74,20 +70,20 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 
-		override protected function $addChildren():void {
-			super.$addChildren();
+		override protected function _addChildren():void {
+			super._addChildren();
 
-			$imageBM = new Bitmap();
+			_imageBM = new Bitmap();
 
-			addChildren($contentSpr, $imageBM);
+			addChildren(_contentSpr, _imageBM);
 		}
 
 
 
-		override protected function $removeChildren():void {
-			super.$removeChildren();
+		override protected function _removeChildren():void {
+			super._removeChildren();
 
-			removeChildren($contentSpr, $imageBM);
+			removeChildren(_contentSpr, _imageBM);
 		}
 
 
@@ -95,30 +91,25 @@ package org.vancura.vaclav.widgets.widgets {
 		override public function draw():void {
 			super.draw();
 
-			$imageBM.bitmapData = $skin.imageBD;
-			$imageBM.smoothing = true;
-			$imageBM.x = $skin.paddingLeft;
-			$imageBM.y = $skin.paddingTop;
+			_imageBM.bitmapData = _skin.imageBD;
+			_imageBM.smoothing = true;
+			_imageBM.x = _skin.paddingLeft;
+			_imageBM.y = _skin.paddingTop;
 		}
 
 
 
 		public function get skin():IImageSkin {
-			return $skin;
+			return _skin;
 		}
 
 
 
 		public function set skin(skin:IImageSkin):void {
-			$skin = skin;
+			_skin = skin;
 
-			if($width == 0) {
-				$width = $skin.assetWidth;
-			}
-
-			if($height == 0) {
-				$height = $skin.assetHeight;
-			}
+			if(_width === 0) _width = _skin.assetWidth;
+			if(_height === 0) _height = _skin.assetHeight;
 
 			draw();
 		}
@@ -126,7 +117,7 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		public function get bitmap():Bitmap {
-			return $imageBM;
+			return _imageBM;
 		}
 	}
 }

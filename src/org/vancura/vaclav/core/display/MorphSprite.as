@@ -25,13 +25,10 @@ package org.vancura.vaclav.core.display {
 
 	import flash.display.DisplayObjectContainer;
 
-	/*
-	 * Class: MorphSprite
-	 *
+	/**
 	 * Morphable sprite. You can animate position and size of any extending class.
 	 *
-	 * Author: Vaclav Vancura <http://vaclav.vancura.org>
-	 *
+	 * History:
 	 * 2009-11-12	- Switched back to TweenLite, TweenNano has no roundProps, sorry (v.vancura)
 	 * 2009-11-04	- Switched to TweenNano (v.vancura)
 	 * 2008-11-03	- Morph easing fixes (v.vancura)
@@ -39,52 +36,59 @@ package org.vancura.vaclav.core.display {
 	 * 2008-10-13	- Switched to TweenFilterLite because it's now able to round params (v.vancura)
 	 * 2008-10-08	- Switched from tweener to GTween (v.vancura)
 	 * 2008-07-01	- Initial version (v.vancura)
+	 *
+	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
 	public class MorphSprite extends QSprite {
 
 
 
-		/*
-		 * Variables: Default config
-		 *
-		 * 		defMorphDuration			- Default morphing duration in seconds (1)
-		 * 		defMorphEase				- Default morphing transition function (com.greensock.easing.Elastic.easeOut)
-		 * 		defIsChangeWidthEnabled		- Default width change flag (true)
-		 * 		defIsChangeHeightEnabled	- Default height change flag (true)
-		 * 		defIsMorphXEnabled			- Default X morphing flag (true)
-		 * 		defIsMorphYEnabled			- Default Y morphing flag (true)
-		 * 		defIsMorphWidthEnabled		- Default width morphing flag (true)
-		 * 		defIsMorphHeightEnabled		- Default height morphing flag (true)
-		 */
+		/** Default morphing duration in seconds */
 		public static var defMorphDuration:Number = 0.75;
+
+		/** Default morphing transition function */
 		public static var defMorphEase:Function = Elastic.easeOut;
+
+		/** Default width change flag */
 		public static var defIsChangeWidthEnabled:Boolean = true;
+
+		/** Default height change flag */
 		public static var defIsChangeHeightEnabled:Boolean = true;
+
+		/** Default X morphing flag */
 		public static var defIsMorphXEnabled:Boolean = true;
+
+		/** Default Y morphing flag */
 		public static var defIsMorphYEnabled:Boolean = true;
+
+		/** Default width morphing flag */
 		public static var defIsMorphWidthEnabled:Boolean = true;
+
+		/** Default height morphing flag */
 		public static var defIsMorphHeightEnabled:Boolean = true;
 
-
-		/*
-		 * Variables: Public variables
-		 *
-		 * 		morphDuration			- Current morphing duration in seconds
-		 * 		morphEase				- Current morphing transition function
-		 * 		isChangeWidthEnabled	- Current width change flag
-		 * 		isChangeHeightEnabled	- Current height change flag
-		 * 		isMorphXEnabled			- Current X morphing flag
-		 * 		isMorphYEnabled			- Current Y morphing flag
-		 * 		isMorphWidthEnabled		- Current width morphing flag
-		 * 		isMorphHeightEnabled	- Current height morphing flag
-		 */
+		/** Current morphing duration in seconds */
 		public var morphDuration:Number;
+
+		/** Current morphing transition function */
 		public var morphEase:Function;
+
+		/** Current width change flag */
 		public var isChangeWidthEnabled:Boolean;
+
+		/** Current height change flag */
 		public var isChangeHeightEnabled:Boolean;
+
+		/** Current X morphing flag */
 		public var isMorphXEnabled:Boolean;
+
+		/** Current Y morphing flag */
 		public var isMorphYEnabled:Boolean;
+
+		/** Current width morphing flag */
 		public var isMorphWidthEnabled:Boolean;
+
+		/** Current height morphing flag */
 		public var isMorphHeightEnabled:Boolean;
 
 
@@ -92,69 +96,63 @@ package org.vancura.vaclav.core.display {
 		private var _initialProperties:Object;
 
 
-		/*
-		 * Constructor: MorphSprite
+
+		/**
+		 * Constructor.
 		 *
-		 * Parameters:
+		 * Possible config contents:
+		 *      morphDuration - Morphing duration in seconds. If not defined, defMorphDuration used instead.
+		 *      morphEase - Morphing transition function. If not defined, defMorphEase used instead.
+		 *      isChangeWidthEnabled - Width change flag. If not defined, defIsChangeWidthEnabled used instead.
+		 *      isChangeHeightEnabled - Height change flag. If not defined, defIsChangeHeightEnabled used instead.
+		 *      isMorphXEnabled - X morphing flag. If not defined, defIsMorphXEnabled used instead.
+		 *      isMorphYEnabled - Y morphing flag. If not defined, defIsMorphYEnabled used instead.
+		 *      isMorphWidthEnabled - Width morphing flag. If not defined, defIsMorphWidthEnabled used instead.
+		 *      isMorphHeightEnabled - Height morphing flag. If not defined, defIsMorphHeightEnabled used instead.
 		 *
-		 *		c		- Config object
-		 *		parent	- Parent DisplayObjectContainer
-		 *
-		 * Currently these options are available (set in c Object):
-		 *
-		 *		morphDuration			- Morphing duration in seconds. If not defined, <defMorphDuration> used instead.
-		 *		morphEase				- Morphing transition function. If not defined, <defMorphEase> used instead.
-		 *		isChangeWidthEnabled	- Width change flag. If not defined, <defIsChangeWidthEnabled> used instead.
-		 *		isChangeHeightEnabled	- Height change flag. If not defined, <defIsChangeHeightEnabled> used instead.
-		 *		isMorphXEnabled			- X morphing flag. If not defined, <defIsMorphXEnabled> used instead.
-		 *		isMorphYEnabled			- Y morphing flag. If not defined, <defIsMorphYEnabled> used instead.
-		 *		isMorphWidthEnabled		- Width morphing flag. If not defined, <defIsMorphWidthEnabled> used instead.
-		 *		isMorphHeightEnabled	- Height morphing flag. If not defined, <defIsMorphHeightEnabled> used instead.
+		 * @param config Config object
+		 * @param parent Parent DisplayObjectContainer
 		 */
 		public function MorphSprite(config:Object = null, parent:DisplayObjectContainer = null) {
+			var c:Object;
 
-			// if config is not defined, prepare it
-			if(config == null) {
-				config = new Object();
-			}
+			// create config value object
+			if(config === null) c = new Object();
+			else c = config;
 
 			// create parent QSprite
-			super(config, parent);
+			super(c, parent);
 
 			// assign values
-			morphDuration = (config.morphDuration == undefined) ? defMorphDuration : config.morphDuration;
-			morphEase = (config.morphEase == undefined) ? defMorphEase : config.morphEase;
-			isChangeWidthEnabled = (config.changeWidthEnabled == undefined) ? defIsChangeWidthEnabled : config.changeWidthEnabled;
-			isChangeHeightEnabled = (config.changeHeightEnabled == undefined) ? defIsChangeHeightEnabled : config.changeHeightEnabled;
-			isMorphXEnabled = (config.morphXEnabled == undefined) ? defIsMorphXEnabled : config.morphXEnabled;
-			isMorphYEnabled = (config.morphYEnabled == undefined) ? defIsMorphYEnabled : config.morphYEnabled;
-			isMorphWidthEnabled = (config.morphWidthEnabled == undefined) ? defIsMorphWidthEnabled : config.morphWidthEnabled;
-			isMorphHeightEnabled = (config.morphHeightEnabled == undefined) ? defIsMorphHeightEnabled : config.morphHeightEnabled;
+			morphDuration = (c.morphDuration === undefined) ? defMorphDuration : c.morphDuration;
+			morphEase = (c.morphEase === undefined) ? defMorphEase : c.morphEase;
+			isChangeWidthEnabled = (c.isChangeWidthEnabled === undefined) ? defIsChangeWidthEnabled : c.isChangeWidthEnabled;
+			isChangeHeightEnabled = (c.isChangeHeightEnabled === undefined) ? defIsChangeHeightEnabled : c.isChangeHeightEnabled;
+			isMorphXEnabled = (c.isMorphXEnabled === undefined) ? defIsMorphXEnabled : c.isMorphXEnabled;
+			isMorphYEnabled = (c.isMorphYEnabled === undefined) ? defIsMorphYEnabled : c.isMorphYEnabled;
+			isMorphWidthEnabled = (c.isMorphWidthEnabled === undefined) ? defIsMorphWidthEnabled : c.isMorphWidthEnabled;
+			isMorphHeightEnabled = (c.isMorphHeightEnabled === undefined) ? defIsMorphHeightEnabled : c.isMorphHeightEnabled;
 		}
 
 
 
-		/*
-		 * Method: morph
+		/**
+		 * Animate state change. Timing is taken from morphDuration, transition from morphEase.
+		 * Follows status flags (isMorphXEnabled, isMorphYEnabled, isMorphWidthEnabled and isMorphHeightEnabled).
 		 *
-		 * Animate state change. Timing is taken from <morphDuration>, transition from <morphEase>.
-		 * Follows status flags (<isMorphXEnabled>, <isMorphYEnabled>, <isMorphWidthEnabled> and <isMorphHeightEnabled>)
+		 * Possible config contents:
+		 *      x - New X position
+		 *      y -  New Y position
+		 *      width - New width
+		 *      height - New height
+		 *      morphEase - Easing
+		 *      morphDuration - Duration
 		 *
-		 * Parameters:
-		 *
-		 * 		c	- Config object
-		 *
-		 * Currently these options are available (set in c Object):
-		 *
-		 * 		x				- New X position
-		 * 		y				- New Y position
-		 * 		width			- New width
-		 * 		height			- New height
-		 * 		morphEase		- Easing
-		 * 		morphDuration	- Duration
+		 * @param config Config value object
 		 */
-		public function morph(c:Object):void {
-			if(_initialProperties == null) {
+		//noinspection FunctionWithMoreThanThreeNegationsJS
+		public function morph(config:Object):void {
+			if(_initialProperties === null) {
 				_initialProperties = new Object();
 				_initialProperties.x = this.x;
 				_initialProperties.y = this.y;
@@ -167,29 +165,17 @@ package org.vancura.vaclav.core.display {
 
 			var t:Object = new Object();
 
-			if(isMorphXEnabled && c.x != undefined) {
-				t.x = c.x;
-			}
+			if(isMorphXEnabled && config.x !== undefined) t.x = config.x;
+			if(isMorphYEnabled && config.y !== undefined) t.y = config.y;
+			if(isMorphWidthEnabled && config.width !== undefined) t.width = config.width;
+			if(isMorphHeightEnabled && config.height !== undefined) t.height = config.height;
 
-			if(isMorphYEnabled && c.y != undefined) {
-				t.y = c.y;
-			}
-
-			if(isMorphWidthEnabled && c.width != undefined) {
-				t.width = c.width;
-			}
-
-			if(isMorphHeightEnabled && c.height != undefined) {
-				t.height = c.height;
-			}
-
-			t.ease = (c.morphEase == undefined) ? morphEase : c.morphEase;
+			t.ease = (config.morphEase === undefined) ? morphEase : config.morphEase;
 			t.roundProps = ['x', 'y', 'width', 'height'];
-			t.onComplete = function():void {
-				cacheAsBitmap = _oldCacheAsBitmap;
-			};
+			t.onComplete = _onMorphComplete;
 
-			new TweenLite(this, (c.morphDuration == undefined) ? morphDuration : c.morphDuration, t);
+			//noinspection ObjectAllocationIgnored
+			new TweenLite(this, (config.morphDuration === undefined) ? morphDuration : config.morphDuration, t);
 		}
 
 
@@ -210,6 +196,7 @@ package org.vancura.vaclav.core.display {
 
 		/**
 		 * If width change flag is set, directly change width.
+		 *
 		 * @param value New width
 		 */
 		override public function set width(value:Number):void {
@@ -222,12 +209,23 @@ package org.vancura.vaclav.core.display {
 
 		/**
 		 * If height change flag is set, directly change height.
+		 *
 		 * @param value New height
 		 */
 		override public function set height(value:Number):void {
 			if(isChangeHeightEnabled) {
 				super.height = value;
 			}
+		}
+
+
+
+		// Private methods
+		// ---------------
+
+
+		private function _onMorphComplete():void {
+			cacheAsBitmap = _oldCacheAsBitmap;
 		}
 	}
 }

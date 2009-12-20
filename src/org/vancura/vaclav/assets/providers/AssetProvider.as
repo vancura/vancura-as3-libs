@@ -33,26 +33,24 @@ package org.vancura.vaclav.assets.providers {
 	import org.vancura.vaclav.assets.interfaces.IAssetProvider;
 
 	/**
-	 * Class: AssetProvider
-	 *
 	 * AssetProvider template.
 	 *
-	 * Author: Vaclav Vancura <http://vaclav.vancura.org>
+	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
 	public class AssetProvider extends EventDispatcher implements IAssetProvider {
 
 
-		/**
-		 * Variables: Protected variables
-		 *      $assetsList - Assets list
-		 *      $isError - Error flag
-		 *      $isActive - Active flag
-		 *      $isLoaded - Loaded flag
-		 */
-		protected var $assetsList:Array;
-		protected var $isError:Boolean;
-		protected var $isActive:Boolean;
-		protected var $isLoaded:Boolean;
+		/** Assets list */
+		protected var _assetsList:Array;
+
+		/** Error flag */
+		protected var _isError:Boolean;
+
+		/** Active flag */
+		protected var _isActive:Boolean;
+
+		/** Loaded flag */
+		protected var _isLoaded:Boolean;
 
 
 
@@ -60,7 +58,7 @@ package org.vancura.vaclav.assets.providers {
 		 * AssetProvider constructor
 		 */
 		public function AssetProvider() {
-			$assetsList = new Array();
+			_assetsList = new Array();
 		}
 
 
@@ -69,9 +67,9 @@ package org.vancura.vaclav.assets.providers {
 		 * AssetProvider destructor.
 		 */
 		public function destroy():void {
-			if($isActive) {
-				$isActive = false;
-				$isLoaded = false;
+			if(_isActive) {
+				_isActive = false;
+				_isLoaded = false;
 			}
 		}
 
@@ -79,20 +77,20 @@ package org.vancura.vaclav.assets.providers {
 
 		/**
 		 * Get an Asset from the provider.
+		 *
 		 * @param id Asset ID
 		 * @return Asset (if found, null if not)
 		 * @see Asset
 		 */
 		public function getAsset(id:String):Asset {
+			var out:Asset;
+
 			// try to find the asset in the asset list
-			for each(var asset:Asset in $assetsList) {
-				if(asset.id == id) {
-					return asset;
-				}
+			for each(var asset:Asset in _assetsList) {
+				if(asset.id == id) out = asset;
 			}
 
-			// not found
-			return null;
+			return out;
 		}
 
 
@@ -102,41 +100,45 @@ package org.vancura.vaclav.assets.providers {
 
 
 		/**
-		 * Get list of assets as Array
+		 * Get list of assets as Array.
+		 *
 		 * @return List of assets
 		 */
 		public function get assetsList():Array {
-			return $assetsList;
+			return _assetsList;
 		}
 
 
 
 		/**
 		 * Has an error happened?
+		 *
 		 * @return Error flag
 		 */
 		public function get isError():Boolean {
-			return $isError;
+			return _isError;
 		}
 
 
 
 		/**
 		 * Is AssetProvider active?
+		 *
 		 * @return AssetProvider active flag
 		 */
 		public function get isActive():Boolean {
-			return $isActive;
+			return _isActive;
 		}
 
 
 
 		/**
 		 * Is AssetProvider fully loaded?
+		 *
 		 * @return AssetProvider loaded flag
 		 */
 		public function get isLoaded():Boolean {
-			return $isLoaded;
+			return _isLoaded;
 		}
 	}
 }

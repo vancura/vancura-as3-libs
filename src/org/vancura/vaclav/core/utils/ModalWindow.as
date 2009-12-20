@@ -29,13 +29,10 @@ package org.vancura.vaclav.core.utils {
 	import org.vancura.vaclav.core.display.QTextField;
 	import org.vancura.vaclav.core.global.removeChildren;
 
-	/*
-	 *	Class: ModalWindow
+	/**
+	 * Modal Window allows to show critical information if nothing is embedded and everything is broken.
 	 *
-	 *	Modal Window allows to show critical information if nothing is embedded
-	 *	and everything is screwed up.
-	 *
-	 *	Author: Vaclav Vancura <http://vaclav.vancura.org>
+	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
 	public class ModalWindow extends Sprite {
 
@@ -55,7 +52,7 @@ package org.vancura.vaclav.core.utils {
 
 
 		/**
-		 * Modal Window constructor.
+		 * Constructor.
 		 */
 		public function ModalWindow() {
 			super();
@@ -77,7 +74,7 @@ package org.vancura.vaclav.core.utils {
 
 
 		/**
-		 * Modal Window desctructor.
+		 * Destructor.
 		 */
 		public function destroy():void {
 			// remove event listeners
@@ -91,6 +88,7 @@ package org.vancura.vaclav.core.utils {
 
 		/**
 		 * Show the Modal Window.
+		 *
 		 * @param description Text to be displayed ("No description given" used if not defined)
 		 */
 		public function show(description:String = 'No description given'):void {
@@ -118,6 +116,7 @@ package org.vancura.vaclav.core.utils {
 
 		/**
 		 * Set Modal Window width.
+		 *
 		 * @param value Modal Window width
 		 */
 		public override function set width(value:Number):void {
@@ -128,6 +127,7 @@ package org.vancura.vaclav.core.utils {
 
 		/**
 		 * Set Modal Window height. Unused here, so it doesn't do anything at all :]
+		 *
 		 * @param value Modal Window height
 		 */
 		public override function set height(value:Number):void {

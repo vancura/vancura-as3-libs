@@ -22,18 +22,13 @@
 package org.vancura.vaclav.core.global {
 	import flash.display.DisplayObject;
 
-	/*
-	 *	Function: removeChildren
+	/**
+	 * Basically an addChild() for more children at once.
+	 * Just saves few lines of code, nothing special.
 	 *
-	 *	Basically an addChild() for more children at once.
-	 *	Just saves few lines of code, nothing special.
-	 *
-	 *	Author: Vaclav Vancura <http://vaclav.vancura.org>
-	 *
-	 *	Parameters:
-	 *
-	 *		obj			- Target DisplayObject
-	 *		children	- Children to be removed
+	 * @param obj Target DisplayObject
+	 * @param children Children to be removed
+	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
 	public function removeChildren(obj:*, ... children:Array):void {
 		for each(var i:DisplayObject in children) {

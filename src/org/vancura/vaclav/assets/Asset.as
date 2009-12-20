@@ -27,12 +27,10 @@
 package org.vancura.vaclav.assets {
 	import br.com.stimuli.string.printf;
 
-	/*
-	 * Class: Asset
-	 *
+	/**
 	 * Asset template.
 	 *
-	 * Author: Vaclav Vancura <http://vaclav.vancura.org>
+	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
 	public class Asset {
 
@@ -45,6 +43,7 @@ package org.vancura.vaclav.assets {
 
 		/**
 		 * Create a new Asset.
+		 *
 		 * @param id Asset ID
 		 * @param config Config data
 		 */
@@ -57,13 +56,15 @@ package org.vancura.vaclav.assets {
 
 		/**
 		 * Add a chunk.
+		 *
 		 * @param chunk Chunk
 		 * @see Chunk
 		 */
 		public function addChunk(chunk:Chunk):void {
 			for each(var c:Chunk in _chunksList) {
 				if(c.url == chunk.url) {
-					throw new Error(printf('Chunk with URL %s already added', chunk.url));
+					var t:String = printf('Chunk with URL %s already added', chunk.url);
+					throw new Error(t);
 				}
 			}
 
@@ -73,28 +74,30 @@ package org.vancura.vaclav.assets {
 
 
 		/**
-		 * Get chunk by its URL
+		 * Get chunk by its URL.
+		 *
 		 * @param url Chunk URL
 		 * @return Chunk if found, null if not
 		 * @see Chunk
 		 */
 		public function getChunkByURL(url:String):Chunk {
+			var o:Chunk;
+
 			// try to find it in the _chunksList
 			for each(var c:Chunk in _chunksList) {
 				if(c.url == url) {
-					// matches, found
-					return c;
+					o = c;
 				}
 			}
 
-			// nothing found
-			return null;
+			return o;
 		}
 
 
 
 		/**
 		 * Get list of chunks.
+		 *
 		 * @return List of chunks as an Array
 		 * @see Chunk
 		 */
@@ -106,6 +109,7 @@ package org.vancura.vaclav.assets {
 
 		/**
 		 * Set list of chunks.
+		 *
 		 * @param value List of chunks as Array
 		 * @see Chunk
 		 */
@@ -117,6 +121,7 @@ package org.vancura.vaclav.assets {
 
 		/**
 		 * Get Asset ID.
+		 *
 		 * @return Asset ID
 		 */
 		public function get id():String {
@@ -126,7 +131,8 @@ package org.vancura.vaclav.assets {
 
 
 		/**
-		 * Get Asset config
+		 * Get Asset config.
+		 *
 		 * @return Asset config
 		 */
 		public function get config():Object {
@@ -137,6 +143,7 @@ package org.vancura.vaclav.assets {
 
 		/**
 		 * Generate Asset description.
+		 *
 		 * @return Asset Description
 		 */
 		public function toString():String {

@@ -29,48 +29,35 @@ package org.vancura.vaclav.widgets.skin {
 	public class GlyphLabelButtonSkin extends Skin implements IGlyphLabelButtonSkin {
 
 
-		protected var $buttonSkin:IButtonSkin;
-		protected var $glyphsSkin:IGlyphsSkin;
-		protected var $labelOutSkin:ILabelSkin;
-		protected var $labelHoverSkin:ILabelSkin;
-		protected var $labelFocusSkin:ILabelSkin;
+		protected var _buttonSkin:IButtonSkin;
+		protected var _glyphsSkin:IGlyphsSkin;
+		protected var _labelOutSkin:ILabelSkin;
+		protected var _labelHoverSkin:ILabelSkin;
+		protected var _labelFocusSkin:ILabelSkin;
 
 
 
 		public function GlyphLabelButtonSkin(id:String = null) {
 			super(SkinType.GLYPH_BUTTON, id);
 
-			$buttonSkin = new ButtonSkin(id + '#button');
-			$glyphsSkin = new GlyphsSkin(id + '#glyphs');
-			$labelOutSkin = new LabelSkin(id + '#labelOut');
-			$labelHoverSkin = new LabelSkin(id + '#labelHover');
-			$labelFocusSkin = new LabelSkin(id + '#labelFocus');
+			_buttonSkin = new ButtonSkin(id + '#button');
+			_glyphsSkin = new GlyphsSkin(id + '#glyphs');
+			_labelOutSkin = new LabelSkin(id + '#labelOut');
+			_labelHoverSkin = new LabelSkin(id + '#labelHover');
+			_labelFocusSkin = new LabelSkin(id + '#labelFocus');
 		}
 
 
 
+		//noinspection FunctionWithMoreThanThreeNegationsJS
 		override public function parseConfig(source:Object):void {
 			super.parseConfig(source);
 
-			if(source.button != undefined) {
-				$buttonSkin.parseConfig(source.button);
-			}
-
-			if(source.glyphs != undefined) {
-				$glyphsSkin.parseConfig(source.glyphs);
-			}
-
-			if(source.labelOut != undefined) {
-				$labelOutSkin.parseConfig(source.labelOut);
-			}
-
-			if(source.labelHover != undefined) {
-				$labelHoverSkin.parseConfig(source.labelHover);
-			}
-
-			if(source.labelFocus != undefined) {
-				$labelFocusSkin.parseConfig(source.labelFocus);
-			}
+			if(source.button !== undefined) _buttonSkin.parseConfig(source.button);
+			if(source.glyphs !== undefined) _glyphsSkin.parseConfig(source.glyphs);
+			if(source.labelOut !== undefined) _labelOutSkin.parseConfig(source.labelOut);
+			if(source.labelHover !== undefined) _labelHoverSkin.parseConfig(source.labelHover);
+			if(source.labelFocus !== undefined) _labelFocusSkin.parseConfig(source.labelFocus);
 		}
 
 
@@ -78,71 +65,71 @@ package org.vancura.vaclav.widgets.skin {
 		override public function revertConfig():void {
 			super.revertConfig();
 
-			$buttonSkin.revertConfig();
-			$glyphsSkin.revertConfig();
-			$labelOutSkin.revertConfig();
-			$labelHoverSkin.revertConfig();
-			$labelFocusSkin.revertConfig();
+			_buttonSkin.revertConfig();
+			_glyphsSkin.revertConfig();
+			_labelOutSkin.revertConfig();
+			_labelHoverSkin.revertConfig();
+			_labelFocusSkin.revertConfig();
 		}
 
 
 
 		public function get buttonSkin():IButtonSkin {
-			return $buttonSkin;
+			return _buttonSkin;
 		}
 
 
 
 		public function set buttonSkin(source:IButtonSkin):void {
-			$buttonSkin = source;
+			_buttonSkin = source;
 		}
 
 
 
 		public function get glyphsSkin():IGlyphsSkin {
-			return $glyphsSkin;
+			return _glyphsSkin;
 		}
 
 
 
 		public function set glyphsSkin(source:IGlyphsSkin):void {
-			$glyphsSkin = source;
+			_glyphsSkin = source;
 		}
 
 
 
 		public function get labelOutSkin():ILabelSkin {
-			return $labelOutSkin;
+			return _labelOutSkin;
 		}
 
 
 
 		public function set labelOutSkin(source:ILabelSkin):void {
-			$labelOutSkin = source;
+			_labelOutSkin = source;
 		}
 
 
 
 		public function get labelHoverSkin():ILabelSkin {
-			return $labelHoverSkin;
+			return _labelHoverSkin;
 		}
 
 
 
 		public function set labelHoverSkin(source:ILabelSkin):void {
-			$labelHoverSkin = source;
+			_labelHoverSkin = source;
 		}
 
 
 
 		public function get labelFocusSkin():ILabelSkin {
-			return $labelFocusSkin;
+			return _labelFocusSkin;
 		}
 
 
 
 		public function set labelFocusSkin(source:ILabelSkin):void {
-			$labelFocusSkin = source;
+			_labelFocusSkin = source;
 		}
 	}
 }

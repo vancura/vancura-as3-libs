@@ -35,80 +35,81 @@ package org.vancura.vaclav.widgets.skin {
 	public class Skin implements ISkinnable {
 
 
-		protected var $id:String;
-		protected var $type:String;
-		protected var $assetWidth:Number = 0;
-		protected var $assetHeight:Number = 0;
-		protected var $data:Object = new Object();
+		protected var _id:String;
+		protected var _type:String;
+		protected var _assetWidth:Number = 0;
+		protected var _assetHeight:Number = 0;
+		protected var _data:Object = new Object();
 
 		private var _oldData:Object;
 
 
 
 		public function Skin(type:String, id:String = null):void {
-			$id = id;
-			$type = type;
+			_id = id;
+			_type = type;
 
-			if($id == null) {
-				$id = printf('%s:skin:%s', type, randomString());
+			if(_id === null) {
+				var rs:String = randomString();
+				_id = printf('%s:skin:%s', type, rs);
 			}
 		}
 
 
 
 		public function get id():String {
-			return $id;
+			return _id;
 		}
 
 
 
 		public function get type():String {
-			return $type;
+			return _type;
 		}
 
 
 
 		public function get assetWidth():Number {
-			return $assetWidth;
+			return _assetWidth;
 		}
 
 
 
 		public function get assetHeight():Number {
-			return $assetHeight;
+			return _assetHeight;
 		}
 
 
 
 		public function get data():Object {
-			return $data;
+			return _data;
 		}
 
 
 
 		public function set data(value:Object):void {
-			$data = value;
+			_data = value;
 		}
 
 
 
 		public function parseConfig(source:Object):void {
-			_oldData = $data;
+			_oldData = _data;
 
-			if(source.data != undefined) {
-				$data = source.data;
+			if(source.data !== undefined) {
+				_data = source.data;
 			}
 		}
 
 
 
 		public function revertConfig():void {
-			$data = _oldData;
+			_data = _oldData;
 		}
 
 
 
-		protected function $getSkinSize(source:MovieClip, frame:*):void {
+		protected function _getSkinSize(source:MovieClip, frame:*):void {
 			// it's needed to duplicate this MovieClip as there was some weird bug:
 			// when used source.gotoAndStop(frame) on one of next lines,
 			// all future getChildByName() on this source failed.
@@ -116,22 +117,22 @@ package org.vancura.vaclav.widgets.skin {
 
 			duplicate.gotoAndStop(frame);
 
-			$assetWidth = duplicate.width;
-			$assetHeight = duplicate.height;
+			_assetWidth = duplicate.width;
+			_assetHeight = duplicate.height;
 		}
 
 
 
-		protected function $getSkinFrame(source:MovieClip, elements:Array = null, frame:* = 1):BitmapData {
+		protected function _getSkinFrame(source:MovieClip, elements:Array = null, frame:* = 1):BitmapData {
 			// it's needed to duplicate this MovieClip as there was some weird bug:
 			// when used source.gotoAndStop(frame) on one of next lines,
 			// all future getChildByName() on this source failed.
 			var duplicate:MovieClip = duplicateMovieClip(source);
-			var output:BitmapData = new BitmapData($assetWidth, $assetHeight, true, 0x00000000);
+			var output:BitmapData = new BitmapData(_assetWidth, _assetHeight, true, 0x00000000);
 
 			duplicate.gotoAndStop(frame);
 
-			if(elements != null) {
+			if(elements !== null) {
 				// roll throught all elements
 				for each(var element:Object in elements) {
 					// get element properties
@@ -139,8 +140,9 @@ package org.vancura.vaclav.widgets.skin {
 						var name:String = element.name;
 						var color:uint = uint(element.color);
 					}
-					catch(getElement:Error) {
-						throw new Error('Error in element properties (use name:String and color:uint pairs)');
+					catch(getElementError:Error) {
+						var msg1:String = printf('Error in element properties (use name:String and color:uint pairs) (%s)', getElementError.message);
+						throw new Error(msg1);
 					}
 
 					// count color matrix
@@ -148,6 +150,7 @@ package org.vancura.vaclav.widgets.skin {
 					colMatrix.colorize(color);
 
 					// apply color matrix
+					// noinspection UnusedCatchParameterJS,EmptyCatchBlockJS
 					try {
 						duplicate.getChildByName(name).filters = [new ColorMatrixFilter(colMatrix.matrix)];
 					}
@@ -165,12 +168,13 @@ package org.vancura.vaclav.widgets.skin {
 
 
 
-		protected function $checkSize(source:BitmapData):void {
-			if($assetWidth == 0 && $assetHeight == 0) {
+		protected function _checkSize(source:BitmapData):void {
+			if(_assetWidth === 0 && _assetHeight === 0) {
 				// size is not specified, set initial values
-				$assetWidth = source.width;
-				$assetHeight = source.height;
-			} else if(source.width != $assetWidth || source.height != $assetHeight) {
+				_assetWidth = source.width;
+				_assetHeight = source.height;
+			}
+			else if(source.width !== _assetWidth || source.height !== _assetHeight) {
 				// size mismatch
 				throw new Error('Sizes have to match');
 			}

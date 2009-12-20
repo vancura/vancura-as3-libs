@@ -25,19 +25,14 @@ package org.vancura.vaclav.assets.events {
 	import org.vancura.vaclav.assets.Asset;
 
 	/**
-	 * Class: AssetManagerItemEvent
-	 *
 	 * AssetManager item Event, usually means an Item was loaded.
 	 *
-	 * Author: Vaclav Vancura <http://vaclav.vancura.org>
+	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
 	public class AssetManagerItemEvent extends Event {
 
 
-		/**
-		 * Constants: Events
-		 *      ITEM_LOADED - Item was successfully loaded
-		 */
+		/** Item was successfully loaded */
 		public static const ITEM_LOADED:String = 'item_loaded';
 
 		private var asset:Asset;
@@ -46,6 +41,7 @@ package org.vancura.vaclav.assets.events {
 
 		/**
 		 * Event constructor.
+		 *
 		 * @param type Event type (see Event constants)
 		 * @param bubbles Bubbles enabled
 		 * @param cancelable Cancel enabled
@@ -62,6 +58,7 @@ package org.vancura.vaclav.assets.events {
 
 		/**
 		 * Clone Event.
+		 *
 		 * @return Cloned Event
 		 */
 		public override function clone():Event {
@@ -72,6 +69,7 @@ package org.vancura.vaclav.assets.events {
 
 		/**
 		 * Generate Event description.
+		 *
 		 * @return Event description
 		 */
 		public override function toString():String {

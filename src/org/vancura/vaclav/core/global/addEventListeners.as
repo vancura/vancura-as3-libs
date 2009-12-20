@@ -22,28 +22,18 @@
 package org.vancura.vaclav.core.global {
 	import flash.events.EventDispatcher;
 
-	/*
-	 *	Method: addEventListeners
+	/**
+	 * Basically an addEventListener() for more events at once.
+	 * Just saves few lines of code, nothing special.
 	 *
-	 *	Basically an addEventListener() for more events at once.
-	 *	Just saves few lines of code, nothing special.
-	 *
-	 *	Author: Vaclav Vancura <http://vaclav.vancura.org>
-	 *
-	 *	Parameters:
-	 *
-	 *		obj		- Target EventDispatcher
-	 *		params	- Multiple Objects with pairs {event: ..., method: ...}
+	 * @param obj Target EventDispatcher
+	 * @param params Multiple Objects with pairs {event: ..., method: ...}
+	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
 	public function addEventListeners(obj:EventDispatcher, ... params):void {
 		for each(var i:Object in params) {
-			if(i.event == undefined) {
-				throw new Error('Event undefined');
-			}
-
-			if(i.method == undefined) {
-				throw new Error('Method undefined');
-			}
+			if(i.event === undefined) throw new Error('Event undefined');
+			if(i.method === undefined) throw new Error('Method undefined');
 
 			obj.addEventListener(i.event, i.method, false, 0, true);
 		}

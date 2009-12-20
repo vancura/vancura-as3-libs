@@ -32,39 +32,30 @@ package org.vancura.vaclav.widgets.widgets {
 	public class Bar extends Widget implements IBar {
 
 
-		protected var $skin:IBarSkin;
-		protected var $bodySBM:ScaleBitmap;
+		protected var _skin:IBarSkin;
+		protected var _bodySBM:ScaleBitmap;
 
 
 
 		public function Bar(skin:IBarSkin, config:Object = null, parent:DisplayObjectContainer = null, debugLevel:String = null) {
+			var c:Object;
 
-			if(config == null) {
-				config = new Object();
-			}
+			if(config === null) c = new Object();
+			else c = config;
 
-			if(config.width == undefined) {
-				config.width = skin.assetWidth;
-			}
+			if(c.width === undefined) c.width = skin.assetWidth;
+			if(c.height === undefined) c.height = skin.assetHeight;
 
-			if(config.height == undefined) {
-				config.height = skin.assetHeight;
-			}
-
-			if(skin != null) {
-				super(config, parent, (debugLevel == null) ? SkinManager.debugLevel : debugLevel);
-			}
-			else {
-				throw new Error('No skin defined');
-			}
+			if(skin === null) throw new Error('No skin defined');
+			else super(c, parent, (debugLevel === null) ? SkinManager.debugLevel : debugLevel);
 
 			this.skin = skin;
 		}
 
 
 
-		override protected function $init():void {
-			super.$init();
+		override protected function _init():void {
+			super._init();
 
 			isMorphWidthEnabled = true;
 			isMorphHeightEnabled = true;
@@ -74,57 +65,54 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 
-		override protected function $addChildren():void {
-			super.$addChildren();
+		override protected function _addChildren():void {
+			super._addChildren();
 
-			$bodySBM = new ScaleBitmap();
+			_bodySBM = new ScaleBitmap();
 
-			addChildren($contentSpr, $bodySBM);
+			addChildren(_contentSpr, _bodySBM);
 		}
 
 
 
-		override protected function $removeChildren():void {
-			super.$removeChildren();
+		override protected function _removeChildren():void {
+			super._removeChildren();
 
-			removeChildren($contentSpr, $bodySBM);
+			removeChildren(_contentSpr, _bodySBM);
 		}
 
 
 
+		//noinspection FunctionWithMoreThanThreeNegationsJS
 		override public function draw():void {
 			super.draw();
 
-			$bodySBM.bitmapData = $skin.backBD;
-			$bodySBM.scale9Grid = $skin.guideBD.getColorBoundsRect(0x00FF0000, 0x00000000, false);
+			_bodySBM.bitmapData = _skin.backBD;
+			_bodySBM.scale9Grid = _skin.guideBD.getColorBoundsRect(0x00FF0000, 0x00000000, false);
 
-			if($width != 0 && !isNaN($width)) {
-				$bodySBM.width = $width - $skin.paddingLeft - $skin.paddingRight;
-				$bodySBM.x = $skin.paddingLeft;
+			if(_width !== 0 && !isNaN(_width)) {
+				_bodySBM.width = _width - _skin.paddingLeft - _skin.paddingRight;
+				_bodySBM.x = _skin.paddingLeft;
 			}
-			if($height != 0 && !isNaN($height)) {
-				$bodySBM.height = $height - $skin.paddingTop - $skin.paddingBottom;
-				$bodySBM.y = $skin.paddingTop;
+			if(_height !== 0 && !isNaN(_height)) {
+				_bodySBM.height = _height - _skin.paddingTop - _skin.paddingBottom;
+				_bodySBM.y = _skin.paddingTop;
 			}
 		}
 
 
 
 		public function get skin():IBarSkin {
-			return $skin;
+			return _skin;
 		}
 
 
 
 		public function set skin(skin:IBarSkin):void {
-			$skin = skin;
+			_skin = skin;
 
-			if($width == 0) {
-				$width = $skin.assetWidth;
-			}
-			if($height == 0) {
-				$height = $skin.assetHeight;
-			}
+			if(_width === 0) _width = _skin.assetWidth;
+			if(_height === 0) _height = _skin.assetHeight;
 
 			draw();
 		}
@@ -132,13 +120,13 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		override public function get width():Number {
-			return $width + $skin.paddingLeft + $skin.paddingRight;
+			return _width + _skin.paddingLeft + _skin.paddingRight;
 		}
 
 
 
 		override public function get height():Number {
-			return $height + $skin.paddingTop + $skin.paddingBottom;
+			return _height + _skin.paddingTop + _skin.paddingBottom;
 		}
 	}
 }

@@ -23,19 +23,14 @@ package org.vancura.vaclav.assets {
 	import flash.display.Bitmap;
 
 	/**
-	 * Class: Chunk
-	 *
 	 * Am Asset chunk.
 	 *
-	 * Author: Vaclav Vancura <http://vaclav.vancura.org>
+	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
 	public class Chunk {
 
 
-		/**
-		 * Constants: Chunk types:
-		 *      BITMAP - Bitmap Chunk type
-		 */
+		/** Bitmap Chunk type */
 		public static const BITMAP:String = 'bitmap';
 
 		private var _url:String;
@@ -46,6 +41,7 @@ package org.vancura.vaclav.assets {
 
 		/**
 		 * Chunk constructor.
+		 *
 		 * @param url Chunk URL
 		 * @param type Chunk type (Chunk.BITMAP by default)
 		 */
@@ -63,6 +59,7 @@ package org.vancura.vaclav.assets {
 
 		/**
 		 * Get Chunk URL.
+		 *
 		 * @return Chunk URL
 		 */
 		public function get url():String {
@@ -73,6 +70,7 @@ package org.vancura.vaclav.assets {
 
 		/**
 		 * Get Chunk type.
+		 *
 		 * @return Chunk type
 		 */
 		public function get type():String {
@@ -83,6 +81,7 @@ package org.vancura.vaclav.assets {
 
 		/**
 		 * Set Chunk Bitmap.
+		 *
 		 * @param value Chunk Bitmap
 		 */
 		public function set bitmap(value:Bitmap):void {
@@ -93,6 +92,7 @@ package org.vancura.vaclav.assets {
 
 		/**
 		 * Get Chunk Bitmap.
+		 *
 		 * @return Chunk Bitmap
 		 */
 		public function get bitmap():Bitmap {

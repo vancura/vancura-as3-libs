@@ -42,12 +42,10 @@ package org.vancura.vaclav.assets.providers {
 	import org.vancura.vaclav.far.events.FarHelperEvent;
 
 	/**
-	 * Class: FARAssetProvider
-	 *
 	 * FAR Asset provider.
-	 * Based on the FAR loader by Edwin van Rijkom (<http://code.google.com/p/vanrijkom-flashlibs>)
+	 * Based on the FAR loader by Edwin van Rijkom (http://code.google.com/p/vanrijkom-flashlibs)
 	 *
-	 * Author: Vaclav Vancura <http://vaclav.vancura.org>
+	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
 	public class FARAssetProvider extends AssetProvider implements IAssetProvider {
 
@@ -66,6 +64,7 @@ package org.vancura.vaclav.assets.providers {
 
 		/**
 		 * FAR Asset provider constructor.
+		 *
 		 * @param contentURL FAR URL
 		 * @param assetsConfigIndex Item name of the config, "config.json" by default
 		 */
@@ -77,7 +76,7 @@ package org.vancura.vaclav.assets.providers {
 			_chunksList = new Array();
 			_chunkLoadCounter = 0;
 			_indexList = new Array();
-			$isActive = true;
+			_isActive = true;
 
 			// create a new FarHelper
 			_farHelper = new FarHelper();
@@ -100,7 +99,7 @@ package org.vancura.vaclav.assets.providers {
 		 * FAR Asset provider destructor.
 		 */
 		override public function destroy():void {
-			if($isActive) {
+			if(_isActive) {
 				// remove event listeners
 				_farHelper.removeEventListener(FarHelperEvent.STREAM_IO_ERROR, _onFarIOError);
 				_farHelper.removeEventListener(FarHelperEvent.STREAM_SECURITY_ERROR, _onFarSecurityError);
@@ -119,7 +118,8 @@ package org.vancura.vaclav.assets.providers {
 
 
 		/**
-		 * Get an Asset from the provider
+		 * Get an Asset from the provider.
+		 *
 		 * @param id Asset ID
 		 * @return Asset
 		 * @see Asset (if found, null if not)
@@ -127,9 +127,10 @@ package org.vancura.vaclav.assets.providers {
 		override public function getAsset(id:String):Asset {
 			var asset:Asset = super.getAsset(id);
 
-			if(asset != null) {
+			if(asset !== null) {
 				// dispatch en event that the item was loaded
-				dispatchEvent(new AssetManagerItemEvent(AssetManagerItemEvent.ITEM_LOADED, false, false, asset));
+				var e:AssetManagerItemEvent = new AssetManagerItemEvent(AssetManagerItemEvent.ITEM_LOADED, false, false, asset);
+				dispatchEvent(e);
 			}
 
 			return asset;
@@ -141,31 +142,39 @@ package org.vancura.vaclav.assets.providers {
 		// ---------------
 
 		private function _onFarSecurityError(event:FarHelperEvent):void {
-			$isError = true;
-			$isLoaded = false;
+			_isError = true;
+			_isLoaded = false;
 
-			dispatchEvent(new AssetManagerErrorEvent(AssetManagerErrorEvent.PROVIDER_ERROR, false, false, printf('Security error loading asset library: %s', event.text)));
+			var d:String = printf('Security error loading asset library: %s', event.text);
+			var e:AssetManagerErrorEvent = new AssetManagerErrorEvent(AssetManagerErrorEvent.PROVIDER_ERROR, false, false, d);
+			dispatchEvent(e);
 		}
 
 
 
 		private function _onFarIOError(event:FarHelperEvent):void {
-			$isError = true;
-			$isLoaded = false;
+			_isError = true;
+			_isLoaded = false;
 
-			dispatchEvent(new AssetManagerErrorEvent(AssetManagerErrorEvent.PROVIDER_ERROR, false, false, printf('IO error loading asset library: %s', event.text)));
+			var d:String = printf('IO error loading asset library: %s', event.text);
+			var e:AssetManagerErrorEvent = new AssetManagerErrorEvent(AssetManagerErrorEvent.PROVIDER_ERROR, false, false, d);
+			dispatchEvent(e);
 		}
 
 
 
 		private function _onItemNotFound(event:FarHelperEvent):void {
-			dispatchEvent(new AssetManagerErrorEvent(AssetManagerErrorEvent.ITEM_NOT_FOUND, false, false, printf('Asset item "%s" not found in the asset library', event.helperItem.index)));
+			var d:String = printf('Asset item "%s" not found in the asset library', event.helperItem.index);
+			var e:AssetManagerErrorEvent = new AssetManagerErrorEvent(AssetManagerErrorEvent.ITEM_NOT_FOUND, false, false, d);
+			dispatchEvent(e);
 		}
 
 
 
 		private function _onItemLoadFailed(event:FarHelperEvent):void {
-			dispatchEvent(new AssetManagerErrorEvent(AssetManagerErrorEvent.ITEM_LOAD_FAILED, false, false, printf('Asset item "%s" load failed', event.helperItem.index)));
+			var d:String = printf('Asset item "%s" load failed', event.helperItem.index);
+			var e:AssetManagerErrorEvent = new AssetManagerErrorEvent(AssetManagerErrorEvent.ITEM_LOAD_FAILED, false, false, d);
+			dispatchEvent(e);
 		}
 
 
@@ -176,7 +185,8 @@ package org.vancura.vaclav.assets.providers {
 			if(itemHelper.index == _ASSETS_CONFIG_INDEX) {
 				// assets library config found
 
-				_assetsConfig = JSON.decode(itemHelper.farItem.data.toString());
+				var c:String = itemHelper.farItem.data.toString();
+				_assetsConfig = JSON.decode(c);
 
 				// find all assets specified in the config
 				for each(var assetConfig:Object in _assetsConfig) {
@@ -186,7 +196,7 @@ package org.vancura.vaclav.assets.providers {
 					// add it to the list for future reference
 					var newAsset:Asset = new Asset(assetConfig.id, assetConfig);
 					_findURLs(newAsset, assetConfig);
-					$assetsList.push(newAsset);
+					_assetsList.push(newAsset);
 				}
 			}
 			else {
@@ -211,6 +221,7 @@ package org.vancura.vaclav.assets.providers {
 
 
 
+		//noinspection OverlyComplexFunctionJS
 		private function _findURLs(asset:Asset, branch:Object):void {
 			// browse all items in the list
 			for each(var leaf:Object in branch) {
@@ -221,7 +232,7 @@ package org.vancura.vaclav.assets.providers {
 
 					var leafAsString:String = leaf as String;
 
-					if(leafAsString.indexOf(_INDEX_URL_PREFIX) == 0) {
+					if(leafAsString.indexOf(_INDEX_URL_PREFIX) === 0) {
 						// strip the trailing this
 
 						var isNewChunk:Boolean = true;
@@ -264,9 +275,7 @@ package org.vancura.vaclav.assets.providers {
 							// ok, so it's a ne asset
 
 							// create a new list of assets if not created before
-							if(_indexList[index] == null) {
-								_indexList[index] = new Array();
-							}
+							if(_indexList[index] === null) _indexList[index] = new Array();
 
 							// add it to the list of assets
 							_indexList[index].push(asset);
@@ -313,12 +322,13 @@ package org.vancura.vaclav.assets.providers {
 			}
 
 			// check if all items are loaded
-			if(--_chunkLoadCounter == 0) {
+			--_chunkLoadCounter;
+			if(_chunkLoadCounter === 0) {
 				// all is done
+				_isLoaded = true;
 
-				$isLoaded = true;
-
-				dispatchEvent(new Event(Event.COMPLETE));
+				var e:Event = new Event(Event.COMPLETE);
+				dispatchEvent(e);
 			}
 		}
 	}

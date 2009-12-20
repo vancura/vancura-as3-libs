@@ -34,9 +34,9 @@ package org.vancura.vaclav.widgets.widgets {
 	public class CheckButton extends MorphSprite implements IWidget, ICheckButton {
 
 
-		protected var $skin:ICheckButtonSkin;
-		protected var $buttonOff:StaticButton;
-		protected var $buttonOn:StaticButton;
+		protected var _skin:ICheckButtonSkin;
+		protected var _buttonOff:StaticButton;
+		protected var _buttonOn:StaticButton;
 
 		private var _debugLevel:String;
 		private var _isChecked:Boolean;
@@ -45,18 +45,18 @@ package org.vancura.vaclav.widgets.widgets {
 
 		public function CheckButton(skin:ICheckButtonSkin, config:Object = null, parent:DisplayObjectContainer = null,
 		                            debugLevel:String = null) {
+			var c:Object;
 
-			if(config == null) {
-				config = new Object();
-			}
+			if(config === null) c = new Object();
+			else c = config;
 
-			var dl:String = (debugLevel == null) ? SkinManager.debugLevel : debugLevel;
+			var dl:String = (debugLevel === null) ? SkinManager.debugLevel : debugLevel;
 
-			$buttonOff = new StaticButton(skin.buttonOffSkin, {}, this, dl);
-			$buttonOn = new StaticButton(skin.buttonOnSkin, {visible:false}, this, dl);
+			_buttonOff = new StaticButton(skin.buttonOffSkin, {}, this, dl);
+			_buttonOn = new StaticButton(skin.buttonOnSkin, {visible:false}, this, dl);
 
-			$buttonOff.debugColor = SkinManager.debugColor;
-			$buttonOn.debugColor = SkinManager.debugColor;
+			_buttonOff.debugColor = SkinManager.debugColor;
+			_buttonOn.debugColor = SkinManager.debugColor;
 
 			this.buttonMode = true;
 			this.useHandCursor = true;
@@ -65,53 +65,44 @@ package org.vancura.vaclav.widgets.widgets {
 			this.isMorphHeightEnabled = false;
 			this.isMorphWidthEnabled = false;
 
-			$buttonOff.addEventListener(ButtonEvent.RELEASE_INSIDE, _onToggle, false, 0, true);
-			$buttonOn.addEventListener(ButtonEvent.RELEASE_INSIDE, _onToggle, false, 0, true);
+			_buttonOff.addEventListener(ButtonEvent.RELEASE_INSIDE, _onToggle, false, 0, true);
+			_buttonOn.addEventListener(ButtonEvent.RELEASE_INSIDE, _onToggle, false, 0, true);
 
-			if(config.width == undefined) {
-				config.width = skin.buttonOffSkin.assetWidth;
-			}
+			if(c.width === undefined) c.width = skin.buttonOffSkin.assetWidth;
+			if(c.height === undefined) c.height = skin.buttonOffSkin.assetHeight;
 
-			if(config.height == undefined) {
-				config.height = skin.buttonOffSkin.assetHeight;
-			}
+			if(skin === null) throw new Error('No skin defined');
+			else super(c, parent);
 
-			if(skin != null) {
-				super(config, parent);
-			}
-			else {
-				throw new Error('No skin defined');
-			}
-
-			$skin = skin;
+			_skin = skin;
 		}
 
 
 
 		public function destroy():void {
-			$buttonOff.removeEventListener(ButtonEvent.RELEASE_INSIDE, _onToggle);
+			_buttonOff.removeEventListener(ButtonEvent.RELEASE_INSIDE, _onToggle);
 
-			removeChildren(this, $buttonOff, $buttonOn);
+			removeChildren(this, _buttonOff, _buttonOn);
 
-			$buttonOff.destroy();
-			$buttonOn.destroy();
+			_buttonOff.destroy();
+			_buttonOn.destroy();
 		}
 
 
 
 		public function draw():void {
-			$buttonOff.draw();
-			$buttonOn.draw();
+			_buttonOff.draw();
+			_buttonOn.draw();
 
-			$buttonOff.visible = !_isChecked;
-			$buttonOn.visible = _isChecked;
+			_buttonOff.visible = !_isChecked;
+			_buttonOn.visible = _isChecked;
 		}
 
 
 
 		public function forceRelease():void {
-			$buttonOff.forceRelease();
-			$buttonOn.forceRelease();
+			_buttonOff.forceRelease();
+			_buttonOn.forceRelease();
 		}
 
 
@@ -123,7 +114,7 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		override public function get width():Number {
-			return $buttonOff.width;
+			return _buttonOff.width;
 		}
 
 
@@ -134,7 +125,7 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		override public function get height():Number {
-			return $buttonOff.height;
+			return _buttonOff.height;
 		}
 
 
@@ -145,8 +136,8 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		public function set areEventsEnabled(value:Boolean):void {
-			$buttonOff.areEventsEnabled = value;
-			$buttonOn.areEventsEnabled = value;
+			_buttonOff.areEventsEnabled = value;
+			_buttonOn.areEventsEnabled = value;
 
 			this.buttonMode = value;
 			this.useHandCursor = value;
@@ -157,7 +148,7 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		public function get areEventsEnabled():Boolean {
-			return $buttonOff.areEventsEnabled;
+			return _buttonOff.areEventsEnabled;
 		}
 
 
@@ -183,8 +174,8 @@ package org.vancura.vaclav.widgets.widgets {
 		public function set debugLevel(value:String):void {
 			_debugLevel = value;
 
-			$buttonOff.debugLevel = value;
-			$buttonOn.debugLevel = value;
+			_buttonOff.debugLevel = value;
+			_buttonOn.debugLevel = value;
 		}
 
 
@@ -203,16 +194,16 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		public function get skin():ICheckButtonSkin {
-			return $skin;
+			return _skin;
 		}
 
 
 
 		public function set skin(skin:ICheckButtonSkin):void {
-			$skin = skin;
+			_skin = skin;
 
-			$buttonOff.skin = skin.buttonOffSkin;
-			$buttonOn.skin = skin.buttonOnSkin;
+			_buttonOff.skin = skin.buttonOffSkin;
+			_buttonOn.skin = skin.buttonOnSkin;
 
 			draw();
 		}
@@ -220,19 +211,19 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		public function get button():IButton {
-			return (_isChecked) ? $buttonOn : $buttonOff;
+			return (_isChecked) ? _buttonOn : _buttonOff;
 		}
 
 
 
 		public function get buttonOff():IButton {
-			return $buttonOff;
+			return _buttonOff;
 		}
 
 
 
 		public function get buttonOn():IButton {
-			return $buttonOn;
+			return _buttonOn;
 		}
 
 

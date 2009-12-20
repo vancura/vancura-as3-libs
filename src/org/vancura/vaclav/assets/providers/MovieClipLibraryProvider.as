@@ -24,16 +24,11 @@
  */
 
 package org.vancura.vaclav.assets.providers {
+	import br.com.stimuli.string.printf;
+
 	import flash.display.LoaderInfo;
 	import flash.display.MovieClip;
 
-	/**
-	 * Class: MovieClipLibraryProvider
-	 *
-	 * MovieClipLibrary Asset provider.
-	 *
-	 * Author: Vaclav Vancura <http://vaclav.vancura.org>
-	 */
 	public class MovieClipLibraryProvider extends AssetProvider {
 
 
@@ -41,19 +36,10 @@ package org.vancura.vaclav.assets.providers {
 		private var _loaderInfo:LoaderInfo;
 
 
-		/*
-		 * Constructor: MovieClipLibraryProvider
-		 *
-		 * Create a new MovieClipLibraryProvider.
-		 *
-		 * Parameters:
-		 * 		mc				- MovieClip containing the skin library
-		 * 		themeElements	- Theming element names
-		 * 		themeConfig		- Theming element config
-		 * 		isVerbose		- Verbose flag
-		 */
+
 		/**
 		 * MovieClipLibrary provider constructor.
+		 *
 		 * @param mc MovieClip with the library to be loaded.
 		 */
 		public function MovieClipLibraryProvider(mc:MovieClip):void {
@@ -65,12 +51,8 @@ package org.vancura.vaclav.assets.providers {
 
 			// get skin loaderInfo.
 			// used to get assets from skin asset library.
-			if(_skinMC.loaderInfo == null) {
-				throw new Error('Could not get skin loaderInfo (skin asset library)');
-			}
-			else {
-				_loaderInfo = _skinMC.loaderInfo;
-			}
+			if(_skinMC.loaderInfo === null) throw new Error('Could not get skin loaderInfo (skin asset library)');
+			else _loaderInfo = _skinMC.loaderInfo;
 
 			// get config
 			var skinConfig:Object;
@@ -78,14 +60,15 @@ package org.vancura.vaclav.assets.providers {
 				skinConfig = _skinMC.getSkinConfig();
 			}
 			catch(err:Error) {
-				throw new Error('Could not get skin config. Usually it means there was a compile error while publishing skin SWF. Go check it out into Compiler Errors panel in Flash.');
+				var message:String = printf('Could not get skin config. Usually it means there was a compile error while publishing skin SWF. Go check it out into Compiler Errors panel in Flash.', err);
+				throw new Error(message);
 			}
 
 			// get skins from the $skinConfig
-			//			$getSkins(skinConfig);
+			// $getSkins(skinConfig);
 
 			// send COMPLETE event
-			//			dispatchEvent(new Event(Event.COMPLETE, true));
+			// dispatchEvent(new Event(Event.COMPLETE, true));
 		}
 
 

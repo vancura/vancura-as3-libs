@@ -27,16 +27,16 @@ package org.vancura.vaclav.widgets.skin {
 	public class CheckButtonSkin extends Skin implements ICheckButtonSkin {
 
 
-		protected var $buttonOffSkin:IButtonSkin;
-		protected var $buttonOnSkin:IButtonSkin;
+		protected var _buttonOffSkin:IButtonSkin;
+		protected var _buttonOnSkin:IButtonSkin;
 
 
 
 		public function CheckButtonSkin(id:String = null) {
 			super(SkinType.CHECK_BUTTON, id);
 
-			$buttonOffSkin = new ButtonSkin(id + '#buttonOff');
-			$buttonOnSkin = new ButtonSkin(id + '#buttonOn');
+			_buttonOffSkin = new ButtonSkin(id + '#buttonOff');
+			_buttonOnSkin = new ButtonSkin(id + '#buttonOn');
 		}
 
 
@@ -44,13 +44,8 @@ package org.vancura.vaclav.widgets.skin {
 		override public function parseConfig(source:Object):void {
 			super.parseConfig(source);
 
-			if(source.buttonOff != undefined) {
-				$buttonOffSkin.parseConfig(source.buttonOff);
-			}
-
-			if(source.buttonOn != undefined) {
-				$buttonOnSkin.parseConfig(source.buttonOn);
-			}
+			if(source.buttonOff !== undefined) _buttonOffSkin.parseConfig(source.buttonOff);
+			if(source.buttonOn !== undefined) _buttonOnSkin.parseConfig(source.buttonOn);
 		}
 
 
@@ -58,32 +53,32 @@ package org.vancura.vaclav.widgets.skin {
 		override public function revertConfig():void {
 			super.revertConfig();
 
-			$buttonOffSkin.revertConfig();
-			$buttonOnSkin.revertConfig();
+			_buttonOffSkin.revertConfig();
+			_buttonOnSkin.revertConfig();
 		}
 
 
 
 		public function get buttonOffSkin():IButtonSkin {
-			return $buttonOffSkin;
+			return _buttonOffSkin;
 		}
 
 
 
 		public function set buttonOffSkin(source:IButtonSkin):void {
-			$buttonOffSkin = source;
+			_buttonOffSkin = source;
 		}
 
 
 
 		public function get buttonOnSkin():IButtonSkin {
-			return $buttonOnSkin;
+			return _buttonOnSkin;
 		}
 
 
 
 		public function set buttonOnSkin(source:IButtonSkin):void {
-			$buttonOnSkin = source;
+			_buttonOnSkin = source;
 		}
 	}
 }

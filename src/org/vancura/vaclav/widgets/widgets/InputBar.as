@@ -34,9 +34,9 @@ package org.vancura.vaclav.widgets.widgets {
 	public class InputBar extends MorphSprite implements IWidget, IInputBar {
 
 
-		protected var $skin:IInputBarSkin;
-		protected var $bar:Bar;
-		protected var $label:Label;
+		protected var _skin:IInputBarSkin;
+		protected var _bar:Bar;
+		protected var _label:Label;
 
 		private var _debugLevel:String;
 
@@ -44,70 +44,61 @@ package org.vancura.vaclav.widgets.widgets {
 
 		public function InputBar(skin:IInputBarSkin, config:Object = null, parent:DisplayObjectContainer = null,
 		                         debugLevel:String = null) {
+			var c:Object;
 
-			if(config == null) {
-				config = new Object();
-			}
+			if(config === null) c = new Object();
+			else c = config;
 
-			var dl:String = (debugLevel == null) ? SkinManager.debugLevel : debugLevel;
+			var dl:String = (debugLevel === null) ? SkinManager.debugLevel : debugLevel;
 
-			$bar = new Bar(skin.barSkin, {}, this, dl);
-			$label = new Label(skin.labelSkin, {}, '', this, dl);
+			_bar = new Bar(skin.barSkin, {}, this, dl);
+			_label = new Label(skin.labelSkin, {}, '', this, dl);
 
-			$bar.debugColor = SkinManager.debugColor;
-			$label.debugColor = SkinManager.debugColor;
-			$label.isInput = true;
+			_bar.debugColor = SkinManager.debugColor;
+			_label.debugColor = SkinManager.debugColor;
+			_label.isInput = true;
 
 			this.isMorphHeightEnabled = true;
 			this.isMorphWidthEnabled = false;
 
-			if(config.width == undefined) {
-				config.width = skin.assetWidth;
-			}
+			if(c.width === undefined) c.width = skin.assetWidth;
+			if(c.height === undefined) c.height = skin.assetHeight;
 
-			if(config.height == undefined) {
-				config.height = skin.assetHeight;
-			}
+			if(skin === null) throw new Error('No skin defined');
+			else super(c, parent);
 
-			if(skin != null) {
-				super(config, parent);
-			}
-			else {
-				throw new Error('No skin defined');
-			}
-
-			$skin = skin;
+			_skin = skin;
 		}
 
 
 
 		public function destroy():void {
-			removeChildren(this, $bar, $label);
+			removeChildren(this, _bar, _label);
 
-			$bar.destroy();
-			$label.destroy();
+			_bar.destroy();
+			_label.destroy();
 		}
 
 
 
 		public function draw():void {
-			$bar.draw();
-			$label.draw();
+			_bar.draw();
+			_label.draw();
 
-			$label.height = $bar.height;
+			_label.height = _bar.height;
 		}
 
 
 
 		override public function get width():Number {
-			return $bar.width;
+			return _bar.width;
 		}
 
 
 
 		override public function set width(value:Number):void {
-			$bar.width = value;
-			$label.width = value;
+			_bar.width = value;
+			_label.width = value;
 
 			draw();
 		}
@@ -115,7 +106,7 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		override public function get height():Number {
-			return $bar.height;
+			return _bar.height;
 		}
 
 
@@ -126,8 +117,8 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		public function set areEventsEnabled(value:Boolean):void {
-			$label.isInput = value;
-			$label.alpha = (value) ? 1 : 0.5;
+			_label.isInput = value;
+			_label.alpha = (value) ? 1 : 0.5;
 
 			draw();
 		}
@@ -135,7 +126,7 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		public function get areEventsEnabled():Boolean {
-			return $label.isInput;
+			return _label.isInput;
 		}
 
 
@@ -149,47 +140,47 @@ package org.vancura.vaclav.widgets.widgets {
 		public function set debugLevel(value:String):void {
 			_debugLevel = value;
 
-			$bar.debugLevel = value;
-			$label.debugLevel = value;
+			_bar.debugLevel = value;
+			_label.debugLevel = value;
 		}
 
 
 
 		public function get bar():IBar {
-			return $bar;
+			return _bar;
 		}
 
 
 
 		public function get label():ILabel {
-			return $label;
+			return _label;
 		}
 
 
 
 		public function get text():String {
-			return $label.text;
+			return _label.text;
 		}
 
 
 
 		public function set text(value:String):void {
-			$label.text = value;
+			_label.text = value;
 		}
 
 
 
 		public function get skin():IInputBarSkin {
-			return $skin;
+			return _skin;
 		}
 
 
 
 		public function set skin(skin:IInputBarSkin):void {
-			$skin = skin;
+			_skin = skin;
 
-			$bar.skin = $skin.barSkin;
-			$label.skin = $skin.labelSkin;
+			_bar.skin = _skin.barSkin;
+			_label.skin = _skin.labelSkin;
 
 			draw();
 		}

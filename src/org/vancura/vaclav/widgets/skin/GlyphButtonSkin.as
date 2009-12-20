@@ -28,16 +28,16 @@ package org.vancura.vaclav.widgets.skin {
 	public class GlyphButtonSkin extends Skin implements IGlyphButtonSkin {
 
 
-		protected var $buttonSkin:IButtonSkin;
-		protected var $glyphsSkin:IGlyphsSkin;
+		protected var _buttonSkin:IButtonSkin;
+		protected var _glyphsSkin:IGlyphsSkin;
 
 
 
 		public function GlyphButtonSkin(id:String = null) {
 			super(SkinType.GLYPH_BUTTON, id);
 
-			$buttonSkin = new ButtonSkin(id + '#button');
-			$glyphsSkin = new GlyphsSkin(id + '#glyphs');
+			_buttonSkin = new ButtonSkin(id + '#button');
+			_glyphsSkin = new GlyphsSkin(id + '#glyphs');
 		}
 
 
@@ -45,13 +45,8 @@ package org.vancura.vaclav.widgets.skin {
 		override public function parseConfig(source:Object):void {
 			super.parseConfig(source);
 
-			if(source.button != undefined) {
-				$buttonSkin.parseConfig(source.button);
-			}
-
-			if(source.glyphs != undefined) {
-				$glyphsSkin.parseConfig(source.glyphs);
-			}
+			if(source.button !== undefined) _buttonSkin.parseConfig(source.button);
+			if(source.glyphs !== undefined) _glyphsSkin.parseConfig(source.glyphs);
 		}
 
 
@@ -59,32 +54,32 @@ package org.vancura.vaclav.widgets.skin {
 		override public function revertConfig():void {
 			super.revertConfig();
 
-			$buttonSkin.revertConfig();
-			$glyphsSkin.revertConfig();
+			_buttonSkin.revertConfig();
+			_glyphsSkin.revertConfig();
 		}
 
 
 
 		public function get buttonSkin():IButtonSkin {
-			return $buttonSkin;
+			return _buttonSkin;
 		}
 
 
 
 		public function set buttonSkin(source:IButtonSkin):void {
-			$buttonSkin = source;
+			_buttonSkin = source;
 		}
 
 
 
 		public function get glyphsSkin():IGlyphsSkin {
-			return $glyphsSkin;
+			return _glyphsSkin;
 		}
 
 
 
 		public function set glyphsSkin(source:IGlyphsSkin):void {
-			$glyphsSkin = source;
+			_glyphsSkin = source;
 		}
 	}
 }

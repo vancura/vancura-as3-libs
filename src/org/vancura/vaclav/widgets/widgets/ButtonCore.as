@@ -40,8 +40,8 @@ package org.vancura.vaclav.widgets.widgets {
 
 		private static var _currentDrag:ButtonCore;
 
-		protected var $skin:IButtonSkin;
-		protected var $activeSpr:QSprite;
+		protected var _skin:IButtonSkin;
+		protected var _activeSpr:QSprite;
 
 		private var _mouseStatus:String;
 		private var _areEventsEnabled:Boolean = true;
@@ -50,25 +50,16 @@ package org.vancura.vaclav.widgets.widgets {
 
 		public function ButtonCore(skin:IButtonSkin, config:Object = null, parent:DisplayObjectContainer = null,
 		                           debugLevel:String = null) {
+			var c:Object;
 
-			if(config == null) {
-				config = new Object();
-			}
+			if(config === null) c = new Object();
+			else c = config;
 
-			if(config.width == undefined) {
-				config.width = skin.assetWidth;
-			}
+			if(c.width === undefined) c.width = skin.assetWidth;
+			if(c.height === undefined) c.height = skin.assetHeight;
 
-			if(config.height == undefined) {
-				config.height = skin.assetHeight;
-			}
-
-			if(skin != null) {
-				super(config, parent, (debugLevel == null) ? SkinManager.debugLevel : debugLevel);
-			}
-			else {
-				throw new Error('No skin defined');
-			}
+			if(skin === null) throw new Error('No skin defined');
+			else super(c, parent, (debugLevel === null) ? SkinManager.debugLevel : debugLevel);
 
 			this.skin = skin;
 
@@ -77,8 +68,8 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 
-		override protected function $init():void {
-			super.$init();
+		override protected function _init():void {
+			super._init();
 
 			this.buttonMode = true;
 			this.useHandCursor = true;
@@ -88,23 +79,23 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 
-		override protected function $addChildren():void {
-			super.$addChildren();
+		override protected function _addChildren():void {
+			super._addChildren();
 
-			$activeSpr = new QSprite({alpha:0}, $contentSpr);
+			_activeSpr = new QSprite({alpha:0}, _contentSpr);
 
-			$activeSpr.addEventListener(MouseEvent.MOUSE_OVER, _onOver, false, 0, true);
-			$activeSpr.addEventListener(MouseEvent.MOUSE_OUT, _onOut, false, 0, true);
-			$activeSpr.addEventListener(MouseEvent.MOUSE_DOWN, _onFocus, false, 0, true);
-			$activeSpr.addEventListener(MouseEvent.MOUSE_UP, _onRelease, false, 0, true);
+			_activeSpr.addEventListener(MouseEvent.MOUSE_OVER, _onOver, false, 0, true);
+			_activeSpr.addEventListener(MouseEvent.MOUSE_OUT, _onOut, false, 0, true);
+			_activeSpr.addEventListener(MouseEvent.MOUSE_DOWN, _onFocus, false, 0, true);
+			_activeSpr.addEventListener(MouseEvent.MOUSE_UP, _onRelease, false, 0, true);
 		}
 
 
 
-		override protected function $removeChildren():void {
-			super.$removeChildren();
+		override protected function _removeChildren():void {
+			super._removeChildren();
 
-			removeChildren($contentSpr, $activeSpr);
+			removeChildren(_contentSpr, _activeSpr);
 		}
 
 
@@ -114,16 +105,17 @@ package org.vancura.vaclav.widgets.widgets {
 				_currentDrag = null;
 				_mouseStatus = MouseStatus.OUT;
 
-				$releasedOutsideTween();
+				_releasedOutsideTween();
 
-				dispatchEvent(new ButtonEvent(ButtonEvent.RELEASE_OUTSIDE, true));
+				var e:ButtonEvent = new ButtonEvent(ButtonEvent.RELEASE_OUTSIDE, true);
+				dispatchEvent(e);
 			}
 		}
 
 
 
 		public static function releaseAll():void {
-			for each(var b:IWidget in $allWidgets) {
+			for each(var b:IWidget in _allWidgets) {
 				if(b is ButtonCore) {
 					(b as ButtonCore).forceRelease();
 				}
@@ -133,24 +125,19 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		public function get skin():IButtonSkin {
-			return $skin;
+			return _skin;
 		}
 
 
 
 		public function set skin(skin:IButtonSkin):void {
-			$skin = skin as ButtonSkin;
+			_skin = skin as ButtonSkin;
 
-			if($width == 0) {
-				$width = $skin.assetWidth;
-			}
+			if(_width === 0) _width = _skin.assetWidth;
+			if(_height === 0) _height = _skin.assetHeight;
 
-			if($height == 0) {
-				$height = $skin.assetHeight;
-			}
-
-			if($skin.assetWidth != 0 && $skin.assetHeight != 0) {
-				setSize($skin.assetWidth, $skin.assetHeight);
+			if(_skin.assetWidth !== 0 && _skin.assetHeight !== 0) {
+				setSize(_skin.assetWidth, _skin.assetHeight);
 			}
 
 			draw();
@@ -161,7 +148,7 @@ package org.vancura.vaclav.widgets.widgets {
 		public function set areEventsEnabled(value:Boolean):void {
 			_areEventsEnabled = value;
 
-			$activeSpr.mouseEnabled = value;
+			_activeSpr.mouseEnabled = value;
 			this.buttonMode = value;
 			this.useHandCursor = value;
 
@@ -199,16 +186,18 @@ package org.vancura.vaclav.widgets.widgets {
 					break;
 
 				default:
-					throw new Error(printf('Unknown mouse status (%s)', value));
+					var message:String = printf('Unknown mouse status (%s)', value);
+					throw new Error(message);
 			}
 		}
 
 
 
-		protected function $hoverInTween():void {
-			dispatchEvent(new ButtonEvent(ButtonEvent.HOVER_IN_TWEEN, true));
+		protected function _hoverInTween():void {
+			var e:ButtonEvent = new ButtonEvent(ButtonEvent.HOVER_IN_TWEEN, true);
+			dispatchEvent(e);
 
-			// duration: $skin.hoverInDuration
+			// duration: _skin.hoverInDuration
 			// out -> hidden, sineIn
 			// hover -> visible, easeOut
 			// focus -> hidden, easeIn
@@ -216,10 +205,11 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 
-		protected function $hoverOutTween():void {
-			dispatchEvent(new ButtonEvent(ButtonEvent.HOVER_OUT_TWEEN, true));
+		protected function _hoverOutTween():void {
+			var e:ButtonEvent = new ButtonEvent(ButtonEvent.HOVER_OUT_TWEEN, true);
+			dispatchEvent(e);
 
-			// duration: $skin.hoverOutDuration
+			// duration: _skin.hoverOutDuration
 			// out -> visible, easeOut
 			// hover -> hidden, easeIn
 			// focus -> hidden, easeIn
@@ -227,10 +217,11 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 
-		protected function $focusInTween():void {
-			dispatchEvent(new ButtonEvent(ButtonEvent.FOCUS_IN_TWEEN, true));
+		protected function _focusInTween():void {
+			var e:ButtonEvent = new ButtonEvent(ButtonEvent.FOCUS_IN_TWEEN, true);
+			dispatchEvent(e);
 
-			// duration: $skin.focusInDuration
+			// duration: _skin.focusInDuration
 			// out -> hidden, easeIn
 			// hover -> hidden, easeIn
 			// focus -> visible, easeOut
@@ -238,10 +229,11 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 
-		protected function $dragConfirmedTween():void {
-			dispatchEvent(new ButtonEvent(ButtonEvent.DRAG_CONFIRMED_TWEEN, true));
+		protected function _dragConfirmedTween():void {
+			var e:ButtonEvent = new ButtonEvent(ButtonEvent.DRAG_CONFIRMED_TWEEN, true);
+			dispatchEvent(e);
 
-			// duration: $skin.hoverInDuration
+			// duration: _skin.hoverInDuration
 			// out -> hidden, easeIn
 			// hover -> visible, easeOut
 			// focus -> hidden, easeIn
@@ -249,10 +241,11 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 
-		protected function $releasedInsideTween():void {
-			dispatchEvent(new ButtonEvent(ButtonEvent.RELEASED_INSIDE_TWEEN, true));
+		protected function _releasedInsideTween():void {
+			var e:ButtonEvent = new ButtonEvent(ButtonEvent.RELEASED_INSIDE_TWEEN, true);
+			dispatchEvent(e);
 
-			// duration: $skin.focusOutDuration
+			// duration: _skin.focusOutDuration
 			// out -> hidden, easeIn
 			// hover -> visible, easeOut
 			// focus -> hidden, easeIn
@@ -260,10 +253,11 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 
-		protected function $releasedOutsideTween():void {
-			dispatchEvent(new ButtonEvent(ButtonEvent.RELEASED_OUTSIDE_TWEEN, true));
+		protected function _releasedOutsideTween():void {
+			var e:ButtonEvent = new ButtonEvent(ButtonEvent.RELEASED_OUTSIDE_TWEEN, true);
+			dispatchEvent(e);
 
-			// duration: $skin.focusOutDuration
+			// duration: _skin.focusOutDuration
 			// out -> visible, easeOut
 			// hover -> hidden, easeIn
 			// focus -> hidden, easeIn
@@ -273,17 +267,19 @@ package org.vancura.vaclav.widgets.widgets {
 
 		private function _onOver(event:MouseEvent = null):void {
 			if(_areEventsEnabled) {
-				if(event != null && event.buttonDown) {
+				if(event !== null && event.buttonDown) {
 					// drag over
-					dispatchEvent(new ButtonEvent(ButtonEvent.DRAG_OVER, true));
+					var e1:ButtonEvent = new ButtonEvent(ButtonEvent.DRAG_OVER, true);
+					dispatchEvent(e1);
 				}
 				else {
 					// roll over
 					_mouseStatus = MouseStatus.HOVER;
 
-					$hoverInTween();
+					_hoverInTween();
 
-					dispatchEvent(new ButtonEvent(ButtonEvent.HOVER_IN, true));
+					var e2:ButtonEvent = new ButtonEvent(ButtonEvent.HOVER_IN, true);
+					dispatchEvent(e2);
 				}
 			}
 		}
@@ -292,17 +288,19 @@ package org.vancura.vaclav.widgets.widgets {
 
 		private function _onOut(event:MouseEvent = null):void {
 			if(_areEventsEnabled) {
-				if(event != null && event.buttonDown) {
+				if(event !== null && event.buttonDown) {
 					// drag out
-					dispatchEvent(new ButtonEvent(ButtonEvent.DRAG_OUT, true));
+					var e1:ButtonEvent = new ButtonEvent(ButtonEvent.DRAG_OUT, true);
+					dispatchEvent(e1);
 				}
 				else {
 					// roll out
 					_mouseStatus = MouseStatus.OUT;
 
-					$hoverOutTween();
+					_hoverOutTween();
 
-					dispatchEvent(new ButtonEvent(ButtonEvent.HOVER_OUT, true));
+					var e2:ButtonEvent = new ButtonEvent(ButtonEvent.HOVER_OUT, true);
+					dispatchEvent(e2);
 				}
 			}
 		}
@@ -314,46 +312,46 @@ package org.vancura.vaclav.widgets.widgets {
 				_mouseStatus = MouseStatus.FOCUS;
 				_currentDrag = this;
 
-				$focusInTween();
+				_focusInTween();
 
-				if(stage != null) {
-					stage.addEventListener(MouseEvent.MOUSE_UP, _onRelease, false, 0, true);
-				}
+				if(stage !== null) stage.addEventListener(MouseEvent.MOUSE_UP, _onRelease, false, 0, true);
 
-				dispatchEvent(new ButtonEvent(ButtonEvent.FOCUS_IN, true));
+				var e:ButtonEvent = new ButtonEvent(ButtonEvent.FOCUS_IN, true);
+				dispatchEvent(e);
 			}
 		}
 
 
 
 		private function _onRelease(event:MouseEvent = null):void {
-			if(stage != null) {
-				stage.removeEventListener(MouseEvent.MOUSE_UP, _onRelease);
-			}
+			if(stage !== null) stage.removeEventListener(MouseEvent.MOUSE_UP, _onRelease);
 
 			if(_areEventsEnabled && _mouseStatus == MouseStatus.FOCUS) {
-				if(event != null && event.currentTarget == stage) {
+				if(event !== null && event.currentTarget == stage) {
 					// release outside
 					forceRelease();
 				}
 
 				else if(_currentDrag != this) {
 					// drag confirm
-					$dragConfirmedTween();
+					_dragConfirmedTween();
 
-					dispatchEvent(new ButtonEvent(ButtonEvent.DRAG_CONFIRM, true));
+					var e1:ButtonEvent = new ButtonEvent(ButtonEvent.DRAG_CONFIRM, true);
+					dispatchEvent(e1);
 				}
 
 				else {
 					// release inside
 					_currentDrag = null;
 
-					$releasedInsideTween();
+					_releasedInsideTween();
 
-					dispatchEvent(new ButtonEvent(ButtonEvent.RELEASE_INSIDE, true));
+					var e2:ButtonEvent = new ButtonEvent(ButtonEvent.RELEASE_INSIDE, true);
+					dispatchEvent(e2);
 				}
 
-				dispatchEvent(new MouseEvent(MouseEvent.MOUSE_UP, true));
+				var e3:MouseEvent = new MouseEvent(MouseEvent.MOUSE_UP, true);
+				dispatchEvent(e3);
 			}
 		}
 	}

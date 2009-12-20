@@ -29,9 +29,9 @@ package org.vancura.vaclav.widgets.skin {
 	public class ImageSkin extends Skin implements IImageSkin {
 
 
-		protected var $paddingTop:Number;
-		protected var $paddingLeft:Number;
-		protected var $imageBD:BitmapData;
+		protected var _paddingTop:Number;
+		protected var _paddingLeft:Number;
+		protected var _imageBD:BitmapData;
 
 		private var _oldPaddingTop:Number;
 		private var _oldPaddingLeft:Number;
@@ -41,27 +41,27 @@ package org.vancura.vaclav.widgets.skin {
 		public function ImageSkin(id:String = null) {
 			super(SkinType.IMAGE, id);
 
-			$paddingTop = 0;
-			$paddingLeft = 0;
+			_paddingTop = 0;
+			_paddingLeft = 0;
 
-			$imageBD = new BitmapData(1, 1, true, 0x00000000);
+			_imageBD = new BitmapData(1, 1, true, 0x00000000);
 		}
 
 
 
 		public function getAssetsFromAtlas(source:BitmapData):void {
-			$assetWidth = source.width;
-			$assetHeight = source.height;
+			_assetWidth = source.width;
+			_assetHeight = source.height;
 
-			$imageBD = source;
+			_imageBD = source;
 		}
 
 
 
 		public function getAssetsFromMovieClip(source:MovieClip, elements:Array = null, ... labels:Array):void {
-			$getSkinSize(source, (labels[1] == undefined || labels[1] == '') ? 'guide' : labels[1]);
+			_getSkinSize(source, (labels[1] === undefined || labels[1] === '') ? 'guide' : labels[1]);
 
-			$imageBD = $getSkinFrame(source, elements, (labels[0] == undefined || labels[0] == '') ? 'image' : labels[0]);
+			_imageBD = _getSkinFrame(source, elements, (labels[0] === undefined || labels[0] === '') ? 'image' : labels[0]);
 		}
 
 
@@ -69,16 +69,11 @@ package org.vancura.vaclav.widgets.skin {
 		override public function parseConfig(source:Object):void {
 			super.parseConfig(source);
 
-			_oldPaddingTop = $paddingTop;
-			_oldPaddingLeft = $paddingLeft;
+			_oldPaddingTop = _paddingTop;
+			_oldPaddingLeft = _paddingLeft;
 
-			if(source.paddingTop != undefined) {
-				$paddingTop = source.paddingTop;
-			}
-
-			if(source.paddingLeft != undefined) {
-				$paddingLeft = source.paddingLeft;
-			}
+			if(source.paddingTop !== undefined) _paddingTop = source.paddingTop;
+			if(source.paddingLeft !== undefined) _paddingLeft = source.paddingLeft;
 		}
 
 
@@ -86,45 +81,45 @@ package org.vancura.vaclav.widgets.skin {
 		override public function revertConfig():void {
 			super.revertConfig();
 
-			$paddingTop = _oldPaddingTop;
-			$paddingLeft = _oldPaddingLeft;
+			_paddingTop = _oldPaddingTop;
+			_paddingLeft = _oldPaddingLeft;
 		}
 
 
 
 		public function get paddingTop():Number {
-			return $paddingTop;
+			return _paddingTop;
 		}
 
 
 
 		public function set paddingTop(value:Number):void {
-			$paddingTop = value;
+			_paddingTop = value;
 		}
 
 
 
 		public function get paddingLeft():Number {
-			return $paddingLeft;
+			return _paddingLeft;
 		}
 
 
 
 		public function set paddingLeft(value:Number):void {
-			$paddingLeft = value;
+			_paddingLeft = value;
 		}
 
 
 
 		public function set imageBD(source:BitmapData):void {
-			$checkSize(source);
-			$imageBD = source;
+			_checkSize(source);
+			_imageBD = source;
 		}
 
 
 
 		public function get imageBD():BitmapData {
-			return $imageBD;
+			return _imageBD;
 		}
 	}
 }

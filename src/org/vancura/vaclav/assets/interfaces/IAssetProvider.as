@@ -25,11 +25,9 @@ package org.vancura.vaclav.assets.interfaces {
 	import org.vancura.vaclav.assets.Asset;
 
 	/**
-	 * Interface: IAssetProvider
-	 *
 	 * AssetProvider interface.
 	 *
-	 * Author: Vaclav Vancura <http://vaclav.vancura.org>
+	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
 	public interface IAssetProvider extends IEventDispatcher {
 
@@ -43,6 +41,7 @@ package org.vancura.vaclav.assets.interfaces {
 
 		/**
 		 * Get an Asset from the provider.
+		 *
 		 * @param id Asset ID
 		 * @return Asset (if found, null if not)
 		 * @see Asset
@@ -53,6 +52,7 @@ package org.vancura.vaclav.assets.interfaces {
 
 		/**
 		 * Generate AssetProvider description.
+		 *
 		 * @return AssetProvider description
 		 */
 		function toString():String;
@@ -60,7 +60,8 @@ package org.vancura.vaclav.assets.interfaces {
 
 
 		/**
-		 * Get list of assets as Array
+		 * Get list of assets as Array.
+		 *
 		 * @return List of assets
 		 */
 		function get assetsList():Array;
@@ -69,6 +70,7 @@ package org.vancura.vaclav.assets.interfaces {
 
 		/**
 		 * Is AssetProvider active?
+		 *
 		 * @return AssetProvider active flag
 		 */
 		function get isActive():Boolean;
@@ -77,6 +79,7 @@ package org.vancura.vaclav.assets.interfaces {
 
 		/**
 		 * Is AssetProvider fully loaded?
+		 *
 		 * @return AssetProvider loaded flag
 		 */
 		function get isLoaded():Boolean;
@@ -85,9 +88,9 @@ package org.vancura.vaclav.assets.interfaces {
 
 		/**
 		 * Has an error happened?
+		 *
 		 * @return Error flag
 		 */
 		function get isError():Boolean;
-
 	}
 }

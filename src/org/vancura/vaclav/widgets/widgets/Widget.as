@@ -47,108 +47,86 @@ package org.vancura.vaclav.widgets.widgets {
 
 		public static var initialDebugLevel:String;
 
-		protected static const $DEBUG_PADDING:Number = 4;
+		protected static const _DEBUG_PADDING:Number = 4;
 
-		protected static var $allWidgets:Array;
+		protected static var _allWidgets:Array;
 
-		protected var $allIdx:uint;
-		protected var $config:Object;
-		protected var $width:Number = 0;
-		protected var $height:Number = 0;
-		protected var $debugLevel:String;
-		protected var $debugColor:uint;
-		protected var $debugSpr:QSprite;
-		protected var $contentSpr:QSprite;
+		protected var _allIdx:uint;
+		protected var _config:Object;
+		protected var _width:Number = 0;
+		protected var _height:Number = 0;
+		protected var _debugLevel:String;
+		protected var _debugColor:uint;
+		protected var _debugSpr:QSprite;
+		protected var _contentSpr:QSprite;
 
 
-
+		//noinspection FunctionWithMoreThanThreeNegationsJS
 		public function Widget(config:Object = null, parent:DisplayObjectContainer = null, debugLevel:String = null):void {
+			if(config === null) _config = new Object();
+			else _config = config;
 
-			if(config == null) {
-				$config = new Object();
-			}
-			else {
-				$config = config;
-			}
+			_debugColor = SkinManager.debugColor;
 
-			$debugColor = SkinManager.debugColor;
+			super(_config);
 
-			super(config);
+			if(_config.x !== undefined) this.x = _config.x;
+			if(_config.y !== undefined) this.y = _config.y;
+			if(_config.width !== undefined) this.width = _config.width;
+			if(_config.height !== undefined) this.height = _config.height;
 
-			if(config.x != undefined) {
-				this.x = config.x;
-			}
+			if(parent !== null) parent.addChild(this);
 
-			if(config.y != undefined) {
-				this.y = config.y;
-			}
+			if(_allWidgets === null) _allWidgets = new Array();
 
-			if(config.width != undefined) {
-				this.width = config.width;
-			}
+			_allWidgets.push(this);
 
-			if(config.height != undefined) {
-				this.height = config.height;
-			}
+			_allIdx = _allWidgets.length - 1;
 
-			if(parent != null) {
-				parent.addChild(this);
-			}
+			_init();
 
-			if($allWidgets == null) {
-				$allWidgets = new Array();
-			}
-
-			$allWidgets.push(this);
-
-			$allIdx = $allWidgets.length - 1;
-
-			$init();
-
-			if(debugLevel == null) {
-				if(initialDebugLevel != null) {
+			if(debugLevel === null) {
+				if(initialDebugLevel !== null) {
 					this.debugLevel = initialDebugLevel;
 				}
 			}
-			else {
-				this.debugLevel = debugLevel;
-			}
+			else this.debugLevel = debugLevel;
 		}
 
 
 
 		public function destroy():void {
-			$removeChildren();
+			_removeChildren();
 		}
 
 
 
-		protected function $init():void {
-			$addChildren();
-			$invalidate();
+		protected function _init():void {
+			_addChildren();
+			_invalidate();
 		}
 
 
 
-		protected function $addChildren():void {
-			$contentSpr = new QSprite({}, this);
-			$debugSpr = new QSprite({mouseEnabled:false}, this);
+		protected function _addChildren():void {
+			_contentSpr = new QSprite({}, this);
+			_debugSpr = new QSprite({mouseEnabled:false}, this);
 		}
 
 
 
-		protected function $removeChildren():void {
-			this.removeEventListener(MouseEvent.ROLL_OVER, $onDebugOver);
-			this.removeEventListener(MouseEvent.ROLL_OUT, $onDebugOut);
+		protected function _removeChildren():void {
+			this.removeEventListener(MouseEvent.ROLL_OVER, _onDebugOver);
+			this.removeEventListener(MouseEvent.ROLL_OUT, _onDebugOut);
 
-			$allWidgets[$allIdx] = null;
+			_allWidgets[_allIdx] = null;
 
-			removeChildren(this, $contentSpr, $debugSpr);
+			removeChildren(this, _contentSpr, _debugSpr);
 		}
 
 
 
-		protected function $invalidate():void {
+		protected function _invalidate():void {
 			addEventListener(Event.ENTER_FRAME, _onInvalidate, false, 0, true);
 		}
 
@@ -162,67 +140,68 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		override public function setSize(width:Number, height:Number):void {
-			$width = width;
-			$height = height;
+			_width = width;
+			_height = height;
 
-			$invalidate();
+			_invalidate();
 		}
 
 
 
 		public function draw():void {
-			if($debugLevel == DebugLevel.ALWAYS || $debugLevel == DebugLevel.HOVER) {
-				if($width != 0 && $height != 0) {
-					$debugSpr.graphics.clear();
+			if(_debugLevel == DebugLevel.ALWAYS || _debugLevel == DebugLevel.HOVER) {
+				if(_width !== 0 && _height !== 0) {
+					_debugSpr.graphics.clear();
 
-					GraphicsUtil.drawRect($debugSpr, 0, 0, $width, $height, $debugColor, 0.15);
-					GraphicsUtil.strokeBounds($debugSpr, 0, 0, $width, $height, 5, $debugColor);
+					GraphicsUtil.drawRect(_debugSpr, 0, 0, _width, _height, _debugColor, 0.15);
+					GraphicsUtil.strokeBounds(_debugSpr, 0, 0, _width, _height, 5, _debugColor);
 				}
 			}
 
-			dispatchEvent(new Event(Widget.DRAW));
+			var e:Event = new Event(Widget.DRAW);
+			dispatchEvent(e);
 		}
 
 
 
 		public static function set allDebugLevel(value:String):void {
-			for each(var i:IWidget in $allWidgets) {
-				if(i != null) {
-					i.debugLevel = value;
-				}
+			for each(var i:IWidget in _allWidgets) {
+				if(i !== null) i.debugLevel = value;
 			}
 		}
 
 
 
 		override public function set width(w:Number):void {
-			$width = Math.round(w);
+			_width = Math.round(w);
 
-			$invalidate();
+			_invalidate();
 
-			dispatchEvent(new Event(Event.RESIZE));
+			var e:Event = new Event(Event.RESIZE);
+			dispatchEvent(e);
 		}
 
 
 
 		override public function get width():Number {
-			return $width;
+			return _width;
 		}
 
 
 
 		override public function set height(h:Number):void {
-			$height = Math.round(h);
+			_height = Math.round(h);
 
-			$invalidate();
+			_invalidate();
 
-			dispatchEvent(new Event(Event.RESIZE));
+			var e:Event = new Event(Event.RESIZE);
+			dispatchEvent(e);
 		}
 
 
 
 		override public function get height():Number {
-			return $height;
+			return _height;
 		}
 
 
@@ -240,57 +219,57 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		public function get config():Object {
-			return $config;
+			return _config;
 		}
 
 
 
 		public function set debugLevel(value:String):void {
 			if(value == DebugLevel.ALWAYS) {
-				$debugSpr.visible = true;
+				_debugSpr.visible = true;
 
-				this.removeEventListener(MouseEvent.ROLL_OVER, $onDebugOver);
-				this.removeEventListener(MouseEvent.ROLL_OUT, $onDebugOut);
+				this.removeEventListener(MouseEvent.ROLL_OVER, _onDebugOver);
+				this.removeEventListener(MouseEvent.ROLL_OUT, _onDebugOut);
 			}
 			else {
-				$debugSpr.visible = false;
+				_debugSpr.visible = false;
 
-				this.addEventListener(MouseEvent.ROLL_OVER, $onDebugOver, false, 0, true);
-				this.addEventListener(MouseEvent.ROLL_OUT, $onDebugOut, false, 0, true);
+				this.addEventListener(MouseEvent.ROLL_OVER, _onDebugOver, false, 0, true);
+				this.addEventListener(MouseEvent.ROLL_OUT, _onDebugOut, false, 0, true);
 			}
 
-			$debugLevel = value;
+			_debugLevel = value;
 		}
 
 
 
 		public function get debugLevel():String {
-			return $debugLevel;
+			return _debugLevel;
 		}
 
 
 
 		public function set debugColor(value:uint):void {
-			$debugColor = value;
+			_debugColor = value;
 			draw();
 		}
 
 
 
 		public function get debugColor():uint {
-			return $debugColor;
+			return _debugColor;
 		}
 
 
 
-		protected function $onDebugOver(event:MouseEvent):void {
-			$debugSpr.visible = true;
+		protected function _onDebugOver(event:MouseEvent):void {
+			_debugSpr.visible = true;
 		}
 
 
 
-		protected function $onDebugOut(event:MouseEvent):void {
-			$debugSpr.visible = false;
+		protected function _onDebugOut(event:MouseEvent):void {
+			_debugSpr.visible = false;
 		}
 
 

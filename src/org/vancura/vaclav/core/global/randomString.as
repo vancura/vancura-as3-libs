@@ -23,21 +23,13 @@ package org.vancura.vaclav.core.global {
 
 
 
-	/*
-	 *	Method: randomString
+	/**
+	 * Generate random String.
 	 *
-	 *	Generate random String.
-	 *
-	 *	Author: Vaclav Vancura <http://vaclav.vancura.org>
-	 *
-	 *	Parameters:
-	 *
-	 *		length	- String length (default 10)
-	 *		chars	- Chars used (default 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
-	 *
-	 *	Returns:
-	 *
-	 *		Random String
+	 * @param length String length (default 10)
+	 * @param chars Chars used (default 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
+	 * @return Random String
+	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
 	public function randomString(length:uint = 10, chars:String = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'):String {
 		var alphabet:Array = chars.split('');
@@ -45,7 +37,9 @@ package org.vancura.vaclav.core.global {
 		var randomLetters:String = '';
 
 		for(var j:uint = 0; j < length; j++) {
-			randomLetters += alphabet[int(Math.floor(Math.random() * alphabetLength))];
+			var r:Number = Math.random() * alphabetLength;
+			var s:int = Math.floor(r);
+			randomLetters += alphabet[s];
 		}
 
 		return randomLetters;

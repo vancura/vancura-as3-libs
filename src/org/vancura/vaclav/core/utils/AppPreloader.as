@@ -33,20 +33,21 @@ package org.vancura.vaclav.core.utils {
 
 	public class AppPreloader extends MovieClip {
 
-		protected var $isLoading:Boolean = true;
-		protected var $mainClass:Class;
-		protected var $app:IMain;
-		protected var $mainClassName:String;
-		protected var $progress:Number = 0;
+		protected var _isLoading:Boolean = true;
+		protected var _mainClass:Class;
+		protected var _app:IMain;
+		protected var _mainClassName:String;
+		protected var _progress:Number = 0;
 
 
 
 		/**
 		 * Constructor.
+		 *
 		 * @param mainClassName Main Class name (like 'org.vancura.myapp.Main')
 		 */
 		public function AppPreloader(mainClassName:String) {
-			$mainClassName = mainClassName;
+			_mainClassName = mainClassName;
 
 			// stop main timeline
 			stop();
@@ -57,9 +58,9 @@ package org.vancura.vaclav.core.utils {
 			stage.align = StageAlign.TOP_LEFT;
 
 			// add event listeners
-			this.addEventListener(Event.ENTER_FRAME, $onEnterFrame, false, 0, true);
-			stage.addEventListener(Event.RESIZE, $onStageResize, false, 0, true);
-			root.loaderInfo.addEventListener(IOErrorEvent.IO_ERROR, $onLoadingError, false, 0, true);
+			this.addEventListener(Event.ENTER_FRAME, _onEnterFrame, false, 0, true);
+			stage.addEventListener(Event.RESIZE, _onStageResize, false, 0, true);
+			root.loaderInfo.addEventListener(IOErrorEvent.IO_ERROR, _onLoadingError, false, 0, true);
 		}
 
 
@@ -69,31 +70,31 @@ package org.vancura.vaclav.core.utils {
 		 */
 		public function destroy():void {
 			// remove event listeners
-			this.removeEventListener(Event.ENTER_FRAME, $onEnterFrame);
-			stage.removeEventListener(Event.RESIZE, $onStageResize);
-			root.loaderInfo.removeEventListener(IOErrorEvent.IO_ERROR, $onLoadingError);
+			this.removeEventListener(Event.ENTER_FRAME, _onEnterFrame);
+			stage.removeEventListener(Event.RESIZE, _onStageResize);
+			root.loaderInfo.removeEventListener(IOErrorEvent.IO_ERROR, _onLoadingError);
 
 			// jump to next frame
 			// first is occupied by the preloader
 			nextFrame();
 
 			// find and call main class
-			$mainClass = getClassByName($mainClassName);
-			if($mainClass == null) {
+			_mainClass = getClassByName(_mainClassName);
+			if(_mainClass === null) {
 				// main class not found
-				alert('GlobalPreloader: Main class (' + $mainClassName + ') not found.\nThis is critical.');
+				alert('GlobalPreloader: Main class (' + _mainClassName + ') not found.\nThis is critical.');
 			}
 			else {
 				// main class found
 				// add it to the display list
-				$app = new $mainClass();
-				addChild($app as DisplayObject);
+				_app = new _mainClass();
+				addChild(_app as DisplayObject);
 
 				// send flashvars to main class
-				$app.flashVars = root.loaderInfo.parameters;
+				_app.flashVars = root.loaderInfo.parameters;
 
 				// run application
-				$app.start();
+				_app.start();
 
 				// the app is running now
 			}
@@ -103,9 +104,11 @@ package org.vancura.vaclav.core.utils {
 
 		/**
 		 * Show an alert window if JS enabled. If not, just trace() the message.
+		 *
 		 * @param message Message to be displayed
 		 */
 		public function alert(message:String):void {
+			//noinspection UnusedCatchParameterJS
 			try {
 				// try to display JS alert()
 				ExternalInterface.call('alert', message);
@@ -121,7 +124,7 @@ package org.vancura.vaclav.core.utils {
 		/**
 		 * Load error. Happens when the user navigates somewhere else while Flash is not fully loaded yet.
 		 */
-		protected function $onLoadingError(event:IOErrorEvent):void {
+		protected function _onLoadingError(event:IOErrorEvent):void {
 			// don't do anything here
 			// app has to silently fail
 		}
@@ -131,7 +134,7 @@ package org.vancura.vaclav.core.utils {
 		/**
 		 * Stage resize. Just a placeholder to be overridden by implementations.
 		 */
-		protected function $onStageResize(event:Event = null):void {
+		protected function _onStageResize(event:Event = null):void {
 		}
 
 
@@ -139,11 +142,11 @@ package org.vancura.vaclav.core.utils {
 		/**
 		 * EnterFrame handler. Update your progress bar here.
 		 */
-		protected function $onEnterFrame(event:Event):void {
-			$progress = 1 / (root.loaderInfo.bytesTotal / root.loaderInfo.bytesLoaded);
+		protected function _onEnterFrame(event:Event):void {
+			_progress = 1 / (root.loaderInfo.bytesTotal / root.loaderInfo.bytesLoaded);
 
-			if($progress >= 1) {
-				$isLoading = false;
+			if(_progress >= 1) {
+				_isLoading = false;
 				destroy();
 			}
 		}

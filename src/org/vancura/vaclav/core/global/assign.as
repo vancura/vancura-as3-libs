@@ -23,26 +23,19 @@ package org.vancura.vaclav.core.global {
 
 
 
-	/*
-	 *	Method: assign
+	/**
+	 * Assign properties from params to an Object.
 	 *
-	 *	Assign properties from params to an Object.
-	 *
-	 *	Author: Vaclav Vancura <http://vaclav.vancura.org>
-	 *
-	 *	Parameters:
-	 *
-	 *		obj		- Target Object
-	 *		params	- Source Object
-	 *
-	 *	Returns:
-	 *
-	 *		Resulting Object
+	 * @param obj Target Object
+	 * @param params Source Object
+	 * @return Resulting Object
+	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
 	public function assign(obj:Object, params:Object):Object {
 		var out:Object = (obj);
 
 		for(var i:String in params) {
+			//noinspection EmptyCatchBlockJS,UnusedCatchParameterJS
 			try {
 				out[i] = params[i];
 			}

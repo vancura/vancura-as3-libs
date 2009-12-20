@@ -31,43 +31,45 @@ package org.vancura.vaclav.widgets.skin {
 	public class GlyphsSkin extends Skin implements IGlyphsSkin {
 
 
-		protected var $glyphOutSkin:IImageSkin;
-		protected var $glyphHoverSkin:IImageSkin;
-		protected var $glyphFocusSkin:IImageSkin;
+		protected var _glyphOutSkin:IImageSkin;
+		protected var _glyphHoverSkin:IImageSkin;
+		protected var _glyphFocusSkin:IImageSkin;
 
 
 
 		public function GlyphsSkin(id:String = null) {
 			super(SkinType.GLYPHS, id);
 
-			$glyphOutSkin = new ImageSkin(id + '#glyphOut');
-			$glyphHoverSkin = new ImageSkin(id + '#glyphHover');
-			$glyphFocusSkin = new ImageSkin(id + '#glyphFocus');
+			_glyphOutSkin = new ImageSkin(id + '#glyphOut');
+			_glyphHoverSkin = new ImageSkin(id + '#glyphHover');
+			_glyphFocusSkin = new ImageSkin(id + '#glyphFocus');
 		}
 
 
 
 		public function getAssetsFromAtlas(source:BitmapData):void {
-			if(source.width % 3 != 0) {
-				throw new Error('Width has to be multiple of 3');
-			}
+			if(source.width % 3 !== 0) throw new Error('Width has to be multiple of 3');
 
-			$assetWidth = source.width / 3;
-			$assetHeight = source.height;
+			_assetWidth = source.width / 3;
+			_assetHeight = source.height;
 
-			$glyphOutSkin.getAssetsFromAtlas(BitmapUtil.crop(source, 0, 0, $assetWidth, $assetHeight));
-			$glyphHoverSkin.getAssetsFromAtlas(BitmapUtil.crop(source, $assetWidth, 0, $assetWidth, $assetHeight));
-			$glyphFocusSkin.getAssetsFromAtlas(BitmapUtil.crop(source, $assetWidth * 2, 0, $assetWidth, $assetHeight));
+			var outBD:BitmapData = BitmapUtil.crop(source, 0, 0, _assetWidth, _assetHeight);
+			var overBD:BitmapData = BitmapUtil.crop(source, _assetWidth, 0, _assetWidth, _assetHeight);
+			var focusBD:BitmapData = BitmapUtil.crop(source, _assetWidth * 2, 0, _assetWidth, _assetHeight);
+
+			_glyphOutSkin.getAssetsFromAtlas(outBD);
+			_glyphHoverSkin.getAssetsFromAtlas(overBD);
+			_glyphFocusSkin.getAssetsFromAtlas(focusBD);
 		}
 
 
 
 		public function getAssetsFromMovieClip(source:MovieClip, elements:Array = null, ...labels:Array):void {
-			$getSkinSize(source, (labels[1] == undefined || labels[1] == '') ? 'guide' : labels[1]);
+			_getSkinSize(source, (labels[1] === undefined || labels[1] === '') ? 'guide' : labels[1]);
 
-			$glyphOutSkin.getAssetsFromMovieClip(source, elements, 'out');
-			$glyphHoverSkin.getAssetsFromMovieClip(source, elements, 'hover');
-			$glyphFocusSkin.getAssetsFromMovieClip(source, elements, 'focus');
+			_glyphOutSkin.getAssetsFromMovieClip(source, elements, 'out');
+			_glyphHoverSkin.getAssetsFromMovieClip(source, elements, 'hover');
+			_glyphFocusSkin.getAssetsFromMovieClip(source, elements, 'focus');
 		}
 
 
@@ -81,45 +83,45 @@ package org.vancura.vaclav.widgets.skin {
 		override public function revertConfig():void {
 			super.revertConfig();
 
-			$glyphOutSkin.revertConfig();
-			$glyphHoverSkin.revertConfig();
-			$glyphFocusSkin.revertConfig();
+			_glyphOutSkin.revertConfig();
+			_glyphHoverSkin.revertConfig();
+			_glyphFocusSkin.revertConfig();
 		}
 
 
 
 		public function get glyphOutSkin():IImageSkin {
-			return $glyphOutSkin;
+			return _glyphOutSkin;
 		}
 
 
 
 		public function set glyphOutSkin(source:IImageSkin):void {
-			$glyphOutSkin = source;
+			_glyphOutSkin = source;
 		}
 
 
 
 		public function get glyphHoverSkin():IImageSkin {
-			return $glyphHoverSkin;
+			return _glyphHoverSkin;
 		}
 
 
 
 		public function set glyphHoverSkin(source:IImageSkin):void {
-			$glyphHoverSkin = source;
+			_glyphHoverSkin = source;
 		}
 
 
 
 		public function get glyphFocusSkin():IImageSkin {
-			return $glyphFocusSkin;
+			return _glyphFocusSkin;
 		}
 
 
 
 		public function set glyphFocusSkin(source:IImageSkin):void {
-			$glyphFocusSkin = source;
+			_glyphFocusSkin = source;
 		}
 	}
 }

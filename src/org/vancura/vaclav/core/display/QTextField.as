@@ -28,12 +28,10 @@ package org.vancura.vaclav.core.display {
 
 	import org.vancura.vaclav.core.global.assign;
 
-	/*
-	 *	Class: QTextField
+	/**
+	 * Quick creation of TextField with initial data.
 	 *
-	 *	Quick creation of TextField with initial data.
-	 *
-	 *	Author: Vaclav Vancura <http://vaclav.vancura.org>
+	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
 	public class QTextField extends TextField {
 
@@ -102,31 +100,30 @@ package org.vancura.vaclav.core.display {
 		 *
 		 * (end)
 		 */
+		//noinspection OverlyComplexFunctionJS
 		public function QTextField(config:Object = null, parent:DisplayObjectContainer = null) {
 			// if config is not defined, prepare it
-			if(config == null) {
-				config = new Object();
-			}
+			var c:Object;
+			if(config === null) c = new Object();
+			else c = config;
 
 			super();
 
 			// TextField overrides and custom config
-			this.antiAliasType = (config.antiAliasType == undefined) ? AntiAliasType.ADVANCED : config.antiAliasType;
-			this.condenseWhite = (config.condenseWhite == undefined) ? true : config.condenseWhite;
-			this.embedFonts = (config.embedFonts == undefined) ? true : config.embedFonts;
-			this.gridFitType = (config.gridFitType == undefined) ? GridFitType.PIXEL : config.gridFitType;
-			this.multiline = (config.multiline == undefined) ? true : config.multiline;
-			this.selectable = (config.selectable == undefined) ? false : config.selectable;
-			this.type = (config.type == undefined) ? TextFieldType.DYNAMIC : config.type;
-			this.wordWrap = (config.wordWrap == undefined) ? true : config.wordWrap;
+			this.antiAliasType = (c.antiAliasType === undefined) ? AntiAliasType.ADVANCED : c.antiAliasType;
+			this.condenseWhite = (c.condenseWhite === undefined) ? true : c.condenseWhite;
+			this.embedFonts = (c.embedFonts === undefined) ? true : c.embedFonts;
+			this.gridFitType = (c.gridFitType === undefined) ? GridFitType.PIXEL : c.gridFitType;
+			this.multiline = (c.multiline === undefined) ? true : c.multiline;
+			this.selectable = (c.selectable === undefined) ? false : c.selectable;
+			this.type = (c.type === undefined) ? TextFieldType.DYNAMIC : c.type;
+			this.wordWrap = (c.wordWrap === undefined) ? true : c.wordWrap;
 
 			// assign parameters
-			assign(this, config);
+			assign(this, c);
 
 			// add child if requested
-			if(parent != null) {
-				parent.addChild(this);
-			}
+			if(parent !== null) parent.addChild(this);
 		}
 
 
@@ -137,6 +134,7 @@ package org.vancura.vaclav.core.display {
 
 		/**
 		 * Moves to the specified position.
+		 *
 		 * @param x New X position
 		 * @param y New Y position
 		 */
@@ -149,6 +147,7 @@ package org.vancura.vaclav.core.display {
 
 		/**
 		 * Rescales to new size.
+		 *
 		 * @param width New width
 		 * @param height New height
 		 */

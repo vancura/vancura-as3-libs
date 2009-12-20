@@ -23,16 +23,13 @@ package org.vancura.vaclav.core.display {
 	import flash.display.Sprite;
 	import flash.display.Stage;
 
-	/*
-	 * Class: GlobalStage
-	 *
+	/**
 	 * Global Stage singleton.
+	 * Original: (http://www.kirupa.com/forum/showthread.php?p=1939920)
+	 * Created by Matthew Lloyd (http://www.Matt-Lloyd.co.uk)
+	 * This is release under a Creative Commons license, More information can be found here: (http://creativecommons.org/licenses/by-nc-sa/2.0/uk)
 	 *
-	 * - Original: <http://www.kirupa.com/forum/showthread.php?p=1939920>
-	 * - Created by Matthew Lloyd <http://www.Matt-Lloyd.co.uk>
-	 * - This is release under a Creative Commons license, More information can be found here: <http://creativecommons.org/licenses/by-nc-sa/2.0/uk>
-	 *
-	 * Author: Pierluigi Pesenti <http://blog.oaxoa.com>
+	 * @author Pierluigi Pesenti (http://blog.oaxoa.com)
 	 */
 	public class GlobalStage extends Sprite {
 
@@ -40,14 +37,11 @@ package org.vancura.vaclav.core.display {
 		private static var _instance:GlobalStage = null;
 
 
-		/*
-		 * Method: init
+
+		/**
+		 * Init global Stage singleton.
 		 *
-		 * Init Global Stage singleton.
-		 *
-		 * Parameters:
-		 *
-		 * 		stg		- Stage
+		 * @param stg Stage
 		 */
 		public static function init(stg:Stage):void {
 			stg.addChild(GlobalStage.instance);
@@ -55,33 +49,22 @@ package org.vancura.vaclav.core.display {
 
 
 
-		/*
-		 * Method: instance
+		/**
+		 * Get an instance.
 		 *
-		 * Get a Global Stage instance.
-		 *
-		 * Returns:
-		 *
-		 * 		Global Stage instance
+		 * @return Instance
 		 */
 		public static function get instance():GlobalStage {
-			if(_instance == null) {
-				_instance = new GlobalStage();
-			}
-
+			if(_instance === null) _instance = new GlobalStage();
 			return _instance;
 		}
 
 
 
-		/*
-		 * method: stage
+		/**
+		 * Get global Stage reference.
 		 *
-		 * Get Global Stage reference.
-		 *
-		 * Returns:
-		 *
-		 * 		Global Stage reference
+		 * @return Global Stage reference
 		 */
 		public static function get stage():Stage {
 			return instance.stage;

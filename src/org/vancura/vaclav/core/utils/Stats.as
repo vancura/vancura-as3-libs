@@ -100,7 +100,7 @@ package org.vancura.vaclav.core.utils {
 
 
 		/**
-		 * Stats constructor.
+		 * Constructor.
 		 */
 		public function Stats():void {
 			_fpsGraphBD = new BitmapData(_WIDTH, 50, false, 0x000000);
@@ -146,19 +146,26 @@ package org.vancura.vaclav.core.utils {
 
 			if(_timer - 1000 > _msPrev) {
 				_msPrev = _timer;
+				//noinspection NestedFunctionCallJS
 				_mem = Number((System.totalMemory / 1048576).toFixed(3));
 
 				var f:uint = Math.min(50, 50 / stage.frameRate * _fps);
 				var t:uint = ((_timer - _ms ) >> 1);
+
+				//noinspection NestedFunctionCallJS
 				var m:uint = Math.min(50, Math.sqrt(Math.sqrt(_mem * 5000))) - 2;
 
 				_fpsGraphBD.scroll(1, 0);
 				_msGraphBD.scroll(1, 0);
 				_memGraphBD.scroll(1, 0);
 
-				_fpsGraphBD.fillRect(new Rectangle(0, 50 - f, 1, f), 0xFFFF00);
-				_msGraphBD.fillRect(new Rectangle(0, 50 - t, 1, t), 0x00FF00);
-				_memGraphBD.fillRect(new Rectangle(0, 50 - m, 1, m), 0x00FFFF);
+				var r1:Rectangle = new Rectangle(0, 50 - f, 1, f);
+				var r2:Rectangle = new Rectangle(0, 50 - t, 1, t);
+				var r3:Rectangle = new Rectangle(0, 50 - m, 1, m);
+
+				_fpsGraphBD.fillRect(r1, 0xFFFF00);
+				_msGraphBD.fillRect(r2, 0x00FF00);
+				_memGraphBD.fillRect(r3, 0x00FFFF);
 
 				_fpsText.text = 'FPS: ' + _fps + '/' + stage.frameRate;
 				_memText.text = 'MEM: ' + _mem;

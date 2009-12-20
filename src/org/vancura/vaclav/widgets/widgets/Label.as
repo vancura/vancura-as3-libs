@@ -38,9 +38,9 @@ package org.vancura.vaclav.widgets.widgets {
 	public class Label extends Widget implements ILabel {
 
 
-		protected var $skin:ILabelSkin;
-		protected var $textField:QTextField;
-		protected var $textFormat:TextFormat;
+		protected var _skin:ILabelSkin;
+		protected var _textField:QTextField;
+		protected var _textFormat:TextFormat;
 
 		private var _isWidthOverriden:Boolean;
 		private var _isHeightOverriden:Boolean;
@@ -51,20 +51,16 @@ package org.vancura.vaclav.widgets.widgets {
 
 		public function Label(skin:ILabelSkin, config:Object = null, text:String = '', parent:DisplayObjectContainer = null,
 		                      debugLevel:String = null) {
+			var c:Object;
 
-			if(config == null) {
-				config = new Object();
-			}
+			if(config === null) c = new Object();
+			else c = config;
 
-			if(skin != null) {
-				super(config, parent, (debugLevel == null) ? SkinManager.debugLevel : debugLevel);
-			}
-			else {
-				throw new Error('No skin defined');
-			}
+			if(skin === null) throw new Error('No skin defined');
+			else super(c, parent, (debugLevel === null) ? SkinManager.debugLevel : debugLevel);
 
-			_isWidthOverriden = (config.width != undefined);
-			_isHeightOverriden = (config.height != undefined);
+			_isWidthOverriden = (c.width !== undefined);
+			_isHeightOverriden = (c.height !== undefined);
 
 			this.skin = skin;
 			this.text = text;
@@ -72,10 +68,10 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 
-		override protected function $init():void {
-			super.$init();
+		override protected function _init():void {
+			super._init();
 
-			$textFormat = new TextFormat();
+			_textFormat = new TextFormat();
 
 			isMorphWidthEnabled = true;
 			isMorphHeightEnabled = true;
@@ -85,18 +81,18 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 
-		override protected function $addChildren():void {
-			super.$addChildren();
+		override protected function _addChildren():void {
+			super._addChildren();
 
-			$textField = new QTextField({width:2880, autoSize:(_isWidthOverriden) ? TextFieldAutoSize.NONE : Align.LEFT, borderColor:$debugColor, border:($debugLevel == DebugLevel.ALWAYS)}, $contentSpr);
+			_textField = new QTextField({width:2880, autoSize:(_isWidthOverriden) ? TextFieldAutoSize.NONE : Align.LEFT, borderColor:_debugColor, border:(_debugLevel == DebugLevel.ALWAYS)}, _contentSpr);
 		}
 
 
 
-		override protected function $removeChildren():void {
-			super.$removeChildren();
+		override protected function _removeChildren():void {
+			super._removeChildren();
 
-			removeChildren($contentSpr, $textField);
+			removeChildren(_contentSpr, _textField);
 		}
 
 
@@ -104,23 +100,21 @@ package org.vancura.vaclav.widgets.widgets {
 		override public function draw():void {
 			super.draw();
 
-			if($width != 0) {
-				$textField.width = $width - $skin.paddingLeft - $skin.paddingRight;
-			}
+			if(_width !== 0) _textField.width = _width - _skin.paddingLeft - _skin.paddingRight;
 
-			if($height != 0) {
+			if(_height !== 0) {
 				// count height without padding
-				var h:Number = $height - $skin.paddingTop - $skin.paddingBottom;
+				var h:Number = _height - _skin.paddingTop - _skin.paddingBottom;
 
 				// set label height
-				$textField.height = h;
+				_textField.height = h;
 
 				// non-top alignment
 				if(_vAlign == Align.CENTER) {
-					$textField.y = Math.round((h - $textField.textHeight) / 2) + $skin.paddingTop;
+					_textField.y = Math.round((h - _textField.textHeight) / 2) + _skin.paddingTop;
 				}
 				if(_vAlign == Align.BOTTOM) {
-					$textField.y = h - $textField.textHeight + $skin.paddingTop;
+					_textField.y = h - _textField.textHeight + _skin.paddingTop;
 				}
 			}
 		}
@@ -130,44 +124,39 @@ package org.vancura.vaclav.widgets.widgets {
 		override public function set debugLevel(value:String):void {
 			super.debugLevel = value;
 
-			$textField.border = ($debugLevel == DebugLevel.ALWAYS);
+			_textField.border = (_debugLevel == DebugLevel.ALWAYS);
 		}
 
 
 
 		public function get skin():ILabelSkin {
-			return $skin;
+			return _skin;
 		}
 
 
 
 		public function set skin(skin:ILabelSkin):void {
-			$skin = skin;
+			_skin = skin;
 
-			_vAlign = $skin.vAlign;
+			_vAlign = _skin.vAlign;
 
-			$textFormat = new TextFormat();
-			$textFormat.font = $skin.font;
-			$textFormat.size = $skin.size;
-			$textFormat.color = $skin.color;
-			$textFormat.align = $skin.hAlign;
+			_textFormat = new TextFormat();
+			_textFormat.font = _skin.font;
+			_textFormat.size = _skin.size;
+			_textFormat.color = _skin.color;
+			_textFormat.align = _skin.hAlign;
 
-			$textField.setTextFormat($textFormat);
-			$textField.defaultTextFormat = $textFormat;
-			$textField.setPosition($skin.paddingLeft, $skin.paddingTop);
-			$textField.filters = $skin.filters;
-			$textField.sharpness = $skin.sharpness;
-			$textField.thickness = $skin.thickness;
-			$textField.alpha = $skin.alpha;
-			$textField.embedFonts = ($skin.font != '');
+			_textField.setTextFormat(_textFormat);
+			_textField.defaultTextFormat = _textFormat;
+			_textField.setPosition(_skin.paddingLeft, _skin.paddingTop);
+			_textField.filters = _skin.filters;
+			_textField.sharpness = _skin.sharpness;
+			_textField.thickness = _skin.thickness;
+			_textField.alpha = _skin.alpha;
+			_textField.embedFonts = (_skin.font !== '');
 
-			if($width == 0) {
-				$width = $skin.assetWidth;
-			}
-
-			if($height == 0) {
-				$height = $skin.assetHeight;
-			}
+			if(_width === 0) _width = _skin.assetWidth;
+			if(_height === 0) _height = _skin.assetHeight;
 
 			draw();
 		}
@@ -175,18 +164,16 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		public function get text():String {
-			return $textField.text;
+			return _textField.text;
 		}
 
 
 
 		public function set text(value:String):void {
-			if($textField != null) {
-				if(value != null) {
-					$textField.htmlText = value;
-				}
+			if(_textField !== null) {
+				if(value !== null) _textField.htmlText = value;
 
-				$textField.setTextFormat($textFormat);
+				_textField.setTextFormat(_textFormat);
 			}
 
 			draw();
@@ -195,31 +182,31 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		public function get textField():TextField {
-			return $textField;
+			return _textField;
 		}
 
 
 
 		override public function get width():Number {
-			return (_isWidthOverriden) ? $textField.width : $textField.textWidth + $skin.paddingLeft + $skin.paddingRight;
+			return (_isWidthOverriden) ? _textField.width : _textField.textWidth + _skin.paddingLeft + _skin.paddingRight;
 		}
 
 
 
 		override public function get height():Number {
-			return (_isHeightOverriden) ? $textField.height : $textField.textHeight + $skin.paddingTop + $skin.paddingBottom;
+			return (_isHeightOverriden) ? _textField.height : _textField.textHeight + _skin.paddingTop + _skin.paddingBottom;
 		}
 
 
 
 		override public function get x():Number {
-			return super.x - $skin.paddingLeft;
+			return super.x - _skin.paddingLeft;
 		}
 
 
 
 		override public function get y():Number {
-			return super.y - $skin.paddingTop;
+			return super.y - _skin.paddingTop;
 		}
 
 
@@ -230,19 +217,18 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 
+		//noinspection FunctionWithMoreThanThreeNegationsJS
 		public function set isInput(value:Boolean):void {
-			if($textField != null) {
-				$textField.type = (value) ? TextFieldType.INPUT : TextFieldType.DYNAMIC;
-				$textField.selectable = value;
-				$textField.multiline = !value;
-				$textField.condenseWhite = !value;
+			if(_textField !== null) {
+				_textField.type = (value) ? TextFieldType.INPUT : TextFieldType.DYNAMIC;
+				_textField.selectable = value;
+				_textField.multiline = !value;
+				_textField.condenseWhite = !value;
 
-				if(value) {
-					$textField.autoSize = TextFieldAutoSize.NONE;
-				}
+				if(value) _textField.autoSize = TextFieldAutoSize.NONE;
 
-				$textFormat.kerning = !value;
-				$textField.setTextFormat($textFormat);
+				_textFormat.kerning = !value;
+				_textField.setTextFormat(_textFormat);
 			}
 
 			_isInput = value;
@@ -250,21 +236,21 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 
-		override protected function $onDebugOver(event:MouseEvent):void {
-			super.$onDebugOver(event);
+		override protected function _onDebugOver(event:MouseEvent):void {
+			super._onDebugOver(event);
 
-			if($debugLevel == DebugLevel.HOVER) {
-				$textField.border = true;
+			if(_debugLevel == DebugLevel.HOVER) {
+				_textField.border = true;
 			}
 		}
 
 
 
-		override protected function $onDebugOut(event:MouseEvent):void {
-			super.$onDebugOut(event);
+		override protected function _onDebugOut(event:MouseEvent):void {
+			super._onDebugOut(event);
 
-			if($debugLevel == DebugLevel.HOVER) {
-				$textField.border = false;
+			if(_debugLevel == DebugLevel.HOVER) {
+				_textField.border = false;
 			}
 		}
 	}

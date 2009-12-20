@@ -50,7 +50,7 @@ package {
 		 */
 		public function LoadTest() {
 			// create asset manager
-			_assetManager = AssetManager.getInstance();
+			_assetManager = AssetManager.instance;
 
 			// add event listeners
 			_assetManager.addEventListener(Event.COMPLETE, _onProviderComplete, false, 0, true);
@@ -59,7 +59,8 @@ package {
 			_assetManager.addEventListener(AssetManagerErrorEvent.ITEM_LOAD_FAILED, _onItemLoadFailed, false, 0, true);
 
 			// attach provider
-			_assetManager.attachProvider(new FARAssetProvider('skins/test-skin.far'));
+			var provider:FARAssetProvider = new FARAssetProvider('skins/test-skin.far');
+			_assetManager.attachProvider(provider);
 		}
 
 
@@ -71,10 +72,13 @@ package {
 		private function _onProviderComplete(event:Event):void {
 			SkinManager.debugLevel = DebugLevel.HOVER;
 
-			_buttonTest = new LabelButton(A2S('label_button'), {x:300, y:100, width:400}, 'Test', this);
+			var buttonSkin:* = A2S('label_button');
+			var stats:Stats = new Stats();
+			
+			_buttonTest = new LabelButton(buttonSkin, {x:300, y:100, width:400}, 'Test', this);
 			_buttonTest.addEventListener(ButtonEvent.RELEASE_INSIDE, _onTest, false, 0, true);
 
-			addChild(new Stats());
+			addChild(stats);
 		}
 
 

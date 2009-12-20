@@ -20,17 +20,17 @@
  **********************************************************************************************************************/
 
 package org.vancura.vaclav.core.display {
+	import br.com.stimuli.string.printf;
+
 	import flash.display.DisplayObjectContainer;
 	import flash.media.Video;
 
 	import org.vancura.vaclav.core.global.assign;
 
-	/*
-	 *	Class: QVideo
+	/**
+	 * Quick creation of Video with initial data.
 	 *
-	 *	Quick creation of Video with initial data.
-	 *
-	 *	Author: Vaclav Vancura <http://vaclav.vancura.org>
+	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
 	public class QVideo extends Video {
 
@@ -89,34 +89,33 @@ package org.vancura.vaclav.core.display {
 		 */
 		public function QVideo(config:Object = null, parent:DisplayObjectContainer = null) {
 			// if config is not defined, prepare it
-			if(config == null) {
-				config = new Object();
-			}
+			var c:Object;
+			if(config === null) c = new Object();
+			else c = config;
 
 			try {
-				super(config.width, config.height);
+				super(c.width, c.height);
 			}
 			catch(err:Error) {
-				if(config.width == undefined) {
-					throw new Error('Video width undefined');
+				if(c.width === undefined) {
+					var ew:String = printf('Video width undefined (%s)', err);
+					throw new Error(ew);
 				}
-
-				if(config.height == undefined) {
-					throw new Error('Video height undefined');
+				if(c.height === undefined) {
+					var eh:String = printf('Video height undefined (%s)', err);
+					throw new Error(eh);
 				}
 			}
 
 			// Video overrides and custom config
-			this.deblocking = (config.deblocking == undefined) ? 5 : config.deblocking;
-			this.smoothing = (config.smoothing == undefined) ? true : config.smoothing;
+			this.deblocking = (c.deblocking === undefined) ? 5 : c.deblocking;
+			this.smoothing = (c.smoothing === undefined) ? true : c.smoothing;
 
 			// assign parameters
-			assign(this, config);
+			assign(this, c);
 
 			// add child if requested
-			if(parent != null) {
-				parent.addChild(this);
-			}
+			if(parent !== null) parent.addChild(this);
 		}
 
 
@@ -127,6 +126,7 @@ package org.vancura.vaclav.core.display {
 
 		/**
 		 * Moves to the specified position.
+		 *
 		 * @param x New X position
 		 * @param y New Y position
 		 */
@@ -139,6 +139,7 @@ package org.vancura.vaclav.core.display {
 
 		/**
 		 * Rescales to new size.
+		 *
 		 * @param width New width
 		 * @param height New height
 		 */

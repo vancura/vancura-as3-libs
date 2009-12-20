@@ -27,6 +27,7 @@ package org.vancura.vaclav.far {
 	import flash.events.EventDispatcher;
 	import flash.events.IOErrorEvent;
 	import flash.events.ProgressEvent;
+	import flash.utils.ByteArray;
 
 	import org.vancura.vaclav.far.events.FarHelperAssignEvent;
 	import org.vancura.vaclav.far.events.FarHelperEvent;
@@ -35,11 +36,9 @@ package org.vancura.vaclav.far {
 	import org.vanrijkom.far.FarStream;
 
 	/**
-	 * Class: FarHelperItem
-	 *
 	 * FAR helper item.
 	 *
-	 * Author: Vaclav Vancura <http://vaclav.vancura.org>
+	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
 	public class FarHelperItem extends EventDispatcher {
 
@@ -57,7 +56,8 @@ package org.vancura.vaclav.far {
 
 
 		/**
-		 * FAR helper item constructor.
+		 * Constructor.
+		 *
 		 * @param stream FAR stream
 		 */
 		public function FarHelperItem(stream:FarStream) {
@@ -78,7 +78,7 @@ package org.vancura.vaclav.far {
 
 
 		/**
-		 * FAR helper item destructor.
+		 * Destructor.
 		 */
 		public function destroy():void {
 			_removeItemEvents();
@@ -91,18 +91,21 @@ package org.vancura.vaclav.far {
 
 
 		/**
-		 * Get data from the FAR
+		 * Get data from the FAR.
+		 *
 		 * @param index
 		 */
 		public function getData(index:String):void {
 			_index = index;
 
-			if(_farItem == null) {
+			if(_farItem === null) {
+				//noinspection UnusedCatchParameterJS
 				try {
 					_farItem = _stream.item(_index);
 				}
 				catch(err:Error) {
-					dispatchEvent(new FarHelperEvent(FarHelperEvent.ITEM_NOT_FOUND, false, false, null, _index));
+					var e:FarHelperEvent = new FarHelperEvent(FarHelperEvent.ITEM_NOT_FOUND, false, false, null, _index);
+					dispatchEvent(e);
 					return;
 				}
 
@@ -126,21 +129,27 @@ package org.vancura.vaclav.far {
 
 
 		public function assignBitmap(output:Bitmap):void {
+			var b:ByteArray = _stream.item(_index).data;
+
 			_assignBitmapOutput = output;
-			_assignBitmapLoader.loadBytes(_stream.item(_index).data);
+			_assignBitmapLoader.loadBytes(b);
 		}
 
 
 
 		public function assignChildSprite(output:Sprite):void {
+			var b:ByteArray = _stream.item(_index).data;
+
 			_assignChildSpriteOutput = output;
-			_assignChildSpriteLoader.loadBytes(_stream.item(_index).data);
+			_assignChildSpriteLoader.loadBytes(b);
 		}
 
 
 
 		public function getSprite():void {
-			_getSpriteLoader.loadBytes(_stream.item(_index).data);
+			var b:ByteArray = _stream.item(_index).data;
+
+			_getSpriteLoader.loadBytes(b);
 		}
 
 
@@ -167,8 +176,11 @@ package org.vancura.vaclav.far {
 			_removeItemEvents();
 			_isLoaded = true;
 
-			dispatchEvent(new FarHelperEvent(FarHelperEvent.ITEM_LOAD_COMPLETE, false, false, this));
-			dispatchEvent(new Event(Event.COMPLETE));
+			var e1:FarHelperEvent = new FarHelperEvent(FarHelperEvent.ITEM_LOAD_COMPLETE, false, false, this);
+			var e2:Event = new Event(Event.COMPLETE);
+
+			dispatchEvent(e1);
+			dispatchEvent(e2);
 		}
 
 
@@ -176,8 +188,11 @@ package org.vancura.vaclav.far {
 		private function _onItemLoadIOError(event:IOErrorEvent):void {
 			_removeItemEvents();
 
-			dispatchEvent(new FarHelperEvent(FarHelperEvent.ITEM_LOAD_FAILED, false, false, this, event.text));
-			dispatchEvent(event.clone());
+			var e1:FarHelperEvent = new FarHelperEvent(FarHelperEvent.ITEM_LOAD_FAILED, false, false, this, event.text);
+			var e2:Event = event.clone();
+
+			dispatchEvent(e1);
+			dispatchEvent(e2);
 		}
 
 
@@ -185,8 +200,11 @@ package org.vancura.vaclav.far {
 		private function _onItemLoadProgress(event:ProgressEvent):void {
 			var p:Number = 1 / (event.bytesTotal / event.bytesLoaded);
 
-			dispatchEvent(new FarHelperProgressEvent(FarHelperProgressEvent.ITEM_LOAD_PROGRESS, false, false, this, p));
-			dispatchEvent(event.clone());
+			var e1:FarHelperProgressEvent = new FarHelperProgressEvent(FarHelperProgressEvent.ITEM_LOAD_PROGRESS, false, false, this, p);
+			var e2:Event = event.clone();
+
+			dispatchEvent(e1);
+			dispatchEvent(e2);
 		}
 
 
@@ -207,26 +225,30 @@ package org.vancura.vaclav.far {
 
 		private function _onGetSpriteDone(event:Event):void {
 			var displayObject:Sprite = _getSpriteLoader.content as Sprite;
+			var e:FarHelperAssignEvent = new FarHelperAssignEvent(FarHelperAssignEvent.ITEM_READY, false, false, this, displayObject);
 
-			dispatchEvent(new FarHelperAssignEvent(FarHelperAssignEvent.ITEM_READY, false, false, this, displayObject));
+			dispatchEvent(e);
 		}
 
 
 
 		private function _onAssignChildSpriteDone(event:Event):void {
 			var displayObject:Sprite = _assignChildSpriteLoader.content as Sprite;
+			var e:FarHelperAssignEvent = new FarHelperAssignEvent(FarHelperAssignEvent.ITEM_READY, false, false, this, displayObject);
 
 			_assignChildSpriteOutput.addChildAt(displayObject, 0);
 
-			dispatchEvent(new FarHelperAssignEvent(FarHelperAssignEvent.ITEM_READY, false, false, this, displayObject));
+			dispatchEvent(e);
 		}
 
 
 
 		private function _onAssignBitmapDone(event:Event):void {
+			var e:FarHelperAssignEvent = new FarHelperAssignEvent(FarHelperAssignEvent.ITEM_READY, false, false, this, _assignBitmapOutput);
+
 			_assignBitmapOutput.bitmapData = (_assignBitmapLoader.content as Bitmap).bitmapData;
 
-			dispatchEvent(new FarHelperAssignEvent(FarHelperAssignEvent.ITEM_READY, false, false, this, _assignBitmapOutput));
+			dispatchEvent(e);
 		}
 	}
 }

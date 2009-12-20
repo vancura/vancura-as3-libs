@@ -22,20 +22,12 @@
 package org.vancura.vaclav.core.global {
 	import flash.display.MovieClip;
 
-	/*
-	 *	Method: duplicateMovieClip
+	/**
+	 * Duplicate a MovieClip.
 	 *
-	 *	Duplicate a MovieClip
-	 *
-	 *	Author: Vaclav Vancura <http://vaclav.vancura.org>
-	 *
-	 *	Parameters:
-	 *
-	 *		source	- Source MovieClip
-	 *
-	 *	Returns:
-	 *
-	 *		Duplicated MovieClip
+	 * @param source Source MovieClip
+	 * @return Duplicated MovieClip
+	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
 	public function duplicateMovieClip(source:MovieClip):MovieClip {
 		var targetClass:Class = Object(source).constructor as Class;

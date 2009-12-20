@@ -27,6 +27,8 @@
  */
 
 package org.vancura.vaclav.widgets.globals {
+	import flash.display.BitmapData;
+
 	import org.vancura.vaclav.assets.Asset;
 	import org.vancura.vaclav.widgets.constants.DebugLevel;
 	import org.vancura.vaclav.widgets.constants.SkinType;
@@ -49,7 +51,7 @@ package org.vancura.vaclav.widgets.globals {
 
 
 		public static function assetToSkin(asset:Asset):* {
-			if(asset.config.widget != null) {
+			if(asset.config.widget !== null) {
 				var skin:*;
 				var isSupported:Boolean = true;
 				var config:Object = asset.config.widget;
@@ -58,105 +60,113 @@ package org.vancura.vaclav.widgets.globals {
 					case SkinType.BAR:
 						skin = new BarSkin();
 
-						with(skin as BarSkin) {
-							getAssetsFromAtlas(asset.getChunkByURL(config.backgroundImage).bitmap.bitmapData);
-							parseConfig(config);
-						}
+						var barSkin:BarSkin = skin as BarSkin;
+						var barSkinBD:BitmapData = asset.getChunkByURL(config.backgroundImage).bitmap.bitmapData;
+
+						barSkin.getAssetsFromAtlas(barSkinBD);
+						barSkin.parseConfig(config);
 
 						break;
 
 					case SkinType.IMAGE:
 						skin = new ImageSkin();
 
-						with(skin as ImageSkin) {
-							getAssetsFromAtlas(asset.getChunkByURL(config.image).bitmap.bitmapData);
-							parseConfig(config);
-						}
+						var imageSkin:ImageSkin = skin as ImageSkin;
+						var imageSkinBD:BitmapData = asset.getChunkByURL(config.image).bitmap.bitmapData;
+
+						imageSkin.getAssetsFromAtlas(imageSkinBD);
+						imageSkin.parseConfig(config);
 
 						break;
 
 					case SkinType.BUTTON:
 						skin = new ButtonSkin();
 
-						with(skin as ButtonSkin) {
-							getAssetsFromAtlas(asset.getChunkByURL(config.backgroundImage).bitmap.bitmapData);
-							parseConfig(config);
-						}
+						var buttonSkin:ButtonSkin = skin as ButtonSkin;
+						var buttonSkinBD:BitmapData = asset.getChunkByURL(config.backgroundImage).bitmap.bitmapData;
+
+						buttonSkin.getAssetsFromAtlas(buttonSkinBD);
+						buttonSkin.parseConfig(config);
 
 						break;
 
 					case SkinType.LABEL:
 						skin = new LabelSkin();
 
-						with(skin as LabelSkin) {
-							parseConfig(config);
-						}
+						var labelSkin:LabelSkin = skin as LabelSkin;
+
+						labelSkin.parseConfig(config);
 
 						break;
 
 					case SkinType.LABEL_BUTTON:
 						skin = new LabelButtonSkin();
 
-						with(skin as LabelButtonSkin) {
-							buttonSkin.getAssetsFromAtlas(asset.getChunkByURL(config.button.backgroundImage).bitmap.bitmapData);
-							parseConfig(config);
-						}
+						var labelButtonSkin:LabelButtonSkin = skin as LabelButtonSkin;
+						var labelButtonSkinBD:BitmapData = asset.getChunkByURL(config.button.backgroundImage).bitmap.bitmapData;
+
+						labelButtonSkin.buttonSkin.getAssetsFromAtlas(labelButtonSkinBD);
+						labelButtonSkin.parseConfig(config);
 
 						break;
 
 					case SkinType.GLYPH_BUTTON:
 						skin = new GlyphButtonSkin();
 
-						with(skin as GlyphButtonSkin) {
-							buttonSkin.getAssetsFromAtlas(asset.getChunkByURL(config.button.backgroundImage).bitmap.bitmapData);
-							glyphsSkin.getAssetsFromAtlas(asset.getChunkByURL(config.glyph.image).bitmap.bitmapData);
-							parseConfig(config);
-						}
+						var glyphButtonSkin = skin as GlyphButtonSkin;
+						var glyphButtonSkinBD1:BitmapData = asset.getChunkByURL(config.button.backgroundImage).bitmap.bitmapData;
+						var glyphButtonSkinBD2:BitmapData = asset.getChunkByURL(config.glyph.image).bitmap.bitmapData;
+
+						glyphButtonSkin.buttonSkin.getAssetsFromAtlas(glyphButtonSkinBD1);
+						glyphButtonSkin.glyphsSkin.getAssetsFromAtlas(glyphButtonSkinBD2);
+						glyphButtonSkin.parseConfig(config);
 
 						break;
 
 					case SkinType.GLYPH_LABEL_BUTTON:
 						skin = new GlyphLabelButtonSkin();
 
-						with(skin as GlyphLabelButtonSkin) {
-							buttonSkin.getAssetsFromAtlas(asset.getChunkByURL(config.button.backgroundImage).bitmap.bitmapData);
-							glyphsSkin.getAssetsFromAtlas(asset.getChunkByURL(config.glyph.image).bitmap.bitmapData);
-							parseConfig(config);
-						}
+						var glyphLabelButtonSkin:GlyphLabelButtonSkin = skin as GlyphLabelButtonSkin;
+						var glyphLabelButtonSkinBD1:BitmapData = asset.getChunkByURL(config.button.backgroundImage).bitmap.bitmapData;
+						var glyphLabelButtonSkinBD2:BitmapData = asset.getChunkByURL(config.glyph.image).bitmap.bitmapData;
+
+						glyphLabelButtonSkin.buttonSkin.getAssetsFromAtlas(glyphLabelButtonSkinBD1);
+						glyphLabelButtonSkin.glyphsSkin.getAssetsFromAtlas(glyphLabelButtonSkinBD2);
+						glyphLabelButtonSkin.parseConfig(config);
 
 						break;
 
 					case SkinType.CHECK_BUTTON:
 						skin = new CheckButtonSkin();
 
-						with(skin as CheckButtonSkin) {
-							//							buttonOffSkin.getAssetsFromAtlas(asset.bitmap.bitmapData);
-							//							buttonOnSkin.getAssetsFromAtlas(asset.bitmap.bitmapData);
-							parseConfig(config);
-						}
+						var checkButtonSkin:CheckButtonSkin = skin as CheckButtonSkin;
+
+						// buttonOffSkin.getAssetsFromAtlas(asset.bitmap.bitmapData);
+						// buttonOnSkin.getAssetsFromAtlas(asset.bitmap.bitmapData);
+
+						checkButtonSkin.parseConfig(config);
 
 						break;
 
 					case SkinType.INPUT_BAR:
 						skin = new InputBarSkin();
 
-						with(skin as InputBarSkin) {
-							//							barSkin.getAssetsFromAtlas(asset.bitmap.bitmapData);
-							parseConfig(config);
-						}
+						var inputBarSkin:InputBarSkin = skin as InputBarSkin;
+
+						// barSkin.getAssetsFromAtlas(asset.bitmap.bitmapData);
+
+						inputBarSkin.parseConfig(config);
 
 						break;
 
 					default:
+						//noinspection ReuseOfLocalVariableJS
 						isSupported = false;
 				}
 			}
 
-			if(isSupported) {
-				return skin;
-			}
-
-			return null;
+			if(isSupported) return skin;
+			else return null;
 		}
 
 

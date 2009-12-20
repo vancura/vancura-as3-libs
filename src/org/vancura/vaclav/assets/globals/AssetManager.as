@@ -30,37 +30,39 @@ package org.vancura.vaclav.assets.globals {
 	import org.vancura.vaclav.assets.interfaces.IAssetProvider;
 
 	/**
-	 * Class: AssetManager
-	 *
 	 * Asset manager. Singleton.
 	 *
-	 * Author: Vaclav Vancura <http://vaclav.vancura.org>
+	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
 	public class AssetManager extends EventDispatcher {
 
 
 		private static var _instance:AssetManager;
+
 		private var _provider:IAssetProvider;
 
 
 
 		/**
-		 * Get an AssetManager instance (AssetManager is singleton)
-		 * @return AssetManager instance
+		 * Get an instance.
+		 *
+		 * @return Instance
 		 */
-		public static function getInstance():AssetManager {
-			return _instance || (_instance = new AssetManager());
+		public static function get instance():AssetManager {
+			if(_instance === null) _instance = new AssetManager();
+			return _instance;
 		}
 
 
 
 		/**
 		 * Attach a provider.
+		 *
 		 * @param provider Provider to be attached
 		 * @see IAssetProvider
 		 */
 		public function attachProvider(provider:IAssetProvider):void {
-			if(_provider == null) {
+			if(_provider === null) {
 				// attaching a new asset provider
 				_provider = provider;
 
@@ -71,45 +73,44 @@ package org.vancura.vaclav.assets.globals {
 				_provider.addEventListener(AssetManagerErrorEvent.ITEM_NOT_FOUND, _onItemNotFound, false, 0, true);
 			}
 
-			else {
-				throw new Error('Asset provider already attached');
-			}
+			else throw new Error('Asset provider already attached');
 		}
 
 
 
 		/**
 		 * Get an Asset.
+		 *
 		 * @param id Asset ID
 		 * @return Asset (if defined, null if not)
 		 */
 		public function getAsset(id:String):* {
-			if(_provider == null) {
-				throw new Error('Asset provider not attached');
-			}
+			var out:Asset;
+
+			if(_provider === null) throw new Error('Asset provider not attached');
 
 			else {
 				// try to find the asset
 				for each(var item:Asset in _provider.assetsList) {
-					if(item.id == id) {
-						return item;
-					}
+					if(item.id === id) out = item;
 				}
 			}
 
-			return null;
+			return out;
 		}
 
 
 
 		/**
 		 * Generate AssetManager description.
+		 *
 		 * @return AssetManager description
 		 */
 		override public function toString():String {
-			if(_provider == null) {
-				return printf('AssetManager info:\n  provider not attached');
-			}
+			var out:String;
+
+			if(_provider === null) out = printf('AssetManager info:\n  provider not attached');
+
 			else {
 				// create list of assets
 				var list:String = '';
@@ -120,8 +121,11 @@ package org.vancura.vaclav.assets.globals {
 				// strip trailing ', '
 				list = list.substr(0, list.length - 2);
 
-				return printf('AssetManager info:\n  provider=%s\n  registered assets: %s', _provider.toString(), list);
+				var ps:String = _provider.toString();
+				out = printf('AssetManager info:\n  provider=%s\n  registered assets: %s', ps, list);
 			}
+
+			return out;
 		}
 
 
@@ -132,12 +136,11 @@ package org.vancura.vaclav.assets.globals {
 
 		/**
 		 * Get list of assets.
+		 *
 		 * @return List of assets as Array
 		 */
 		public function get assetsList():Array {
-			if(_provider == null) {
-				throw new Error('Asset provider not attached');
-			}
+			if(_provider === null) throw new Error('Asset provider not attached');
 
 			else {
 				// return asset list
@@ -148,7 +151,8 @@ package org.vancura.vaclav.assets.globals {
 
 
 		/**
-		 * Get pointer to asset provider
+		 * Get pointer to asset provider.
+		 *
 		 * @return Asset provider (if attached, null if not)
 		 * @see IAssetProvider
 		 */
@@ -160,30 +164,48 @@ package org.vancura.vaclav.assets.globals {
 
 		/**
 		 * Has an error happened?
+		 *
 		 * @return Error happened flag
 		 */
 		public function get isError():Boolean {
-			return (_provider == null) ? false : _provider.isError;
+			var out:Boolean;
+
+			if(_provider === null) out = false;
+			else out = _provider.isError;
+
+			return out;
 		}
 
 
 
 		/**
 		 * Is AssetManager active?
+		 *
 		 * @return AssetManager active flag
 		 */
 		public function get isActive():Boolean {
-			return (_provider == null) ? false : _provider.isActive;
+			var out:Boolean;
+
+			if(_provider === null) out = false;
+			else out = _provider.isActive;
+
+			return out;
 		}
 
 
 
 		/**
 		 * Is everything loaded?
+		 *
 		 * @return Loaded flag
 		 */
 		public function get isLoaded():Boolean {
-			return (_provider == null) ? false : _provider.isLoaded;
+			var out:Boolean;
+
+			if(_provider === null) out = false;
+			else out = _provider.isLoaded;
+
+			return out;
 		}
 
 
@@ -193,25 +215,29 @@ package org.vancura.vaclav.assets.globals {
 
 
 		private function _onItemNotFound(event:AssetManagerErrorEvent):void {
-			dispatchEvent(event.clone());
+			var e:Event = event.clone();
+			dispatchEvent(e);
 		}
 
 
 
 		private function _onItemLoadFailed(event:AssetManagerErrorEvent):void {
-			dispatchEvent(event.clone());
+			var e:Event = event.clone();
+			dispatchEvent(e);
 		}
 
 
 
 		private function _onProviderError(event:AssetManagerErrorEvent):void {
-			dispatchEvent(event.clone());
+			var e:Event = event.clone();
+			dispatchEvent(e);
 		}
 
 
 
 		private function _onProviderComplete(event:Event):void {
-			dispatchEvent(event.clone());
+			var e:Event = event.clone();
+			dispatchEvent(e);
 		}
 	}
 }

@@ -26,12 +26,10 @@ package org.vancura.vaclav.core.display {
 
 	import org.vancura.vaclav.core.global.assign;
 
-	/*
-	 *	Class: QBitmap
+	/**
+	 * Quick creation of Bitmap with initial data.
 	 *
-	 *	Quick creation of Bitmap with initial data.
-	 *
-	 *	Author: Vaclav Vancura <http://vaclav.vancura.org>
+	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
 	public class QBitmap extends Bitmap {
 
@@ -90,31 +88,23 @@ package org.vancura.vaclav.core.display {
 		 */
 		public function QBitmap(config:Object = null, parent:DisplayObjectContainer = null) {
 			// if config is not defined, prepare it
-			if(config == null) {
-				config = new Object();
-			}
+			var c:Object;
+			if(config === null) c = new Object();
+			else c = config;
 
 			super();
 
 			// Bitmap overrides and custom config
-			if(config.embed) {
-				if(config.embed is Bitmap) {
-					this.bitmapData = config.embed.bitmapData;
-				} else if(config.embed is BitmapData) {
-					this.bitmapData = config.embed;
-				}
-				else {
-					throw new TypeError('Invalid embed object');
-				}
+			if(c.embed) {
+				if(c.embed is Bitmap) this.bitmapData = c.embed.bitmapData; else if(c.embed is BitmapData) this.bitmapData = c.embed;
+				else throw new TypeError('Invalid embed object');
 			}
 
 			// assign parameters
-			assign(this, config);
+			assign(this, c);
 
 			// add child if requested
-			if(parent != null) {
-				parent.addChild(this);
-			}
+			if(parent !== null) parent.addChild(this);
 		}
 
 
@@ -125,6 +115,7 @@ package org.vancura.vaclav.core.display {
 
 		/**
 		 * Moves to the specified position.
+		 *
 		 * @param x New X position
 		 * @param y New Y position
 		 */
@@ -137,6 +128,7 @@ package org.vancura.vaclav.core.display {
 
 		/**
 		 * Rescales to new size.
+		 *
 		 * @param width New width
 		 * @param height New height
 		 */

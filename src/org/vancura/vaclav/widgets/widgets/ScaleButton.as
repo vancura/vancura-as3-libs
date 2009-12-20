@@ -46,17 +46,18 @@ package org.vancura.vaclav.widgets.widgets {
 
 		public function ScaleButton(skin:IButtonSkin, config:Object = null, parent:DisplayObjectContainer = null,
 		                            debugLevel:String = null) {
-			if(config == null) {
-				config = new Object();
-			}
+			var c:Object;
 
-			super(skin, config, parent, (debugLevel == null) ? SkinManager.debugLevel : debugLevel);
+			if(config === null) c = new Object();
+			else c = config;
+
+			super(skin, c, parent, (debugLevel === null) ? SkinManager.debugLevel : debugLevel);
 		}
 
 
 
-		override protected function $init():void {
-			super.$init();
+		override protected function _init():void {
+			super._init();
 
 			isMorphWidthEnabled = true;
 			isMorphHeightEnabled = true;
@@ -66,8 +67,8 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 
-		override protected function $addChildren():void {
-			super.$addChildren();
+		override protected function _addChildren():void {
+			super._addChildren();
 
 			_outSBM = new ScaleBitmap();
 			_hoverSBM = new ScaleBitmap();
@@ -76,15 +77,15 @@ package org.vancura.vaclav.widgets.widgets {
 			_hoverSBM.alpha = 0;
 			_focusSBM.alpha = 0;
 
-			addChildren($contentSpr, _outSBM, _hoverSBM, _focusSBM);
+			addChildren(_contentSpr, _outSBM, _hoverSBM, _focusSBM);
 		}
 
 
 
-		override protected function $removeChildren():void {
-			super.$removeChildren();
+		override protected function _removeChildren():void {
+			super._removeChildren();
 
-			removeChildren($contentSpr, _outSBM, _hoverSBM, _focusSBM);
+			removeChildren(_contentSpr, _outSBM, _hoverSBM, _focusSBM);
 		}
 
 
@@ -92,88 +93,118 @@ package org.vancura.vaclav.widgets.widgets {
 		override public function draw():void {
 			super.draw();
 
-			_outSBM.bitmapData = $skin.outBD;
-			_hoverSBM.bitmapData = $skin.hoverBD;
-			_focusSBM.bitmapData = $skin.focusBD;
+			_outSBM.bitmapData = _skin.outBD;
+			_hoverSBM.bitmapData = _skin.hoverBD;
+			_focusSBM.bitmapData = _skin.focusBD;
 
-			var rect:Rectangle = $skin.guideBD.getColorBoundsRect(0x00FF0000, 0x00000000, false);
+			var rect:Rectangle = _skin.guideBD.getColorBoundsRect(0x00FF0000, 0x00000000, false);
 			_outSBM.scale9Grid = rect;
 			_hoverSBM.scale9Grid = rect;
 			_focusSBM.scale9Grid = rect;
 
-			if($width != 0) {
-				_outSBM.width = $width;
-				_hoverSBM.width = $width;
-				_focusSBM.width = $width;
+			if(_width !== 0) {
+				_outSBM.width = _width;
+				_hoverSBM.width = _width;
+				_focusSBM.width = _width;
 			}
-			if($height != 0) {
-				_outSBM.height = $height;
-				_hoverSBM.height = $height;
-				_focusSBM.height = $height;
+			if(_height !== 0) {
+				_outSBM.height = _height;
+				_hoverSBM.height = _height;
+				_focusSBM.height = _height;
 			}
 
-			$activeSpr.graphics.clear();
-			GraphicsUtil.drawRect($activeSpr, 0, 0, $width, $height);
+			_activeSpr.graphics.clear();
+			GraphicsUtil.drawRect(_activeSpr, 0, 0, _width, _height);
 		}
 
 
 
-		override protected function $hoverInTween():void {
-			new TweenMax(_outSBM, $skin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
-			new TweenMax(_hoverSBM, $skin.hoverInDuration, {alpha:1, ease:Sine.easeOut});
-			new TweenMax(_focusSBM, $skin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
+		override protected function _hoverInTween():void {
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_outSBM, _skin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
 
-			super.$hoverInTween();
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_hoverSBM, _skin.hoverInDuration, {alpha:1, ease:Sine.easeOut});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_focusSBM, _skin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
+
+			super._hoverInTween();
 		}
 
 
 
-		override protected function $hoverOutTween():void {
-			new TweenMax(_outSBM, $skin.hoverOutDuration, {alpha:1, ease:Sine.easeOut});
-			new TweenMax(_hoverSBM, $skin.hoverOutDuration, {alpha:0, ease:Sine.easeIn});
-			new TweenMax(_focusSBM, $skin.hoverOutDuration, {alpha:0, ease:Sine.easeIn});
+		override protected function _hoverOutTween():void {
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_outSBM, _skin.hoverOutDuration, {alpha:1, ease:Sine.easeOut});
 
-			super.$hoverOutTween();
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_hoverSBM, _skin.hoverOutDuration, {alpha:0, ease:Sine.easeIn});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_focusSBM, _skin.hoverOutDuration, {alpha:0, ease:Sine.easeIn});
+
+			super._hoverOutTween();
 		}
 
 
 
-		override protected function $focusInTween():void {
-			new TweenMax(_outSBM, $skin.focusInDuration, {alpha:0, ease:Sine.easeIn});
-			new TweenMax(_hoverSBM, $skin.focusInDuration, {alpha:0, ease:Sine.easeIn});
-			new TweenMax(_focusSBM, $skin.focusInDuration, {alpha:1, ease:Sine.easeOut});
+		override protected function _focusInTween():void {
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_outSBM, _skin.focusInDuration, {alpha:0, ease:Sine.easeIn});
 
-			super.$focusInTween();
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_hoverSBM, _skin.focusInDuration, {alpha:0, ease:Sine.easeIn});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_focusSBM, _skin.focusInDuration, {alpha:1, ease:Sine.easeOut});
+
+			super._focusInTween();
 		}
 
 
 
-		override protected function $dragConfirmedTween():void {
-			new TweenMax(_outSBM, $skin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
-			new TweenMax(_hoverSBM, $skin.hoverInDuration, {alpha:1, ease:Sine.easeOut});
-			new TweenMax(_focusSBM, $skin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
+		override protected function _dragConfirmedTween():void {
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_outSBM, _skin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
 
-			super.$dragConfirmedTween();
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_hoverSBM, _skin.hoverInDuration, {alpha:1, ease:Sine.easeOut});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_focusSBM, _skin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
+
+			super._dragConfirmedTween();
 		}
 
 
 
-		override protected function $releasedInsideTween():void {
-			new TweenMax(_outSBM, $skin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
-			new TweenMax(_hoverSBM, $skin.focusOutDuration, {alpha:1, ease:Sine.easeOut});
-			new TweenMax(_focusSBM, $skin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
+		override protected function _releasedInsideTween():void {
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_outSBM, _skin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
 
-			super.$releasedInsideTween();
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_hoverSBM, _skin.focusOutDuration, {alpha:1, ease:Sine.easeOut});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_focusSBM, _skin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
+
+			super._releasedInsideTween();
 		}
 
 
 
-		override protected function $releasedOutsideTween():void {
-			new TweenMax(_outSBM, $skin.focusOutDuration, {alpha:1, ease:Sine.easeOut});
-			new TweenMax(_hoverSBM, $skin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
-			new TweenMax(_focusSBM, $skin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
+		override protected function _releasedOutsideTween():void {
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_outSBM, _skin.focusOutDuration, {alpha:1, ease:Sine.easeOut});
 
-			super.$releasedOutsideTween();
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_hoverSBM, _skin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_focusSBM, _skin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
+
+			super._releasedOutsideTween();
 		}
 	}
 }

@@ -24,29 +24,27 @@ package org.vancura.vaclav.assets.events {
 	import flash.events.Event;
 
 	/**
-	 * Class: AssetManagerErrorEvent
-	 *
 	 * AssetManager ErrorEvent. Something bad happened.
 	 *
-	 * Author: Vaclav Vancura <http://vaclav.vancura.org>
+	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
 	public class AssetManagerErrorEvent extends ErrorEvent {
 
 
-		/**
-		 * Constants: Events
-		 *      PROVIDER_ERROR - Provider error
-		 *      ITEM_NOT_FOUND - Item not found
-		 *      ITEM_LOAD_FAILED - Item load failed
-		 */
+		/** Provider error */
 		public static const PROVIDER_ERROR:String = 'provider_error';
+
+		/** Item not found */
 		public static const ITEM_NOT_FOUND:String = 'item_not_found';
+
+		/** Item load failed */
 		public static const ITEM_LOAD_FAILED:String = 'item_load_failed';
 
 
 
 		/**
 		 * Event constructor.
+		 *
 		 * @param type Event type (see Event constants)
 		 * @param bubbles Bubbles enabled
 		 * @param cancelable Cancel enabled
@@ -60,6 +58,7 @@ package org.vancura.vaclav.assets.events {
 
 		/**
 		 * Clone Event.
+		 *
 		 * @return Cloned Event
 		 */
 		public override function clone():Event {
@@ -70,6 +69,7 @@ package org.vancura.vaclav.assets.events {
 
 		/**
 		 * Generate Event description.
+		 *
 		 * @return Event description
 		 */
 		public override function toString():String {

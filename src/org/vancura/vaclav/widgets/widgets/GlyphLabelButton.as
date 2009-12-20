@@ -40,109 +40,101 @@ package org.vancura.vaclav.widgets.widgets {
 	public class GlyphLabelButton extends MorphSprite implements IGlyphLabelButton {
 
 
-		protected var $skin:IGlyphLabelButtonSkin;
-		protected var $button:ScaleButton;
-		protected var $glyphOut:Image;
-		protected var $glyphHover:Image;
-		protected var $glyphFocus:Image;
-		protected var $labelOut:Label;
-		protected var $labelHover:Label;
-		protected var $labelFocus:Label;
+		protected var _skin:IGlyphLabelButtonSkin;
+		protected var _button:ScaleButton;
+		protected var _glyphOut:Image;
+		protected var _glyphHover:Image;
+		protected var _glyphFocus:Image;
+		protected var _labelOut:Label;
+		protected var _labelHover:Label;
+		protected var _labelFocus:Label;
 
 		private var _debugLevel:String;
 
 
-
+		//noinspection FunctionTooLongJS
 		public function GlyphLabelButton(skin:IGlyphLabelButtonSkin, config:Object = null, text:String = '', parent:DisplayObjectContainer = null,
 		                                 debugLevel:String = null) {
-			if(config == null) {
-				config = new Object();
-			}
+			var c:Object;
 
-			var dl:String = (debugLevel == null) ? SkinManager.debugLevel : debugLevel;
+			if(config === null) c = new Object();
+			else c = config;
 
-			$button = new ScaleButton(skin.buttonSkin, {}, this, dl);
-			$glyphOut = new Image(skin.glyphsSkin.glyphOutSkin, {mouseEnabled:false, mouseChildren:false}, this, dl);
-			$glyphHover = new Image(skin.glyphsSkin.glyphHoverSkin, {alpha:0, mouseEnabled:false, mouseChildren:false}, this, dl);
-			$glyphFocus = new Image(skin.glyphsSkin.glyphFocusSkin, {alpha:0, mouseEnabled:false, mouseChildren:false}, this, dl);
-			$labelOut = new Label(skin.labelOutSkin, {mouseEnabled:false, mouseChildren:false}, '', this, dl);
-			$labelHover = new Label(skin.labelHoverSkin, {alpha:0, mouseEnabled:false, mouseChildren:false}, '', this, dl);
-			$labelFocus = new Label(skin.labelFocusSkin, {alpha:0, mouseEnabled:false, mouseChildren:false}, '', this, dl);
-			$button.debugColor = SkinManager.debugColor;
-			$glyphOut.debugColor = SkinManager.debugColor;
-			$glyphHover.debugColor = SkinManager.debugColor;
-			$glyphFocus.debugColor = SkinManager.debugColor;
-			$labelOut.debugColor = SkinManager.debugColor;
-			$labelHover.debugColor = SkinManager.debugColor;
-			$labelFocus.debugColor = SkinManager.debugColor;
+			var dl:String = (debugLevel === null) ? SkinManager.debugLevel : debugLevel;
+
+			_button = new ScaleButton(skin.buttonSkin, {}, this, dl);
+			_glyphOut = new Image(skin.glyphsSkin.glyphOutSkin, {mouseEnabled:false, mouseChildren:false}, this, dl);
+			_glyphHover = new Image(skin.glyphsSkin.glyphHoverSkin, {alpha:0, mouseEnabled:false, mouseChildren:false}, this, dl);
+			_glyphFocus = new Image(skin.glyphsSkin.glyphFocusSkin, {alpha:0, mouseEnabled:false, mouseChildren:false}, this, dl);
+			_labelOut = new Label(skin.labelOutSkin, {mouseEnabled:false, mouseChildren:false}, '', this, dl);
+			_labelHover = new Label(skin.labelHoverSkin, {alpha:0, mouseEnabled:false, mouseChildren:false}, '', this, dl);
+			_labelFocus = new Label(skin.labelFocusSkin, {alpha:0, mouseEnabled:false, mouseChildren:false}, '', this, dl);
+			_button.debugColor = SkinManager.debugColor;
+			_glyphOut.debugColor = SkinManager.debugColor;
+			_glyphHover.debugColor = SkinManager.debugColor;
+			_glyphFocus.debugColor = SkinManager.debugColor;
+			_labelOut.debugColor = SkinManager.debugColor;
+			_labelHover.debugColor = SkinManager.debugColor;
+			_labelFocus.debugColor = SkinManager.debugColor;
 
 			this.skin = skin;
 			this.text = text;
 			this.focusRect = false;
 			this.tabEnabled = false;
 
-			$button.addEventListener(ButtonEvent.HOVER_IN_TWEEN, _onButtonHoverInTween, false, 0, true);
-			$button.addEventListener(ButtonEvent.HOVER_OUT_TWEEN, _onButtonHoverOutTween, false, 0, true);
-			$button.addEventListener(ButtonEvent.FOCUS_IN_TWEEN, _onButtonFocusInTween, false, 0, true);
-			$button.addEventListener(ButtonEvent.DRAG_CONFIRMED_TWEEN, _onButtonDragConfirmedTween, false, 0, true);
-			$button.addEventListener(ButtonEvent.RELEASED_INSIDE_TWEEN, _onButtonReleasedInsideTween, false, 0, true);
-			$button.addEventListener(ButtonEvent.RELEASED_OUTSIDE_TWEEN, _onButtonReleasedOutsideTween, false, 0, true);
+			_button.addEventListener(ButtonEvent.HOVER_IN_TWEEN, _onButtonHoverInTween, false, 0, true);
+			_button.addEventListener(ButtonEvent.HOVER_OUT_TWEEN, _onButtonHoverOutTween, false, 0, true);
+			_button.addEventListener(ButtonEvent.FOCUS_IN_TWEEN, _onButtonFocusInTween, false, 0, true);
+			_button.addEventListener(ButtonEvent.DRAG_CONFIRMED_TWEEN, _onButtonDragConfirmedTween, false, 0, true);
+			_button.addEventListener(ButtonEvent.RELEASED_INSIDE_TWEEN, _onButtonReleasedInsideTween, false, 0, true);
+			_button.addEventListener(ButtonEvent.RELEASED_OUTSIDE_TWEEN, _onButtonReleasedOutsideTween, false, 0, true);
 
-			if(config.width == undefined) {
-				config.width = skin.buttonSkin.assetWidth;
-			}
+			if(c.width === undefined) c.width = skin.buttonSkin.assetWidth;
+			if(c.height === undefined) c.height = skin.buttonSkin.assetHeight;
 
-			if(config.height == undefined) {
-				config.height = skin.buttonSkin.assetHeight;
-			}
+			if(skin === null) throw new Error('No skin defined');
+			else super(c, parent);
 
-			if(skin != null) {
-				super(config, parent);
-			}
-			else {
-				throw new Error('No skin defined');
-			}
-
-			$skin = skin;
+			_skin = skin;
 		}
 
 
 
 		public function destroy():void {
-			$button.removeEventListener(ButtonEvent.HOVER_IN_TWEEN, _onButtonHoverInTween);
-			$button.removeEventListener(ButtonEvent.HOVER_OUT_TWEEN, _onButtonHoverOutTween);
-			$button.removeEventListener(ButtonEvent.FOCUS_IN_TWEEN, _onButtonFocusInTween);
-			$button.removeEventListener(ButtonEvent.DRAG_CONFIRMED_TWEEN, _onButtonDragConfirmedTween);
-			$button.removeEventListener(ButtonEvent.RELEASED_INSIDE_TWEEN, _onButtonReleasedInsideTween);
-			$button.removeEventListener(ButtonEvent.RELEASED_OUTSIDE_TWEEN, _onButtonReleasedOutsideTween);
+			_button.removeEventListener(ButtonEvent.HOVER_IN_TWEEN, _onButtonHoverInTween);
+			_button.removeEventListener(ButtonEvent.HOVER_OUT_TWEEN, _onButtonHoverOutTween);
+			_button.removeEventListener(ButtonEvent.FOCUS_IN_TWEEN, _onButtonFocusInTween);
+			_button.removeEventListener(ButtonEvent.DRAG_CONFIRMED_TWEEN, _onButtonDragConfirmedTween);
+			_button.removeEventListener(ButtonEvent.RELEASED_INSIDE_TWEEN, _onButtonReleasedInsideTween);
+			_button.removeEventListener(ButtonEvent.RELEASED_OUTSIDE_TWEEN, _onButtonReleasedOutsideTween);
 
-			removeChildren(this, $button, $glyphOut, $glyphHover, $glyphFocus, $labelOut, $labelHover, $labelFocus);
+			removeChildren(this, _button, _glyphOut, _glyphHover, _glyphFocus, _labelOut, _labelHover, _labelFocus);
 
-			$button.destroy();
-			$glyphOut.destroy();
-			$glyphHover.destroy();
-			$glyphFocus.destroy();
-			$labelOut.destroy();
-			$labelHover.destroy();
-			$labelFocus.destroy();
+			_button.destroy();
+			_glyphOut.destroy();
+			_glyphHover.destroy();
+			_glyphFocus.destroy();
+			_labelOut.destroy();
+			_labelHover.destroy();
+			_labelFocus.destroy();
 		}
 
 
 
 		public function draw():void {
-			$button.draw();
-			$glyphOut.draw();
-			$glyphHover.draw();
-			$glyphFocus.draw();
-			$labelOut.draw();
-			$labelHover.draw();
-			$labelFocus.draw();
+			_button.draw();
+			_glyphOut.draw();
+			_glyphHover.draw();
+			_glyphFocus.draw();
+			_labelOut.draw();
+			_labelHover.draw();
+			_labelFocus.draw();
 		}
 
 
 
 		public function forceRelease():void {
-			$button.forceRelease();
+			_button.forceRelease();
 		}
 
 
@@ -154,25 +146,25 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		public function get skin():IGlyphLabelButtonSkin {
-			return $skin;
+			return _skin;
 		}
 
 
 
 		public function set skin(skin:IGlyphLabelButtonSkin):void {
-			$skin = skin;
+			_skin = skin;
 
-			$skin.labelOutSkin.hAlign = Align.LEFT;
-			$skin.labelHoverSkin.hAlign = Align.LEFT;
-			$skin.labelFocusSkin.hAlign = Align.LEFT;
+			_skin.labelOutSkin.hAlign = Align.LEFT;
+			_skin.labelHoverSkin.hAlign = Align.LEFT;
+			_skin.labelFocusSkin.hAlign = Align.LEFT;
 
-			$button.skin = $skin.buttonSkin;
-			$glyphOut.skin = $skin.glyphsSkin.glyphOutSkin;
-			$glyphHover.skin = $skin.glyphsSkin.glyphHoverSkin;
-			$glyphFocus.skin = $skin.glyphsSkin.glyphFocusSkin;
-			$labelOut.skin = $skin.labelOutSkin;
-			$labelHover.skin = $skin.labelHoverSkin;
-			$labelFocus.skin = $skin.labelFocusSkin;
+			_button.skin = _skin.buttonSkin;
+			_glyphOut.skin = _skin.glyphsSkin.glyphOutSkin;
+			_glyphHover.skin = _skin.glyphsSkin.glyphHoverSkin;
+			_glyphFocus.skin = _skin.glyphsSkin.glyphFocusSkin;
+			_labelOut.skin = _skin.labelOutSkin;
+			_labelHover.skin = _skin.labelHoverSkin;
+			_labelFocus.skin = _skin.labelFocusSkin;
 
 			draw();
 		}
@@ -180,29 +172,29 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		override public function get width():Number {
-			return $button.width;
+			return _button.width;
 		}
 
 
 
 		override public function set width(value:Number):void {
-			var outWidth:int = $glyphOut.width + $labelOut.width;
-			var hoverWidth:int = $glyphHover.width + $labelHover.width;
-			var focusWidth:int = $glyphFocus.width + $labelFocus.width;
+			var outWidth:int = _glyphOut.width + _labelOut.width;
+			var hoverWidth:int = _glyphHover.width + _labelHover.width;
+			var focusWidth:int = _glyphFocus.width + _labelFocus.width;
 			var maxWidth:int = Math.max(outWidth, hoverWidth, focusWidth);
 
-			$button.width = value;
-			$glyphOut.x = Math.round((value - maxWidth) / 2);
-			$glyphHover.x = Math.round((value - maxWidth) / 2);
-			$glyphFocus.x = Math.round((value - maxWidth) / 2);
-			$labelOut.x = $glyphOut.x + $glyphOut.width;
-			$labelHover.x = $glyphHover.x + $glyphHover.width;
-			$labelFocus.x = $glyphFocus.x + $glyphFocus.width;
+			_button.width = value;
+			_glyphOut.x = Math.round((value - maxWidth) / 2);
+			_glyphHover.x = Math.round((value - maxWidth) / 2);
+			_glyphFocus.x = Math.round((value - maxWidth) / 2);
+			_labelOut.x = _glyphOut.x + _glyphOut.width;
+			_labelHover.x = _glyphHover.x + _glyphHover.width;
+			_labelFocus.x = _glyphFocus.x + _glyphFocus.width;
 
 			// TODO: This is somewhat hack, fix it
-			$labelOut.width += 5;
-			$labelFocus.width += 5;
-			$labelHover.width += 5;
+			_labelOut.width += 5;
+			_labelFocus.width += 5;
+			_labelHover.width += 5;
 
 			draw();
 		}
@@ -210,19 +202,19 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		override public function get height():Number {
-			return $button.height;
+			return _button.height;
 		}
 
 
 
 		override public function set height(value:Number):void {
-			$button.height = value;
-			$glyphOut.y = Math.round((value - $glyphOut.height) / 2);
-			$glyphHover.y = Math.round((value - $glyphHover.height) / 2);
-			$glyphFocus.y = Math.round((value - $glyphFocus.height) / 2);
-			$labelOut.y = Math.round((value - $labelOut.height) / 2);
-			$labelHover.y = Math.round((value - $labelHover.height) / 2);
-			$labelFocus.y = Math.round((value - $labelFocus.height) / 2);
+			_button.height = value;
+			_glyphOut.y = Math.round((value - _glyphOut.height) / 2);
+			_glyphHover.y = Math.round((value - _glyphHover.height) / 2);
+			_glyphFocus.y = Math.round((value - _glyphFocus.height) / 2);
+			_labelOut.y = Math.round((value - _labelOut.height) / 2);
+			_labelHover.y = Math.round((value - _labelHover.height) / 2);
+			_labelFocus.y = Math.round((value - _labelFocus.height) / 2);
 
 			draw();
 		}
@@ -230,7 +222,7 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		public function set areEventsEnabled(value:Boolean):void {
-			$button.areEventsEnabled = value;
+			_button.areEventsEnabled = value;
 			this.buttonMode = value;
 			this.useHandCursor = value;
 
@@ -240,19 +232,19 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		public function get areEventsEnabled():Boolean {
-			return $button.areEventsEnabled;
+			return _button.areEventsEnabled;
 		}
 
 
 
 		public function get mouseStatus():String {
-			return $button.mouseStatus;
+			return _button.mouseStatus;
 		}
 
 
 
 		public function set mouseStatus(value:String):void {
-			$button.mouseStatus = value;
+			_button.mouseStatus = value;
 		}
 
 
@@ -265,58 +257,54 @@ package org.vancura.vaclav.widgets.widgets {
 
 		public function set debugLevel(value:String):void {
 			_debugLevel = value;
-			$button.debugLevel = value;
-			$glyphOut.debugLevel = value;
-			$glyphHover.debugLevel = value;
-			$glyphFocus.debugLevel = value;
+			_button.debugLevel = value;
+			_glyphOut.debugLevel = value;
+			_glyphHover.debugLevel = value;
+			_glyphFocus.debugLevel = value;
 		}
 
 
 
 		public function get glyph():IImage {
-			if($button.mouseStatus == MouseStatus.OUT) {
-				return $glyphOut;
-			}
-			if($button.mouseStatus == MouseStatus.HOVER) {
-				return $glyphHover;
-			}
-			if($button.mouseStatus == MouseStatus.FOCUS) {
-				return $glyphFocus;
-			}
+			var out:IImage;
 
-			return null;
+			if(_button.mouseStatus == MouseStatus.OUT) out = _glyphOut;
+			if(_button.mouseStatus == MouseStatus.HOVER) out = _glyphHover;
+			if(_button.mouseStatus == MouseStatus.FOCUS) out = _glyphFocus;
+
+			return out;
 		}
 
 
 
 		public function get glyphOut():IImage {
-			return $glyphOut;
+			return _glyphOut;
 		}
 
 
 
 		public function get glyphHover():IImage {
-			return $glyphHover;
+			return _glyphHover;
 		}
 
 
 
 		public function get glyphFocus():IImage {
-			return $glyphFocus;
+			return _glyphFocus;
 		}
 
 
 
 		public function get text():String {
-			return $labelOut.text;
+			return _labelOut.text;
 		}
 
 
 
 		public function set text(value:String):void {
-			$labelOut.text = value;
-			$labelHover.text = value;
-			$labelFocus.text = value;
+			_labelOut.text = value;
+			_labelHover.text = value;
+			_labelFocus.text = value;
 
 			draw();
 		}
@@ -324,107 +312,169 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		public function get label():ILabel {
-			if($button.mouseStatus == MouseStatus.OUT) {
-				return $labelOut;
-			}
-			if($button.mouseStatus == MouseStatus.HOVER) {
-				return $labelHover;
-			}
-			if($button.mouseStatus == MouseStatus.FOCUS) {
-				return $labelFocus;
-			}
+			var out:ILabel;
 
-			return null;
+			if(_button.mouseStatus == MouseStatus.OUT) out = _labelOut;
+			if(_button.mouseStatus == MouseStatus.HOVER) out = _labelHover;
+			if(_button.mouseStatus == MouseStatus.FOCUS) out = _labelFocus;
+
+			return out;
 		}
 
 
 
 		public function get labelOut():ILabel {
-			return $labelOut;
+			return _labelOut;
 		}
 
 
 
 		public function get labelHover():ILabel {
-			return $labelHover;
+			return _labelHover;
 		}
 
 
 
 		public function get labelFocus():ILabel {
-			return $labelFocus;
+			return _labelFocus;
 		}
 
 
 
 		public function get button():IButton {
-			return $button;
+			return _button;
 		}
 
 
 
 		private function _onButtonHoverInTween(event:ButtonEvent):void {
-			new TweenMax($glyphOut, $skin.buttonSkin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
-			new TweenMax($glyphHover, $skin.buttonSkin.hoverInDuration, {alpha:1, ease:Sine.easeOut});
-			new TweenMax($glyphFocus, $skin.buttonSkin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
-			new TweenMax($labelOut, $skin.buttonSkin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
-			new TweenMax($labelHover, $skin.buttonSkin.hoverInDuration, {alpha:1, ease:Sine.easeOut});
-			new TweenMax($labelFocus, $skin.buttonSkin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_glyphOut, _skin.buttonSkin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_glyphHover, _skin.buttonSkin.hoverInDuration, {alpha:1, ease:Sine.easeOut});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_glyphFocus, _skin.buttonSkin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_labelOut, _skin.buttonSkin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_labelHover, _skin.buttonSkin.hoverInDuration, {alpha:1, ease:Sine.easeOut});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_labelFocus, _skin.buttonSkin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
 		}
 
 
 
 		private function _onButtonHoverOutTween(event:ButtonEvent):void {
-			new TweenMax($glyphOut, $skin.buttonSkin.hoverOutDuration, {alpha:1, ease:Sine.easeOut});
-			new TweenMax($glyphHover, $skin.buttonSkin.hoverOutDuration, {alpha:0, ease:Sine.easeIn});
-			new TweenMax($glyphFocus, $skin.buttonSkin.hoverOutDuration, {alpha:0, ease:Sine.easeIn});
-			new TweenMax($labelOut, $skin.buttonSkin.hoverOutDuration, {alpha:1, ease:Sine.easeOut});
-			new TweenMax($labelHover, $skin.buttonSkin.hoverOutDuration, {alpha:0, ease:Sine.easeIn});
-			new TweenMax($labelFocus, $skin.buttonSkin.hoverOutDuration, {alpha:0, ease:Sine.easeIn});
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_glyphOut, _skin.buttonSkin.hoverOutDuration, {alpha:1, ease:Sine.easeOut});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_glyphHover, _skin.buttonSkin.hoverOutDuration, {alpha:0, ease:Sine.easeIn});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_glyphFocus, _skin.buttonSkin.hoverOutDuration, {alpha:0, ease:Sine.easeIn});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_labelOut, _skin.buttonSkin.hoverOutDuration, {alpha:1, ease:Sine.easeOut});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_labelHover, _skin.buttonSkin.hoverOutDuration, {alpha:0, ease:Sine.easeIn});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_labelFocus, _skin.buttonSkin.hoverOutDuration, {alpha:0, ease:Sine.easeIn});
 		}
 
 
 
 		private function _onButtonFocusInTween(event:ButtonEvent):void {
-			new TweenMax($glyphOut, $skin.buttonSkin.focusInDuration, {alpha:0, ease:Sine.easeIn});
-			new TweenMax($glyphHover, $skin.buttonSkin.focusInDuration, {alpha:0, ease:Sine.easeIn});
-			new TweenMax($glyphFocus, $skin.buttonSkin.focusInDuration, {alpha:1, ease:Sine.easeOut});
-			new TweenMax($labelOut, $skin.buttonSkin.focusInDuration, {alpha:0, ease:Sine.easeIn});
-			new TweenMax($labelHover, $skin.buttonSkin.focusInDuration, {alpha:0, ease:Sine.easeIn});
-			new TweenMax($labelFocus, $skin.buttonSkin.focusInDuration, {alpha:1, ease:Sine.easeOut});
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_glyphOut, _skin.buttonSkin.focusInDuration, {alpha:0, ease:Sine.easeIn});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_glyphHover, _skin.buttonSkin.focusInDuration, {alpha:0, ease:Sine.easeIn});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_glyphFocus, _skin.buttonSkin.focusInDuration, {alpha:1, ease:Sine.easeOut});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_labelOut, _skin.buttonSkin.focusInDuration, {alpha:0, ease:Sine.easeIn});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_labelHover, _skin.buttonSkin.focusInDuration, {alpha:0, ease:Sine.easeIn});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_labelFocus, _skin.buttonSkin.focusInDuration, {alpha:1, ease:Sine.easeOut});
 		}
 
 
 
 		private function _onButtonDragConfirmedTween(event:ButtonEvent):void {
-			new TweenMax($glyphOut, $skin.buttonSkin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
-			new TweenMax($glyphHover, $skin.buttonSkin.hoverInDuration, {alpha:1, ease:Sine.easeOut});
-			new TweenMax($glyphFocus, $skin.buttonSkin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
-			new TweenMax($labelOut, $skin.buttonSkin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
-			new TweenMax($labelHover, $skin.buttonSkin.hoverInDuration, {alpha:1, ease:Sine.easeOut});
-			new TweenMax($labelFocus, $skin.buttonSkin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_glyphOut, _skin.buttonSkin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_glyphHover, _skin.buttonSkin.hoverInDuration, {alpha:1, ease:Sine.easeOut});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_glyphFocus, _skin.buttonSkin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_labelOut, _skin.buttonSkin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_labelHover, _skin.buttonSkin.hoverInDuration, {alpha:1, ease:Sine.easeOut});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_labelFocus, _skin.buttonSkin.hoverInDuration, {alpha:0, ease:Sine.easeIn});
 		}
 
 
 
 		private function _onButtonReleasedInsideTween(event:ButtonEvent):void {
-			new TweenMax($glyphOut, $skin.buttonSkin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
-			new TweenMax($glyphHover, $skin.buttonSkin.focusOutDuration, {alpha:1, ease:Sine.easeOut});
-			new TweenMax($glyphFocus, $skin.buttonSkin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
-			new TweenMax($labelOut, $skin.buttonSkin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
-			new TweenMax($labelHover, $skin.buttonSkin.focusOutDuration, {alpha:1, ease:Sine.easeOut});
-			new TweenMax($labelFocus, $skin.buttonSkin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_glyphOut, _skin.buttonSkin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_glyphHover, _skin.buttonSkin.focusOutDuration, {alpha:1, ease:Sine.easeOut});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_glyphFocus, _skin.buttonSkin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_labelOut, _skin.buttonSkin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_labelHover, _skin.buttonSkin.focusOutDuration, {alpha:1, ease:Sine.easeOut});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_labelFocus, _skin.buttonSkin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
 		}
 
 
 
 		private function _onButtonReleasedOutsideTween(event:ButtonEvent):void {
-			new TweenMax($glyphOut, $skin.buttonSkin.focusOutDuration, {alpha:1, ease:Sine.easeOut});
-			new TweenMax($glyphHover, $skin.buttonSkin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
-			new TweenMax($glyphFocus, $skin.buttonSkin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
-			new TweenMax($labelOut, $skin.buttonSkin.focusOutDuration, {alpha:1, ease:Sine.easeOut});
-			new TweenMax($labelHover, $skin.buttonSkin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
-			new TweenMax($labelFocus, $skin.buttonSkin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_glyphOut, _skin.buttonSkin.focusOutDuration, {alpha:1, ease:Sine.easeOut});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_glyphHover, _skin.buttonSkin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_glyphFocus, _skin.buttonSkin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_labelOut, _skin.buttonSkin.focusOutDuration, {alpha:1, ease:Sine.easeOut});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_labelHover, _skin.buttonSkin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
+
+			//noinspection ObjectAllocationIgnored
+			new TweenMax(_labelFocus, _skin.buttonSkin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
 		}
 	}
 }

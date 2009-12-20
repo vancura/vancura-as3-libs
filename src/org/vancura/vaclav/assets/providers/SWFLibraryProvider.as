@@ -24,6 +24,8 @@
  */
 
 package org.vancura.vaclav.assets.providers {
+	import br.com.stimuli.string.printf;
+
 	import flash.display.Loader;
 	import flash.display.LoaderInfo;
 	import flash.display.MovieClip;
@@ -36,13 +38,6 @@ package org.vancura.vaclav.assets.providers {
 	import flash.net.URLRequest;
 	import flash.system.LoaderContext;
 
-	/**
-	 * Class: SWFLibraryProvider
-	 *
-	 * SWFLibrary Asset provider.
-	 *
-	 * Author: Vaclav Vancura <http://vaclav.vancura.org>
-	 */
 	public class SWFLibraryProvider extends AssetProvider {
 
 
@@ -57,6 +52,7 @@ package org.vancura.vaclav.assets.providers {
 
 		/**
 		 * SWFLibrary Asset provider constructor.
+		 *
 		 * @param url SWF URL
 		 */
 		public function SWFLibraryProvider(url:String):void {
@@ -78,7 +74,8 @@ package org.vancura.vaclav.assets.providers {
 			_swfLoader.contentLoaderInfo.addEventListener(Event.INIT, _onSWFLoaderInit, false, 0, true);
 
 			// load
-			_urlLoader.load(new URLRequest(url));
+			var ur:URLRequest = new URLRequest(url);
+			_urlLoader.load(ur);
 		}
 
 
@@ -139,9 +136,7 @@ package org.vancura.vaclav.assets.providers {
 
 
 		private function _onURLLoaderComplete(event:Event):void {
-			if(_isError) {
-				return;
-			}
+			if(_isError) return;
 
 			var lc:LoaderContext = new LoaderContext(false, null);
 
@@ -164,9 +159,7 @@ package org.vancura.vaclav.assets.providers {
 
 
 		private function _onSWFLoaderInit(event:Event):void {
-			if(_isError) {
-				return;
-			}
+			if(_isError) return;
 
 			// remove event listeners
 			_urlLoader.removeEventListener(Event.COMPLETE, _onURLLoaderComplete);
@@ -179,12 +172,8 @@ package org.vancura.vaclav.assets.providers {
 
 			// get skin loaderInfo.
 			// used to get assets from skin asset library.
-			if(_skinMC.loaderInfo == null) {
-				throw new Error('Could not get skin loaderInfo (skin asset library)');
-			}
-			else {
-				_loaderInfo = _skinMC.loaderInfo;
-			}
+			if(_skinMC.loaderInfo === null) throw new Error('Could not get skin loaderInfo (skin asset library)');
+			else _loaderInfo = _skinMC.loaderInfo;
 
 			// get config
 			var skinConfig:Object;
@@ -192,7 +181,8 @@ package org.vancura.vaclav.assets.providers {
 				skinConfig = _skinMC.getSkinConfig();
 			}
 			catch(err:Error) {
-				throw new Error('Could not get skin config. Usually it means there was a compile error while publishing skin SWF. Go check it out into Compiler Errors panel in Flash.');
+				var message:String = printf('Could not get skin config. Usually it means there was a compile error while publishing skin SWF. Go check it out into Compiler Errors panel in Flash.', err);
+				throw new Error(message);
 			}
 
 			// get skins from the $skinConfig

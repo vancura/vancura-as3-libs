@@ -28,16 +28,16 @@ package org.vancura.vaclav.widgets.skin {
 	public class InputBarSkin extends Skin implements IInputBarSkin {
 
 
-		protected var $barSkin:IBarSkin;
-		protected var $labelSkin:ILabelSkin;
+		protected var _barSkin:IBarSkin;
+		protected var _labelSkin:ILabelSkin;
 
 
 
 		public function InputBarSkin(id:String = null) {
 			super(SkinType.INPUT_BAR, id);
 
-			$barSkin = new BarSkin(id + '#bar');
-			$labelSkin = new LabelSkin(id + '#label');
+			_barSkin = new BarSkin(id + '#bar');
+			_labelSkin = new LabelSkin(id + '#label');
 		}
 
 
@@ -45,13 +45,8 @@ package org.vancura.vaclav.widgets.skin {
 		override public function parseConfig(source:Object):void {
 			super.parseConfig(source);
 
-			if(source.bar != undefined) {
-				$barSkin.parseConfig(source.bar);
-			}
-
-			if(source.label != undefined) {
-				$labelSkin.parseConfig(source.label);
-			}
+			if(source.bar !== undefined) _barSkin.parseConfig(source.bar);
+			if(source.label !== undefined) _labelSkin.parseConfig(source.label);
 		}
 
 
@@ -59,32 +54,32 @@ package org.vancura.vaclav.widgets.skin {
 		override public function revertConfig():void {
 			super.revertConfig();
 
-			$barSkin.revertConfig();
-			$labelSkin.revertConfig();
+			_barSkin.revertConfig();
+			_labelSkin.revertConfig();
 		}
 
 
 
 		public function get barSkin():IBarSkin {
-			return $barSkin;
+			return _barSkin;
 		}
 
 
 
 		public function set barSkin(source:IBarSkin):void {
-			$barSkin = source;
+			_barSkin = source;
 		}
 
 
 
 		public function get labelSkin():ILabelSkin {
-			return $labelSkin;
+			return _labelSkin;
 		}
 
 
 
 		public function set labelSkin(source:ILabelSkin):void {
-			$labelSkin = source;
+			_labelSkin = source;
 		}
 	}
 }

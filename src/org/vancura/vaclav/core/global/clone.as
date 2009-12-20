@@ -22,20 +22,12 @@
 package org.vancura.vaclav.core.global {
 	import flash.utils.ByteArray;
 
-	/*
-	 *	Method: clone
+	/**
+	 * Clone an Object.
 	 *
-	 *	Clone an Object.
-	 *
-	 *	Author: Vaclav Vancura <http://vaclav.vancura.org>
-	 *
-	 *	Parameters:
-	 *
-	 *		source		- Source Object
-	 *
-	 *	Returns:
-	 *
-	 *		Cloned Object
+	 * @param source Source Object
+	 * @return Cloned Object
+	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
 	public function clone(source:*):Object {
 		var copier:ByteArray = new ByteArray();

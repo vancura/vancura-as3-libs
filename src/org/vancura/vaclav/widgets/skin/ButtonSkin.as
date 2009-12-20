@@ -30,14 +30,14 @@ package org.vancura.vaclav.widgets.skin {
 	public class ButtonSkin extends Skin implements IButtonSkin {
 
 
-		protected var $hoverInDuration:Number;
-		protected var $hoverOutDuration:Number;
-		protected var $focusInDuration:Number;
-		protected var $focusOutDuration:Number;
-		protected var $guideBD:BitmapData;
-		protected var $outBD:BitmapData;
-		protected var $hoverBD:BitmapData;
-		protected var $focusBD:BitmapData;
+		protected var _hoverInDuration:Number;
+		protected var _hoverOutDuration:Number;
+		protected var _focusInDuration:Number;
+		protected var _focusOutDuration:Number;
+		protected var _guideBD:BitmapData;
+		protected var _outBD:BitmapData;
+		protected var _hoverBD:BitmapData;
+		protected var _focusBD:BitmapData;
 
 		private var _oldHoverInDuration:Number;
 		private var _oldHoverOutDuration:Number;
@@ -49,69 +49,57 @@ package org.vancura.vaclav.widgets.skin {
 		public function ButtonSkin(id:String = null) {
 			super(SkinType.BUTTON, id);
 
-			$hoverInDuration = 0;
-			$hoverOutDuration = 0.15;
-			$focusInDuration = 0;
-			$focusOutDuration = 0.1;
+			_hoverInDuration = 0;
+			_hoverOutDuration = 0.15;
+			_focusInDuration = 0;
+			_focusOutDuration = 0.1;
 
-			$guideBD = new BitmapData(1, 1, true, 0x00000000);
-			$outBD = new BitmapData(1, 1, true, 0x00000000);
-			$hoverBD = new BitmapData(1, 1, true, 0x00000000);
-			$focusBD = new BitmapData(1, 1, true, 0x00000000);
+			_guideBD = new BitmapData(1, 1, true, 0x00000000);
+			_outBD = new BitmapData(1, 1, true, 0x00000000);
+			_hoverBD = new BitmapData(1, 1, true, 0x00000000);
+			_focusBD = new BitmapData(1, 1, true, 0x00000000);
 		}
 
 
 
 		public function getAssetsFromAtlas(source:BitmapData):void {
-			if(source.width % 4 != 0) {
-				throw new Error('Width has to be multiple of 4');
-			}
+			if(source.width % 4 !== 0) throw new Error('Width has to be multiple of 4');
 
-			$assetWidth = source.width / 4;
-			$assetHeight = source.height;
+			_assetWidth = source.width / 4;
+			_assetHeight = source.height;
 
-			$guideBD = BitmapUtil.crop(source, 0, 0, $assetWidth, $assetHeight);
-			$outBD = BitmapUtil.crop(source, $assetWidth, 0, $assetWidth, $assetHeight);
-			$hoverBD = BitmapUtil.crop(source, $assetWidth * 2, 0, $assetWidth, $assetHeight);
-			$focusBD = BitmapUtil.crop(source, $assetWidth * 3, 0, $assetWidth, $assetHeight);
+			_guideBD = BitmapUtil.crop(source, 0, 0, _assetWidth, _assetHeight);
+			_outBD = BitmapUtil.crop(source, _assetWidth, 0, _assetWidth, _assetHeight);
+			_hoverBD = BitmapUtil.crop(source, _assetWidth * 2, 0, _assetWidth, _assetHeight);
+			_focusBD = BitmapUtil.crop(source, _assetWidth * 3, 0, _assetWidth, _assetHeight);
 		}
 
 
 
 		public function getAssetsFromMovieClip(source:MovieClip, elements:Array = null, ... labels:Array):void {
-			$getSkinSize(source, (labels[3] == undefined || labels[3] == '') ? 'guide' : labels[3]);
+			_getSkinSize(source, (labels[3] === undefined || labels[3] === '') ? 'guide' : labels[3]);
 
-			$outBD = $getSkinFrame(source, elements, (labels[0] == undefined || labels[0] == '') ? 'out' : labels[0]);
-			$hoverBD = $getSkinFrame(source, elements, (labels[1] == undefined || labels[1] == '') ? 'hover' : labels[1]);
-			$focusBD = $getSkinFrame(source, elements, (labels[2] == undefined || labels[2] == '') ? 'focus' : labels[2]);
-			$guideBD = $getSkinFrame(source, elements, (labels[3] == undefined || labels[3] == '') ? 'guide' : labels[3]);
+			_outBD = _getSkinFrame(source, elements, (labels[0] === undefined || labels[0] === '') ? 'out' : labels[0]);
+			_hoverBD = _getSkinFrame(source, elements, (labels[1] === undefined || labels[1] === '') ? 'hover' : labels[1]);
+			_focusBD = _getSkinFrame(source, elements, (labels[2] === undefined || labels[2] === '') ? 'focus' : labels[2]);
+			_guideBD = _getSkinFrame(source, elements, (labels[3] === undefined || labels[3] === '') ? 'guide' : labels[3]);
 		}
 
 
 
+		//noinspection FunctionWithMoreThanThreeNegationsJS
 		override public function parseConfig(source:Object):void {
 			super.parseConfig(source);
 
-			_oldHoverInDuration = $hoverInDuration;
-			_oldHoverOutDuration = $hoverOutDuration;
-			_oldFocusInDuration = $focusInDuration;
-			_oldFocusOutDuration = $focusOutDuration;
+			_oldHoverInDuration = _hoverInDuration;
+			_oldHoverOutDuration = _hoverOutDuration;
+			_oldFocusInDuration = _focusInDuration;
+			_oldFocusOutDuration = _focusOutDuration;
 
-			if(source.hoverInDuration != undefined) {
-				$hoverInDuration = source.hoverInDuration;
-			}
-
-			if(source.hoverOutDuration != undefined) {
-				$hoverOutDuration = source.hoverOutDuration;
-			}
-
-			if(source.pressInDuration != undefined) {
-				$focusInDuration = source.pressInDuration;
-			}
-
-			if(source.pressOutDuration != undefined) {
-				$focusOutDuration = source.pressOutDuration;
-			}
+			if(source.hoverInDuration !== undefined) _hoverInDuration = source.hoverInDuration;
+			if(source.hoverOutDuration !== undefined) _hoverOutDuration = source.hoverOutDuration;
+			if(source.pressInDuration !== undefined) _focusInDuration = source.pressInDuration;
+			if(source.pressOutDuration !== undefined) _focusOutDuration = source.pressOutDuration;
 		}
 
 
@@ -119,110 +107,110 @@ package org.vancura.vaclav.widgets.skin {
 		override public function revertConfig():void {
 			super.revertConfig();
 
-			$hoverInDuration = _oldHoverInDuration;
-			$hoverOutDuration = _oldHoverOutDuration;
-			$focusInDuration = _oldFocusInDuration;
-			$focusOutDuration = _oldFocusOutDuration;
+			_hoverInDuration = _oldHoverInDuration;
+			_hoverOutDuration = _oldHoverOutDuration;
+			_focusInDuration = _oldFocusInDuration;
+			_focusOutDuration = _oldFocusOutDuration;
 		}
 
 
 
 		public function set hoverInDuration(value:Number):void {
-			$hoverInDuration = value;
+			_hoverInDuration = value;
 		}
 
 
 
 		public function get hoverInDuration():Number {
-			return $hoverInDuration;
+			return _hoverInDuration;
 		}
 
 
 
 		public function set hoverOutDuration(value:Number):void {
-			$hoverOutDuration = value;
+			_hoverOutDuration = value;
 		}
 
 
 
 		public function get hoverOutDuration():Number {
-			return $hoverOutDuration;
+			return _hoverOutDuration;
 		}
 
 
 
 		public function set focusInDuration(value:Number):void {
-			$focusInDuration = value;
+			_focusInDuration = value;
 		}
 
 
 
 		public function get focusInDuration():Number {
-			return $focusInDuration;
+			return _focusInDuration;
 		}
 
 
 
 		public function set focusOutDuration(value:Number):void {
-			$focusOutDuration = value;
+			_focusOutDuration = value;
 		}
 
 
 
 		public function get focusOutDuration():Number {
-			return $focusOutDuration;
+			return _focusOutDuration;
 		}
 
 
 
 		public function set outBD(source:BitmapData):void {
-			$checkSize(source);
-			$outBD = source;
+			_checkSize(source);
+			_outBD = source;
 		}
 
 
 
 		public function get outBD():BitmapData {
-			return $outBD;
+			return _outBD;
 		}
 
 
 
 		public function set hoverBD(source:BitmapData):void {
-			$checkSize(source);
-			$hoverBD = source;
+			_checkSize(source);
+			_hoverBD = source;
 		}
 
 
 
 		public function get hoverBD():BitmapData {
-			return $hoverBD;
+			return _hoverBD;
 		}
 
 
 
 		public function set focusBD(source:BitmapData):void {
-			$checkSize(source);
-			$focusBD = source;
+			_checkSize(source);
+			_focusBD = source;
 		}
 
 
 
 		public function get focusBD():BitmapData {
-			return $focusBD;
+			return _focusBD;
 		}
 
 
 
 		public function set guideBD(source:BitmapData):void {
-			$checkSize(source);
-			$guideBD = source;
+			_checkSize(source);
+			_guideBD = source;
 		}
 
 
 
 		public function get guideBD():BitmapData {
-			return $guideBD;
+			return _guideBD;
 		}
 	}
 }

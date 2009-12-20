@@ -35,15 +35,13 @@ package org.vancura.vaclav.core.utils {
 	import org.vancura.vaclav.core.display.QTextField;
 	import org.vancura.vaclav.core.global.removeChildren;
 
-	/*
-	 * Class: FPS
-	 *
+	/**
 	 * FPS and memory meter.
-	 * Based on work by Pierluigi Pesenti http://blog.oaxoa.com.
+	 * Based on work by Pierluigi Pesenti (http://blog.oaxoa.com)
 	 * Feel free to use or redistribute but please leave this credits.
 	 *
-	 * - Author: Pierluigi Pesenti <http://blog.oaxoa.com>
-	 * - Author: Vaclav Vancura <http://vaclav.vancura.org>
+	 * @author Pierluigi Pesenti (http://blog.oaxoa.com)
+	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
 	public class FPS extends Sprite {
 
@@ -60,16 +58,13 @@ package org.vancura.vaclav.core.utils {
 		private var _backSpr:QSprite;
 
 
-		/*
-		 * Constructor: FPS
+
+		/**
+		 * Constructor.
 		 *
-		 * FPS constructor.
-		 *
-		 * Parameters:
-		 *
-		 * 		tf		- Label TextFormat
-		 * 		bc		- Background color (default 0x000000)
-		 * 		gc		- Graph color (default 0xFF0000)
+		 * @param tf Label TextFormat
+		 * @param bc Background color (default 0x000000)
+		 * @param gc Graph color (default 0xFF0000)
 		 */
 		public function FPS(tf:TextFormat, bc:uint = 0x808080, gc:uint = 0xFFFFFF) {
 			_backSpr = new QSprite({}, this);
@@ -96,9 +91,7 @@ package org.vancura.vaclav.core.utils {
 
 
 
-		/*
-		 * Destructor: destroy
-		 *
+		/**
 		 * Destructor.
 		 */
 		public function destroy():void {
@@ -115,14 +108,10 @@ package org.vancura.vaclav.core.utils {
 
 
 
-		/*
-		 * Method: computeTime
-		 *
+		/**
 		 * Compute and return current time.
 		 *
-		 * Returns:
-		 *
-		 * 		Current time
+		 * @return Current time
 		 */
 		public function computeTime():Number {
 			var retValue:uint = _c;
@@ -132,14 +121,10 @@ package org.vancura.vaclav.core.utils {
 
 
 
-		/*
-		 * Method: updateGraph
-		 *
+		/**
 		 * Force update graph.
 		 *
-		 * Parameters:
-		 *
-		 * 		n	- Current time
+		 * @param n Current time
 		 */
 		public function updateGraph(n:Number):void {
 			if(_graphCounter > _GRAPH_WIDTH) {
@@ -149,6 +134,10 @@ package org.vancura.vaclav.core.utils {
 			_graphScrollSpr.graphics.lineTo(_graphCounter, 1 + (stage.frameRate - n) / 3);
 		}
 
+
+
+		// Private methods
+		// ---------------
 
 
 		private function _onTimer(event:TimerEvent):void {

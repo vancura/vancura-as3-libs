@@ -32,11 +32,9 @@ package org.vancura.vaclav.far {
 	import org.vanrijkom.far.FarStream;
 
 	/**
-	 * Class: FarHelper
-	 *
 	 * FAR Helper class.
 	 *
-	 * Author: Vaclav Vancura <http://vaclav.vancura.org>
+	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
 	public class FarHelper extends EventDispatcher {
 
@@ -50,7 +48,7 @@ package org.vancura.vaclav.far {
 
 
 		/**
-		 * FAR Helper constructor.
+		 * Constructor.
 		 */
 		public function FarHelper() {
 			// create new stream
@@ -67,7 +65,7 @@ package org.vancura.vaclav.far {
 
 
 		/**
-		 * FAR Helper destructor.
+		 * Destructor.
 		 */
 		public function destroy():void {
 			// unload if loading
@@ -83,6 +81,7 @@ package org.vancura.vaclav.far {
 
 		/**
 		 * Load a FAR.
+		 *
 		 * @param url FAR url
 		 */
 		public function load(url:String):void {
@@ -123,6 +122,7 @@ package org.vancura.vaclav.far {
 
 		/**
 		 * Load item by its index name.
+		 *
 		 * @param index Index name
 		 */
 		public function loadItem(index:String):void {
@@ -155,6 +155,7 @@ package org.vancura.vaclav.far {
 
 		/**
 		 * Get the item by its index name.
+		 *
 		 * @param index Index name
 		 * @return Helper item
 		 * @see FarHelper
@@ -169,7 +170,8 @@ package org.vancura.vaclav.far {
 			}
 
 			// item not found
-			throw new Error(printf('Item "%s" not registered, use loadItem(index)', index));
+			var message:String = printf('Item "%s" not registered, use loadItem(index)', index);
+			throw new Error(message);
 		}
 
 
@@ -180,6 +182,7 @@ package org.vancura.vaclav.far {
 
 		/**
 		 * Get Stream pointer.
+		 *
 		 * @return Stream pointer
 		 */
 		public function get stream():FarStream {
@@ -190,6 +193,7 @@ package org.vancura.vaclav.far {
 
 		/**
 		 * Get loaded flag.
+		 *
 		 * @return Loaded flag
 		 */
 		public function get isLoaded():Boolean {
@@ -200,6 +204,7 @@ package org.vancura.vaclav.far {
 
 		/**
 		 * Get loading flag.
+		 *
 		 * @return Loading flag
 		 */
 		public function get isLoading():Boolean {
@@ -210,6 +215,7 @@ package org.vancura.vaclav.far {
 
 		/**
 		 * Get FAR URL.
+		 *
 		 * @return FAR URL
 		 */
 		public function get url():String {
@@ -226,8 +232,11 @@ package org.vancura.vaclav.far {
 			_isLoading = false;
 			_isLoaded = false;
 
-			dispatchEvent(new FarHelperEvent(FarHelperEvent.STREAM_SECURITY_ERROR, false, false, null, event.text));
-			dispatchEvent(event.clone());
+			var e1:FarHelperEvent = new FarHelperEvent(FarHelperEvent.STREAM_SECURITY_ERROR, false, false, null, event.text);
+			var e2:Event = event.clone();
+
+			dispatchEvent(e1);
+			dispatchEvent(e2);
 		}
 
 
@@ -236,8 +245,11 @@ package org.vancura.vaclav.far {
 			_isLoading = false;
 			_isLoaded = false;
 
-			dispatchEvent(new FarHelperEvent(FarHelperEvent.STREAM_IO_ERROR, false, false, null, event.text));
-			dispatchEvent(event.clone());
+			var e1:FarHelperEvent = new FarHelperEvent(FarHelperEvent.STREAM_IO_ERROR, false, false, null, event.text);
+			var e2:Event = event.clone();
+
+			dispatchEvent(e1);
+			dispatchEvent(e2);
 		}
 
 
@@ -246,25 +258,30 @@ package org.vancura.vaclav.far {
 			_isLoading = false;
 			_isLoaded = true;
 
-			dispatchEvent(new FarHelperEvent(FarHelperEvent.STREAM_DOWNLOAD_DONE, false, false));
+			var e:FarHelperEvent = new FarHelperEvent(FarHelperEvent.STREAM_DOWNLOAD_DONE, false, false);
+
+			dispatchEvent(e);
 		}
 
 
 
 		private function _onItemLoadIOError(event:FarHelperEvent):void {
-			dispatchEvent(event.clone());
+			var e:Event = event.clone();
+			dispatchEvent(e);
 		}
 
 
 
 		private function _onItemLoadProgress(event:FarHelperProgressEvent):void {
-			dispatchEvent(event.clone());
+			var e:Event = event.clone();
+			dispatchEvent(e);
 		}
 
 
 
 		private function _onItemLoadComplete(event:FarHelperEvent):void {
-			dispatchEvent(event.clone());
+			var e:Event = event.clone();
+			dispatchEvent(e);
 		}
 	}
 }

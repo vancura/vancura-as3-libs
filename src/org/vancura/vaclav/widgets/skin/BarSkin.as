@@ -30,12 +30,12 @@ package org.vancura.vaclav.widgets.skin {
 	public class BarSkin extends Skin implements IBarSkin {
 
 
-		protected var $paddingTop:Number;
-		protected var $paddingBottom:Number;
-		protected var $paddingLeft:Number;
-		protected var $paddingRight:Number;
-		protected var $guideBD:BitmapData;
-		protected var $backBD:BitmapData;
+		protected var _paddingTop:Number;
+		protected var _paddingBottom:Number;
+		protected var _paddingLeft:Number;
+		protected var _paddingRight:Number;
+		protected var _guideBD:BitmapData;
+		protected var _backBD:BitmapData;
 
 		private var _oldPaddingTop:Number;
 		private var _oldPaddingBottom:Number;
@@ -47,63 +47,51 @@ package org.vancura.vaclav.widgets.skin {
 		public function BarSkin(id:String = null) {
 			super(SkinType.BAR, id);
 
-			$paddingTop = 0;
-			$paddingBottom = 0;
-			$paddingLeft = 0;
-			$paddingRight = 0;
+			_paddingTop = 0;
+			_paddingBottom = 0;
+			_paddingLeft = 0;
+			_paddingRight = 0;
 
-			$guideBD = new BitmapData(1, 1, true, 0x00000000);
-			$backBD = new BitmapData(1, 1, true, 0x00000000);
+			_guideBD = new BitmapData(1, 1, true, 0x00000000);
+			_backBD = new BitmapData(1, 1, true, 0x00000000);
 		}
 
 
 
 		public function getAssetsFromAtlas(source:BitmapData):void {
-			if(source.width % 2 != 0) {
-				throw new Error('Width has to be multiple of 2');
-			}
+			if(source.width % 2 !== 0) throw new Error('Width has to be multiple of 2');
 
-			$assetWidth = source.width / 2;
-			$assetHeight = source.height;
+			_assetWidth = source.width / 2;
+			_assetHeight = source.height;
 
-			$guideBD = BitmapUtil.crop(source, 0, 0, $assetWidth, $assetHeight);
-			$backBD = BitmapUtil.crop(source, $assetWidth, 0, $assetWidth, $assetHeight);
+			_guideBD = BitmapUtil.crop(source, 0, 0, _assetWidth, _assetHeight);
+			_backBD = BitmapUtil.crop(source, _assetWidth, 0, _assetWidth, _assetHeight);
 		}
 
 
 
 		public function getAssetsFromMovieClip(source:MovieClip, elements:Array = null, ... labels:Array):void {
-			$getSkinSize(source, (labels[1] == undefined || labels[1] == '') ? 'guide' : labels[1]);
+			_getSkinSize(source, (labels[1] === undefined || labels[1] === '') ? 'guide' : labels[1]);
 
-			$backBD = $getSkinFrame(source, elements, (labels[0] == undefined || labels[0] == '') ? 'back' : labels[0]);
-			$guideBD = $getSkinFrame(source, elements, (labels[1] == undefined || labels[1] == '') ? 'guide' : labels[1]);
+			_backBD = _getSkinFrame(source, elements, (labels[0] === undefined || labels[0] === '') ? 'back' : labels[0]);
+			_guideBD = _getSkinFrame(source, elements, (labels[1] === undefined || labels[1] === '') ? 'guide' : labels[1]);
 		}
 
 
 
+		//noinspection FunctionWithMoreThanThreeNegationsJS
 		override public function parseConfig(source:Object):void {
 			super.parseConfig(source);
 
-			_oldPaddingTop = $paddingTop;
-			_oldPaddingBottom = $paddingBottom;
-			_oldPaddingLeft = $paddingLeft;
-			_oldPaddingRight = $paddingRight;
+			_oldPaddingTop = _paddingTop;
+			_oldPaddingBottom = _paddingBottom;
+			_oldPaddingLeft = _paddingLeft;
+			_oldPaddingRight = _paddingRight;
 
-			if(source.paddingTop != undefined) {
-				$paddingTop = source.paddingTop;
-			}
-
-			if(source.paddingBottom != undefined) {
-				$paddingBottom = source.paddingBottom;
-			}
-
-			if(source.paddingLeft != undefined) {
-				$paddingLeft = source.paddingLeft;
-			}
-
-			if(source.paddingRight != undefined) {
-				$paddingRight = source.paddingRight;
-			}
+			if(source.paddingTop !== undefined) _paddingTop = source.paddingTop;
+			if(source.paddingBottom !== undefined) _paddingBottom = source.paddingBottom;
+			if(source.paddingLeft !== undefined) _paddingLeft = source.paddingLeft;
+			if(source.paddingRight !== undefined) _paddingRight = source.paddingRight;
 		}
 
 
@@ -111,84 +99,84 @@ package org.vancura.vaclav.widgets.skin {
 		override public function revertConfig():void {
 			super.revertConfig();
 
-			$paddingTop = _oldPaddingTop;
-			$paddingBottom = _oldPaddingBottom;
-			$paddingLeft = _oldPaddingLeft;
-			$paddingRight = _oldPaddingRight;
+			_paddingTop = _oldPaddingTop;
+			_paddingBottom = _oldPaddingBottom;
+			_paddingLeft = _oldPaddingLeft;
+			_paddingRight = _oldPaddingRight;
 		}
 
 
 
 		public function get paddingTop():Number {
-			return $paddingTop;
+			return _paddingTop;
 		}
 
 
 
 		public function set paddingTop(value:Number):void {
-			$paddingTop = value;
+			_paddingTop = value;
 		}
 
 
 
 		public function get paddingBottom():Number {
-			return $paddingBottom;
+			return _paddingBottom;
 		}
 
 
 
 		public function set paddingBottom(value:Number):void {
-			$paddingBottom = value;
+			_paddingBottom = value;
 		}
 
 
 
 		public function get paddingLeft():Number {
-			return $paddingLeft;
+			return _paddingLeft;
 		}
 
 
 
 		public function set paddingLeft(value:Number):void {
-			$paddingLeft = value;
+			_paddingLeft = value;
 		}
 
 
 
 		public function get paddingRight():Number {
-			return $paddingRight;
+			return _paddingRight;
 		}
 
 
 
 		public function set paddingRight(value:Number):void {
-			$paddingRight = value;
+			_paddingRight = value;
 		}
 
 
 
 		public function set guideBD(source:BitmapData):void {
-			$checkSize(source);
-			$guideBD = source;
+			_checkSize(source);
+			_guideBD = source;
 		}
 
 
 
 		public function get guideBD():BitmapData {
-			return $guideBD;
+			return _guideBD;
 		}
 
 
 
 		public function set backBD(source:BitmapData):void {
-			$checkSize(source);
-			$backBD = source;
+			_checkSize(source);
+			_backBD = source;
 		}
 
 
 
 		public function get backBD():BitmapData {
-			return $backBD;
+			return _backBD;
 		}
 	}
 }

@@ -27,19 +27,19 @@ package org.vancura.vaclav.widgets.skin {
 	public class LabelSkin extends Skin implements ILabelSkin {
 
 
-		protected var $font:String;
-		protected var $size:Number;
-		protected var $color:uint;
-		protected var $alpha:Number;
-		protected var $hAlign:String;
-		protected var $vAlign:String;
-		protected var $filters:Array;
-		protected var $sharpness:Number;
-		protected var $thickness:Number;
-		protected var $paddingTop:Number;
-		protected var $paddingBottom:Number;
-		protected var $paddingLeft:Number;
-		protected var $paddingRight:Number;
+		protected var _font:String;
+		protected var _size:Number;
+		protected var _color:uint;
+		protected var _alpha:Number;
+		protected var _hAlign:String;
+		protected var _vAlign:String;
+		protected var _filters:Array;
+		protected var _sharpness:Number;
+		protected var _thickness:Number;
+		protected var _paddingTop:Number;
+		protected var _paddingBottom:Number;
+		protected var _paddingLeft:Number;
+		protected var _paddingRight:Number;
 
 		private var _oldFont:String;
 		private var _oldSize:Number;
@@ -60,91 +60,54 @@ package org.vancura.vaclav.widgets.skin {
 		public function LabelSkin(id:String = null) {
 			super(SkinType.LABEL, id);
 
-			$font = '';
-			$size = 10;
-			$color = 0x000000;
-			$alpha = 1;
-			$hAlign = Align.LEFT;
-			$vAlign = Align.TOP;
-			$filters = new Array();
-			$sharpness = 0;
-			$thickness = 0;
-			$paddingTop = 0;
-			$paddingBottom = 0;
-			$paddingLeft = 0;
-			$paddingRight = 0;
+			_font = '';
+			_size = 10;
+			_color = 0x000000;
+			_alpha = 1;
+			_hAlign = Align.LEFT;
+			_vAlign = Align.TOP;
+			_filters = new Array();
+			_sharpness = 0;
+			_thickness = 0;
+			_paddingTop = 0;
+			_paddingBottom = 0;
+			_paddingLeft = 0;
+			_paddingRight = 0;
 		}
 
 
 
+		//noinspection FunctionTooLongJS,FunctionWithMoreThanThreeNegationsJS,OverlyComplexFunctionJS
 		override public function parseConfig(source:Object):void {
 			super.parseConfig(source);
 
-			_oldFont = $font;
-			_oldSize = $size;
-			_oldColor = $color;
-			_oldAlpha = $alpha;
-			_oldHAlign = $hAlign;
-			_oldVAlign = $vAlign;
-			_oldFilters = $filters;
-			_oldSharpness = $sharpness;
-			_oldThickness = $thickness;
-			_oldPaddingTop = $paddingTop;
-			_oldPaddingBottom = $paddingBottom;
-			_oldPaddingLeft = $paddingLeft;
-			_oldPaddingRight = $paddingRight;
+			_oldFont = _font;
+			_oldSize = _size;
+			_oldColor = _color;
+			_oldAlpha = _alpha;
+			_oldHAlign = _hAlign;
+			_oldVAlign = _vAlign;
+			_oldFilters = _filters;
+			_oldSharpness = _sharpness;
+			_oldThickness = _thickness;
+			_oldPaddingTop = _paddingTop;
+			_oldPaddingBottom = _paddingBottom;
+			_oldPaddingLeft = _paddingLeft;
+			_oldPaddingRight = _paddingRight;
 
-			if(source.font != undefined) {
-				$font = source.font;
-			}
-
-			if(source.size != undefined) {
-				$size = source.size;
-			}
-
-			if(source.color != undefined) {
-				$color = source.color;
-			}
-
-			if(source.alpha != undefined) {
-				$alpha = source.alpha;
-			}
-
-			if(source.hAlign != undefined) {
-				$hAlign = source.hAlign;
-			}
-
-			if(source.vAlign != undefined) {
-				$vAlign = source.vAlign;
-			}
-
-			if(source.filters != undefined) {
-				$filters = source.filters;
-			}
-
-			if(source.sharpness != undefined) {
-				$sharpness = source.sharpness;
-			}
-
-			if(source.thickness != undefined) {
-				$thickness = source.thickness;
-			}
-
-			if(source.paddingTop != undefined) {
-				$paddingTop = source.paddingTop;
-			}
-
-			if(source.paddingBottom != undefined) {
-				$paddingBottom = source.paddingBottom;
-			}
-
-			if(source.paddingLeft != undefined) {
-				$paddingLeft = source.paddingLeft;
-			}
-
-			if(source.paddingRight != undefined) {
-				$paddingRight = source.paddingRight;
-			}
+			if(source.font !== undefined) _font = source.font;
+			if(source.size !== undefined) _size = source.size;
+			if(source.color !== undefined) _color = source.color;
+			if(source.alpha !== undefined) _alpha = source.alpha;
+			if(source.hAlign !== undefined) _hAlign = source.hAlign;
+			if(source.vAlign !== undefined) _vAlign = source.vAlign;
+			if(source.filters !== undefined) _filters = source.filters;
+			if(source.sharpness !== undefined) _sharpness = source.sharpness;
+			if(source.thickness !== undefined) _thickness = source.thickness;
+			if(source.paddingTop !== undefined) _paddingTop = source.paddingTop;
+			if(source.paddingBottom !== undefined) _paddingBottom = source.paddingBottom;
+			if(source.paddingLeft !== undefined) _paddingLeft = source.paddingLeft;
+			if(source.paddingRight !== undefined) _paddingRight = source.paddingRight;
 		}
 
 
@@ -152,175 +115,175 @@ package org.vancura.vaclav.widgets.skin {
 		override public function revertConfig():void {
 			super.revertConfig();
 
-			$font = _oldFont;
-			$size = _oldSize;
-			$color = _oldColor;
-			$alpha = _oldAlpha;
-			$hAlign = _oldHAlign;
-			$vAlign = _oldVAlign;
-			$filters = _oldFilters;
-			$sharpness = _oldSharpness;
-			$thickness = _oldThickness;
-			$paddingTop = _oldPaddingTop;
-			$paddingBottom = _oldPaddingBottom;
-			$paddingLeft = _oldPaddingLeft;
-			$paddingRight = _oldPaddingRight;
+			_font = _oldFont;
+			_size = _oldSize;
+			_color = _oldColor;
+			_alpha = _oldAlpha;
+			_hAlign = _oldHAlign;
+			_vAlign = _oldVAlign;
+			_filters = _oldFilters;
+			_sharpness = _oldSharpness;
+			_thickness = _oldThickness;
+			_paddingTop = _oldPaddingTop;
+			_paddingBottom = _oldPaddingBottom;
+			_paddingLeft = _oldPaddingLeft;
+			_paddingRight = _oldPaddingRight;
 		}
 
 
 
 		public function get font():String {
-			return $font;
+			return _font;
 		}
 
 
 
 		public function set font(value:String):void {
-			$font = value;
+			_font = value;
 		}
 
 
 
 		public function get size():Number {
-			return $size;
+			return _size;
 		}
 
 
 
 		public function set size(value:Number):void {
-			$size = value;
+			_size = value;
 		}
 
 
 
 		public function get color():uint {
-			return $color;
+			return _color;
 		}
 
 
 
 		public function set color(value:uint):void {
-			$color = value;
+			_color = value;
 		}
 
 
 
 		public function get alpha():Number {
-			return $alpha;
+			return _alpha;
 		}
 
 
 
 		public function set alpha(value:Number):void {
-			$alpha = value;
+			_alpha = value;
 		}
 
 
 
 		public function get hAlign():String {
-			return $hAlign;
+			return _hAlign;
 		}
 
 
 
 		public function set hAlign(value:String):void {
-			$hAlign = value;
+			_hAlign = value;
 		}
 
 
 
 		public function get vAlign():String {
-			return $vAlign;
+			return _vAlign;
 		}
 
 
 
 		public function set vAlign(value:String):void {
-			$vAlign = value;
+			_vAlign = value;
 		}
 
 
 
 		public function get filters():Array {
-			return $filters;
+			return _filters;
 		}
 
 
 
 		public function set filters(value:Array):void {
-			$filters = value;
+			_filters = value;
 		}
 
 
 
 		public function get sharpness():Number {
-			return $sharpness;
+			return _sharpness;
 		}
 
 
 
 		public function set sharpness(value:Number):void {
-			$sharpness = value;
+			_sharpness = value;
 		}
 
 
 
 		public function get thickness():Number {
-			return $thickness;
+			return _thickness;
 		}
 
 
 
 		public function set thickness(value:Number):void {
-			$thickness = value;
+			_thickness = value;
 		}
 
 
 
 		public function get paddingTop():Number {
-			return $paddingTop;
+			return _paddingTop;
 		}
 
 
 
 		public function set paddingTop(value:Number):void {
-			$paddingTop = value;
+			_paddingTop = value;
 		}
 
 
 
 		public function get paddingBottom():Number {
-			return $paddingBottom;
+			return _paddingBottom;
 		}
 
 
 
 		public function set paddingBottom(value:Number):void {
-			$paddingBottom = value;
+			_paddingBottom = value;
 		}
 
 
 
 		public function get paddingLeft():Number {
-			return $paddingLeft;
+			return _paddingLeft;
 		}
 
 
 
 		public function set paddingLeft(value:Number):void {
-			$paddingLeft = value;
+			_paddingLeft = value;
 		}
 
 
 
 		public function get paddingRight():Number {
-			return $paddingRight;
+			return _paddingRight;
 		}
 
 
 
 		public function set paddingRight(value:Number):void {
-			$paddingRight = value;
+			_paddingRight = value;
 		}
 	}
 }
