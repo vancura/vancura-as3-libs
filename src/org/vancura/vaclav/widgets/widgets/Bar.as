@@ -40,13 +40,13 @@ package org.vancura.vaclav.widgets.widgets {
 		public function Bar(skin:IBarSkin, config:Object = null, parent:DisplayObjectContainer = null, debugLevel:String = null) {
 			var c:Object;
 
-			if(config === null) c = new Object();
+			if(config == null) c = new Object();
 			else c = config;
 
-			if(c.width === undefined) c.width = skin.assetWidth;
-			if(c.height === undefined) c.height = skin.assetHeight;
+			if(c.width == undefined) c.width = skin.assetWidth;
+			if(c.height == undefined) c.height = skin.assetHeight;
 
-			if(skin !== null) super(c, parent, (debugLevel === null) ? SkinManager.debugLevel : debugLevel);
+			if(skin != null) super(c, parent, (debugLevel == null) ? SkinManager.debugLevel : debugLevel);
 			else throw new Error('No skin defined');
 
 			this.skin = skin;
@@ -90,11 +90,11 @@ package org.vancura.vaclav.widgets.widgets {
 			_bodySBM.bitmapData = _skin.backBD;
 			_bodySBM.scale9Grid = _skin.guideBD.getColorBoundsRect(0x00FF0000, 0x00000000, false);
 
-			if(_width !== 0 && !isNaN(_width)) {
+			if(_width != 0 && !isNaN(_width)) {
 				_bodySBM.width = _width - _skin.paddingLeft - _skin.paddingRight;
 				_bodySBM.x = _skin.paddingLeft;
 			}
-			if(_height !== 0 && !isNaN(_height)) {
+			if(_height != 0 && !isNaN(_height)) {
 				_bodySBM.height = _height - _skin.paddingTop - _skin.paddingBottom;
 				_bodySBM.y = _skin.paddingTop;
 			}
@@ -111,8 +111,8 @@ package org.vancura.vaclav.widgets.widgets {
 		public function set skin(skin:IBarSkin):void {
 			_skin = skin;
 
-			if(_width === 0) _width = _skin.assetWidth;
-			if(_height === 0) _height = _skin.assetHeight;
+			if(_width == 0) _width = _skin.assetWidth;
+			if(_height == 0) _height = _skin.assetHeight;
 
 			draw();
 		}

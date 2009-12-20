@@ -117,21 +117,21 @@ package org.vancura.vaclav.core.display {
 			var c:Object;
 
 			// create config value object
-			if(config === null) c = new Object();
+			if(config == null) c = new Object();
 			else c = config;
 
 			// create parent QSprite
 			super(c, parent);
 
 			// assign values
-			morphDuration = (c.morphDuration === undefined) ? defMorphDuration : c.morphDuration;
-			morphEase = (c.morphEase === undefined) ? defMorphEase : c.morphEase;
-			isChangeWidthEnabled = (c.isChangeWidthEnabled === undefined) ? defIsChangeWidthEnabled : c.isChangeWidthEnabled;
-			isChangeHeightEnabled = (c.isChangeHeightEnabled === undefined) ? defIsChangeHeightEnabled : c.isChangeHeightEnabled;
-			isMorphXEnabled = (c.isMorphXEnabled === undefined) ? defIsMorphXEnabled : c.isMorphXEnabled;
-			isMorphYEnabled = (c.isMorphYEnabled === undefined) ? defIsMorphYEnabled : c.isMorphYEnabled;
-			isMorphWidthEnabled = (c.isMorphWidthEnabled === undefined) ? defIsMorphWidthEnabled : c.isMorphWidthEnabled;
-			isMorphHeightEnabled = (c.isMorphHeightEnabled === undefined) ? defIsMorphHeightEnabled : c.isMorphHeightEnabled;
+			morphDuration = (c.morphDuration == undefined) ? defMorphDuration : c.morphDuration;
+			morphEase = (c.morphEase == undefined) ? defMorphEase : c.morphEase;
+			isChangeWidthEnabled = (c.isChangeWidthEnabled == undefined) ? defIsChangeWidthEnabled : c.isChangeWidthEnabled;
+			isChangeHeightEnabled = (c.isChangeHeightEnabled == undefined) ? defIsChangeHeightEnabled : c.isChangeHeightEnabled;
+			isMorphXEnabled = (c.isMorphXEnabled == undefined) ? defIsMorphXEnabled : c.isMorphXEnabled;
+			isMorphYEnabled = (c.isMorphYEnabled == undefined) ? defIsMorphYEnabled : c.isMorphYEnabled;
+			isMorphWidthEnabled = (c.isMorphWidthEnabled == undefined) ? defIsMorphWidthEnabled : c.isMorphWidthEnabled;
+			isMorphHeightEnabled = (c.isMorphHeightEnabled == undefined) ? defIsMorphHeightEnabled : c.isMorphHeightEnabled;
 		}
 
 
@@ -152,7 +152,7 @@ package org.vancura.vaclav.core.display {
 		 */
 		//noinspection FunctionWithMoreThanThreeNegationsJS
 		public function morph(config:Object):void {
-			if(_initialProperties === null) {
+			if(_initialProperties == null) {
 				_initialProperties = new Object();
 				_initialProperties.x = this.x;
 				_initialProperties.y = this.y;
@@ -165,17 +165,17 @@ package org.vancura.vaclav.core.display {
 
 			var t:Object = new Object();
 
-			if(isMorphXEnabled && config.x !== undefined) t.x = config.x;
-			if(isMorphYEnabled && config.y !== undefined) t.y = config.y;
-			if(isMorphWidthEnabled && config.width !== undefined) t.width = config.width;
-			if(isMorphHeightEnabled && config.height !== undefined) t.height = config.height;
+			if(isMorphXEnabled && config.x != undefined) t.x = config.x;
+			if(isMorphYEnabled && config.y != undefined) t.y = config.y;
+			if(isMorphWidthEnabled && config.width != undefined) t.width = config.width;
+			if(isMorphHeightEnabled && config.height != undefined) t.height = config.height;
 
-			t.ease = (config.morphEase === undefined) ? morphEase : config.morphEase;
+			t.ease = (config.morphEase == undefined) ? morphEase : config.morphEase;
 			t.roundProps = ['x', 'y', 'width', 'height'];
 			t.onComplete = _onMorphComplete;
 
 			//noinspection ObjectAllocationIgnored
-			new TweenLite(this, (config.morphDuration === undefined) ? morphDuration : config.morphDuration, t);
+			new TweenLite(this, (config.morphDuration == undefined) ? morphDuration : config.morphDuration, t);
 		}
 
 

@@ -40,18 +40,18 @@ package org.vancura.vaclav.widgets.widgets {
 		public function Image(skin:IImageSkin, config:Object = null, parent:DisplayObjectContainer = null, debugLevel:String = null) {
 			var c:Object;
 
-			if(config === null) c = new Object();
+			if(config == null) c = new Object();
 			else c = config;
 
-			if(c.width === undefined) {
+			if(c.width == undefined) {
 				c.width = skin.assetWidth;
 			}
 
-			if(c.height === undefined) {
+			if(c.height == undefined) {
 				c.height = skin.assetHeight;
 			}
 
-			if(skin !== null) super(c, parent, (debugLevel === null) ? SkinManager.debugLevel : debugLevel);
+			if(skin != null) super(c, parent, (debugLevel == null) ? SkinManager.debugLevel : debugLevel);
 			else throw new Error('No skin defined');
 
 			this.skin = skin;
@@ -108,8 +108,8 @@ package org.vancura.vaclav.widgets.widgets {
 		public function set skin(skin:IImageSkin):void {
 			_skin = skin;
 
-			if(_width === 0) _width = _skin.assetWidth;
-			if(_height === 0) _height = _skin.assetHeight;
+			if(_width == 0) _width = _skin.assetWidth;
+			if(_height == 0) _height = _skin.assetHeight;
 
 			draw();
 		}

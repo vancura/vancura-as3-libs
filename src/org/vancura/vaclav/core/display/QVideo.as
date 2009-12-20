@@ -90,32 +90,32 @@ package org.vancura.vaclav.core.display {
 		public function QVideo(config:Object = null, parent:DisplayObjectContainer = null) {
 			// if config is not defined, prepare it
 			var c:Object;
-			if(config === null) c = new Object();
+			if(config == null) c = new Object();
 			else c = config;
 
 			try {
 				super(c.width, c.height);
 			}
 			catch(err:Error) {
-				if(c.width === undefined) {
+				if(c.width == undefined) {
 					var ew:String = printf('Video width undefined (%s)', err);
 					throw new Error(ew);
 				}
-				if(c.height === undefined) {
+				if(c.height == undefined) {
 					var eh:String = printf('Video height undefined (%s)', err);
 					throw new Error(eh);
 				}
 			}
 
 			// Video overrides and custom config
-			this.deblocking = (c.deblocking === undefined) ? 5 : c.deblocking;
-			this.smoothing = (c.smoothing === undefined) ? true : c.smoothing;
+			this.deblocking = (c.deblocking == undefined) ? 5 : c.deblocking;
+			this.smoothing = (c.smoothing == undefined) ? true : c.smoothing;
 
 			// assign parameters
 			assign(this, c);
 
 			// add child if requested
-			if(parent !== null) parent.addChild(this);
+			if(parent != null) parent.addChild(this);
 		}
 
 

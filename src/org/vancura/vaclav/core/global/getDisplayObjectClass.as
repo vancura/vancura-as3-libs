@@ -32,7 +32,7 @@ package org.vancura.vaclav.core.global {
 	 * @author Jackson Dunstan (http://jacksondunstan.com/articles/512)
 	 */
 	public function getDisplayObjectClass(obj:Object):Class {
-		if(obj === null) return null;
+		if(obj == null) return null;
 
 		//noinspection UnusedCatchParameterJS
 		try {
@@ -40,7 +40,7 @@ package org.vancura.vaclav.core.global {
 			var dn:Object = getDefinitionByName(cn);
 			var ret:Class = Class(dn);
 
-			if(ret === null && obj is DisplayObject) {
+			if(ret == null && obj is DisplayObject) {
 				var dj:DisplayObject = DisplayObject(obj);
 				ret = getDisplayObjectClass(dj);
 			}

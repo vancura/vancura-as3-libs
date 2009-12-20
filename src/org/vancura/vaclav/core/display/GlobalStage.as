@@ -55,7 +55,7 @@ package org.vancura.vaclav.core.display {
 		 * @return Instance
 		 */
 		public static function get instance():GlobalStage {
-			if(_instance === null) _instance = new GlobalStage();
+			if(_instance == null) _instance = new GlobalStage();
 			return _instance;
 		}
 

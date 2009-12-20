@@ -52,10 +52,10 @@ package org.vancura.vaclav.widgets.widgets {
 		                            debugLevel:String = null) {
 			var c:Object;
 
-			if(config === null) c = new Object();
+			if(config == null) c = new Object();
 			else c = config;
 
-			var dl:String = (debugLevel === null) ? SkinManager.debugLevel : debugLevel;
+			var dl:String = (debugLevel == null) ? SkinManager.debugLevel : debugLevel;
 
 			_button = new ScaleButton(skin.buttonSkin, {}, this, dl);
 			_glyphOut = new Image(skin.glyphsSkin.glyphOutSkin, {mouseEnabled:false, mouseChildren:false}, this, dl);
@@ -79,10 +79,10 @@ package org.vancura.vaclav.widgets.widgets {
 			_button.addEventListener(ButtonEvent.RELEASED_INSIDE_TWEEN, _onButtonReleasedInsideTween, false, 0, true);
 			_button.addEventListener(ButtonEvent.RELEASED_OUTSIDE_TWEEN, _onButtonReleasedOutsideTween, false, 0, true);
 
-			if(c.width === undefined) c.width = skin.buttonSkin.assetWidth;
-			if(c.height === undefined) c.height = skin.buttonSkin.assetHeight;
+			if(c.width == undefined) c.width = skin.buttonSkin.assetWidth;
+			if(c.height == undefined) c.height = skin.buttonSkin.assetHeight;
 
-			if(skin !== null) super(c, parent);
+			if(skin != null) super(c, parent);
 			else throw new Error('No skin defined');
 
 			_skin = skin;
@@ -229,9 +229,9 @@ package org.vancura.vaclav.widgets.widgets {
 		public function get glyph():IImage {
 			var out:IImage;
 
-			if(_button.mouseStatus === MouseStatus.OUT) out = _glyphOut;
-			if(_button.mouseStatus === MouseStatus.HOVER) out = _glyphHover;
-			if(_button.mouseStatus === MouseStatus.FOCUS) out = _glyphFocus;
+			if(_button.mouseStatus == MouseStatus.OUT) out = _glyphOut;
+			if(_button.mouseStatus == MouseStatus.HOVER) out = _glyphHover;
+			if(_button.mouseStatus == MouseStatus.FOCUS) out = _glyphFocus;
 
 			return out;
 		}

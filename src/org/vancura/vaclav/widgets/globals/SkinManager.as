@@ -51,7 +51,7 @@ package org.vancura.vaclav.widgets.globals {
 
 
 		public static function assetToSkin(asset:Asset):* {
-			if(asset.config.widget !== null) {
+			if(asset.config.widget != null) {
 				var skin:*;
 				var isSupported:Boolean = true;
 				var config:Object = asset.config.widget;

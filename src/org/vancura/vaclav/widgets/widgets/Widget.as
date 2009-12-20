@@ -63,21 +63,21 @@ package org.vancura.vaclav.widgets.widgets {
 
 		//noinspection FunctionWithMoreThanThreeNegationsJS
 		public function Widget(config:Object = null, parent:DisplayObjectContainer = null, debugLevel:String = null):void {
-			if(config === null) _config = new Object();
+			if(config == null) _config = new Object();
 			else _config = config;
 
 			_debugColor = SkinManager.debugColor;
 
 			super(_config);
 
-			if(_config.x !== undefined) this.x = _config.x;
-			if(_config.y !== undefined) this.y = _config.y;
-			if(_config.width !== undefined) this.width = _config.width;
-			if(_config.height !== undefined) this.height = _config.height;
+			if(_config.x != undefined) this.x = _config.x;
+			if(_config.y != undefined) this.y = _config.y;
+			if(_config.width != undefined) this.width = _config.width;
+			if(_config.height != undefined) this.height = _config.height;
 
-			if(parent !== null) parent.addChild(this);
+			if(parent != null) parent.addChild(this);
 
-			if(_allWidgets === null) _allWidgets = new Array();
+			if(_allWidgets == null) _allWidgets = new Array();
 
 			_allWidgets.push(this);
 
@@ -85,8 +85,8 @@ package org.vancura.vaclav.widgets.widgets {
 
 			_init();
 
-			if(debugLevel === null) {
-				if(initialDebugLevel !== null) {
+			if(debugLevel == null) {
+				if(initialDebugLevel != null) {
 					this.debugLevel = initialDebugLevel;
 				}
 			}
@@ -150,7 +150,7 @@ package org.vancura.vaclav.widgets.widgets {
 
 		public function draw():void {
 			if(_debugLevel == DebugLevel.ALWAYS || _debugLevel == DebugLevel.HOVER) {
-				if(_width !== 0 && _height !== 0) {
+				if(_width != 0 && _height != 0) {
 					_debugSpr.graphics.clear();
 
 					GraphicsUtil.drawRect(_debugSpr, 0, 0, _width, _height, _debugColor, 0.15);
@@ -166,7 +166,7 @@ package org.vancura.vaclav.widgets.widgets {
 
 		public static function set allDebugLevel(value:String):void {
 			for each(var i:IWidget in _allWidgets) {
-				if(i !== null) i.debugLevel = value;
+				if(i != null) i.debugLevel = value;
 			}
 		}
 

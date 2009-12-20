@@ -52,13 +52,13 @@ package org.vancura.vaclav.widgets.widgets {
 		                           debugLevel:String = null) {
 			var c:Object;
 
-			if(config === null) c = new Object();
+			if(config == null) c = new Object();
 			else c = config;
 
-			if(c.width === undefined) c.width = skin.assetWidth;
-			if(c.height === undefined) c.height = skin.assetHeight;
+			if(c.width == undefined) c.width = skin.assetWidth;
+			if(c.height == undefined) c.height = skin.assetHeight;
 
-			if(skin !== null) super(c, parent, (debugLevel === null) ? SkinManager.debugLevel : debugLevel);
+			if(skin != null) super(c, parent, (debugLevel == null) ? SkinManager.debugLevel : debugLevel);
 			else throw new Error('No skin defined');
 
 			this.skin = skin;
@@ -133,10 +133,10 @@ package org.vancura.vaclav.widgets.widgets {
 		public function set skin(skin:IButtonSkin):void {
 			_skin = skin as ButtonSkin;
 
-			if(_width === 0) _width = _skin.assetWidth;
-			if(_height === 0) _height = _skin.assetHeight;
+			if(_width == 0) _width = _skin.assetWidth;
+			if(_height == 0) _height = _skin.assetHeight;
 
-			if(_skin.assetWidth !== 0 && _skin.assetHeight !== 0) {
+			if(_skin.assetWidth != 0 && _skin.assetHeight != 0) {
 				setSize(_skin.assetWidth, _skin.assetHeight);
 			}
 
@@ -267,7 +267,7 @@ package org.vancura.vaclav.widgets.widgets {
 
 		private function _onOver(event:MouseEvent = null):void {
 			if(_areEventsEnabled) {
-				if(event !== null && event.buttonDown) {
+				if(event != null && event.buttonDown) {
 					// drag over
 					var e1:ButtonEvent = new ButtonEvent(ButtonEvent.DRAG_OVER, true);
 					dispatchEvent(e1);
@@ -288,7 +288,7 @@ package org.vancura.vaclav.widgets.widgets {
 
 		private function _onOut(event:MouseEvent = null):void {
 			if(_areEventsEnabled) {
-				if(event !== null && event.buttonDown) {
+				if(event != null && event.buttonDown) {
 					// drag out
 					var e1:ButtonEvent = new ButtonEvent(ButtonEvent.DRAG_OUT, true);
 					dispatchEvent(e1);
@@ -314,7 +314,7 @@ package org.vancura.vaclav.widgets.widgets {
 
 				_focusInTween();
 
-				if(stage !== null) stage.addEventListener(MouseEvent.MOUSE_UP, _onRelease, false, 0, true);
+				if(stage != null) stage.addEventListener(MouseEvent.MOUSE_UP, _onRelease, false, 0, true);
 
 				var e:ButtonEvent = new ButtonEvent(ButtonEvent.FOCUS_IN, true);
 				dispatchEvent(e);
@@ -324,10 +324,10 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		private function _onRelease(event:MouseEvent = null):void {
-			if(stage !== null) stage.removeEventListener(MouseEvent.MOUSE_UP, _onRelease);
+			if(stage != null) stage.removeEventListener(MouseEvent.MOUSE_UP, _onRelease);
 
 			if(_areEventsEnabled && _mouseStatus == MouseStatus.FOCUS) {
-				if(event !== null && event.currentTarget == stage) {
+				if(event != null && event.currentTarget == stage) {
 					// release outside
 					forceRelease();
 				}

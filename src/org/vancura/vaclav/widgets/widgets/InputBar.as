@@ -46,10 +46,10 @@ package org.vancura.vaclav.widgets.widgets {
 		                         debugLevel:String = null) {
 			var c:Object;
 
-			if(config === null) c = new Object();
+			if(config == null) c = new Object();
 			else c = config;
 
-			var dl:String = (debugLevel === null) ? SkinManager.debugLevel : debugLevel;
+			var dl:String = (debugLevel == null) ? SkinManager.debugLevel : debugLevel;
 
 			_bar = new Bar(skin.barSkin, {}, this, dl);
 			_label = new Label(skin.labelSkin, {}, '', this, dl);
@@ -61,10 +61,10 @@ package org.vancura.vaclav.widgets.widgets {
 			this.isMorphHeightEnabled = true;
 			this.isMorphWidthEnabled = false;
 
-			if(c.width === undefined) c.width = skin.assetWidth;
-			if(c.height === undefined) c.height = skin.assetHeight;
+			if(c.width == undefined) c.width = skin.assetWidth;
+			if(c.height == undefined) c.height = skin.assetHeight;
 
-			if(skin !== null) super(c, parent);
+			if(skin != null) super(c, parent);
 			else throw new Error('No skin defined');
 
 			_skin = skin;

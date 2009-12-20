@@ -59,7 +59,7 @@ package org.vancura.vaclav.widgets.skin {
 
 
 		public function getAssetsFromAtlas(source:BitmapData):void {
-			if(source.width % 2 !== 0) throw new Error('Width has to be multiple of 2');
+			if(source.width % 2 != 0) throw new Error('Width has to be multiple of 2');
 
 			_assetWidth = source.width / 2;
 			_assetHeight = source.height;
@@ -71,10 +71,10 @@ package org.vancura.vaclav.widgets.skin {
 
 
 		public function getAssetsFromMovieClip(source:MovieClip, elements:Array = null, ... labels:Array):void {
-			_getSkinSize(source, (labels[1] === undefined || labels[1] === '') ? 'guide' : labels[1]);
+			_getSkinSize(source, (labels[1] == undefined || labels[1] == '') ? 'guide' : labels[1]);
 
-			_backBD = _getSkinFrame(source, elements, (labels[0] === undefined || labels[0] === '') ? 'back' : labels[0]);
-			_guideBD = _getSkinFrame(source, elements, (labels[1] === undefined || labels[1] === '') ? 'guide' : labels[1]);
+			_backBD = _getSkinFrame(source, elements, (labels[0] == undefined || labels[0] == '') ? 'back' : labels[0]);
+			_guideBD = _getSkinFrame(source, elements, (labels[1] == undefined || labels[1] == '') ? 'guide' : labels[1]);
 		}
 
 
@@ -88,10 +88,10 @@ package org.vancura.vaclav.widgets.skin {
 			_oldPaddingLeft = _paddingLeft;
 			_oldPaddingRight = _paddingRight;
 
-			if(source.paddingTop !== undefined) _paddingTop = source.paddingTop;
-			if(source.paddingBottom !== undefined) _paddingBottom = source.paddingBottom;
-			if(source.paddingLeft !== undefined) _paddingLeft = source.paddingLeft;
-			if(source.paddingRight !== undefined) _paddingRight = source.paddingRight;
+			if(source.paddingTop != undefined) _paddingTop = source.paddingTop;
+			if(source.paddingBottom != undefined) _paddingBottom = source.paddingBottom;
+			if(source.paddingLeft != undefined) _paddingLeft = source.paddingLeft;
+			if(source.paddingRight != undefined) _paddingRight = source.paddingRight;
 		}
 
 

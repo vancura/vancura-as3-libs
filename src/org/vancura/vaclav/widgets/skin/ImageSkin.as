@@ -59,9 +59,9 @@ package org.vancura.vaclav.widgets.skin {
 
 
 		public function getAssetsFromMovieClip(source:MovieClip, elements:Array = null, ... labels:Array):void {
-			_getSkinSize(source, (labels[1] === undefined || labels[1] === '') ? 'guide' : labels[1]);
+			_getSkinSize(source, (labels[1] == undefined || labels[1] == '') ? 'guide' : labels[1]);
 
-			_imageBD = _getSkinFrame(source, elements, (labels[0] === undefined || labels[0] === '') ? 'image' : labels[0]);
+			_imageBD = _getSkinFrame(source, elements, (labels[0] == undefined || labels[0] == '') ? 'image' : labels[0]);
 		}
 
 
@@ -72,8 +72,8 @@ package org.vancura.vaclav.widgets.skin {
 			_oldPaddingTop = _paddingTop;
 			_oldPaddingLeft = _paddingLeft;
 
-			if(source.paddingTop !== undefined) _paddingTop = source.paddingTop;
-			if(source.paddingLeft !== undefined) _paddingLeft = source.paddingLeft;
+			if(source.paddingTop != undefined) _paddingTop = source.paddingTop;
+			if(source.paddingLeft != undefined) _paddingLeft = source.paddingLeft;
 		}
 
 

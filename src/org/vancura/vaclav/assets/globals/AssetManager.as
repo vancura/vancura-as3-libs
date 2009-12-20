@@ -49,7 +49,7 @@ package org.vancura.vaclav.assets.globals {
 		 * @return Instance
 		 */
 		public static function get instance():AssetManager {
-			if(_instance === null) _instance = new AssetManager();
+			if(_instance == null) _instance = new AssetManager();
 			return _instance;
 		}
 
@@ -62,7 +62,7 @@ package org.vancura.vaclav.assets.globals {
 		 * @see IAssetProvider
 		 */
 		public function attachProvider(provider:IAssetProvider):void {
-			if(_provider === null) {
+			if(_provider == null) {
 				// attaching a new asset provider
 				_provider = provider;
 
@@ -87,12 +87,12 @@ package org.vancura.vaclav.assets.globals {
 		public function getAsset(id:String):* {
 			var out:Asset;
 
-			if(_provider === null) throw new Error('Asset provider not attached');
+			if(_provider == null) throw new Error('Asset provider not attached');
 
 			else {
 				// try to find the asset
 				for each(var item:Asset in _provider.assetsList) {
-					if(item.id === id) out = item;
+					if(item.id == id) out = item;
 				}
 			}
 
@@ -109,7 +109,7 @@ package org.vancura.vaclav.assets.globals {
 		override public function toString():String {
 			var out:String;
 
-			if(_provider === null) out = printf('AssetManager info:\n  provider not attached');
+			if(_provider == null) out = printf('AssetManager info:\n  provider not attached');
 
 			else {
 				// create list of assets
@@ -140,7 +140,7 @@ package org.vancura.vaclav.assets.globals {
 		 * @return List of assets as Array
 		 */
 		public function get assetsList():Array {
-			if(_provider === null) throw new Error('Asset provider not attached');
+			if(_provider == null) throw new Error('Asset provider not attached');
 
 			else {
 				// return asset list
@@ -170,7 +170,7 @@ package org.vancura.vaclav.assets.globals {
 		public function get isError():Boolean {
 			var out:Boolean;
 
-			if(_provider === null) out = false;
+			if(_provider == null) out = false;
 			else out = _provider.isError;
 
 			return out;
@@ -186,7 +186,7 @@ package org.vancura.vaclav.assets.globals {
 		public function get isActive():Boolean {
 			var out:Boolean;
 
-			if(_provider === null) out = false;
+			if(_provider == null) out = false;
 			else out = _provider.isActive;
 
 			return out;
@@ -202,7 +202,7 @@ package org.vancura.vaclav.assets.globals {
 		public function get isLoaded():Boolean {
 			var out:Boolean;
 
-			if(_provider === null) out = false;
+			if(_provider == null) out = false;
 			else out = _provider.isLoaded;
 
 			return out;

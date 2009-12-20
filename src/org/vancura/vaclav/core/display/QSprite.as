@@ -94,7 +94,7 @@ package org.vancura.vaclav.core.display {
 		public function QSprite(config:Object = null, parent:DisplayObjectContainer = null) {
 			// if config is not defined, prepare it
 			var c:Object;
-			if(config === null) c = new Object();
+			if(config == null) c = new Object();
 			else c = config;
 
 			super();
@@ -111,7 +111,7 @@ package org.vancura.vaclav.core.display {
 			assign(this, c);
 
 			// add child if requested
-			if(parent !== null) parent.addChild(this);
+			if(parent != null) parent.addChild(this);
 		}
 
 

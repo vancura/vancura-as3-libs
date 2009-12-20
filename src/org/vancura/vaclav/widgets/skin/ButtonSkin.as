@@ -63,7 +63,7 @@ package org.vancura.vaclav.widgets.skin {
 
 
 		public function getAssetsFromAtlas(source:BitmapData):void {
-			if(source.width % 4 !== 0) throw new Error('Width has to be multiple of 4');
+			if(source.width % 4 != 0) throw new Error('Width has to be multiple of 4');
 
 			_assetWidth = source.width / 4;
 			_assetHeight = source.height;
@@ -77,12 +77,12 @@ package org.vancura.vaclav.widgets.skin {
 
 
 		public function getAssetsFromMovieClip(source:MovieClip, elements:Array = null, ... labels:Array):void {
-			_getSkinSize(source, (labels[3] === undefined || labels[3] === '') ? 'guide' : labels[3]);
+			_getSkinSize(source, (labels[3] == undefined || labels[3] == '') ? 'guide' : labels[3]);
 
-			_outBD = _getSkinFrame(source, elements, (labels[0] === undefined || labels[0] === '') ? 'out' : labels[0]);
-			_hoverBD = _getSkinFrame(source, elements, (labels[1] === undefined || labels[1] === '') ? 'hover' : labels[1]);
-			_focusBD = _getSkinFrame(source, elements, (labels[2] === undefined || labels[2] === '') ? 'focus' : labels[2]);
-			_guideBD = _getSkinFrame(source, elements, (labels[3] === undefined || labels[3] === '') ? 'guide' : labels[3]);
+			_outBD = _getSkinFrame(source, elements, (labels[0] == undefined || labels[0] == '') ? 'out' : labels[0]);
+			_hoverBD = _getSkinFrame(source, elements, (labels[1] == undefined || labels[1] == '') ? 'hover' : labels[1]);
+			_focusBD = _getSkinFrame(source, elements, (labels[2] == undefined || labels[2] == '') ? 'focus' : labels[2]);
+			_guideBD = _getSkinFrame(source, elements, (labels[3] == undefined || labels[3] == '') ? 'guide' : labels[3]);
 		}
 
 
@@ -96,10 +96,10 @@ package org.vancura.vaclav.widgets.skin {
 			_oldFocusInDuration = _focusInDuration;
 			_oldFocusOutDuration = _focusOutDuration;
 
-			if(source.hoverInDuration !== undefined) _hoverInDuration = source.hoverInDuration;
-			if(source.hoverOutDuration !== undefined) _hoverOutDuration = source.hoverOutDuration;
-			if(source.pressInDuration !== undefined) _focusInDuration = source.pressInDuration;
-			if(source.pressOutDuration !== undefined) _focusOutDuration = source.pressOutDuration;
+			if(source.hoverInDuration != undefined) _hoverInDuration = source.hoverInDuration;
+			if(source.hoverOutDuration != undefined) _hoverOutDuration = source.hoverOutDuration;
+			if(source.pressInDuration != undefined) _focusInDuration = source.pressInDuration;
+			if(source.pressOutDuration != undefined) _focusOutDuration = source.pressOutDuration;
 		}
 
 

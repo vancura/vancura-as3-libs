@@ -53,14 +53,14 @@ package org.vancura.vaclav.widgets.widgets {
 		                      debugLevel:String = null) {
 			var c:Object;
 
-			if(config === null) c = new Object();
+			if(config == null) c = new Object();
 			else c = config;
 
-			if(skin !== null) super(c, parent, (debugLevel === null) ? SkinManager.debugLevel : debugLevel);
+			if(skin != null) super(c, parent, (debugLevel == null) ? SkinManager.debugLevel : debugLevel);
 			else throw new Error('No skin defined');
 
-			_isWidthOverriden = (c.width !== undefined);
-			_isHeightOverriden = (c.height !== undefined);
+			_isWidthOverriden = (c.width != undefined);
+			_isHeightOverriden = (c.height != undefined);
 
 			this.skin = skin;
 			this.text = text;
@@ -100,9 +100,9 @@ package org.vancura.vaclav.widgets.widgets {
 		override public function draw():void {
 			super.draw();
 
-			if(_width !== 0) _textField.width = _width - _skin.paddingLeft - _skin.paddingRight;
+			if(_width != 0) _textField.width = _width - _skin.paddingLeft - _skin.paddingRight;
 
-			if(_height !== 0) {
+			if(_height != 0) {
 				// count height without padding
 				var h:Number = _height - _skin.paddingTop - _skin.paddingBottom;
 
@@ -153,10 +153,10 @@ package org.vancura.vaclav.widgets.widgets {
 			_textField.sharpness = _skin.sharpness;
 			_textField.thickness = _skin.thickness;
 			_textField.alpha = _skin.alpha;
-			_textField.embedFonts = (_skin.font !== '');
+			_textField.embedFonts = (_skin.font != '');
 
-			if(_width === 0) _width = _skin.assetWidth;
-			if(_height === 0) _height = _skin.assetHeight;
+			if(_width == 0) _width = _skin.assetWidth;
+			if(_height == 0) _height = _skin.assetHeight;
 
 			draw();
 		}
@@ -170,8 +170,8 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		public function set text(value:String):void {
-			if(_textField !== null) {
-				if(value !== null) _textField.htmlText = value;
+			if(_textField != null) {
+				if(value != null) _textField.htmlText = value;
 
 				_textField.setTextFormat(_textFormat);
 			}
@@ -219,7 +219,7 @@ package org.vancura.vaclav.widgets.widgets {
 
 		//noinspection FunctionWithMoreThanThreeNegationsJS
 		public function set isInput(value:Boolean):void {
-			if(_textField !== null) {
+			if(_textField != null) {
 				_textField.type = (value) ? TextFieldType.INPUT : TextFieldType.DYNAMIC;
 				_textField.selectable = value;
 				_textField.multiline = !value;

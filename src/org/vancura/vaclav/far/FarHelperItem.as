@@ -98,7 +98,7 @@ package org.vancura.vaclav.far {
 		public function getData(index:String):void {
 			_index = index;
 
-			if(_farItem === null) {
+			if(_farItem == null) {
 				//noinspection UnusedCatchParameterJS
 				try {
 					_farItem = _stream.item(_index);

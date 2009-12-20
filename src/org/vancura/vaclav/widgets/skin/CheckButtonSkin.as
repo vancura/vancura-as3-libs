@@ -44,8 +44,8 @@ package org.vancura.vaclav.widgets.skin {
 		override public function parseConfig(source:Object):void {
 			super.parseConfig(source);
 
-			if(source.buttonOff !== undefined) _buttonOffSkin.parseConfig(source.buttonOff);
-			if(source.buttonOn !== undefined) _buttonOnSkin.parseConfig(source.buttonOn);
+			if(source.buttonOff != undefined) _buttonOffSkin.parseConfig(source.buttonOff);
+			if(source.buttonOn != undefined) _buttonOnSkin.parseConfig(source.buttonOn);
 		}
 
 

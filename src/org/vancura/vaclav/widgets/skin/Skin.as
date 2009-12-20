@@ -49,7 +49,7 @@ package org.vancura.vaclav.widgets.skin {
 			_id = id;
 			_type = type;
 
-			if(_id === null) {
+			if(_id == null) {
 				var rs:String = randomString();
 				_id = printf('%s:skin:%s', type, rs);
 			}
@@ -96,7 +96,7 @@ package org.vancura.vaclav.widgets.skin {
 		public function parseConfig(source:Object):void {
 			_oldData = _data;
 
-			if(source.data !== undefined) {
+			if(source.data != undefined) {
 				_data = source.data;
 			}
 		}
@@ -132,7 +132,7 @@ package org.vancura.vaclav.widgets.skin {
 
 			duplicate.gotoAndStop(frame);
 
-			if(elements !== null) {
+			if(elements != null) {
 				// roll throught all elements
 				for each(var element:Object in elements) {
 					// get element properties
@@ -169,12 +169,12 @@ package org.vancura.vaclav.widgets.skin {
 
 
 		protected function _checkSize(source:BitmapData):void {
-			if(_assetWidth === 0 && _assetHeight === 0) {
+			if(_assetWidth == 0 && _assetHeight == 0) {
 				// size is not specified, set initial values
 				_assetWidth = source.width;
 				_assetHeight = source.height;
 			}
-			else if(source.width !== _assetWidth || source.height !== _assetHeight) {
+			else if(source.width != _assetWidth || source.height != _assetHeight) {
 				// size mismatch
 				throw new Error('Sizes have to match');
 			}

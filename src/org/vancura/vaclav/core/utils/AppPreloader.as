@@ -80,7 +80,7 @@ package org.vancura.vaclav.core.utils {
 
 			// find and call main class
 			_mainClass = getClassByName(_mainClassName);
-			if(_mainClass === null) {
+			if(_mainClass == null) {
 				// main class not found
 				alert('GlobalPreloader: Main class (' + _mainClassName + ') not found.\nThis is critical.');
 			}

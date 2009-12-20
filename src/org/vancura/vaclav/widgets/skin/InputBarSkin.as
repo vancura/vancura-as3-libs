@@ -45,8 +45,8 @@ package org.vancura.vaclav.widgets.skin {
 		override public function parseConfig(source:Object):void {
 			super.parseConfig(source);
 
-			if(source.bar !== undefined) _barSkin.parseConfig(source.bar);
-			if(source.label !== undefined) _labelSkin.parseConfig(source.label);
+			if(source.bar != undefined) _barSkin.parseConfig(source.bar);
+			if(source.label != undefined) _labelSkin.parseConfig(source.label);
 		}
 
 

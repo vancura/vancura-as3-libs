@@ -32,8 +32,8 @@ package org.vancura.vaclav.core.global {
 	 */
 	public function addEventListeners(obj:EventDispatcher, ... params):void {
 		for each(var i:Object in params) {
-			if(i.event === undefined) throw new Error('Event undefined');
-			if(i.method === undefined) throw new Error('Method undefined');
+			if(i.event == undefined) throw new Error('Event undefined');
+			if(i.method == undefined) throw new Error('Method undefined');
 
 			obj.addEventListener(i.event, i.method, false, 0, true);
 		}

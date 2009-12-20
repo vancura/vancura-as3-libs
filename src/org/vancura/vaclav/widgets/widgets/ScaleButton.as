@@ -48,10 +48,10 @@ package org.vancura.vaclav.widgets.widgets {
 		                            debugLevel:String = null) {
 			var c:Object;
 
-			if(config === null) c = new Object();
+			if(config == null) c = new Object();
 			else c = config;
 
-			super(skin, c, parent, (debugLevel === null) ? SkinManager.debugLevel : debugLevel);
+			super(skin, c, parent, (debugLevel == null) ? SkinManager.debugLevel : debugLevel);
 		}
 
 
@@ -102,12 +102,12 @@ package org.vancura.vaclav.widgets.widgets {
 			_hoverSBM.scale9Grid = rect;
 			_focusSBM.scale9Grid = rect;
 
-			if(_width !== 0) {
+			if(_width != 0) {
 				_outSBM.width = _width;
 				_hoverSBM.width = _width;
 				_focusSBM.width = _width;
 			}
-			if(_height !== 0) {
+			if(_height != 0) {
 				_outSBM.height = _height;
 				_hoverSBM.height = _height;
 				_focusSBM.height = _height;

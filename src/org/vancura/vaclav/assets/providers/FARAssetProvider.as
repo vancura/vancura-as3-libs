@@ -127,7 +127,7 @@ package org.vancura.vaclav.assets.providers {
 		override public function getAsset(id:String):Asset {
 			var asset:Asset = super.getAsset(id);
 
-			if(asset !== null) {
+			if(asset != null) {
 				// dispatch en event that the item was loaded
 				var e:AssetManagerItemEvent = new AssetManagerItemEvent(AssetManagerItemEvent.ITEM_LOADED, false, false, asset);
 				dispatchEvent(e);
@@ -232,7 +232,7 @@ package org.vancura.vaclav.assets.providers {
 
 					var leafAsString:String = leaf as String;
 
-					if(leafAsString.indexOf(_INDEX_URL_PREFIX) === 0) {
+					if(leafAsString.indexOf(_INDEX_URL_PREFIX) == 0) {
 						// strip the trailing this
 
 						var isNewChunk:Boolean = true;
@@ -272,10 +272,10 @@ package org.vancura.vaclav.assets.providers {
 						}
 
 						if(isNewIndex) {
-							// ok, so it's a ne asset
+							// ok, so it's a new asset
 
 							// create a new list of assets if not created before
-							if(_indexList[index] === null) _indexList[index] = new Array();
+							if(_indexList[index] == null) _indexList[index] = new Array();
 
 							// add it to the list of assets
 							_indexList[index].push(asset);
@@ -323,7 +323,7 @@ package org.vancura.vaclav.assets.providers {
 
 			// check if all items are loaded
 			--_chunkLoadCounter;
-			if(_chunkLoadCounter === 0) {
+			if(_chunkLoadCounter == 0) {
 				// all is done
 				_isLoaded = true;
 

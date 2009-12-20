@@ -47,10 +47,10 @@ package org.vancura.vaclav.widgets.widgets {
 		                            debugLevel:String = null) {
 			var c:Object;
 
-			if(config === null) c = new Object();
+			if(config == null) c = new Object();
 			else c = config;
 
-			var dl:String = (debugLevel === null) ? SkinManager.debugLevel : debugLevel;
+			var dl:String = (debugLevel == null) ? SkinManager.debugLevel : debugLevel;
 
 			_buttonOff = new StaticButton(skin.buttonOffSkin, {}, this, dl);
 			_buttonOn = new StaticButton(skin.buttonOnSkin, {visible:false}, this, dl);
@@ -68,10 +68,10 @@ package org.vancura.vaclav.widgets.widgets {
 			_buttonOff.addEventListener(ButtonEvent.RELEASE_INSIDE, _onToggle, false, 0, true);
 			_buttonOn.addEventListener(ButtonEvent.RELEASE_INSIDE, _onToggle, false, 0, true);
 
-			if(c.width === undefined) c.width = skin.buttonOffSkin.assetWidth;
-			if(c.height === undefined) c.height = skin.buttonOffSkin.assetHeight;
+			if(c.width == undefined) c.width = skin.buttonOffSkin.assetWidth;
+			if(c.height == undefined) c.height = skin.buttonOffSkin.assetHeight;
 
-			if(skin !== null) super(c, parent);
+			if(skin != null) super(c, parent);
 			else throw new Error('No skin defined');
 
 			_skin = skin;

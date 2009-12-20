@@ -48,7 +48,7 @@ package org.vancura.vaclav.widgets.skin {
 
 
 		public function getAssetsFromAtlas(source:BitmapData):void {
-			if(source.width % 3 !== 0) throw new Error('Width has to be multiple of 3');
+			if(source.width % 3 != 0) throw new Error('Width has to be multiple of 3');
 
 			_assetWidth = source.width / 3;
 			_assetHeight = source.height;
@@ -65,7 +65,7 @@ package org.vancura.vaclav.widgets.skin {
 
 
 		public function getAssetsFromMovieClip(source:MovieClip, elements:Array = null, ...labels:Array):void {
-			_getSkinSize(source, (labels[1] === undefined || labels[1] === '') ? 'guide' : labels[1]);
+			_getSkinSize(source, (labels[1] == undefined || labels[1] == '') ? 'guide' : labels[1]);
 
 			_glyphOutSkin.getAssetsFromMovieClip(source, elements, 'out');
 			_glyphHoverSkin.getAssetsFromMovieClip(source, elements, 'hover');

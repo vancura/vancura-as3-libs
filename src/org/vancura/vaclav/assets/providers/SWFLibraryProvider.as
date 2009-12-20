@@ -171,7 +171,7 @@ package org.vancura.vaclav.assets.providers {
 
 			// get skin loaderInfo.
 			// used to get assets from skin asset library.
-			if(_skinMC.loaderInfo === null) throw new Error('Could not get skin loaderInfo (skin asset library)');
+			if(_skinMC.loaderInfo == null) throw new Error('Could not get skin loaderInfo (skin asset library)');
 			else _loaderInfo = _skinMC.loaderInfo;
 
 			// get config

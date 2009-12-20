@@ -95,19 +95,19 @@ package org.vancura.vaclav.widgets.skin {
 			_oldPaddingLeft = _paddingLeft;
 			_oldPaddingRight = _paddingRight;
 
-			if(source.font !== undefined) _font = source.font;
-			if(source.size !== undefined) _size = source.size;
-			if(source.color !== undefined) _color = source.color;
-			if(source.alpha !== undefined) _alpha = source.alpha;
-			if(source.hAlign !== undefined) _hAlign = source.hAlign;
-			if(source.vAlign !== undefined) _vAlign = source.vAlign;
-			if(source.filters !== undefined) _filters = source.filters;
-			if(source.sharpness !== undefined) _sharpness = source.sharpness;
-			if(source.thickness !== undefined) _thickness = source.thickness;
-			if(source.paddingTop !== undefined) _paddingTop = source.paddingTop;
-			if(source.paddingBottom !== undefined) _paddingBottom = source.paddingBottom;
-			if(source.paddingLeft !== undefined) _paddingLeft = source.paddingLeft;
-			if(source.paddingRight !== undefined) _paddingRight = source.paddingRight;
+			if(source.font != undefined) _font = source.font;
+			if(source.size != undefined) _size = source.size;
+			if(source.color != undefined) _color = source.color;
+			if(source.alpha != undefined) _alpha = source.alpha;
+			if(source.hAlign != undefined) _hAlign = source.hAlign;
+			if(source.vAlign != undefined) _vAlign = source.vAlign;
+			if(source.filters != undefined) _filters = source.filters;
+			if(source.sharpness != undefined) _sharpness = source.sharpness;
+			if(source.thickness != undefined) _thickness = source.thickness;
+			if(source.paddingTop != undefined) _paddingTop = source.paddingTop;
+			if(source.paddingBottom != undefined) _paddingBottom = source.paddingBottom;
+			if(source.paddingLeft != undefined) _paddingLeft = source.paddingLeft;
+			if(source.paddingRight != undefined) _paddingRight = source.paddingRight;
 		}
 
 

@@ -46,10 +46,10 @@ package org.vancura.vaclav.widgets.widgets {
 		                             debugLevel:String = null) {
 			var c:Object;
 
-			if(config === null) c = new Object();
+			if(config == null) c = new Object();
 			else c = config;
 
-			super(skin, c, parent, (debugLevel === null) ? SkinManager.debugLevel : debugLevel);
+			super(skin, c, parent, (debugLevel == null) ? SkinManager.debugLevel : debugLevel);
 		}
 
 
