@@ -41,5 +41,8 @@ package org.vancura.vaclav.core.global {
 		catch(typeError:TypeError) {
 			return null;
 		}
+
+		//noinspection UnreachableCodeJS
+		return null;
 	}
 }

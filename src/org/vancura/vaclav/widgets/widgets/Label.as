@@ -56,8 +56,8 @@ package org.vancura.vaclav.widgets.widgets {
 			if(config === null) c = new Object();
 			else c = config;
 
-			if(skin === null) throw new Error('No skin defined');
-			else super(c, parent, (debugLevel === null) ? SkinManager.debugLevel : debugLevel);
+			if(skin !== null) super(c, parent, (debugLevel === null) ? SkinManager.debugLevel : debugLevel);
+			else throw new Error('No skin defined');
 
 			_isWidthOverriden = (c.width !== undefined);
 			_isHeightOverriden = (c.height !== undefined);

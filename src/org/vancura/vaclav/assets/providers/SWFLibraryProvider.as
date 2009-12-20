@@ -45,7 +45,6 @@ package org.vancura.vaclav.assets.providers {
 		private var _loaderInfo:LoaderInfo;
 		private var _urlLoader:URLLoader;
 		private var _swfLoader:Loader;
-		private var _isError:Boolean;
 		private var _url:String;
 
 

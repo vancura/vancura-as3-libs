@@ -113,7 +113,7 @@ package org.vancura.vaclav.widgets.globals {
 					case SkinType.GLYPH_BUTTON:
 						skin = new GlyphButtonSkin();
 
-						var glyphButtonSkin = skin as GlyphButtonSkin;
+						var glyphButtonSkin:GlyphButtonSkin = skin as GlyphButtonSkin;
 						var glyphButtonSkinBD1:BitmapData = asset.getChunkByURL(config.button.backgroundImage).bitmap.bitmapData;
 						var glyphButtonSkinBD2:BitmapData = asset.getChunkByURL(config.glyph.image).bitmap.bitmapData;
 
