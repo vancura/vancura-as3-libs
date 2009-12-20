@@ -49,7 +49,7 @@ package org.vancura.vaclav.widgets.globals {
 		private static var _debugColor:uint = 0xFF0000;
 
 
-
+		//noinspection FunctionTooLongJS,FunctionWithMultipleReturnPointsJS,OverlyComplexFunctionJS
 		public static function assetToSkin(asset:Asset):* {
 			if(asset.config.widget != null) {
 				var skin:*;

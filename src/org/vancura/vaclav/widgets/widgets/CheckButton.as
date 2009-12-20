@@ -71,6 +71,7 @@ package org.vancura.vaclav.widgets.widgets {
 			if(c.width == undefined) c.width = skin.buttonOffSkin.assetWidth;
 			if(c.height == undefined) c.height = skin.buttonOffSkin.assetHeight;
 
+			//noinspection NegatedIfStatementJS
 			if(skin != null) super(c, parent);
 			else throw new Error('No skin defined');
 

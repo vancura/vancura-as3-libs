@@ -56,6 +56,7 @@ package org.vancura.vaclav.widgets.widgets {
 			if(config == null) c = new Object();
 			else c = config;
 
+			//noinspection NegatedIfStatementJS
 			if(skin != null) super(c, parent, (debugLevel == null) ? SkinManager.debugLevel : debugLevel);
 			else throw new Error('No skin defined');
 
