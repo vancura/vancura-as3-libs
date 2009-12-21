@@ -22,9 +22,6 @@
 package org.vancura.vaclav.interfaces{
 	public interface IMain {
 		function start():void;
-
-
-
 		function set flashVars(value:Object):void;
 	}
 }
