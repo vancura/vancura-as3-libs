@@ -33,8 +33,8 @@ package org.vancura.vaclav.assets.providers {
 
 	import org.vancura.vaclav.assets.Asset;
 	import org.vancura.vaclav.assets.Chunk;
-	import org.vancura.vaclav.assets.events.AssetManagerErrorEvent;
-	import org.vancura.vaclav.assets.events.AssetManagerItemEvent;
+	import org.vancura.vaclav.assets.events.ProviderErrorEvent;
+	import org.vancura.vaclav.assets.events.ProviderItemEvent;
 	import org.vancura.vaclav.assets.interfaces.IAssetProvider;
 	import org.vancura.vaclav.far.FarHelper;
 	import org.vancura.vaclav.far.FarHelperItem;
@@ -129,7 +129,7 @@ package org.vancura.vaclav.assets.providers {
 
 			if(asset != null) {
 				// dispatch en event that the item was loaded
-				var e:AssetManagerItemEvent = new AssetManagerItemEvent(AssetManagerItemEvent.ITEM_LOADED, false, false, asset);
+				var e:ProviderItemEvent = new ProviderItemEvent(ProviderItemEvent.ITEM_LOADED, false, false, asset);
 				dispatchEvent(e);
 			}
 
@@ -146,7 +146,7 @@ package org.vancura.vaclav.assets.providers {
 			_isLoaded = false;
 
 			var d:String = printf('Security error loading asset library: %s', event.text);
-			var e:AssetManagerErrorEvent = new AssetManagerErrorEvent(AssetManagerErrorEvent.PROVIDER_ERROR, false, false, d);
+			var e:ProviderErrorEvent = new ProviderErrorEvent(ProviderErrorEvent.PROVIDER_ERROR, false, false, d);
 			dispatchEvent(e);
 		}
 
@@ -157,7 +157,7 @@ package org.vancura.vaclav.assets.providers {
 			_isLoaded = false;
 
 			var d:String = printf('IO error loading asset library: %s', event.text);
-			var e:AssetManagerErrorEvent = new AssetManagerErrorEvent(AssetManagerErrorEvent.PROVIDER_ERROR, false, false, d);
+			var e:ProviderErrorEvent = new ProviderErrorEvent(ProviderErrorEvent.PROVIDER_ERROR, false, false, d);
 			dispatchEvent(e);
 		}
 
@@ -165,7 +165,7 @@ package org.vancura.vaclav.assets.providers {
 
 		private function _onItemNotFound(event:FarHelperEvent):void {
 			var d:String = printf('Asset item "%s" not found in the asset library', event.helperItem.index);
-			var e:AssetManagerErrorEvent = new AssetManagerErrorEvent(AssetManagerErrorEvent.ITEM_NOT_FOUND, false, false, d);
+			var e:ProviderErrorEvent = new ProviderErrorEvent(ProviderErrorEvent.ITEM_NOT_FOUND, false, false, d);
 			dispatchEvent(e);
 		}
 
@@ -173,7 +173,7 @@ package org.vancura.vaclav.assets.providers {
 
 		private function _onItemLoadFailed(event:FarHelperEvent):void {
 			var d:String = printf('Asset item "%s" load failed', event.helperItem.index);
-			var e:AssetManagerErrorEvent = new AssetManagerErrorEvent(AssetManagerErrorEvent.ITEM_LOAD_FAILED, false, false, d);
+			var e:ProviderErrorEvent = new ProviderErrorEvent(ProviderErrorEvent.ITEM_LOAD_FAILED, false, false, d);
 			dispatchEvent(e);
 		}
 
@@ -186,7 +186,15 @@ package org.vancura.vaclav.assets.providers {
 				// assets library config found
 
 				var c:String = itemHelper.farItem.data.toString();
-				_assetsConfig = JSON.decode(c);
+				try {
+					_assetsConfig = JSON.decode(c);
+				}
+				catch(err:Error) {
+					var m:String = printf('Error parsing config JSON (%s)', err.message);
+					var e:ProviderErrorEvent = new ProviderErrorEvent(ProviderErrorEvent.CONFIG_PARSING_ERROR, false, false, m);
+					dispatchEvent(e);
+					return;
+				}
 
 				// find all assets specified in the config
 				for each(var assetConfig:Object in _assetsConfig) {

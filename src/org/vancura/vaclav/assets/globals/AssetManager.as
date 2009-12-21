@@ -22,11 +22,9 @@
 package org.vancura.vaclav.assets.globals {
 	import br.com.stimuli.string.printf;
 
-	import flash.events.Event;
 	import flash.events.EventDispatcher;
 
 	import org.vancura.vaclav.assets.Asset;
-	import org.vancura.vaclav.assets.events.AssetManagerErrorEvent;
 	import org.vancura.vaclav.assets.interfaces.IAssetProvider;
 
 	/**
@@ -65,12 +63,6 @@ package org.vancura.vaclav.assets.globals {
 			if(_provider == null) {
 				// attaching a new asset provider
 				_provider = provider;
-
-				// add event listeners
-				_provider.addEventListener(Event.COMPLETE, _onProviderComplete, false, 0, true);
-				_provider.addEventListener(AssetManagerErrorEvent.PROVIDER_ERROR, _onProviderError, false, 0, true);
-				_provider.addEventListener(AssetManagerErrorEvent.ITEM_LOAD_FAILED, _onItemLoadFailed, false, 0, true);
-				_provider.addEventListener(AssetManagerErrorEvent.ITEM_NOT_FOUND, _onItemNotFound, false, 0, true);
 			}
 
 			else throw new Error('Asset provider already attached');
@@ -206,38 +198,6 @@ package org.vancura.vaclav.assets.globals {
 			else out = _provider.isLoaded;
 
 			return out;
-		}
-
-
-
-		// Private stuff
-		// -------------
-
-
-		private function _onItemNotFound(event:AssetManagerErrorEvent):void {
-			var e:Event = event.clone();
-			dispatchEvent(e);
-		}
-
-
-
-		private function _onItemLoadFailed(event:AssetManagerErrorEvent):void {
-			var e:Event = event.clone();
-			dispatchEvent(e);
-		}
-
-
-
-		private function _onProviderError(event:AssetManagerErrorEvent):void {
-			var e:Event = event.clone();
-			dispatchEvent(e);
-		}
-
-
-
-		private function _onProviderComplete(event:Event):void {
-			var e:Event = event.clone();
-			dispatchEvent(e);
 		}
 	}
 }

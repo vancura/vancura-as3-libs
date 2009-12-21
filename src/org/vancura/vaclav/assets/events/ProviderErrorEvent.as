@@ -20,22 +20,28 @@
  **********************************************************************************************************************/
 
 package org.vancura.vaclav.assets.events {
+	import flash.events.ErrorEvent;
 	import flash.events.Event;
 
-	import org.vancura.vaclav.assets.Asset;
-
 	/**
-	 * AssetManager item Event, usually means an Item was loaded.
+	 * Provider ErrorEvent. Something bad happened.
 	 *
 	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
-	public class AssetManagerItemEvent extends Event {
+	public class ProviderErrorEvent extends ErrorEvent {
 
 
-		/** Item was successfully loaded */
-		public static const ITEM_LOADED:String = 'item_loaded';
+		/** Provider error */
+		public static const PROVIDER_ERROR:String = 'provider_error';
 
-		private var asset:Asset;
+		/** Item not found */
+		public static const ITEM_NOT_FOUND:String = 'item_not_found';
+
+		/** Item load failed */
+		public static const ITEM_LOAD_FAILED:String = 'item_load_failed';
+
+		/** Config parsing error */
+		public static const CONFIG_PARSING_ERROR:String = 'config_parsing_error';
 
 
 
@@ -45,13 +51,10 @@ package org.vancura.vaclav.assets.events {
 		 * @param type Event type (see Event constants)
 		 * @param bubbles Bubbles enabled
 		 * @param cancelable Cancel enabled
-		 * @param asset Asset
-		 * @see Asset
+		 * @param text Error description
 		 */
-		public function AssetManagerItemEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, asset:Asset = null) {
-			super(type, bubbles, cancelable);
-
-			this.asset = asset;
+		public function ProviderErrorEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, text:String = '') {
+			super(type, bubbles, cancelable, text);
 		}
 
 
@@ -62,7 +65,7 @@ package org.vancura.vaclav.assets.events {
 		 * @return Cloned Event
 		 */
 		public override function clone():Event {
-			return new AssetManagerItemEvent(type, bubbles, cancelable, asset);
+			return new ProviderErrorEvent(type, bubbles, cancelable, text);
 		}
 
 
@@ -73,7 +76,7 @@ package org.vancura.vaclav.assets.events {
 		 * @return Event description
 		 */
 		public override function toString():String {
-			return formatToString('AssetManagerItemEvent', 'type', 'bubbles', 'cancelable', 'asset');
+			return formatToString('ProviderErrorEvent', 'type', 'bubbles', 'cancelable', 'text');
 		}
 	}
 }

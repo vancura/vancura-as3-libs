@@ -20,25 +20,22 @@
  **********************************************************************************************************************/
 
 package org.vancura.vaclav.assets.events {
-	import flash.events.ErrorEvent;
 	import flash.events.Event;
 
+	import org.vancura.vaclav.assets.Asset;
+
 	/**
-	 * AssetManager ErrorEvent. Something bad happened.
+	 * AssetManager item Event, usually means an Item was loaded.
 	 *
 	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
-	public class AssetManagerErrorEvent extends ErrorEvent {
+	public class ProviderItemEvent extends Event {
 
 
-		/** Provider error */
-		public static const PROVIDER_ERROR:String = 'provider_error';
+		/** Item was successfully loaded */
+		public static const ITEM_LOADED:String = 'item_loaded';
 
-		/** Item not found */
-		public static const ITEM_NOT_FOUND:String = 'item_not_found';
-
-		/** Item load failed */
-		public static const ITEM_LOAD_FAILED:String = 'item_load_failed';
+		private var asset:Asset;
 
 
 
@@ -48,10 +45,13 @@ package org.vancura.vaclav.assets.events {
 		 * @param type Event type (see Event constants)
 		 * @param bubbles Bubbles enabled
 		 * @param cancelable Cancel enabled
-		 * @param text Error description
+		 * @param asset Asset
+		 * @see Asset
 		 */
-		public function AssetManagerErrorEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, text:String = '') {
-			super(type, bubbles, cancelable, text);
+		public function ProviderItemEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false, asset:Asset = null) {
+			super(type, bubbles, cancelable);
+
+			this.asset = asset;
 		}
 
 
@@ -62,7 +62,7 @@ package org.vancura.vaclav.assets.events {
 		 * @return Cloned Event
 		 */
 		public override function clone():Event {
-			return new AssetManagerErrorEvent(type, bubbles, cancelable, text);
+			return new ProviderItemEvent(type, bubbles, cancelable, asset);
 		}
 
 
@@ -73,7 +73,7 @@ package org.vancura.vaclav.assets.events {
 		 * @return Event description
 		 */
 		public override function toString():String {
-			return formatToString('AssetManagerErrorEvent', 'type', 'bubbles', 'cancelable', 'text');
+			return formatToString('ProviderItemEvent', 'type', 'bubbles', 'cancelable', 'asset');
 		}
 	}
 }
