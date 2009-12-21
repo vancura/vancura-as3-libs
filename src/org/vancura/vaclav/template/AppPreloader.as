@@ -19,7 +19,7 @@
  * DEALINGS IN THE SOFTWARE.
  **********************************************************************************************************************/
 
-package org.vancura.vaclav.core.utils {
+package org.vancura.vaclav.template {
 	import flash.display.DisplayObject;
 	import flash.display.MovieClip;
 	import flash.display.StageAlign;

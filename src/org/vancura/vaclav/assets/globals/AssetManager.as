@@ -48,7 +48,7 @@ package org.vancura.vaclav.assets.globals {
 		 *
 		 * @return Instance
 		 */
-		public static function get instance():AssetManager {
+		public static function getInstance():AssetManager {
 			if(_instance == null) _instance = new AssetManager();
 			return _instance;
 		}

@@ -24,7 +24,7 @@ package org.vancura.vaclav.widgets.globals {
 	import org.vancura.vaclav.assets.globals.AssetManager;
 
 	public function A2S(id:String):* {
-		var asset:Asset = AssetManager.instance.getAsset(id);
+		var asset:Asset = AssetManager.getInstance().getAsset(id);
 		return SkinManager.assetToSkin(asset);
 	}
 }

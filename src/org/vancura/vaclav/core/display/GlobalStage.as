@@ -44,7 +44,7 @@ package org.vancura.vaclav.core.display {
 		 * @param stg Stage
 		 */
 		public static function init(stg:Stage):void {
-			stg.addChild(GlobalStage.instance);
+			stg.addChild(GlobalStage.getInstance());
 		}
 
 
@@ -54,7 +54,7 @@ package org.vancura.vaclav.core.display {
 		 *
 		 * @return Instance
 		 */
-		public static function get instance():GlobalStage {
+		public static function getInstance():GlobalStage {
 			if(_instance == null) _instance = new GlobalStage();
 			return _instance;
 		}
@@ -67,7 +67,7 @@ package org.vancura.vaclav.core.display {
 		 * @return Global Stage reference
 		 */
 		public static function get stage():Stage {
-			return instance.stage;
+			return getInstance().stage;
 		}
 	}
 }

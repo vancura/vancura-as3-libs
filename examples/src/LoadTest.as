@@ -50,7 +50,7 @@ package {
 		 */
 		public function LoadTest() {
 			// create asset manager
-			_assetManager = AssetManager.instance;
+			_assetManager = AssetManager.getInstance();
 
 			// add event listeners
 			_assetManager.addEventListener(Event.COMPLETE, _onProviderComplete, false, 0, true);
