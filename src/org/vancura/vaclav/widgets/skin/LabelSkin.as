@@ -20,6 +20,12 @@
  **********************************************************************************************************************/
 
 package org.vancura.vaclav.widgets.skin {
+	import br.com.stimuli.string.printf;
+
+	import flash.filters.BitmapFilter;
+
+	import flash.filters.DropShadowFilter;
+
 	import org.vancura.vaclav.widgets.constants.Align;
 	import org.vancura.vaclav.widgets.constants.SkinType;
 	import org.vancura.vaclav.widgets.interfaces.ILabelSkin;
@@ -159,7 +165,6 @@ package org.vancura.vaclav.widgets.skin {
 			if(source.underline != undefined) _underline = source.underline;
 			if(source.url != undefined) _url = source.url;
 			if(source.alpha != undefined) _alpha = source.alpha;
-			if(source.filters != undefined) _filters = source.filters;
 			if(source.sharpness != undefined) _sharpness = source.sharpness;
 			if(source.thickness != undefined) _thickness = source.thickness;
 			if(source.paddingTop != undefined) _paddingTop = source.paddingTop;
@@ -168,6 +173,44 @@ package org.vancura.vaclav.widgets.skin {
 			if(source.paddingRight != undefined) _paddingRight = source.paddingRight;
 			if(source.marginLeft != undefined) _marginLeft = source.marginLeft;
 			if(source.marginRight != undefined) _marginRight = source.marginRight;
+
+			// TODO: Add this functionality to all skins where it's needed
+			if(source.filters != undefined && source.filters is Array) {
+				for each(var f:* in source.filters) {
+					if(f is BitmapFilter) {
+						// bitmapFilter means we got filter already converted
+						_filters.push(f);
+					}
+					else if(f is Object) {
+						// it's an Object, we need to convert it first
+						try {
+							switch(f.filter) {
+								case 'dropShadow' :
+									var dsDistance:Number = (f.distance == undefined) ? 1 : f.distance;
+									var dsAngle:Number = (f.angle == undefined) ? 45 : f.angle;
+									var dsColor:Number = (f.color == undefined) ? 0x000000 : f.color;
+									var dsAlpha:Number = (f.alpha == undefined) ? 0.75 : f.alpha;
+									var dsBlurX:Number = (f.blurX == undefined) ? 1 : f.blurX;
+									var dsBlurY:Number = (f.blurY == undefined) ? 1 : f.blurY;
+									var dsStrength:Number = (f.strength == undefined) ? 1 : f.strength;
+									var dsQuality:Number = (f.quality == undefined) ? 1 : f.quality;
+									var dsInner:Boolean = (f.inner == undefined) ? false : f.inner;
+									var dsKnockout:Boolean = (f.knockout == undefined) ? false : f.knockout;
+									var dsHideObject:Boolean = (f.hideObject == undefined) ? false : f.hideObject;
+									var g:DropShadowFilter = new DropShadowFilter(dsDistance, dsAngle, dsColor, dsAlpha, dsBlurX, dsBlurY, dsStrength, dsQuality, dsInner, dsKnockout, dsHideObject);
+									_filters.push(g);
+									break;
+
+								default:
+							}
+						}
+						catch(err:Error) {
+							var convertError:String = printf('Error converting filters Object to native filters (%s)', err.message);
+							throw new Error(convertError);
+						}
+					}
+				}
+			}
 		}
 
 
