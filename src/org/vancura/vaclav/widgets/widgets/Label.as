@@ -184,9 +184,9 @@ package org.vancura.vaclav.widgets.widgets {
 
 		public function set text(value:String):void {
 			if(_textField != null) {
-				if(value != null) _textField.htmlText = value;
+				_textField.defaultTextFormat = _textFormat;
 
-				_textField.setTextFormat(_textFormat);
+				if(value != null) _textField.htmlText = value;
 			}
 
 			draw();
