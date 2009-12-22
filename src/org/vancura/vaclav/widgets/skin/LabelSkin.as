@@ -27,12 +27,22 @@ package org.vancura.vaclav.widgets.skin {
 	public class LabelSkin extends Skin implements ILabelSkin {
 
 
-		protected var _font:String;
-		protected var _size:Number;
-		protected var _color:uint;
-		protected var _alpha:Number;
 		protected var _hAlign:String;
 		protected var _vAlign:String;
+		protected var _bold:Boolean;
+		protected var _blockIndent:Number;
+		protected var _bullet:Boolean;
+		protected var _color:uint;
+		protected var _font:String;
+		protected var _indent:Number;
+		protected var _italic:Boolean;
+		protected var _kerning:Boolean;
+		protected var _leading:Number;
+		protected var _letterSpacing:Number;
+		protected var _size:Number;
+		protected var _underline:Boolean;
+		protected var _url:String;
+		protected var _alpha:Number;
 		protected var _filters:Array;
 		protected var _sharpness:Number;
 		protected var _thickness:Number;
@@ -40,13 +50,25 @@ package org.vancura.vaclav.widgets.skin {
 		protected var _paddingBottom:Number;
 		protected var _paddingLeft:Number;
 		protected var _paddingRight:Number;
+		protected var _marginLeft:Number;
+		protected var _marginRight:Number;
 
-		private var _oldFont:String;
-		private var _oldSize:Number;
-		private var _oldColor:uint;
-		private var _oldAlpha:Number;
 		private var _oldHAlign:String;
 		private var _oldVAlign:String;
+		private var _oldBold:Boolean;
+		private var _oldBlockIndent:Number;
+		private var _oldBullet:Boolean;
+		private var _oldColor:uint;
+		private var _oldFont:String;
+		private var _oldIndent:Number;
+		private var _oldItalic:Boolean;
+		private var _oldKerning:Boolean;
+		private var _oldLeading:Number;
+		private var _oldLetterSpacing:Number;
+		private var _oldSize:Number;
+		private var _oldUnderline:Boolean;
+		private var _oldURL:String;
+		private var _oldAlpha:Number;
 		private var _oldFilters:Array;
 		private var _oldSharpness:Number;
 		private var _oldThickness:Number;
@@ -54,18 +76,30 @@ package org.vancura.vaclav.widgets.skin {
 		private var _oldPaddingBottom:Number;
 		private var _oldPaddingLeft:Number;
 		private var _oldPaddingRight:Number;
+		private var _oldMarginLeft:Number;
+		private var _oldMarginRight:Number;
 
 
 
 		public function LabelSkin(id:String = null) {
 			super(SkinType.LABEL, id);
 
-			_font = '';
-			_size = 10;
-			_color = 0x000000;
-			_alpha = 1;
 			_hAlign = Align.LEFT;
 			_vAlign = Align.TOP;
+			_bold = false;
+			_blockIndent = 0;
+			_bullet = false;
+			_color = 0x000000;
+			_font = null;
+			_indent = 0;
+			_italic = false;
+			_kerning = false;
+			_leading = 0;
+			_letterSpacing = 0;
+			_size = 10;
+			_underline = false;
+			_url = null;
+			_alpha = 1;
 			_filters = new Array();
 			_sharpness = 0;
 			_thickness = 0;
@@ -73,6 +107,8 @@ package org.vancura.vaclav.widgets.skin {
 			_paddingBottom = 0;
 			_paddingLeft = 0;
 			_paddingRight = 0;
+			_marginLeft = 0;
+			_marginRight = 0;
 		}
 
 
@@ -81,12 +117,22 @@ package org.vancura.vaclav.widgets.skin {
 		override public function parseConfig(source:Object):void {
 			super.parseConfig(source);
 
-			_oldFont = _font;
-			_oldSize = _size;
-			_oldColor = _color;
-			_oldAlpha = _alpha;
 			_oldHAlign = _hAlign;
 			_oldVAlign = _vAlign;
+			_oldBold = _bold;
+			_oldBlockIndent = _blockIndent;
+			_oldBullet = _bullet;
+			_oldColor = _color;
+			_oldFont = _font;
+			_oldIndent = _indent;
+			_oldItalic = _italic;
+			_oldKerning = _kerning;
+			_oldLeading = _leading;
+			_oldLetterSpacing = _letterSpacing;
+			_oldSize = _size;
+			_oldUnderline = _underline;
+			_oldURL = _url;
+			_oldAlpha = _alpha;
 			_oldFilters = _filters;
 			_oldSharpness = _sharpness;
 			_oldThickness = _thickness;
@@ -94,13 +140,25 @@ package org.vancura.vaclav.widgets.skin {
 			_oldPaddingBottom = _paddingBottom;
 			_oldPaddingLeft = _paddingLeft;
 			_oldPaddingRight = _paddingRight;
+			_oldMarginLeft = _marginLeft;
+			_oldMarginRight = _marginRight;
 
-			if(source.font != undefined) _font = source.font;
-			if(source.size != undefined) _size = source.size;
-			if(source.color != undefined) _color = source.color;
-			if(source.alpha != undefined) _alpha = source.alpha;
 			if(source.hAlign != undefined) _hAlign = source.hAlign;
 			if(source.vAlign != undefined) _vAlign = source.vAlign;
+			if(source.bold != undefined) _bold = source.bold;
+			if(source.blockIndent != undefined) _blockIndent = source.blockIndent;
+			if(source.bullet != undefined) _bullet = source.bullet;
+			if(source.color != undefined) _color = source.color;
+			if(source.font != undefined) _font = source.font;
+			if(source.indent != undefined) _indent = source.indent;
+			if(source.italic != undefined) _italic = source.italic;
+			if(source.kerning != undefined) _kerning = source.kerning;
+			if(source.leading != undefined) _leading = source.leading;
+			if(source.letterSpacing != undefined) _letterSpacing = source.letterSpacing;
+			if(source.size != undefined) _size = source.size;
+			if(source.underline != undefined) _underline = source.underline;
+			if(source.url != undefined) _url = source.url;
+			if(source.alpha != undefined) _alpha = source.alpha;
 			if(source.filters != undefined) _filters = source.filters;
 			if(source.sharpness != undefined) _sharpness = source.sharpness;
 			if(source.thickness != undefined) _thickness = source.thickness;
@@ -108,6 +166,8 @@ package org.vancura.vaclav.widgets.skin {
 			if(source.paddingBottom != undefined) _paddingBottom = source.paddingBottom;
 			if(source.paddingLeft != undefined) _paddingLeft = source.paddingLeft;
 			if(source.paddingRight != undefined) _paddingRight = source.paddingRight;
+			if(source.marginLeft != undefined) _marginLeft = source.marginLeft;
+			if(source.marginRight != undefined) _marginRight = source.marginRight;
 		}
 
 
@@ -115,12 +175,22 @@ package org.vancura.vaclav.widgets.skin {
 		override public function revertConfig():void {
 			super.revertConfig();
 
-			_font = _oldFont;
-			_size = _oldSize;
-			_color = _oldColor;
-			_alpha = _oldAlpha;
 			_hAlign = _oldHAlign;
 			_vAlign = _oldVAlign;
+			_bold = _oldBold;
+			_blockIndent = _oldBlockIndent;
+			_bullet = _oldBullet;
+			_color = _oldColor;
+			_font = _oldFont;
+			_indent = _oldIndent;
+			_italic = _oldItalic;
+			_kerning = _oldKerning;
+			_leading = _oldLeading;
+			_letterSpacing = _oldLetterSpacing;
+			_size = _oldSize;
+			_underline = _oldUnderline;
+			_url = _oldURL;
+			_alpha = _oldAlpha;
 			_filters = _oldFilters;
 			_sharpness = _oldSharpness;
 			_thickness = _oldThickness;
@@ -128,54 +198,8 @@ package org.vancura.vaclav.widgets.skin {
 			_paddingBottom = _oldPaddingBottom;
 			_paddingLeft = _oldPaddingLeft;
 			_paddingRight = _oldPaddingRight;
-		}
-
-
-
-		public function get font():String {
-			return _font;
-		}
-
-
-
-		public function set font(value:String):void {
-			_font = value;
-		}
-
-
-
-		public function get size():Number {
-			return _size;
-		}
-
-
-
-		public function set size(value:Number):void {
-			_size = value;
-		}
-
-
-
-		public function get color():uint {
-			return _color;
-		}
-
-
-
-		public function set color(value:uint):void {
-			_color = value;
-		}
-
-
-
-		public function get alpha():Number {
-			return _alpha;
-		}
-
-
-
-		public function set alpha(value:Number):void {
-			_alpha = value;
+			_marginLeft = _oldMarginLeft;
+			_marginRight = _oldMarginRight;
 		}
 
 
@@ -200,6 +224,174 @@ package org.vancura.vaclav.widgets.skin {
 
 		public function set vAlign(value:String):void {
 			_vAlign = value;
+		}
+
+
+
+		public function get bold():Boolean {
+			return _bold;
+		}
+
+
+
+		public function set bold(value:Boolean):void {
+			_bold = value;
+		}
+
+
+
+		public function get blockIndent():Number {
+			return _blockIndent;
+		}
+
+
+
+		public function set blockIndent(value:Number):void {
+			_blockIndent = value;
+		}
+
+
+
+		public function get bullet():Boolean {
+			return _bullet;
+		}
+
+
+
+		public function set bullet(value:Boolean):void {
+			_bullet = value;
+		}
+
+
+
+		public function get color():uint {
+			return _color;
+		}
+
+
+
+		public function set color(value:uint):void {
+			_color = value;
+		}
+
+
+
+		public function get font():String {
+			return _font;
+		}
+
+
+
+		public function set font(value:String):void {
+			_font = value;
+		}
+
+
+
+		public function get indent():Number {
+			return _indent;
+		}
+
+
+
+		public function set indent(value:Number):void {
+			_indent = value;
+		}
+
+
+
+		public function get italic():Boolean {
+			return _italic;
+		}
+
+
+
+		public function set italic(value:Boolean):void {
+			_italic = value;
+		}
+
+
+
+		public function get kerning():Boolean {
+			return _kerning;
+		}
+
+
+
+		public function set kerning(value:Boolean):void {
+			_kerning = value;
+		}
+
+
+
+		public function get leading():Number {
+			return _leading;
+		}
+
+
+
+		public function set leading(value:Number):void {
+			_leading = value;
+		}
+
+
+
+		public function get letterSpacing():Number {
+			return _letterSpacing;
+		}
+
+
+
+		public function set letterSpacing(value:Number):void {
+			_letterSpacing = value;
+		}
+
+
+
+		public function get size():Number {
+			return _size;
+		}
+
+
+
+		public function set size(value:Number):void {
+			_size = value;
+		}
+
+
+
+		public function get underline():Boolean {
+			return _underline;
+		}
+
+
+
+		public function set underline(value:Boolean):void {
+			_underline = value;
+		}
+
+
+
+		public function get url():String {
+			return _url;
+		}
+
+
+
+		public function set url(value:String):void {
+			_url = value;
+		}
+
+
+
+		public function get alpha():Number {
+			return _alpha;
+		}
+
+
+
+		public function set alpha(value:Number):void {
+			_alpha = value;
 		}
 
 
@@ -284,6 +476,30 @@ package org.vancura.vaclav.widgets.skin {
 
 		public function set paddingRight(value:Number):void {
 			_paddingRight = value;
+		}
+
+
+
+		public function get marginLeft():Number {
+			return _marginLeft;
+		}
+
+
+
+		public function set marginLeft(value:Number):void {
+			_marginLeft = value;
+		}
+
+
+
+		public function get marginRight():Number {
+			return _marginRight;
+		}
+
+
+
+		public function set marginRight(value:Number):void {
+			_marginRight = value;
 		}
 	}
 }

@@ -142,10 +142,22 @@ package org.vancura.vaclav.widgets.widgets {
 			_vAlign = _skin.vAlign;
 
 			_textFormat = new TextFormat();
-			_textFormat.font = _skin.font;
-			_textFormat.size = _skin.size;
-			_textFormat.color = _skin.color;
 			_textFormat.align = _skin.hAlign;
+			_textFormat.blockIndent = _skin.blockIndent;
+			_textFormat.bold = _skin.bold;
+			_textFormat.bullet = _skin.bullet;
+			_textFormat.color = _skin.color;
+			_textFormat.font = _skin.font;
+			_textFormat.indent = _skin.indent;
+			_textFormat.italic = _skin.italic;
+			_textFormat.kerning = _skin.kerning;
+			_textFormat.leading = _skin.leading;
+			_textFormat.leftMargin = _skin.marginLeft;
+			_textFormat.letterSpacing = _skin.letterSpacing;
+			_textFormat.rightMargin = _skin.marginRight;
+			_textFormat.size = _skin.size;
+			_textFormat.underline = _skin.underline;
+			_textFormat.url = _skin.url;
 
 			_textField.setTextFormat(_textFormat);
 			_textField.defaultTextFormat = _textFormat;
