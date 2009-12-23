@@ -25,6 +25,11 @@ package org.vancura.vaclav.locale {
 
 
 
+		/**
+		 * Parse locale XML.
+		 *
+		 * @param list Locale XML.
+		 */
 		public function parseXML(list:XMLList):void {
 			for each(var x:XML in list) {
 				var id:String = x.@id;
@@ -36,12 +41,27 @@ package org.vancura.vaclav.locale {
 
 
 
+		/**
+		 * Get text by its ID.
+		 *
+		 * @param id Text ID
+		 * @return Text if found, null if not
+		 */
 		public function getText(id:String):String {
 			return _dictionary[id];
 		}
 
 
 
+		// Setters & getters
+		// -----------------
+
+
+		/**
+		 * Get current language.
+		 *
+		 * @return Current language (like 'en')
+		 */
 		public function get lang():String {
 			return _lang;
 		}

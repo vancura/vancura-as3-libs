@@ -20,7 +20,14 @@
  **********************************************************************************************************************/
 
 package org.vancura.vaclav.locale {
+
+	/**
+	 * A shortcut to Locale::getText(id).
+	 *
+	 * @param id Locale ID
+	 * @return Locale text
+	 */
 	public function T(id:String):String {
-		return L.getText(id);
+		return Locale.getText(id);
 	}
 }
