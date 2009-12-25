@@ -34,5 +34,11 @@ package org.vancura.vaclav.widgets.interfaces {
 		function get paddingRight():Number;
 		function set paddingRight(value:Number):void;
 
+		function get hAlign():String;
+		function set hAlign(value:String):void;
+
+		function get vAlign():String;
+		function set vAlign(value:String):void;
+
 	}
 }

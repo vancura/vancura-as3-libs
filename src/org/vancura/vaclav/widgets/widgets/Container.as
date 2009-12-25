@@ -20,8 +20,15 @@
  **********************************************************************************************************************/
 
 package org.vancura.vaclav.widgets.widgets {
+	import flash.display.DisplayObject;
 	import flash.display.DisplayObjectContainer;
 
+	import org.vancura.vaclav.core.display.GraphicsUtil;
+	import org.vancura.vaclav.core.display.QSprite;
+	import org.vancura.vaclav.core.global.addChildren;
+	import org.vancura.vaclav.core.global.removeChildren;
+	import org.vancura.vaclav.widgets.constants.Align;
+	import org.vancura.vaclav.widgets.constants.DebugLevel;
 	import org.vancura.vaclav.widgets.globals.SkinManager;
 	import org.vancura.vaclav.widgets.interfaces.IContainer;
 	import org.vancura.vaclav.widgets.interfaces.IContainerSkin;
@@ -30,6 +37,8 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		protected var _skin:IContainerSkin;
+
+		private var _innerSpr:QSprite;
 
 
 
@@ -63,6 +72,51 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 
+		override protected function _addChildren():void {
+			super._addChildren();
+
+			_innerSpr = new QSprite({});
+
+			addChildren(_contentSpr, _innerSpr);
+		}
+
+
+
+		override protected function _removeChildren():void {
+			super._removeChildren();
+
+			removeChildren(_contentSpr, _innerSpr);
+		}
+
+
+
+		override public function draw():void {
+			super.draw();
+
+			if(_skin != null) {
+				var l:Number = _skin.paddingLeft;
+				var t:Number = _skin.paddingTop;
+				var w:Number = _width - _skin.paddingLeft - _skin.paddingRight;
+				var h:Number = _height - _skin.paddingTop - _skin.paddingBottom;
+
+				if(_debugLevel == DebugLevel.ALWAYS || _debugLevel == DebugLevel.HOVER) {
+					if(_width != 0 && _height != 0) {
+						GraphicsUtil.strokeBounds(_debugSpr, l, t, w, h, 5, _debugColor);
+					}
+				}
+
+				if(_skin.hAlign == Align.RIGHT) _innerSpr.x = _width - _skin.paddingRight - _innerSpr.width;
+				else if(_skin.hAlign == Align.CENTER) _innerSpr.x = l + Math.round((w - _innerSpr.width) / 2);
+				else _innerSpr.x = l;
+
+				if(_skin.vAlign == Align.BOTTOM) _innerSpr.y = _height - _skin.paddingBottom - _innerSpr.height;
+				else if(_skin.vAlign == Align.CENTER) _innerSpr.y = t + Math.round((h - _innerSpr.height) / 2);
+				else _innerSpr.y = t;
+			}
+		}
+
+
+
 		public function get skin():IContainerSkin {
 			return _skin;
 		}
@@ -88,6 +142,28 @@ package org.vancura.vaclav.widgets.widgets {
 
 		override public function get height():Number {
 			return _height + _skin.paddingTop + _skin.paddingBottom;
+		}
+
+
+
+		override public function addChild(child:DisplayObject):DisplayObject {
+			if(_innerSpr == null) super.addChild(child);
+			else _innerSpr.addChild(child);
+
+			draw();
+
+			return child;
+		}
+
+
+
+		override public function removeChild(child:DisplayObject):DisplayObject {
+			if(_innerSpr == null) super.removeChild(child);
+			else _innerSpr.removeChild(child);
+			
+			draw();
+
+			return child;
 		}
 	}
 }

@@ -20,17 +20,22 @@
  **********************************************************************************************************************/
 
 package org.vancura.vaclav.widgets.skin {
+	import org.vancura.vaclav.widgets.constants.Align;
 	import org.vancura.vaclav.widgets.constants.SkinType;
 	import org.vancura.vaclav.widgets.interfaces.IContainerSkin;
 
 	public class ContainerSkin extends Skin implements IContainerSkin {
 
 
+		protected var _hAlign:String;
+		protected var _vAlign:String;
 		protected var _paddingTop:Number;
 		protected var _paddingBottom:Number;
 		protected var _paddingLeft:Number;
 		protected var _paddingRight:Number;
 
+		private var _oldHAlign:String;
+		private var _oldVAlign:String;
 		private var _oldPaddingTop:Number;
 		private var _oldPaddingBottom:Number;
 		private var _oldPaddingLeft:Number;
@@ -41,6 +46,8 @@ package org.vancura.vaclav.widgets.skin {
 		public function ContainerSkin(id:String = null) {
 			super(SkinType.CONTAINER, id);
 
+			_hAlign = Align.LEFT;
+			_vAlign = Align.TOP;
 			_paddingTop = 0;
 			_paddingBottom = 0;
 			_paddingLeft = 0;
@@ -53,11 +60,15 @@ package org.vancura.vaclav.widgets.skin {
 		override public function parseConfig(source:Object):void {
 			super.parseConfig(source);
 
+			_oldHAlign = _hAlign;
+			_oldVAlign = _vAlign;
 			_oldPaddingTop = _paddingTop;
 			_oldPaddingBottom = _paddingBottom;
 			_oldPaddingLeft = _paddingLeft;
 			_oldPaddingRight = _paddingRight;
 
+			if(source.hAlign != undefined) _hAlign = source.hAlign;
+			if(source.vAlign != undefined) _vAlign = source.vAlign;
 			if(source.paddingTop != undefined) _paddingTop = source.paddingTop;
 			if(source.paddingBottom != undefined) _paddingBottom = source.paddingBottom;
 			if(source.paddingLeft != undefined) _paddingLeft = source.paddingLeft;
@@ -69,10 +80,36 @@ package org.vancura.vaclav.widgets.skin {
 		override public function revertConfig():void {
 			super.revertConfig();
 
+			_hAlign = _oldHAlign;
+			_vAlign = _oldVAlign;
 			_paddingTop = _oldPaddingTop;
 			_paddingBottom = _oldPaddingBottom;
 			_paddingLeft = _oldPaddingLeft;
 			_paddingRight = _oldPaddingRight;
+		}
+
+
+
+		public function get hAlign():String {
+			return _hAlign;
+		}
+
+
+
+		public function set hAlign(value:String):void {
+			_hAlign = value;
+		}
+
+
+
+		public function get vAlign():String {
+			return _vAlign;
+		}
+
+
+
+		public function set vAlign(value:String):void {
+			_vAlign = value;
 		}
 
 
