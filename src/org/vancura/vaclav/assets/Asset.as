@@ -90,6 +90,10 @@ package org.vancura.vaclav.assets {
 				}
 			}
 
+			if(o == null) {
+				throw new Error(printf('Chunk with URL "%s" not found in Asset "%s"', url, _id));
+			}
+
 			return o;
 		}
 

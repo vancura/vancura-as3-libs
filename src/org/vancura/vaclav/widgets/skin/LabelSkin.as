@@ -189,7 +189,7 @@ package org.vancura.vaclav.widgets.skin {
 									var dsDistance:Number = (f.distance == undefined) ? 1 : f.distance;
 									var dsAngle:Number = (f.angle == undefined) ? 45 : f.angle;
 									var dsColor:Number = (f.color == undefined) ? 0x000000 : f.color;
-									var dsAlpha:Number = (f.alpha == undefined) ? 0.75 : f.alpha;
+									var dsAlpha:Number = (f.alpha == undefined) ? 0.5 : f.alpha;
 									var dsBlurX:Number = (f.blurX == undefined) ? 1 : f.blurX;
 									var dsBlurY:Number = (f.blurY == undefined) ? 1 : f.blurY;
 									var dsStrength:Number = (f.strength == undefined) ? 1 : f.strength;
