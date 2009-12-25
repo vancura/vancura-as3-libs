@@ -24,6 +24,7 @@ package org.vancura.vaclav.widgets.constants {
 
 	public class SkinType {
 
+		public static const CONTAINER:String = 'container';
 		public static const BAR:String = 'bar';
 		public static const IMAGE:String = 'image';
 		public static const GLYPHS:String = 'glyphs';

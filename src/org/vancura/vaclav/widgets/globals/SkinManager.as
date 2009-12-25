@@ -35,6 +35,7 @@ package org.vancura.vaclav.widgets.globals {
 	import org.vancura.vaclav.widgets.skin.BarSkin;
 	import org.vancura.vaclav.widgets.skin.ButtonSkin;
 	import org.vancura.vaclav.widgets.skin.CheckButtonSkin;
+	import org.vancura.vaclav.widgets.skin.ContainerSkin;
 	import org.vancura.vaclav.widgets.skin.GlyphButtonSkin;
 	import org.vancura.vaclav.widgets.skin.GlyphLabelButtonSkin;
 	import org.vancura.vaclav.widgets.skin.ImageSkin;
@@ -61,6 +62,15 @@ package org.vancura.vaclav.widgets.globals {
 				var config:Object = asset.config.widget;
 
 				switch(config.type) {
+					case SkinType.CONTAINER:
+						skin = new ContainerSkin();
+
+						var containerSkin:ContainerSkin = skin as ContainerSkin;
+
+						containerSkin.parseConfig(config);
+
+						break;
+
 					case SkinType.BAR:
 						skin = new BarSkin();
 

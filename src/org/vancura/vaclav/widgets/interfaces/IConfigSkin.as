@@ -26,8 +26,6 @@ package org.vancura.vaclav.widgets.interfaces {
 
 		function parseConfig(source:Object):void;
 
-
-
 		function revertConfig():void;
 
 	}

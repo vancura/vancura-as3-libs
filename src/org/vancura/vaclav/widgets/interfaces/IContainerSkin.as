@@ -20,15 +20,7 @@
  **********************************************************************************************************************/
 
 package org.vancura.vaclav.widgets.interfaces {
-	import flash.display.BitmapData;
-
-	public interface IBarSkin extends ISkinnable, IAssetSkin, IConfigSkin {
-
-		function set guideBD(source:BitmapData):void;
-		function get guideBD():BitmapData;
-
-		function set backBD(source:BitmapData):void;
-		function get backBD():BitmapData;
+	public interface IContainerSkin extends ISkinnable, IConfigSkin {
 
 		function get paddingTop():Number;
 		function set paddingTop(value:Number):void;

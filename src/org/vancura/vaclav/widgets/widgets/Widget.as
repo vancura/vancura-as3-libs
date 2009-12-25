@@ -21,6 +21,7 @@
 
 /**
  * TODO: Width & height not applied in the constructor
+ * TODO: Check for children and remove them on destroy()
  */
 
 
