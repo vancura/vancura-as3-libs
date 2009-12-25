@@ -147,23 +147,110 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		override public function addChild(child:DisplayObject):DisplayObject {
-			if(_innerSpr == null) super.addChild(child);
-			else _innerSpr.addChild(child);
+			var out:DisplayObject;
 
-			draw();
+			if(_innerSpr == null) out = super.addChild(child);
+			else out = _innerSpr.addChild(child);
 
-			return child;
+			return out;
 		}
 
 
 
 		override public function removeChild(child:DisplayObject):DisplayObject {
-			if(_innerSpr == null) super.removeChild(child);
-			else _innerSpr.removeChild(child);
-			
-			draw();
+			var out:DisplayObject;
 
-			return child;
+			if(_innerSpr == null) out = super.removeChild(child);
+			else out = _innerSpr.removeChild(child);
+			
+			return out;
+		}
+
+
+
+		override public function contains(child:DisplayObject):Boolean {
+			var out:Boolean;
+
+			if(_innerSpr == null) out = super.contains(child);
+			else out = _innerSpr.contains(child);
+
+			return out;
+		}
+
+
+
+		override public function swapChildrenAt(index1:int, index2:int):void {
+			if(_innerSpr == null) super.swapChildrenAt(index1, index2);
+			else _innerSpr.swapChildrenAt(index1, index2);
+		}
+
+
+
+		override public function getChildByName(name:String):DisplayObject {
+			var out:DisplayObject;
+
+			if(_innerSpr == null) out = super.getChildByName(name);
+			else out = _innerSpr.getChildByName(name);
+
+			return out;
+		}
+
+
+
+		override public function removeChildAt(index:int):DisplayObject {
+			var out:DisplayObject;
+
+			if(_innerSpr == null) out = super.removeChildAt(index);
+			else out = _innerSpr.removeChildAt(index);
+
+			return out;
+		}
+
+
+
+		override public function getChildIndex(child:DisplayObject):int {
+			var out:int;
+
+			if(_innerSpr == null) out = super.getChildIndex(child);
+			else out = _innerSpr.getChildIndex(child);
+
+			return out;
+		}
+
+
+
+		override public function addChildAt(child:DisplayObject, index:int):DisplayObject {
+			var out:DisplayObject;
+
+			if(_innerSpr == null) out = super.addChildAt(child, index);
+			else out = _innerSpr.addChildAt(child, index);
+
+			return out;
+		}
+
+
+
+		override public function swapChildren(child1:DisplayObject, child2:DisplayObject):void {
+			if(_innerSpr == null) super.swapChildren(child1, child2);
+			else _innerSpr.swapChildren(child1, child2);
+		}
+
+
+
+		override public function getChildAt(index:int):DisplayObject {
+			var out:DisplayObject;
+
+			if(_innerSpr == null) out = super.getChildAt(index);
+			else out = _innerSpr.getChildAt(index);
+
+			return out;
+		}
+
+
+
+		override public function setChildIndex(child:DisplayObject, index:int):void {
+			if(_innerSpr == null) super.setChildIndex(child, index);
+			else _innerSpr.setChildIndex(child, index);
 		}
 	}
 }
