@@ -51,7 +51,11 @@ package org.vancura.vaclav.widgets.globals {
 
 		//noinspection FunctionTooLongJS,FunctionWithMultipleReturnPointsJS,OverlyComplexFunctionJS
 		public static function assetToSkin(asset:Asset):* {
-			if(asset.config.widget != null) {
+			if(asset.config.widget == null) {
+				throw new Error('Asset is null');
+			}
+			
+			else {
 				var skin:*;
 				var isSupported:Boolean = true;
 				var config:Object = asset.config.widget;

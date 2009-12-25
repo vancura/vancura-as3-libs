@@ -20,11 +20,18 @@
  **********************************************************************************************************************/
 
 package org.vancura.vaclav.widgets.globals {
+	import br.com.stimuli.string.printf;
+
 	import org.vancura.vaclav.assets.Asset;
 	import org.vancura.vaclav.assets.globals.AssetManager;
 
 	public function A2S(id:String):* {
-		var asset:Asset = AssetManager.getInstance().getAsset(id);
+		var asset:Asset = AssetManager.getAsset(id);
+
+		if(asset == null) {
+			throw new Error(printf('Asset "%s" is not defined in skin', id));
+		}
+
 		return SkinManager.assetToSkin(asset);
 	}
 }

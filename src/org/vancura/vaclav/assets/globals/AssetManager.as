@@ -35,21 +35,7 @@ package org.vancura.vaclav.assets.globals {
 	public class AssetManager extends EventDispatcher {
 
 
-		private static var _instance:AssetManager;
-
-		private var _provider:IAssetProvider;
-
-
-
-		/**
-		 * Get an instance.
-		 *
-		 * @return Instance
-		 */
-		public static function getInstance():AssetManager {
-			if(_instance == null) _instance = new AssetManager();
-			return _instance;
-		}
+		private static var _provider:IAssetProvider;
 
 
 
@@ -59,7 +45,7 @@ package org.vancura.vaclav.assets.globals {
 		 * @param provider Provider to be attached
 		 * @see IAssetProvider
 		 */
-		public function attachProvider(provider:IAssetProvider):void {
+		public static function attachProvider(provider:IAssetProvider):void {
 			if(_provider == null) {
 				// attaching a new asset provider
 				_provider = provider;
@@ -76,7 +62,7 @@ package org.vancura.vaclav.assets.globals {
 		 * @param id Asset ID
 		 * @return Asset (if defined, null if not)
 		 */
-		public function getAsset(id:String):* {
+		public static function getAsset(id:String):* {
 			var out:Asset;
 
 			if(_provider == null) throw new Error('Asset provider not attached');
@@ -98,7 +84,7 @@ package org.vancura.vaclav.assets.globals {
 		 *
 		 * @return AssetManager description
 		 */
-		override public function toString():String {
+		public static function toString():String {
 			var out:String;
 
 			if(_provider == null) out = printf('AssetManager info:\n  provider not attached');
@@ -131,7 +117,7 @@ package org.vancura.vaclav.assets.globals {
 		 *
 		 * @return List of assets as Array
 		 */
-		public function get assetsList():Array {
+		public static function get assetsList():Array {
 			if(_provider == null) throw new Error('Asset provider not attached');
 
 			else {
@@ -148,7 +134,7 @@ package org.vancura.vaclav.assets.globals {
 		 * @return Asset provider (if attached, null if not)
 		 * @see IAssetProvider
 		 */
-		public function get provider():IAssetProvider {
+		public static function get provider():IAssetProvider {
 			return _provider;
 		}
 
@@ -159,7 +145,7 @@ package org.vancura.vaclav.assets.globals {
 		 *
 		 * @return Error happened flag
 		 */
-		public function get isError():Boolean {
+		public static function get isError():Boolean {
 			var out:Boolean;
 
 			if(_provider == null) out = false;
@@ -175,7 +161,7 @@ package org.vancura.vaclav.assets.globals {
 		 *
 		 * @return AssetManager active flag
 		 */
-		public function get isActive():Boolean {
+		public static function get isActive():Boolean {
 			var out:Boolean;
 
 			if(_provider == null) out = false;
@@ -191,7 +177,7 @@ package org.vancura.vaclav.assets.globals {
 		 *
 		 * @return Loaded flag
 		 */
-		public function get isLoaded():Boolean {
+		public static function get isLoaded():Boolean {
 			var out:Boolean;
 
 			if(_provider == null) out = false;
