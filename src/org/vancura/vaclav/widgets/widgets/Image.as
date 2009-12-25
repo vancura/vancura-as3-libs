@@ -23,8 +23,10 @@ package org.vancura.vaclav.widgets.widgets {
 	import flash.display.Bitmap;
 	import flash.display.DisplayObjectContainer;
 
+	import org.vancura.vaclav.core.display.GraphicsUtil;
 	import org.vancura.vaclav.core.global.addChildren;
 	import org.vancura.vaclav.core.global.removeChildren;
+	import org.vancura.vaclav.widgets.constants.DebugLevel;
 	import org.vancura.vaclav.widgets.globals.SkinManager;
 	import org.vancura.vaclav.widgets.interfaces.IImage;
 	import org.vancura.vaclav.widgets.interfaces.IImageSkin;
@@ -92,10 +94,23 @@ package org.vancura.vaclav.widgets.widgets {
 		override public function draw():void {
 			super.draw();
 
-			_imageBM.bitmapData = _skin.imageBD;
-			_imageBM.smoothing = true;
-			_imageBM.x = _skin.paddingLeft;
-			_imageBM.y = _skin.paddingTop;
+			if(_skin != null) {
+				var l:Number = _skin.paddingLeft;
+				var t:Number = _skin.paddingTop;
+				var w:Number = _width - l;
+				var h:Number = _height - t;
+
+				_imageBM.bitmapData = _skin.imageBD;
+				_imageBM.smoothing = true;
+				_imageBM.x = l;
+				_imageBM.y = t;
+
+				if(_debugLevel == DebugLevel.ALWAYS || _debugLevel == DebugLevel.HOVER) {
+					if(_width != 0 && _height != 0) {
+						GraphicsUtil.strokeBounds(_debugSpr, l, t, w, h, 5, _debugColor);
+					}
+				}
+			}
 		}
 
 

@@ -26,6 +26,7 @@
 
 
 package org.vancura.vaclav.widgets.widgets {
+	import flash.display.DisplayObject;
 	import flash.display.DisplayObjectContainer;
 	import flash.display.Stage;
 	import flash.display.StageAlign;
@@ -279,6 +280,22 @@ package org.vancura.vaclav.widgets.widgets {
 			removeEventListener(Event.ENTER_FRAME, _onInvalidate);
 
 			draw();
+		}
+
+
+
+		override public function addChild(child:DisplayObject):DisplayObject {
+			if(_contentSpr == null) super.addChild(child);
+			else _contentSpr.addChild(child);
+			return child;
+		}
+
+
+
+		override public function removeChild(child:DisplayObject):DisplayObject {
+			if(_contentSpr == null) super.removeChild(child);
+			else _contentSpr.removeChild(child);
+			return child;
 		}
 	}
 }

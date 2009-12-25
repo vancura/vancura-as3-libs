@@ -23,8 +23,10 @@ package org.vancura.vaclav.widgets.widgets {
 	import flash.display.DisplayObjectContainer;
 
 	import org.bytearray.display.ScaleBitmap;
+	import org.vancura.vaclav.core.display.GraphicsUtil;
 	import org.vancura.vaclav.core.global.addChildren;
 	import org.vancura.vaclav.core.global.removeChildren;
+	import org.vancura.vaclav.widgets.constants.DebugLevel;
 	import org.vancura.vaclav.widgets.globals.SkinManager;
 	import org.vancura.vaclav.widgets.interfaces.IBar;
 	import org.vancura.vaclav.widgets.interfaces.IBarSkin;
@@ -88,16 +90,29 @@ package org.vancura.vaclav.widgets.widgets {
 		override public function draw():void {
 			super.draw();
 
-			_bodySBM.bitmapData = _skin.backBD;
-			_bodySBM.scale9Grid = _skin.guideBD.getColorBoundsRect(0x00FF0000, 0x00000000, false);
+			if(_skin != null) {
+				var l:Number = _skin.paddingLeft;
+				var t:Number = _skin.paddingTop;
+				var w:Number = _width - _skin.paddingLeft - _skin.paddingRight;
+				var h:Number = _height - _skin.paddingTop - _skin.paddingBottom;
 
-			if(_width != 0 && !isNaN(_width)) {
-				_bodySBM.width = _width - _skin.paddingLeft - _skin.paddingRight;
-				_bodySBM.x = _skin.paddingLeft;
-			}
-			if(_height != 0 && !isNaN(_height)) {
-				_bodySBM.height = _height - _skin.paddingTop - _skin.paddingBottom;
-				_bodySBM.y = _skin.paddingTop;
+				_bodySBM.bitmapData = _skin.backBD;
+				_bodySBM.scale9Grid = _skin.guideBD.getColorBoundsRect(0x00FF0000, 0x00000000, false);
+
+				if(_width != 0 && !isNaN(_width)) {
+					_bodySBM.width = w;
+					_bodySBM.x = l;
+				}
+				if(_height != 0 && !isNaN(_height)) {
+					_bodySBM.height = h;
+					_bodySBM.y = t;
+				}
+
+				if(_debugLevel == DebugLevel.ALWAYS || _debugLevel == DebugLevel.HOVER) {
+					if(_width != 0 && _height != 0) {
+						GraphicsUtil.strokeBounds(_debugSpr, l, t, w, h, 5, _debugColor);
+					}
+				}
 			}
 		}
 

@@ -27,6 +27,7 @@ package org.vancura.vaclav.widgets.widgets {
 	import flash.text.TextFieldType;
 	import flash.text.TextFormat;
 
+	import org.vancura.vaclav.core.display.GraphicsUtil;
 	import org.vancura.vaclav.core.display.QTextField;
 	import org.vancura.vaclav.core.global.removeChildren;
 	import org.vancura.vaclav.widgets.constants.Align;
@@ -101,21 +102,31 @@ package org.vancura.vaclav.widgets.widgets {
 		override public function draw():void {
 			super.draw();
 
-			if(_width != 0) _textField.width = _width - _skin.paddingLeft - _skin.paddingRight;
-
-			if(_height != 0) {
-				// count height without padding
+			if(_skin != null) {
+				var l:Number = _skin.paddingLeft;
+				var t:Number = _skin.paddingTop;
+				var w:Number = _width - _skin.paddingLeft - _skin.paddingRight;
 				var h:Number = _height - _skin.paddingTop - _skin.paddingBottom;
 
-				// set label height
-				_textField.height = h;
+				if(_width != 0) _textField.width = w;
 
-				// non-top alignment
-				if(_vAlign == Align.CENTER) {
-					_textField.y = Math.round((h - _textField.textHeight) / 2) + _skin.paddingTop;
+				if(_height != 0) {
+					// set label height
+					_textField.height = h;
+
+					// non-top alignment
+					if(_vAlign == Align.CENTER) {
+						_textField.y = Math.round((h - _textField.textHeight) / 2) + _skin.paddingTop;
+					}
+					if(_vAlign == Align.BOTTOM) {
+						_textField.y = h - _textField.textHeight + _skin.paddingTop;
+					}
 				}
-				if(_vAlign == Align.BOTTOM) {
-					_textField.y = h - _textField.textHeight + _skin.paddingTop;
+
+				if(_debugLevel == DebugLevel.ALWAYS || _debugLevel == DebugLevel.HOVER) {
+					if(_width != 0 && _height != 0) {
+						GraphicsUtil.strokeBounds(_debugSpr, l, t, w, h, 5, _debugColor);
+					}
 				}
 			}
 		}
