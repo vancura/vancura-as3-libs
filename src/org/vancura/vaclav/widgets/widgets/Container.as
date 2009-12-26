@@ -33,15 +33,39 @@ package org.vancura.vaclav.widgets.widgets {
 	import org.vancura.vaclav.widgets.interfaces.IContainer;
 	import org.vancura.vaclav.widgets.interfaces.IContainerSkin;
 
+	/**
+	 * Class: Container
+	 *
+	 * Container is a.. Container. You can place other DisplayObjects inside and let them automatically align via
+	 * paddingLeft, paddingRight, paddingTop and paddingBottom properties specified in the skin or altered via skin
+	 * property. You can set alignment too (left, right, top, bottom, center vertically and/or horizontally). If you
+	 * need to override inner sprite size, specify it via innerWidth and innerHeight setters (with corresponding
+	 * getters of course).
+	 *
+	 * @author Vaclav Vancura (http://vaclav.vancura.org)
+	 */
 	public class Container extends Widget implements IContainer {
 
 
 		protected var _skin:IContainerSkin;
 
 		private var _innerSpr:QSprite;
+		private var _innerWidth:Number = 0;
+		private var _innerHeight:Number = 0;
 
 
 
+		/**
+		 * Constructor.
+		 *
+		 * @param skin Skin
+		 * @param config (Optional) Config Object
+		 * @param parent (Optional) parent to addChild() to
+		 * @param debugLevel (Optional) DebugLevel
+		 * @see QSprite
+		 * @see ContainerSkin
+		 * @see DebugLevel
+		 */
 		public function Container(skin:IContainerSkin, config:Object = null, parent:DisplayObjectContainer = null,
 		                          debugLevel:String = null) {
 			var c:Object;
@@ -90,6 +114,9 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 
+		/**
+		 * Redraw stuff.
+		 */
 		override public function draw():void {
 			super.draw();
 
@@ -99,49 +126,43 @@ package org.vancura.vaclav.widgets.widgets {
 				var w:Number = _width - _skin.paddingLeft - _skin.paddingRight;
 				var h:Number = _height - _skin.paddingTop - _skin.paddingBottom;
 
+				// check for inner width & height override
+				if(_innerWidth == 0) _innerWidth = _innerSpr.width;
+				if(_innerHeight == 0) _innerHeight = _innerSpr.height;
+
+				// draw debug rectangle
 				if(_debugLevel == DebugLevel.ALWAYS || _debugLevel == DebugLevel.HOVER) {
 					if(_width != 0 && _height != 0) {
 						GraphicsUtil.strokeBounds(_debugSpr, l, t, w, h, 5, _debugColor);
 					}
 				}
 
-				if(_skin.hAlign == Align.RIGHT) _innerSpr.x = _width - _skin.paddingRight - _innerSpr.width;
-				else if(_skin.hAlign == Align.CENTER) _innerSpr.x = l + Math.round((w - _innerSpr.width) / 2);
-				else _innerSpr.x = l;
+				// align inner sprite horizontally
+				if(_skin.hAlign == Align.RIGHT) {
+					// right
+					_innerSpr.x = _width - _skin.paddingRight - _innerWidth;
+				} else if(_skin.hAlign == Align.CENTER) {
+					// center
+					_innerSpr.x = l + Math.round((w - _innerWidth) / 2);
+				}
+				else {
+					// left
+					_innerSpr.x = l;
+				}
 
-				if(_skin.vAlign == Align.BOTTOM) _innerSpr.y = _height - _skin.paddingBottom - _innerSpr.height;
-				else if(_skin.vAlign == Align.CENTER) _innerSpr.y = t + Math.round((h - _innerSpr.height) / 2);
-				else _innerSpr.y = t;
+				// align inner sprite vertically
+				if(_skin.vAlign == Align.BOTTOM) {
+					// bottom
+					_innerSpr.y = _height - _skin.paddingBottom - _innerHeight;
+				} else if(_skin.vAlign == Align.CENTER) {
+					// center
+					_innerSpr.y = t + Math.round((h - _innerHeight) / 2);
+				}
+				else {
+					// top
+					_innerSpr.y = t;
+				}
 			}
-		}
-
-
-
-		public function get skin():IContainerSkin {
-			return _skin;
-		}
-
-
-
-		public function set skin(skin:IContainerSkin):void {
-			_skin = skin;
-
-			if(_width == 0) _width = _skin.assetWidth;
-			if(_height == 0) _height = _skin.assetHeight;
-
-			draw();
-		}
-
-
-
-		override public function get width():Number {
-			return _width + _skin.paddingLeft + _skin.paddingRight;
-		}
-
-
-
-		override public function get height():Number {
-			return _height + _skin.paddingTop + _skin.paddingBottom;
 		}
 
 
@@ -162,7 +183,7 @@ package org.vancura.vaclav.widgets.widgets {
 
 			if(_innerSpr == null) out = super.removeChild(child);
 			else out = _innerSpr.removeChild(child);
-			
+
 			return out;
 		}
 
@@ -251,6 +272,63 @@ package org.vancura.vaclav.widgets.widgets {
 		override public function setChildIndex(child:DisplayObject, index:int):void {
 			if(_innerSpr == null) super.setChildIndex(child, index);
 			else _innerSpr.setChildIndex(child, index);
+		}
+
+
+
+		public function get skin():IContainerSkin {
+			return _skin;
+		}
+
+
+
+		public function set skin(skin:IContainerSkin):void {
+			_skin = skin;
+
+			if(_width == 0) _width = _skin.assetWidth;
+			if(_height == 0) _height = _skin.assetHeight;
+
+			draw();
+		}
+
+
+
+		// Getters & setters
+		// -----------------
+
+
+		override public function get width():Number {
+			return _width + _skin.paddingLeft + _skin.paddingRight;
+		}
+
+
+
+		override public function get height():Number {
+			return _height + _skin.paddingTop + _skin.paddingBottom;
+		}
+
+
+
+		public function get innerWidth():Number {
+			return _innerWidth;
+		}
+
+
+
+		public function set innerWidth(value:Number):void {
+			_innerWidth = value;
+		}
+
+
+
+		public function get innerHeight():Number {
+			return _innerWidth;
+		}
+
+
+
+		public function set innerHeight(value:Number):void {
+			_innerHeight = value;
 		}
 	}
 }

@@ -197,7 +197,14 @@ package org.vancura.vaclav.widgets.widgets {
 			if(_textField != null) {
 				_textField.defaultTextFormat = _textFormat;
 
-				if(value != null) _textField.htmlText = value;
+				if(value != null) {
+					if(value == '') {
+						// fix alignment problem when empty string was applied to the html enabled TextField
+						value = '&nbsp;';
+					}
+
+					_textField.htmlText = value;
+				}
 			}
 
 			draw();

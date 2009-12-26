@@ -26,48 +26,20 @@ package org.vancura.vaclav.widgets.interfaces {
 
 		function forceRelease():void;
 
-
-
 		function get skin():ICheckButtonSkin;
-
-
-
 		function set skin(skin:ICheckButtonSkin):void;
 
-
-
 		function set areEventsEnabled(value:Boolean):void;
-
-
-
 		function get areEventsEnabled():Boolean;
 
-
-
 		function get mouseStatus():String;
-
-
-
 		function set mouseStatus(value:String):void;
 
-
-
 		function get isChecked():Boolean;
-
-
-
 		function set isChecked(value:Boolean):void;
 
-
-
 		function get button():IButton;
-
-
-
 		function get buttonOff():IButton;
-
-
-
 		function get buttonOn():IButton;
 
 	}

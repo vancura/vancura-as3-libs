@@ -27,5 +27,11 @@ package org.vancura.vaclav.widgets.interfaces {
 		function get skin():IContainerSkin;
 		function set skin(skin:IContainerSkin):void;
 
+		function get innerWidth():Number;
+		function set innerWidth(value:Number):void;
+
+		function get innerHeight():Number;
+		function set innerHeight(value:Number):void;
+
 	}
 }

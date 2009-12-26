@@ -146,6 +146,23 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 
+		/**
+		 * Automatically set width of the button.
+		 *
+		 * @param padding
+		 * @param max
+		 */
+		public function autoWidth(padding:Number, max:Number = 500):void {
+			this.width = 2000;
+
+			var w:Number = label.width + padding;
+			if(w > max) w = max;
+
+			this.width = w;
+		}
+
+
+
 		public function get skin():IGlyphLabelButtonSkin {
 			return _skin;
 		}
