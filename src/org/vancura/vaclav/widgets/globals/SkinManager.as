@@ -75,7 +75,7 @@ package org.vancura.vaclav.widgets.globals {
 						skin = new BarSkin();
 
 						var barSkin:BarSkin = skin as BarSkin;
-						var barSkinBD:BitmapData = asset.getChunkByURL(config.backgroundImage).bitmap.bitmapData;
+						var barSkinBD:BitmapData = asset.getChunkByURL(config.image).bitmap.bitmapData;
 
 						barSkin.getAssetsFromAtlas(barSkinBD);
 						barSkin.parseConfig(config);
@@ -97,7 +97,7 @@ package org.vancura.vaclav.widgets.globals {
 						skin = new ButtonSkin();
 
 						var buttonSkin:ButtonSkin = skin as ButtonSkin;
-						var buttonSkinBD:BitmapData = asset.getChunkByURL(config.backgroundImage).bitmap.bitmapData;
+						var buttonSkinBD:BitmapData = asset.getChunkByURL(config.image).bitmap.bitmapData;
 
 						buttonSkin.getAssetsFromAtlas(buttonSkinBD);
 						buttonSkin.parseConfig(config);
@@ -117,7 +117,7 @@ package org.vancura.vaclav.widgets.globals {
 						skin = new LabelButtonSkin();
 
 						var labelButtonSkin:LabelButtonSkin = skin as LabelButtonSkin;
-						var labelButtonSkinBD:BitmapData = asset.getChunkByURL(config.button.backgroundImage).bitmap.bitmapData;
+						var labelButtonSkinBD:BitmapData = asset.getChunkByURL(config.button.image).bitmap.bitmapData;
 
 						labelButtonSkin.buttonSkin.getAssetsFromAtlas(labelButtonSkinBD);
 						labelButtonSkin.parseConfig(config);
@@ -128,7 +128,7 @@ package org.vancura.vaclav.widgets.globals {
 						skin = new GlyphButtonSkin();
 
 						var glyphButtonSkin:GlyphButtonSkin = skin as GlyphButtonSkin;
-						var glyphButtonSkinBD1:BitmapData = asset.getChunkByURL(config.button.backgroundImage).bitmap.bitmapData;
+						var glyphButtonSkinBD1:BitmapData = asset.getChunkByURL(config.button.image).bitmap.bitmapData;
 						var glyphButtonSkinBD2:BitmapData = asset.getChunkByURL(config.glyph.image).bitmap.bitmapData;
 
 						glyphButtonSkin.buttonSkin.getAssetsFromAtlas(glyphButtonSkinBD1);
@@ -141,7 +141,7 @@ package org.vancura.vaclav.widgets.globals {
 						skin = new GlyphLabelButtonSkin();
 
 						var glyphLabelButtonSkin:GlyphLabelButtonSkin = skin as GlyphLabelButtonSkin;
-						var glyphLabelButtonSkinBD1:BitmapData = asset.getChunkByURL(config.button.backgroundImage).bitmap.bitmapData;
+						var glyphLabelButtonSkinBD1:BitmapData = asset.getChunkByURL(config.button.image).bitmap.bitmapData;
 						var glyphLabelButtonSkinBD2:BitmapData = asset.getChunkByURL(config.glyph.image).bitmap.bitmapData;
 
 						glyphLabelButtonSkin.buttonSkin.getAssetsFromAtlas(glyphLabelButtonSkinBD1);
@@ -166,9 +166,9 @@ package org.vancura.vaclav.widgets.globals {
 						skin = new InputBarSkin();
 
 						var inputBarSkin:InputBarSkin = skin as InputBarSkin;
+						var inputBarSkinBD:BitmapData = asset.getChunkByURL(config.bar.image).bitmap.bitmapData;
 
-						// barSkin.getAssetsFromAtlas(asset.bitmap.bitmapData);
-
+						inputBarSkin.barSkin.getAssetsFromAtlas(inputBarSkinBD);
 						inputBarSkin.parseConfig(config);
 
 						break;

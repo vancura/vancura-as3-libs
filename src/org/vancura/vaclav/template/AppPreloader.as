@@ -82,7 +82,7 @@ package org.vancura.vaclav.template {
 			_mainClass = getClassByName(_mainClassName);
 			if(_mainClass === null) {
 				// main class not found
-				alert('GlobalPreloader: Main class (' + _mainClassName + ') not found.\nThis is critical.');
+				alert('AppPreloader: Main class (' + _mainClassName + ') not found.\nThis is critical.');
 			}
 			else {
 				// main class found
