@@ -154,10 +154,11 @@ package org.vancura.vaclav.widgets.globals {
 						skin = new CheckButtonSkin();
 
 						var checkButtonSkin:CheckButtonSkin = skin as CheckButtonSkin;
+						var checkButtonSkinBD1:BitmapData = asset.getChunkByURL(config.buttonOff.image).bitmap.bitmapData;
+						var checkButtonSkinBD2:BitmapData = asset.getChunkByURL(config.buttonOn.image).bitmap.bitmapData;
 
-						// buttonOffSkin.getAssetsFromAtlas(asset.bitmap.bitmapData);
-						// buttonOnSkin.getAssetsFromAtlas(asset.bitmap.bitmapData);
-
+						checkButtonSkin.buttonOffSkin.getAssetsFromAtlas(checkButtonSkinBD1);
+						checkButtonSkin.buttonOnSkin.getAssetsFromAtlas(checkButtonSkinBD2);
 						checkButtonSkin.parseConfig(config);
 
 						break;

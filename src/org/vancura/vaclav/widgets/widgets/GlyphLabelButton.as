@@ -196,10 +196,22 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		override public function set width(value:Number):void {
-			var outWidth:int = _glyphOut.width + _labelOut.width;
-			var hoverWidth:int = _glyphHover.width + _labelHover.width;
-			var focusWidth:int = _glyphFocus.width + _labelFocus.width;
+			_labelOut.width = 2000;
+			_labelHover.width = 2000;
+			_labelFocus.width = 2000;
+
+			var labelOutWidth:int = _labelOut.width;
+			var labelHoverWidth:int = _labelHover.width;
+			var labelFocusWidth:Number = _labelFocus.width;
+			var outWidth:int = _glyphOut.width + labelOutWidth;
+			var hoverWidth:int = _glyphHover.width + labelHoverWidth;
+			var focusWidth:int = _glyphFocus.width + labelFocusWidth;
 			var maxWidth:int = Math.max(outWidth, hoverWidth, focusWidth);
+			var labelWidth:int = Math.max(labelOutWidth, labelHoverWidth, labelOutWidth) + 20;
+
+			_labelOut.width = labelWidth;
+			_labelHover.width = labelWidth;
+			_labelFocus.width = labelWidth;
 
 			_button.width = value;
 			_glyphOut.x = Math.round((value - maxWidth) / 2);
@@ -208,11 +220,6 @@ package org.vancura.vaclav.widgets.widgets {
 			_labelOut.x = _glyphOut.x + _glyphOut.width;
 			_labelHover.x = _glyphHover.x + _glyphHover.width;
 			_labelFocus.x = _glyphFocus.x + _glyphFocus.width;
-
-			// TODO: This is somewhat hack, fix it
-			_labelOut.width += 5;
-			_labelFocus.width += 5;
-			_labelHover.width += 5;
 
 			draw();
 		}
