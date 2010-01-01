@@ -29,6 +29,7 @@ package org.vancura.vaclav.core.global {
 	 * @return The Class with the given name or null if none exists.
 	 * @author Jackson Dunstan (http://jacksondunstan.com/articles/512)
 	 */
+	//noinspection FunctionWithMultipleReturnPointsJS
 	public function getClassByName(className:String):Class {
 		//noinspection UnusedCatchParameterJS
 		try {

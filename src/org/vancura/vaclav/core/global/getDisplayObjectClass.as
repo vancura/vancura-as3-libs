@@ -31,6 +31,7 @@ package org.vancura.vaclav.core.global {
 	 * @return The Class of the given Object or null if the class cannot be determined.
 	 * @author Jackson Dunstan (http://jacksondunstan.com/articles/512)
 	 */
+	//noinspection FunctionWithMultipleReturnPointsJS
 	public function getDisplayObjectClass(obj:Object):Class {
 		if(obj == null) return null;
 

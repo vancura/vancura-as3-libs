@@ -125,6 +125,7 @@ package org.vancura.vaclav.far {
 		 *
 		 * @param index Index name
 		 */
+		//noinspection FunctionWithMultipleReturnPointsJS
 		public function loadItem(index:String):void {
 			// check out if the item was already loaded
 			for each(var i:FarHelperItem in _itemList) {

@@ -95,6 +95,7 @@ package org.vancura.vaclav.far {
 		 *
 		 * @param index
 		 */
+		//noinspection FunctionWithMultipleReturnPointsJS
 		public function getData(index:String):void {
 			_index = index;
 

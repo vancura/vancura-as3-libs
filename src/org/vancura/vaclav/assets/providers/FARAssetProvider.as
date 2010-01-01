@@ -179,6 +179,7 @@ package org.vancura.vaclav.assets.providers {
 
 
 
+		//noinspection FunctionWithMultipleReturnPointsJS
 		private function _onItemLoadComplete(event:FarHelperEvent):void {
 			var itemHelper:FarHelperItem = event.helperItem as FarHelperItem;
 

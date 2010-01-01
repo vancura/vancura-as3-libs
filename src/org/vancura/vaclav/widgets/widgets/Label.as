@@ -99,6 +99,7 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 
+		//noinspection FunctionWithMoreThanThreeNegationsJS
 		override public function draw():void {
 			super.draw();
 
@@ -147,6 +148,7 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 
+		//noinspection FunctionTooLongJS
 		public function set skin(skin:ILabelSkin):void {
 			_skin = skin;
 
@@ -194,16 +196,19 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		public function set text(value:String):void {
+			var v:String = value;
+
 			if(_textField != null) {
 				_textField.defaultTextFormat = _textFormat;
 
-				if(value != null) {
-					if(value == '') {
+				if(v != null) {
+					if(v == '') {
 						// fix alignment problem when empty string was applied to the html enabled TextField
-						value = '&nbsp;';
+						// noinspection ReuseOfLocalVariableJS
+						v = '&nbsp;';
 					}
 
-					_textField.htmlText = value;
+					_textField.htmlText = v;
 				}
 			}
 

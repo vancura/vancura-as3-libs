@@ -134,6 +134,7 @@ package org.vancura.vaclav.assets.providers {
 		// ---------------
 
 
+		//noinspection FunctionWithMultipleReturnPointsJS
 		private function _onURLLoaderComplete(event:Event):void {
 			if(_isError) return;
 
@@ -157,6 +158,7 @@ package org.vancura.vaclav.assets.providers {
 
 
 
+		//noinspection FunctionWithMultipleReturnPointsJS
 		private function _onSWFLoaderInit(event:Event):void {
 			if(_isError) return;
 

@@ -29,6 +29,7 @@ package org.vancura.vaclav.core.global {
 	 * @return The Class of the given DisplayObject or null if the class cannot be determined.
 	 * @author Jackson Dunstan (http://jacksondunstan.com/articles/512)
 	 */
+	//noinspection FunctionWithMultipleReturnPointsJS
 	public function getClass(obj:Object):Class {
 		//noinspection UnusedCatchParameterJS
 		try {

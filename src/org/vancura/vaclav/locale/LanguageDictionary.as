@@ -32,10 +32,7 @@ package org.vancura.vaclav.locale {
 		 */
 		public function parseXML(list:XMLList):void {
 			for each(var x:XML in list) {
-				var id:String = x.@id;
-				var value:String = x.toString();
-
-				_dictionary[id] = value;
+				_dictionary[x.@id] = x.toString();
 			}
 		}
 
