@@ -248,6 +248,18 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 
+		public function get isPassword():Boolean {
+			return _textField.displayAsPassword;
+		}
+
+
+
+		public function set isPassword(value:Boolean):void {
+			_textField.displayAsPassword = value;
+		}
+
+
+
 		//noinspection FunctionWithMoreThanThreeNegationsJS
 		public function set isInput(value:Boolean):void {
 			if(_textField != null) {
