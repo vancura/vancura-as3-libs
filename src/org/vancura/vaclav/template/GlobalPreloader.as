@@ -31,7 +31,7 @@ package org.vancura.vaclav.template {
 	import org.vancura.vaclav.core.global.getClassByName;
 	import org.vancura.vaclav.interfaces.IMain;
 
-	public class AppPreloader extends MovieClip {
+	public class GlobalPreloader extends MovieClip {
 
 		protected var _isLoading:Boolean = true;
 		protected var _mainClass:Class;
@@ -46,7 +46,7 @@ package org.vancura.vaclav.template {
 		 *
 		 * @param mainClassName Main Class name (like 'org.vancura.myapp.Main')
 		 */
-		public function AppPreloader(mainClassName:String) {
+		public function GlobalPreloader(mainClassName:String) {
 			_mainClassName = mainClassName;
 
 			// stop main timeline
@@ -82,7 +82,7 @@ package org.vancura.vaclav.template {
 			_mainClass = getClassByName(_mainClassName);
 			if(_mainClass === null) {
 				// main class not found
-				alert('AppPreloader: Main class (' + _mainClassName + ') not found.\nThis is critical.');
+				alert('GlobalPreloader: Main class (' + _mainClassName + ') not found.\nThis is critical.');
 			}
 			else {
 				// main class found
