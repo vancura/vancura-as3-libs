@@ -19,10 +19,6 @@
  * DEALINGS IN THE SOFTWARE.
  **********************************************************************************************************************/
 
-/**
- * TODO: When asset needs an image which is not bundled in the far, it silently fails.
- */
-
 
 package org.vancura.vaclav.assets.providers {
 	import br.com.stimuli.string.printf;
@@ -46,6 +42,8 @@ package org.vancura.vaclav.assets.providers {
 	 * Based on the FAR loader by Edwin van Rijkom (http://code.google.com/p/vanrijkom-flashlibs)
 	 *
 	 * @author Vaclav Vancura (http://vaclav.vancura.org)
+	 *
+	 * TODO: When loading a FAR and some (or no) index not found, everything silently fails. This is critical!
 	 */
 	public class FARAssetProvider extends AssetProvider implements IAssetProvider {
 

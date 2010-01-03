@@ -5,6 +5,8 @@
 package org.vancura.vaclav.locale {
 	import flash.utils.Dictionary;
 
+	import mx.utils.StringUtil;
+
 	public class LanguageDictionary {
 
 
@@ -32,7 +34,7 @@ package org.vancura.vaclav.locale {
 		 */
 		public function parseXML(list:XMLList):void {
 			for each(var x:XML in list) {
-				_dictionary[String(x.@id)] = x.toString();
+				_dictionary[String(x.@id)] = StringUtil.trim(x.toString());
 			}
 		}
 
