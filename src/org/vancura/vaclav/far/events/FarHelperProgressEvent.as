@@ -28,6 +28,7 @@ package org.vancura.vaclav.far.events {
 
 
 		public static const ITEM_LOAD_PROGRESS:String = 'item_load_progress';
+		public static const STREAM_LOAD_PROGRESS:String = 'stream_load_progress';
 
 		public var helperItem:FarHelperItem;
 		public var progress:Number;

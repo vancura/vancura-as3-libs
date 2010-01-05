@@ -36,6 +36,7 @@ package org.vancura.vaclav.assets.providers {
 	import org.vancura.vaclav.far.FarHelperItem;
 	import org.vancura.vaclav.far.events.FarHelperAssignEvent;
 	import org.vancura.vaclav.far.events.FarHelperEvent;
+	import org.vancura.vaclav.far.events.FarHelperProgressEvent;
 
 	/**
 	 * FAR Asset provider.
@@ -57,6 +58,7 @@ package org.vancura.vaclav.assets.providers {
 		private var _chunksList:Array;
 		private var _assetsConfig:Object;
 		private var _indexList:Array;
+		private var _streamProgress:Number;
 
 
 
@@ -85,6 +87,7 @@ package org.vancura.vaclav.assets.providers {
 			_farHelper.addEventListener(FarHelperEvent.ITEM_NOT_FOUND, _onItemNotFound, false, 0, true);
 			_farHelper.addEventListener(FarHelperEvent.ITEM_LOAD_COMPLETE, _onItemLoadComplete, false, 0, true);
 			_farHelper.addEventListener(FarHelperEvent.ITEM_LOAD_FAILED, _onItemLoadFailed, false, 0, true);
+			_farHelper.addEventListener(FarHelperProgressEvent.STREAM_LOAD_PROGRESS, _onStreamLoadProgress, false, 0, true);
 
 			// load FAR and config item
 			_farHelper.load(_contentURL);
@@ -101,6 +104,7 @@ package org.vancura.vaclav.assets.providers {
 				// remove event listeners
 				_farHelper.removeEventListener(FarHelperEvent.STREAM_IO_ERROR, _onFarIOError);
 				_farHelper.removeEventListener(FarHelperEvent.STREAM_SECURITY_ERROR, _onFarSecurityError);
+				_farHelper.removeEventListener(FarHelperProgressEvent.STREAM_LOAD_PROGRESS, _onStreamLoadProgress);
 				_farHelper.removeEventListener(FarHelperEvent.ITEM_NOT_FOUND, _onItemNotFound);
 				_farHelper.removeEventListener(FarHelperEvent.ITEM_LOAD_COMPLETE, _onItemLoadComplete);
 				_farHelper.removeEventListener(FarHelperEvent.ITEM_LOAD_FAILED, _onItemLoadFailed);
@@ -224,6 +228,15 @@ package org.vancura.vaclav.assets.providers {
 					}
 				}
 			}
+		}
+
+
+
+		private function _onStreamLoadProgress(event:FarHelperProgressEvent):void {
+			_streamProgress = event.progress;
+
+			var e:Event = event.clone();
+			dispatchEvent(e);
 		}
 
 

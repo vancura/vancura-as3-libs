@@ -25,6 +25,7 @@ package org.vancura.vaclav.far {
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
 	import flash.events.IOErrorEvent;
+	import flash.events.ProgressEvent;
 	import flash.events.SecurityErrorEvent;
 
 	import org.vancura.vaclav.far.events.FarHelperEvent;
@@ -58,6 +59,7 @@ package org.vancura.vaclav.far {
 			_stream.addEventListener(IOErrorEvent.IO_ERROR, _onFarIOError, false, 0, true);
 			_stream.addEventListener(SecurityErrorEvent.SECURITY_ERROR, _onFarSecurityError, false, 0, true);
 			_stream.addEventListener(Event.COMPLETE, _onFarDownloadDone, false, 0, true);
+			_stream.addEventListener(ProgressEvent.PROGRESS, _onStreamLoadProgress, false, 0, true);
 
 			// TODO: Unhandled IOError when 404
 		}
@@ -75,6 +77,7 @@ package org.vancura.vaclav.far {
 			_stream.removeEventListener(IOErrorEvent.IO_ERROR, _onFarIOError);
 			_stream.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, _onFarSecurityError);
 			_stream.removeEventListener(Event.COMPLETE, _onFarDownloadDone);
+			_stream.removeEventListener(ProgressEvent.PROGRESS, _onStreamLoadProgress);
 		}
 
 
@@ -282,6 +285,14 @@ package org.vancura.vaclav.far {
 
 		private function _onItemLoadComplete(event:FarHelperEvent):void {
 			var e:Event = event.clone();
+			dispatchEvent(e);
+		}
+
+
+
+		private function _onStreamLoadProgress(event:ProgressEvent):void {
+			var p:Number = 1 / (event.bytesTotal / event.bytesLoaded);
+			var e:FarHelperProgressEvent = new FarHelperProgressEvent(FarHelperProgressEvent.STREAM_LOAD_PROGRESS, false, false, null, p);
 			dispatchEvent(e);
 		}
 	}
