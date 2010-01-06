@@ -59,6 +59,7 @@ package org.vancura.vaclav.assets.providers {
 		private var _assetsConfig:Object;
 		private var _indexList:Array;
 		private var _streamProgress:Number;
+		private var _assetsConfigIndex:String;
 
 
 
@@ -77,6 +78,7 @@ package org.vancura.vaclav.assets.providers {
 			_chunkLoadCounter = 0;
 			_indexList = new Array();
 			_isActive = true;
+			_assetsConfigIndex = assetsConfigIndex;
 
 			// create a new FarHelper
 			_farHelper = new FarHelper();
@@ -91,7 +93,7 @@ package org.vancura.vaclav.assets.providers {
 
 			// load FAR and config item
 			_farHelper.load(_contentURL);
-			_farHelper.loadItem(assetsConfigIndex);
+			_farHelper.loadItem(_assetsConfigIndex);
 		}
 
 
@@ -185,7 +187,7 @@ package org.vancura.vaclav.assets.providers {
 		private function _onItemLoadComplete(event:FarHelperEvent):void {
 			var itemHelper:FarHelperItem = event.helperItem as FarHelperItem;
 
-			if(itemHelper.index == _ASSETS_CONFIG_INDEX) {
+			if(itemHelper.index == _assetsConfigIndex) {
 				// assets library config found
 
 				var c:String = itemHelper.farItem.data.toString();
