@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright (c) 2009. Vaclav Vancura.
+ * Copyright (c) 2010. Vaclav Vancura.
  * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
  * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
  * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
@@ -25,7 +25,6 @@ package org.vancura.vaclav.widgets.widgets {
 
 	import flash.display.DisplayObjectContainer;
 
-	import org.vancura.vaclav.core.display.GraphicsUtil;
 	import org.vancura.vaclav.core.display.QBitmap;
 	import org.vancura.vaclav.core.global.removeChildren;
 	import org.vancura.vaclav.widgets.globals.SkinManager;
@@ -86,12 +85,7 @@ package org.vancura.vaclav.widgets.widgets {
 		override public function draw():void {
 			super.draw();
 
-			_outBM.bitmapData = _skin.outBD;
-			_hoverBM.bitmapData = _skin.hoverBD;
-			_focusBM.bitmapData = _skin.focusBD;
-
-			_activeSpr.graphics.clear();
-			GraphicsUtil.drawRect(_activeSpr, 0, 0, _skin.assetWidth, _skin.assetHeight);
+			_activeSpr.setSize(_width, _height);
 		}
 
 
@@ -182,6 +176,18 @@ package org.vancura.vaclav.widgets.widgets {
 			new TweenMax(_focusBM, _skin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
 
 			super._releasedOutsideTween();
+		}
+
+
+
+		override public function set skin(skin:IButtonSkin):void {
+			super.skin = skin;
+
+			_outBM.bitmapData = _skin.outBD;
+			_hoverBM.bitmapData = _skin.hoverBD;
+			_focusBM.bitmapData = _skin.focusBD;
+
+			draw();
 		}
 	}
 }

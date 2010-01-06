@@ -23,7 +23,7 @@ package {
 	import flash.display.MovieClip;
 	import flash.events.Event;
 
-	import org.vancura.vaclav.assets.events.AssetManagerErrorEvent;
+	import org.vancura.vaclav.assets.events.ProviderErrorEvent;
 	import org.vancura.vaclav.assets.globals.AssetManager;
 	import org.vancura.vaclav.assets.providers.FARAssetProvider;
 	import org.vancura.vaclav.core.utils.Stats;
@@ -31,7 +31,7 @@ package {
 	import org.vancura.vaclav.widgets.events.ButtonEvent;
 	import org.vancura.vaclav.widgets.globals.A2S;
 	import org.vancura.vaclav.widgets.globals.SkinManager;
-	import org.vancura.vaclav.widgets.widgets.LabelButton;
+	import org.vancura.vaclav.widgets.widgets.ScaleButton;
 
 	[SWF(width="1000",height="400",frameRate="60",backgroundColor="#FFFFFF")]
 
@@ -39,8 +39,8 @@ package {
 	public class LoadTest extends MovieClip {
 
 
-		private var _assetManager:AssetManager;
-		private var _buttonTest:LabelButton;
+		private var _buttonTest:ScaleButton;
+		private var _assetProvider:FARAssetProvider;
 
 
 
@@ -49,18 +49,18 @@ package {
 		 * and then create a simple button.
 		 */
 		public function LoadTest() {
-			// create asset manager
-			_assetManager = AssetManager.getInstance();
+			// initialize asset provider
+			_assetProvider = new FARAssetProvider('skins/test-skin.far');
 
 			// add event listeners
-			_assetManager.addEventListener(Event.COMPLETE, _onProviderComplete, false, 0, true);
-			_assetManager.addEventListener(AssetManagerErrorEvent.PROVIDER_ERROR, _onProviderError, false, 0, true);
-			_assetManager.addEventListener(AssetManagerErrorEvent.ITEM_NOT_FOUND, _onItemNotFound, false, 0, true);
-			_assetManager.addEventListener(AssetManagerErrorEvent.ITEM_LOAD_FAILED, _onItemLoadFailed, false, 0, true);
+			_assetProvider.addEventListener(Event.COMPLETE, _onProviderComplete, false, 0, true);
+			_assetProvider.addEventListener(ProviderErrorEvent.PROVIDER_ERROR, _onProviderError, false, 0, true);
+			_assetProvider.addEventListener(ProviderErrorEvent.ITEM_NOT_FOUND, _onItemNotFound, false, 0, true);
+			_assetProvider.addEventListener(ProviderErrorEvent.ITEM_LOAD_FAILED, _onAssetsItemLoadFailed, false, 0, true);
+			_assetProvider.addEventListener(ProviderErrorEvent.CONFIG_PARSING_ERROR, _onAssetsConfigParsingError, false, 0, true);
 
-			// attach provider
-			var provider:FARAssetProvider = new FARAssetProvider('skins/test-skin.far');
-			_assetManager.attachProvider(provider);
+			// attach asset provider
+			AssetManager.attachProvider(_assetProvider);
 		}
 
 
@@ -70,33 +70,41 @@ package {
 
 
 		private function _onProviderComplete(event:Event):void {
-			SkinManager.debugLevel = DebugLevel.HOVER;
+			// SkinManager.debugLevel = DebugLevel.HOVER;
 
 			var buttonSkin:* = A2S('label_button');
 			var stats:Stats = new Stats();
-			
-			_buttonTest = new LabelButton(buttonSkin, {x:300, y:100, width:400}, 'Test', this);
+
+			_buttonTest = new ScaleButton(buttonSkin, {x:300, y:100}, this);
 			_buttonTest.addEventListener(ButtonEvent.RELEASE_INSIDE, _onTest, false, 0, true);
+
+			_buttonTest.width = 400;
 
 			addChild(stats);
 		}
 
 
 
-		private function _onItemLoadFailed(event:AssetManagerErrorEvent):void {
-			trace('Item load failed: ' + event.text);
-		}
-
-
-
-		private function _onItemNotFound(event:AssetManagerErrorEvent):void {
+		private function _onItemNotFound(event:ProviderErrorEvent):void {
 			trace('Item not found: ' + event.text);
 		}
 
 
 
-		private function _onProviderError(event:AssetManagerErrorEvent):void {
+		private function _onProviderError(event:ProviderErrorEvent):void {
 			trace('Provider error: ' + event.text);
+		}
+
+
+
+		private function _onAssetsItemLoadFailed(event:ProviderErrorEvent):void {
+			trace('Item load failed: ' + event.text);
+		}
+
+
+
+		private function _onAssetsConfigParsingError(event:ProviderErrorEvent):void {
+			trace('Parsing error: ' + event.text);
 		}
 
 

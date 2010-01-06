@@ -44,13 +44,13 @@ mkdir -p lib/src >/dev/null 2>&1
 mkdir -p lib/fonts >/dev/null 2>&1
 mkdir -p lib/swc >/dev/null 2>&1
 mkdir -p lib/src/quasimondo/src/com/quasimondo/geom >/dev/null 2>&1
-mkdir -p lib/src/bytearray/src/org/bytearray/display >/dev/null 2>&1
+mkdir -p lib/src/destroytoday/src/com/destroytoday/display >/dev/null 2>&1
 mkdir -p bin >/dev/null 2>&1
 mkdir -p doc >/dev/null 2>&1
 mkdir -p tools >/dev/null 2>&1
 mkdir -p .doc-config >/dev/null 2>&1
 mkdir -p examples/bin 2>&1
-
+# mkdir -p lib/src/bytearray/src/org/bytearray/display >/dev/null 2>&1
 
 
 # ===============
@@ -66,9 +66,10 @@ if [ "$IS_COMPILATION_DISABLED" == "no" ]; then
 	curl http://img.dafont.com/dl/?f=uni_05_x -o tmp/uni_05_x.zip >/dev/null 2>&1
 	curl http://as3corelib.googlecode.com/files/as3corelib-.92.1.zip -o tmp/as3corelib.zip >/dev/null 2>&1
 	curl http://www.quasimondo.com/colormatrix/ColorMatrix.as -o lib/src/quasimondo/src/com/quasimondo/geom/ColorMatrix.as >/dev/null 2>&1
-	curl http://gist.github.com/raw/232800/642574cb739ea4fa4b9e8527d0c7d86e56334aaf/ScaleBitmap.as -o lib/src/bytearray/src/org/bytearray/display/ScaleBitmap.as >/dev/null 2>&1
+	curl http://github.com/destroytoday/DestroyFramework/raw/master/src/com/destroytoday/display/Scale9Bitmap.as -o lib/src/destroytoday/src/com/destroytoday/display/Scale9Bitmap.as >/dev/null 2>&1
 	svn checkout http://printf-as3.googlecode.com/svn/trunk lib/src/printf-as3 >/dev/null 2>&1
 	svn checkout http://vanrijkom-flashlibs.googlecode.com/svn/trunk lib/src/vanrijkom-flashlibs >/dev/null 2>&1
+	#	curl http://gist.github.com/raw/232800/642574cb739ea4fa4b9e8527d0c7d86e56334aaf/ScaleBitmap.as -o lib/src/bytearray/src/org/bytearray/display/ScaleBitmap.as >/dev/null 2>&1
 
 	# Unzip curled files
 	echo "---------------------------------------------------------------------------------------------------"
@@ -101,14 +102,19 @@ if [ "$IS_COMPILATION_DISABLED" == "no" ]; then
 	$FLEX_DIR/bin/compc --target-player=10.0.0 -o lib/swc/quasimondo.swc -l $FLEX_DIR/frameworks/libs/air/airframework.swc -l $FLEX_DIR/frameworks/libs/air/airglobal.swc -l $FLEX_DIR/frameworks/libs/air/applicationupdater_ui.swc -l $FLEX_DIR/frameworks/libs/air/servicemonitor.swc -l $FLEX_DIR/frameworks/libs/flex.swc -l $FLEX_DIR/frameworks/libs/framework.swc -l $FLEX_DIR/frameworks/libs/rpc.swc -l $FLEX_DIR/frameworks/libs/utilities.swc -sp lib/src/quasimondo/src -is lib/src/quasimondo/src
 	
 	# Compile bytearray.swc
+	# echo "---------------------------------------------------------------------------------------------------"
+	# echo "Compiling bytearray.swc"
+	# $FLEX_DIR/bin/compc --target-player=10.0.0 -o lib/swc/bytearray.swc -l $FLEX_DIR/frameworks/libs/air/airframework.swc -l $FLEX_DIR/frameworks/libs/air/airglobal.swc -l $FLEX_DIR/frameworks/libs/air/applicationupdater_ui.swc -l $FLEX_DIR/frameworks/libs/air/servicemonitor.swc -l $FLEX_DIR/frameworks/libs/flex.swc -l $FLEX_DIR/frameworks/libs/framework.swc -l $FLEX_DIR/frameworks/libs/rpc.swc -l $FLEX_DIR/frameworks/libs/utilities.swc -sp lib/src/bytearray/src -is lib/src/bytearray/src
+	
+	# Compile destroytoday.swc
 	echo "---------------------------------------------------------------------------------------------------"
-	echo "Compiling bytearray.swc"
-	$FLEX_DIR/bin/compc --target-player=10.0.0 -o lib/swc/bytearray.swc -l $FLEX_DIR/frameworks/libs/air/airframework.swc -l $FLEX_DIR/frameworks/libs/air/airglobal.swc -l $FLEX_DIR/frameworks/libs/air/applicationupdater_ui.swc -l $FLEX_DIR/frameworks/libs/air/servicemonitor.swc -l $FLEX_DIR/frameworks/libs/flex.swc -l $FLEX_DIR/frameworks/libs/framework.swc -l $FLEX_DIR/frameworks/libs/rpc.swc -l $FLEX_DIR/frameworks/libs/utilities.swc -sp lib/src/bytearray/src -is lib/src/bytearray/src
+	echo "Compiling destroytoday.swc"
+	$FLEX_DIR/bin/compc --target-player=10.0.0 -o lib/swc/destroytoday.swc -l $FLEX_DIR/frameworks/libs/air/airframework.swc -l $FLEX_DIR/frameworks/libs/air/airglobal.swc -l $FLEX_DIR/frameworks/libs/air/applicationupdater_ui.swc -l $FLEX_DIR/frameworks/libs/air/servicemonitor.swc -l $FLEX_DIR/frameworks/libs/flex.swc -l $FLEX_DIR/frameworks/libs/framework.swc -l $FLEX_DIR/frameworks/libs/rpc.swc -l $FLEX_DIR/frameworks/libs/utilities.swc -sp lib/src/destroytoday/src -is lib/src/destroytoday/src
 	
 	# Compile the SWC
 	echo "---------------------------------------------------------------------------------------------------"
 	echo "Compiling vancura-as3-libs.swc"
-	$FLEX_DIR/bin/compc --target-player=10.0.0 -o bin/vancura-as3-libs.swc -l $FLEX_DIR/frameworks/libs/player/10/playerglobal.swc -l $FLEX_DIR/frameworks/libs/flex.swc  -l $FLEX_DIR/frameworks/libs/framework.swc -l $FLEX_DIR/frameworks/libs/rpc.swc -l $FLEX_DIR/frameworks/libs/utilities.swc -is src -l lib/swc/vanrijkom-flashlibs.swc -l lib/swc/printf-as3.swc -l lib/swc/greensock-tweening-platform-as3.swc -l lib/swc/quasimondo.swc -l lib/swc/bytearray.swc -l lib/swc/as3corelib.swc
+	$FLEX_DIR/bin/compc --target-player=10.0.0 -o bin/vancura-as3-libs.swc -l $FLEX_DIR/frameworks/libs/player/10/playerglobal.swc -l $FLEX_DIR/frameworks/libs/flex.swc  -l $FLEX_DIR/frameworks/libs/framework.swc -l $FLEX_DIR/frameworks/libs/rpc.swc -l $FLEX_DIR/frameworks/libs/utilities.swc -is src -l lib/swc/vanrijkom-flashlibs.swc -l lib/swc/printf-as3.swc -l lib/swc/greensock-tweening-platform-as3.swc -l lib/swc/quasimondo.swc -l lib/swc/destroytoday.swc -l lib/swc/as3corelib.swc
 else
 	echo "---------------------------------------------------------------------------------------------------"
 	echo "Compilation disabled"

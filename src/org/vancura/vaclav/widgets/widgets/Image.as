@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright (c) 2009. Vaclav Vancura.
+ * Copyright (c) 2010. Vaclav Vancura.
  * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
  * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
  * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
@@ -100,8 +100,6 @@ package org.vancura.vaclav.widgets.widgets {
 				var w:Number = _width - l;
 				var h:Number = _height - t;
 
-				_imageBM.bitmapData = _skin.imageBD;
-				_imageBM.smoothing = true;
 				_imageBM.x = l;
 				_imageBM.y = t;
 
@@ -126,6 +124,9 @@ package org.vancura.vaclav.widgets.widgets {
 
 			if(_width == 0) _width = _skin.assetWidth;
 			if(_height == 0) _height = _skin.assetHeight;
+
+			_imageBM.bitmapData = _skin.imageBD;
+			_imageBM.smoothing = true;
 
 			draw();
 		}

@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright (c) 2009. Vaclav Vancura.
+ * Copyright (c) 2010. Vaclav Vancura.
  * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
  * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
  * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
@@ -20,13 +20,13 @@
  **********************************************************************************************************************/
 
 package org.vancura.vaclav.widgets.widgets {
+	import com.destroytoday.display.Scale9Bitmap;
 	import com.greensock.TweenMax;
 	import com.greensock.easing.Sine;
 
 	import flash.display.DisplayObjectContainer;
 	import flash.geom.Rectangle;
 
-	import org.bytearray.display.ScaleBitmap;
 	import org.vancura.vaclav.core.display.GraphicsUtil;
 	import org.vancura.vaclav.core.global.addChildren;
 	import org.vancura.vaclav.core.global.removeChildren;
@@ -38,9 +38,9 @@ package org.vancura.vaclav.widgets.widgets {
 	public class ScaleButton extends ButtonCore implements IWidget, IButton {
 
 
-		private var _outSBM:ScaleBitmap;
-		private var _hoverSBM:ScaleBitmap;
-		private var _focusSBM:ScaleBitmap;
+		private var _outSBM:Scale9Bitmap;
+		private var _hoverSBM:Scale9Bitmap;
+		private var _focusSBM:Scale9Bitmap;
 
 
 
@@ -70,12 +70,16 @@ package org.vancura.vaclav.widgets.widgets {
 		override protected function _addChildren():void {
 			super._addChildren();
 
-			_outSBM = new ScaleBitmap();
-			_hoverSBM = new ScaleBitmap();
-			_focusSBM = new ScaleBitmap();
+			_outSBM = new Scale9Bitmap();
+			_hoverSBM = new Scale9Bitmap();
+			_focusSBM = new Scale9Bitmap();
 
 			_hoverSBM.alpha = 0;
 			_focusSBM.alpha = 0;
+
+			_outSBM.mouseEnabled = false;
+			_hoverSBM.mouseEnabled = false;
+			_focusSBM.mouseEnabled = false;
 
 			addChildren(_contentSpr, _outSBM, _hoverSBM, _focusSBM);
 		}
@@ -93,15 +97,6 @@ package org.vancura.vaclav.widgets.widgets {
 		override public function draw():void {
 			super.draw();
 
-			_outSBM.bitmapData = _skin.outBD;
-			_hoverSBM.bitmapData = _skin.hoverBD;
-			_focusSBM.bitmapData = _skin.focusBD;
-
-			var rect:Rectangle = _skin.guideBD.getColorBoundsRect(0x00FF0000, 0x00000000, false);
-			_outSBM.scale9Grid = rect;
-			_hoverSBM.scale9Grid = rect;
-			_focusSBM.scale9Grid = rect;
-
 			if(_width != 0) {
 				_outSBM.width = _width;
 				_hoverSBM.width = _width;
@@ -113,8 +108,7 @@ package org.vancura.vaclav.widgets.widgets {
 				_focusSBM.height = _height;
 			}
 
-			_activeSpr.graphics.clear();
-			GraphicsUtil.drawRect(_activeSpr, 0, 0, _width, _height);
+			_activeSpr.setSize(_width, _height);
 		}
 
 
@@ -205,6 +199,20 @@ package org.vancura.vaclav.widgets.widgets {
 			new TweenMax(_focusSBM, _skin.focusOutDuration, {alpha:0, ease:Sine.easeIn});
 
 			super._releasedOutsideTween();
+		}
+
+
+
+		override public function set skin(skin:IButtonSkin):void {
+			super.skin = skin;
+
+			var rect:Rectangle = _skin.guideBD.getColorBoundsRect(0x00FF0000, 0x00000000, false);
+
+			_outSBM.setup(_skin.outBD, rect);
+			_hoverSBM.setup(_skin.hoverBD, rect);
+			_focusSBM.setup(_skin.focusBD, rect);
+
+			draw();
 		}
 	}
 }

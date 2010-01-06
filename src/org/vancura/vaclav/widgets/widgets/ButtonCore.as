@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright (c) 2009. Vaclav Vancura.
+ * Copyright (c) 2010. Vaclav Vancura.
  * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
  * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
  * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
@@ -25,6 +25,7 @@ package org.vancura.vaclav.widgets.widgets {
 	import flash.display.DisplayObjectContainer;
 	import flash.events.MouseEvent;
 
+	import org.vancura.vaclav.core.display.GraphicsUtil;
 	import org.vancura.vaclav.core.display.QSprite;
 	import org.vancura.vaclav.core.global.removeChildren;
 	import org.vancura.vaclav.widgets.constants.MouseStatus;
@@ -89,6 +90,8 @@ package org.vancura.vaclav.widgets.widgets {
 			_activeSpr.addEventListener(MouseEvent.MOUSE_OUT, _onOut, false, 0, true);
 			_activeSpr.addEventListener(MouseEvent.MOUSE_DOWN, _onFocus, false, 0, true);
 			_activeSpr.addEventListener(MouseEvent.MOUSE_UP, _onRelease, false, 0, true);
+
+			GraphicsUtil.drawRect(_activeSpr);
 		}
 
 
@@ -140,8 +143,6 @@ package org.vancura.vaclav.widgets.widgets {
 			if(_skin.assetWidth != 0 && _skin.assetHeight != 0) {
 				setSize(_skin.assetWidth, _skin.assetHeight);
 			}
-
-			draw();
 		}
 
 

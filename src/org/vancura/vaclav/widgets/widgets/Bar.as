@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright (c) 2009. Vaclav Vancura.
+ * Copyright (c) 2010. Vaclav Vancura.
  * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
  * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
  * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
@@ -20,9 +20,10 @@
  **********************************************************************************************************************/
 
 package org.vancura.vaclav.widgets.widgets {
+	import com.destroytoday.display.Scale9Bitmap;
+
 	import flash.display.DisplayObjectContainer;
 
-	import org.bytearray.display.ScaleBitmap;
 	import org.vancura.vaclav.core.display.GraphicsUtil;
 	import org.vancura.vaclav.core.global.addChildren;
 	import org.vancura.vaclav.core.global.removeChildren;
@@ -35,7 +36,7 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		protected var _skin:IBarSkin;
-		protected var _bodySBM:ScaleBitmap;
+		protected var _bodySBM:Scale9Bitmap;
 
 
 
@@ -71,7 +72,7 @@ package org.vancura.vaclav.widgets.widgets {
 		override protected function _addChildren():void {
 			super._addChildren();
 
-			_bodySBM = new ScaleBitmap();
+			_bodySBM = new Scale9Bitmap();
 
 			addChildren(_contentSpr, _bodySBM);
 		}
@@ -95,9 +96,6 @@ package org.vancura.vaclav.widgets.widgets {
 				var t:Number = _skin.paddingTop;
 				var w:Number = _width - _skin.paddingLeft - _skin.paddingRight;
 				var h:Number = _height - _skin.paddingTop - _skin.paddingBottom;
-
-				_bodySBM.bitmapData = _skin.backBD;
-				_bodySBM.scale9Grid = _skin.guideBD.getColorBoundsRect(0x00FF0000, 0x00000000, false);
 
 				if(_width != 0 && !isNaN(_width)) {
 					_bodySBM.width = w;
@@ -129,6 +127,8 @@ package org.vancura.vaclav.widgets.widgets {
 
 			if(_width == 0) _width = _skin.assetWidth;
 			if(_height == 0) _height = _skin.assetHeight;
+
+			_bodySBM.setup(_skin.backBD, _skin.guideBD.getColorBoundsRect(0x00FF0000, 0x00000000, false));
 
 			draw();
 		}
