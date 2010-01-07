@@ -23,7 +23,6 @@ package org.vancura.vaclav.widgets.skin {
 	import br.com.stimuli.string.printf;
 
 	import flash.filters.BitmapFilter;
-
 	import flash.filters.DropShadowFilter;
 
 	import org.vancura.vaclav.widgets.constants.Align;
@@ -123,6 +122,7 @@ package org.vancura.vaclav.widgets.skin {
 		override public function parseConfig(source:Object):void {
 			super.parseConfig(source);
 
+			// TODO: Figure out how to speed up this mess:
 			_oldHAlign = _hAlign;
 			_oldVAlign = _vAlign;
 			_oldBold = _bold;
@@ -149,30 +149,8 @@ package org.vancura.vaclav.widgets.skin {
 			_oldMarginLeft = _marginLeft;
 			_oldMarginRight = _marginRight;
 
-			if(source.hAlign != undefined) _hAlign = source.hAlign;
-			if(source.vAlign != undefined) _vAlign = source.vAlign;
-			if(source.bold != undefined) _bold = source.bold;
-			if(source.blockIndent != undefined) _blockIndent = source.blockIndent;
-			if(source.bullet != undefined) _bullet = source.bullet;
-			if(source.color != undefined) _color = source.color;
-			if(source.font != undefined) _font = source.font;
-			if(source.indent != undefined) _indent = source.indent;
-			if(source.italic != undefined) _italic = source.italic;
-			if(source.kerning != undefined) _kerning = source.kerning;
-			if(source.leading != undefined) _leading = source.leading;
-			if(source.letterSpacing != undefined) _letterSpacing = source.letterSpacing;
-			if(source.size != undefined) _size = source.size;
-			if(source.underline != undefined) _underline = source.underline;
-			if(source.url != undefined) _url = source.url;
-			if(source.alpha != undefined) _alpha = source.alpha;
-			if(source.sharpness != undefined) _sharpness = source.sharpness;
-			if(source.thickness != undefined) _thickness = source.thickness;
-			if(source.paddingTop != undefined) _paddingTop = source.paddingTop;
-			if(source.paddingBottom != undefined) _paddingBottom = source.paddingBottom;
-			if(source.paddingLeft != undefined) _paddingLeft = source.paddingLeft;
-			if(source.paddingRight != undefined) _paddingRight = source.paddingRight;
-			if(source.marginLeft != undefined) _marginLeft = source.marginLeft;
-			if(source.marginRight != undefined) _marginRight = source.marginRight;
+			// TODO: This is the way how to speed up skins, apply it everywhere
+			for(var i:String in source) if(i != 'filters') this['_' + i] = source[i];
 
 			// TODO: Add this functionality to all skins where it's needed
 			if(source.filters != undefined && source.filters is Array) {
@@ -190,14 +168,13 @@ package org.vancura.vaclav.widgets.skin {
 									var dsAngle:Number = (f.angle == undefined) ? 45 : f.angle;
 									var dsColor:Number = (f.color == undefined) ? 0x000000 : f.color;
 									var dsAlpha:Number = (f.alpha == undefined) ? 0.5 : f.alpha;
-									var dsBlurX:Number = (f.blurX == undefined) ? 1 : f.blurX;
-									var dsBlurY:Number = (f.blurY == undefined) ? 1 : f.blurY;
+									var dsBlur:Number = (f.blur == undefined) ? 1 : f.blur;
 									var dsStrength:Number = (f.strength == undefined) ? 1 : f.strength;
 									var dsQuality:Number = (f.quality == undefined) ? 1 : f.quality;
 									var dsInner:Boolean = (f.inner == undefined) ? false : f.inner;
 									var dsKnockout:Boolean = (f.knockout == undefined) ? false : f.knockout;
 									var dsHideObject:Boolean = (f.hideObject == undefined) ? false : f.hideObject;
-									var g:DropShadowFilter = new DropShadowFilter(dsDistance, dsAngle, dsColor, dsAlpha, dsBlurX, dsBlurY, dsStrength, dsQuality, dsInner, dsKnockout, dsHideObject);
+									var g:DropShadowFilter = new DropShadowFilter(dsDistance, dsAngle, dsColor, dsAlpha, dsBlur, dsBlur, dsStrength, dsQuality, dsInner, dsKnockout, dsHideObject);
 									_filters.push(g);
 									break;
 
