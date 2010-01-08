@@ -61,7 +61,7 @@ package org.vancura.vaclav.far {
 			_stream.addEventListener(Event.COMPLETE, _onFarDownloadDone, false, 0, true);
 			_stream.addEventListener(ProgressEvent.PROGRESS, _onStreamLoadProgress, false, 0, true);
 
-			// TODO: Unhandled IOError when 404
+			// TODO: Unhandled IOError when 404 (should be fine now, test it)
 		}
 
 
@@ -236,11 +236,7 @@ package org.vancura.vaclav.far {
 			_isLoading = false;
 			_isLoaded = false;
 
-			var e1:FarHelperEvent = new FarHelperEvent(FarHelperEvent.STREAM_SECURITY_ERROR, false, false, null, event.text);
-			var e2:Event = event.clone();
-
-			dispatchEvent(e1);
-			dispatchEvent(e2);
+			dispatchEvent(new FarHelperEvent(FarHelperEvent.STREAM_SECURITY_ERROR, false, false, null, event.text));
 		}
 
 
@@ -249,11 +245,7 @@ package org.vancura.vaclav.far {
 			_isLoading = false;
 			_isLoaded = false;
 
-			var e1:FarHelperEvent = new FarHelperEvent(FarHelperEvent.STREAM_IO_ERROR, false, false, null, event.text);
-			var e2:Event = event.clone();
-
-			dispatchEvent(e1);
-			dispatchEvent(e2);
+			dispatchEvent(new FarHelperEvent(FarHelperEvent.STREAM_IO_ERROR, false, false, null, event.text));
 		}
 
 
@@ -262,38 +254,33 @@ package org.vancura.vaclav.far {
 			_isLoading = false;
 			_isLoaded = true;
 
-			var e:FarHelperEvent = new FarHelperEvent(FarHelperEvent.STREAM_DOWNLOAD_DONE, false, false);
-
-			dispatchEvent(e);
+			dispatchEvent(new FarHelperEvent(FarHelperEvent.STREAM_DOWNLOAD_DONE, false, false));
 		}
 
 
 
 		private function _onItemLoadIOError(event:FarHelperEvent):void {
-			var e:Event = event.clone();
-			dispatchEvent(e);
+			dispatchEvent(event.clone());
 		}
 
 
 
 		private function _onItemLoadProgress(event:FarHelperProgressEvent):void {
-			var e:Event = event.clone();
-			dispatchEvent(e);
+			dispatchEvent(event.clone());
 		}
 
 
 
 		private function _onItemLoadComplete(event:FarHelperEvent):void {
-			var e:Event = event.clone();
-			dispatchEvent(e);
+			dispatchEvent(event.clone());
 		}
 
 
 
 		private function _onStreamLoadProgress(event:ProgressEvent):void {
 			var p:Number = 1 / (event.bytesTotal / event.bytesLoaded);
-			var e:FarHelperProgressEvent = new FarHelperProgressEvent(FarHelperProgressEvent.STREAM_LOAD_PROGRESS, false, false, null, p);
-			dispatchEvent(e);
+
+			dispatchEvent(new FarHelperProgressEvent(FarHelperProgressEvent.STREAM_LOAD_PROGRESS, false, false, null, p));
 		}
 	}
 }
