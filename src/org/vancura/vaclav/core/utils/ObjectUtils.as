@@ -28,6 +28,17 @@ package org.vancura.vaclav.core.utils {
 
 
 		/**
+		 * Constructor.
+		 * Cannot be instantiated, throws an Error.
+		 * @throws Error, since the class could not be instantiated
+		 */
+		public function ObjectUtils() {
+			throw new Error('The ObjectUtils class cannot be instantiated.');
+		}
+
+
+
+		/**
 		 * Count the properties in an object.
 		 * Original article: http://jacksondunstan.com/articles/509
 		 * @param obj Object to count the properties of

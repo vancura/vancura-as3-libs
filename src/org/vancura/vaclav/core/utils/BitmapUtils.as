@@ -34,6 +34,17 @@ package org.vancura.vaclav.core.utils {
 
 
 		/**
+		 * Constructor.
+		 * Cannot be instantiated, throws an Error.
+		 * @throws Error, since the class could not be instantiated
+		 */
+		public function BitmapUtils() {
+			throw new Error('The BitmapUtils class cannot be instantiated.');
+		}
+
+
+
+		/**
 		 * Get BitmapData from the source.
 		 * If the source is Bitmap, it's converted, if it is already BitmapData, the reference is returned.
 		 * Serves as a quick filter for Bitmap and BitmapData.

@@ -25,6 +25,20 @@ package org.vancura.vaclav.core.utils {
 	import flash.display.MovieClip;
 
 	public class FunctionUtils {
+
+
+		
+		/**
+		 * Constructor.
+		 * Cannot be instantiated, throws an Error.
+		 * @throws Error, since the class could not be instantiated
+		 */
+		public function FunctionUtils() {
+			throw new Error('The FunctionUtils class cannot be instantiated.');
+		}
+
+
+
 		/**
 		 * Get a stack trace.
 		 * Original article: http://jacksondunstan.com/articles/525

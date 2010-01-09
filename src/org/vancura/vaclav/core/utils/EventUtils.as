@@ -27,6 +27,17 @@ package org.vancura.vaclav.core.utils {
 
 
 		/**
+		 * Constructor.
+		 * Cannot be instantiated, throws an Error.
+		 * @throws Error, since the class could not be instantiated
+		 */
+		public function EventUtils() {
+			throw new Error('The EventUtils class cannot be instantiated.');
+		}
+
+
+
+		/**
 		 * Basically an addEventListener() for more events at once.
 		 * Just saves few lines of code, nothing special.
 		 * @param obj Target EventDispatcher
