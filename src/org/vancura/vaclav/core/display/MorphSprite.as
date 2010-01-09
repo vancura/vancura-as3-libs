@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright (c) 2010. Vaclav Vancura.
+ * Copyright (c) 2010 Vaclav Vancura.
  * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
  * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
  * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
@@ -99,7 +99,6 @@ package org.vancura.vaclav.core.display {
 
 		/**
 		 * Constructor.
-		 *
 		 * Possible config contents:
 		 *      morphDuration - Morphing duration in seconds. If not defined, defMorphDuration used instead.
 		 *      morphEase - Morphing transition function. If not defined, defMorphEase used instead.
@@ -109,7 +108,6 @@ package org.vancura.vaclav.core.display {
 		 *      isMorphYEnabled - Y morphing flag. If not defined, defIsMorphYEnabled used instead.
 		 *      isMorphWidthEnabled - Width morphing flag. If not defined, defIsMorphWidthEnabled used instead.
 		 *      isMorphHeightEnabled - Height morphing flag. If not defined, defIsMorphHeightEnabled used instead.
-		 *
 		 * @param config Config object
 		 * @param parent Parent DisplayObjectContainer
 		 */
@@ -139,7 +137,6 @@ package org.vancura.vaclav.core.display {
 		/**
 		 * Animate state change. Timing is taken from morphDuration, transition from morphEase.
 		 * Follows status flags (isMorphXEnabled, isMorphYEnabled, isMorphWidthEnabled and isMorphHeightEnabled).
-		 *
 		 * Possible config contents:
 		 *      x - New X position
 		 *      y -  New Y position
@@ -147,7 +144,6 @@ package org.vancura.vaclav.core.display {
 		 *      height - New height
 		 *      morphEase - Easing
 		 *      morphDuration - Duration
-		 *
 		 * @param config Config value object
 		 */
 		//noinspection FunctionWithMoreThanThreeNegationsJS
@@ -196,7 +192,6 @@ package org.vancura.vaclav.core.display {
 
 		/**
 		 * If width change flag is set, directly change width.
-		 *
 		 * @param value New width
 		 */
 		override public function set width(value:Number):void {
@@ -209,7 +204,6 @@ package org.vancura.vaclav.core.display {
 
 		/**
 		 * If height change flag is set, directly change height.
-		 *
 		 * @param value New height
 		 */
 		override public function set height(value:Number):void {

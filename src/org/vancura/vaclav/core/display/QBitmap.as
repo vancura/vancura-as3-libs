@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright (c) 2010. Vaclav Vancura.
+ * Copyright (c) 2010 Vaclav Vancura.
  * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
  * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
  * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
@@ -24,7 +24,7 @@ package org.vancura.vaclav.core.display {
 	import flash.display.BitmapData;
 	import flash.display.DisplayObjectContainer;
 
-	import org.vancura.vaclav.core.global.assign;
+	import org.vancura.vaclav.core.utils.ObjectUtils;
 
 	/**
 	 * Quick creation of Bitmap with initial data.
@@ -89,7 +89,7 @@ package org.vancura.vaclav.core.display {
 		public function QBitmap(config:Object = null, parent:DisplayObjectContainer = null) {
 			// if config is not defined, prepare it
 			var c:Object;
-			
+
 			if(config == null) c = new Object();
 			else c = config;
 
@@ -102,7 +102,7 @@ package org.vancura.vaclav.core.display {
 			}
 
 			// assign parameters
-			assign(this, c);
+			ObjectUtils.assign(this, c);
 
 			// add child if requested
 			if(parent != null) parent.addChild(this);

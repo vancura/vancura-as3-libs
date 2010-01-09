@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright (c) 2010. Vaclav Vancura.
+ * Copyright (c) 2010 Vaclav Vancura.
  * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
  * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
  * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
@@ -19,7 +19,7 @@
  * DEALINGS IN THE SOFTWARE.
  **********************************************************************************************************************/
 
-package org.vancura.vaclav.core.utils {
+package org.vancura.vaclav.core.display {
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;
 	import flash.display.BlendMode;
@@ -32,10 +32,7 @@ package org.vancura.vaclav.core.utils {
 	import flash.text.TextFormat;
 	import flash.utils.getTimer;
 
-	import org.vancura.vaclav.core.display.GraphicsUtil;
-	import org.vancura.vaclav.core.display.QBitmap;
-	import org.vancura.vaclav.core.display.QTextField;
-	import org.vancura.vaclav.core.global.addChildren;
+	import org.vancura.vaclav.core.utils.DisplayUtils;
 
 	/*
 	 * Class: Stats
@@ -113,9 +110,9 @@ package org.vancura.vaclav.core.utils {
 			_msText = new QTextField({defaultTextFormat: _textFormat, antiAliasType:AntiAliasType.NORMAL, y:5, width:_WIDTH, height:10, textColor:0x00FF00});
 			_memText = new QTextField({defaultTextFormat: _textFormat, antiAliasType:AntiAliasType.NORMAL, y:13, width:_WIDTH, height:10, textColor:0x00FFFF});
 
-			GraphicsUtil.drawRect(this, 0, 0, _WIDTH, 27 + 50, 0x000000, 0.75);
+			DisplayUtils.drawRect(this, 0, 0, _WIDTH, 27 + 50, 0x000000, 0.75);
 
-			addChildren(this, _fpsGraphBM, _msGraphBM, _memGraphBM, _fpsText, _msText, _memText);
+			DisplayUtils.addChildren(this, _fpsGraphBM, _msGraphBM, _memGraphBM, _fpsText, _msText, _memText);
 
 			addEventListener(MouseEvent.CLICK, _onMouseClick);
 			addEventListener(Event.ENTER_FRAME, _onEnterFrame);

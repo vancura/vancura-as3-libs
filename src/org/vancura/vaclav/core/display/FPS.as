@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright (c) 2010. Vaclav Vancura.
+ * Copyright (c) 2010 Vaclav Vancura.
  * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
  * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
  * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
@@ -19,7 +19,7 @@
  * DEALINGS IN THE SOFTWARE.
  **********************************************************************************************************************/
 
-package org.vancura.vaclav.core.utils {
+package org.vancura.vaclav.core.display {
 	import br.com.stimuli.string.printf;
 
 	import flash.display.Sprite;
@@ -30,16 +30,12 @@ package org.vancura.vaclav.core.utils {
 	import flash.text.TextFormat;
 	import flash.utils.Timer;
 
-	import org.vancura.vaclav.core.display.GraphicsUtil;
-	import org.vancura.vaclav.core.display.QSprite;
-	import org.vancura.vaclav.core.display.QTextField;
-	import org.vancura.vaclav.core.global.removeChildren;
+	import org.vancura.vaclav.core.utils.DisplayUtils;
 
 	/**
 	 * FPS and memory meter.
 	 * Based on work by Pierluigi Pesenti (http://blog.oaxoa.com)
 	 * Feel free to use or redistribute but please leave this credits.
-	 *
 	 * @author Pierluigi Pesenti (http://blog.oaxoa.com)
 	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
@@ -61,7 +57,6 @@ package org.vancura.vaclav.core.utils {
 
 		/**
 		 * Constructor.
-		 *
 		 * @param tf Label TextFormat
 		 * @param bc Background color (default 0x000000)
 		 * @param gc Graph color (default 0xFF0000)
@@ -73,8 +68,8 @@ package org.vancura.vaclav.core.utils {
 			_textTF = new QTextField({y: _GRAPH_HEIGHT - 15, defaultTextFormat: tf, width: _GRAPH_WIDTH, autoSize: TextFieldAutoSize.LEFT}, this);
 
 			// drawing
-			GraphicsUtil.drawRect(_graphMaskSpr, 0, 0, _GRAPH_WIDTH, _GRAPH_HEIGHT, 0xFF0000, 0.2);
-			GraphicsUtil.drawRoundRect(_backSpr, 0, 0, _GRAPH_WIDTH, _GRAPH_HEIGHT, 8, bc, 0.8);
+			DisplayUtils.drawRect(_graphMaskSpr, 0, 0, _GRAPH_WIDTH, _GRAPH_HEIGHT, 0xFF0000, 0.2);
+			DisplayUtils.drawRoundRect(_backSpr, 0, 0, _GRAPH_WIDTH, _GRAPH_HEIGHT, 8, bc, 0.8);
 
 			// set visual properties
 			_graphScrollSpr.graphics.lineStyle(0, gc);
@@ -96,7 +91,7 @@ package org.vancura.vaclav.core.utils {
 		 */
 		public function destroy():void {
 			// remove from display list
-			removeChildren(this, _backSpr, _graphScrollSpr, _graphMaskSpr, _textTF);
+			DisplayUtils.removeChildren(this, _backSpr, _graphScrollSpr, _graphMaskSpr, _textTF);
 
 			// stop timer
 			_timer.stop();
@@ -110,7 +105,6 @@ package org.vancura.vaclav.core.utils {
 
 		/**
 		 * Compute and return current time.
-		 *
 		 * @return Current time
 		 */
 		public function computeTime():Number {
@@ -123,7 +117,6 @@ package org.vancura.vaclav.core.utils {
 
 		/**
 		 * Force update graph.
-		 *
 		 * @param n Current time
 		 */
 		public function updateGraph(n:Number):void {

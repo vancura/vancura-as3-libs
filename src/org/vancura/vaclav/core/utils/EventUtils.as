@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright (c) 2010. Vaclav Vancura.
+ * Copyright (c) 2010 Vaclav Vancura.
  * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
  * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
  * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
@@ -19,19 +19,45 @@
  * DEALINGS IN THE SOFTWARE.
  **********************************************************************************************************************/
 
-package org.vancura.vaclav.core.global {
-	import flash.display.MovieClip;
+package org.vancura.vaclav.core.utils {
+	import flash.events.EventDispatcher;
 
-	/**
-	 * Duplicate a MovieClip.
-	 *
-	 * @param source Source MovieClip
-	 * @return Duplicated MovieClip
-	 * @author Vaclav Vancura (http://vaclav.vancura.org)
-	 */
-	public function duplicateMovieClip(source:MovieClip):MovieClip {
-		var targetClass:Class = Object(source).constructor as Class;
+	public class EventUtils {
 
-		return(new targetClass() as MovieClip);
+
+
+		/**
+		 * Basically an addEventListener() for more events at once.
+		 * Just saves few lines of code, nothing special.
+		 * @param obj Target EventDispatcher
+		 * @param params Multiple Objects with pairs {event: ..., method: ...}
+		 * @author Vaclav Vancura (http://vaclav.vancura.org)
+		 */
+		public static function addEventListeners(obj:EventDispatcher, ... params):void {
+			for each(var i:Object in params) {
+				if(i.event == undefined) throw new Error('Event undefined');
+				if(i.method == undefined) throw new Error('Method undefined');
+
+				obj.addEventListener(i.event, i.method, false, 0, true);
+			}
+		}
+
+
+
+		/**
+		 * Basically an removeEventListener() for more events at once.
+		 * Just saves few lines of code, nothing special.
+		 * @param obj Target EventDispatcher
+		 * @param params Multiple Objects with pairs {event: ..., method: ...}
+		 * @author Vaclav Vancura (http://vaclav.vancura.org)
+		 */
+		public static function removeEventListeners(obj:EventDispatcher, ... params):void {
+			for each(var i:Object in params) {
+				if(i.event == undefined) throw new Error('Event undefined');
+				if(i.method == undefined) throw new Error('Method undefined');
+
+				obj.removeEventListener(i.event, i.method);
+			}
+		}
 	}
 }

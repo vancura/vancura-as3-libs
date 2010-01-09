@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright (c) 2010. Vaclav Vancura.
+ * Copyright (c) 2010 Vaclav Vancura.
  * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
  * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
  * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
@@ -27,9 +27,7 @@ package org.vancura.vaclav.widgets.widgets {
 	import flash.display.DisplayObjectContainer;
 	import flash.geom.Rectangle;
 
-	import org.vancura.vaclav.core.display.GraphicsUtil;
-	import org.vancura.vaclav.core.global.addChildren;
-	import org.vancura.vaclav.core.global.removeChildren;
+	import org.vancura.vaclav.core.utils.DisplayUtils;
 	import org.vancura.vaclav.widgets.globals.SkinManager;
 	import org.vancura.vaclav.widgets.interfaces.IButton;
 	import org.vancura.vaclav.widgets.interfaces.IButtonSkin;
@@ -81,7 +79,7 @@ package org.vancura.vaclav.widgets.widgets {
 			_hoverSBM.mouseEnabled = false;
 			_focusSBM.mouseEnabled = false;
 
-			addChildren(_contentSpr, _outSBM, _hoverSBM, _focusSBM);
+			DisplayUtils.addChildren(_contentSpr, _outSBM, _hoverSBM, _focusSBM);
 		}
 
 
@@ -89,7 +87,7 @@ package org.vancura.vaclav.widgets.widgets {
 		override protected function _removeChildren():void {
 			super._removeChildren();
 
-			removeChildren(_contentSpr, _outSBM, _hoverSBM, _focusSBM);
+			DisplayUtils.removeChildren(_contentSpr, _outSBM, _hoverSBM, _focusSBM);
 		}
 
 

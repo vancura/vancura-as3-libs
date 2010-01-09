@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright (c) 2010. Vaclav Vancura.
+ * Copyright (c) 2010 Vaclav Vancura.
  * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
  * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
  * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
@@ -26,7 +26,7 @@ package org.vancura.vaclav.widgets.widgets {
 	import flash.display.DisplayObjectContainer;
 
 	import org.vancura.vaclav.core.display.MorphSprite;
-	import org.vancura.vaclav.core.global.removeChildren;
+	import org.vancura.vaclav.core.utils.DisplayUtils;
 	import org.vancura.vaclav.widgets.constants.MouseStatus;
 	import org.vancura.vaclav.widgets.events.ButtonEvent;
 	import org.vancura.vaclav.widgets.globals.SkinManager;
@@ -99,7 +99,7 @@ package org.vancura.vaclav.widgets.widgets {
 			_button.removeEventListener(ButtonEvent.RELEASED_INSIDE_TWEEN, _onButtonReleasedInsideTween);
 			_button.removeEventListener(ButtonEvent.RELEASED_OUTSIDE_TWEEN, _onButtonReleasedOutsideTween);
 
-			removeChildren(this, _button, _glyphOut, _glyphHover, _glyphFocus);
+			DisplayUtils.removeChildren(this, _button, _glyphOut, _glyphHover, _glyphFocus);
 
 			_button.destroy();
 			_glyphOut.destroy();

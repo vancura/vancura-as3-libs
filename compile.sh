@@ -35,16 +35,16 @@ cd "`dirname "$0"`"
 # Prepare all directories
 echo "---------------------------------------------------------------------------------------------------"
 echo "Creating directories"
-rm -rf tmp >/dev/null 2>&1
-rm -rf lib >/dev/null 2>&1
-rm -rf tools >/dev/null 2>&1
-rm -rf examples/bin 2>&1
+#rm -rf tmp >/dev/null 2>&1
+#rm -rf lib >/dev/null 2>&1
+#rm -rf tools >/dev/null 2>&1
+#rm -rf examples/bin 2>&1
 mkdir -p tmp >/dev/null 2>&1
 mkdir -p lib/src >/dev/null 2>&1
 mkdir -p lib/fonts >/dev/null 2>&1
 mkdir -p lib/swc >/dev/null 2>&1
 mkdir -p lib/src/quasimondo/src/com/quasimondo/geom >/dev/null 2>&1
-mkdir -p lib/src/destroytoday/src/com/destroytoday/display >/dev/null 2>&1
+#mkdir -p lib/src/destroytoday/src/com/destroytoday/display >/dev/null 2>&1
 mkdir -p bin >/dev/null 2>&1
 mkdir -p doc >/dev/null 2>&1
 mkdir -p tools >/dev/null 2>&1
@@ -65,7 +65,7 @@ if [ "$IS_COMPILATION_DISABLED" == "no" ]; then
 	curl http://img.dafont.com/dl/?f=uni_05_x -o tmp/uni_05_x.zip >/dev/null 2>&1
 	curl http://as3corelib.googlecode.com/files/as3corelib-.92.1.zip -o tmp/as3corelib.zip >/dev/null 2>&1
 	curl http://www.quasimondo.com/colormatrix/ColorMatrix.as -o lib/src/quasimondo/src/com/quasimondo/geom/ColorMatrix.as >/dev/null 2>&1
-	curl http://github.com/vancura/DestroyFramework/raw/master/src/com/destroytoday/display/Scale9Bitmap.as -o lib/src/destroytoday/src/com/destroytoday/display/Scale9Bitmap.as >/dev/null 2>&1
+#	curl http://github.com/vancura/DestroyFramework/raw/master/src/com/destroytoday/display/Scale9Bitmap.as -o lib/src/destroytoday/src/com/destroytoday/display/Scale9Bitmap.as >/dev/null 2>&1
 	svn checkout http://printf-as3.googlecode.com/svn/trunk lib/src/printf-as3 >/dev/null 2>&1
 	svn checkout http://vanrijkom-flashlibs.googlecode.com/svn/trunk lib/src/vanrijkom-flashlibs >/dev/null 2>&1
 
@@ -100,9 +100,9 @@ if [ "$IS_COMPILATION_DISABLED" == "no" ]; then
 	$FLEX_DIR/bin/compc --target-player=10.0.0 -o lib/swc/quasimondo.swc -l $FLEX_DIR/frameworks/libs/air/airframework.swc -l $FLEX_DIR/frameworks/libs/air/airglobal.swc -l $FLEX_DIR/frameworks/libs/air/applicationupdater_ui.swc -l $FLEX_DIR/frameworks/libs/air/servicemonitor.swc -l $FLEX_DIR/frameworks/libs/flex.swc -l $FLEX_DIR/frameworks/libs/framework.swc -l $FLEX_DIR/frameworks/libs/rpc.swc -l $FLEX_DIR/frameworks/libs/utilities.swc -sp lib/src/quasimondo/src -is lib/src/quasimondo/src
 	
 	# Compile destroytoday.swc
-	echo "---------------------------------------------------------------------------------------------------"
-	echo "Compiling destroytoday.swc"
-	$FLEX_DIR/bin/compc --target-player=10.0.0 -o lib/swc/destroytoday.swc -l $FLEX_DIR/frameworks/libs/air/airframework.swc -l $FLEX_DIR/frameworks/libs/air/airglobal.swc -l $FLEX_DIR/frameworks/libs/air/applicationupdater_ui.swc -l $FLEX_DIR/frameworks/libs/air/servicemonitor.swc -l $FLEX_DIR/frameworks/libs/flex.swc -l $FLEX_DIR/frameworks/libs/framework.swc -l $FLEX_DIR/frameworks/libs/rpc.swc -l $FLEX_DIR/frameworks/libs/utilities.swc -sp lib/src/destroytoday/src -is lib/src/destroytoday/src
+#	echo "---------------------------------------------------------------------------------------------------"
+#	echo "Compiling destroytoday.swc"
+#	$FLEX_DIR/bin/compc --target-player=10.0.0 -o lib/swc/destroytoday.swc -l $FLEX_DIR/frameworks/libs/air/airframework.swc -l $FLEX_DIR/frameworks/libs/air/airglobal.swc -l $FLEX_DIR/frameworks/libs/air/applicationupdater_ui.swc -l $FLEX_DIR/frameworks/libs/air/servicemonitor.swc -l $FLEX_DIR/frameworks/libs/flex.swc -l $FLEX_DIR/frameworks/libs/framework.swc -l $FLEX_DIR/frameworks/libs/rpc.swc -l $FLEX_DIR/frameworks/libs/utilities.swc -sp lib/src/destroytoday/src -is lib/src/destroytoday/src
 	
 	# Compile the SWC
 	echo "---------------------------------------------------------------------------------------------------"

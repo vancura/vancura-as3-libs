@@ -26,7 +26,7 @@ package {
 	import org.vancura.vaclav.assets.events.ProviderErrorEvent;
 	import org.vancura.vaclav.assets.globals.AssetManager;
 	import org.vancura.vaclav.assets.providers.FARAssetProvider;
-	import org.vancura.vaclav.core.utils.Stats;
+	import org.vancura.vaclav.core.display.Stats;
 	import org.vancura.vaclav.widgets.constants.DebugLevel;
 	import org.vancura.vaclav.widgets.events.ButtonEvent;
 	import org.vancura.vaclav.widgets.globals.A2S;

@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright (c) 2010. Vaclav Vancura.
+ * Copyright (c) 2010 Vaclav Vancura.
  * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
  * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
  * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
@@ -19,30 +19,29 @@
  * DEALINGS IN THE SOFTWARE.
  **********************************************************************************************************************/
 
-package org.vancura.vaclav.core.global {
+package org.vancura.vaclav.core.utils {
+	public class StringUtils {
 
 
+		/**
+		 * Generate random String.
+		 * @param length String length (default 10)
+		 * @param chars Chars used (default 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
+		 * @return Random String
+		 * @author Vaclav Vancura (http://vaclav.vancura.org)
+		 */
+		public static function randomString(length:uint = 10, chars:String = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'):String {
+			var alphabet:Array = chars.split('');
+			var alphabetLength:int = alphabet.length;
+			var randomLetters:String = '';
 
-	/**
-	 * Assign properties from params to an Object.
-	 *
-	 * @param obj Target Object
-	 * @param params Source Object
-	 * @return Resulting Object
-	 * @author Vaclav Vancura (http://vaclav.vancura.org)
-	 */
-	public function assign(obj:Object, params:Object):Object {
-		var out:Object = (obj);
-
-		for(var i:String in params) {
-			//noinspection EmptyCatchBlockJS,UnusedCatchParameterJS
-			try {
-				out[i] = params[i];
+			for(var j:uint = 0; j < length; j++) {
+				var r:Number = Math.random() * alphabetLength;
+				var s:int = Math.floor(r);
+				randomLetters += alphabet[s];
 			}
-			catch(err:Error) {
-			}
+
+			return randomLetters;
 		}
-
-		return out;
 	}
 }

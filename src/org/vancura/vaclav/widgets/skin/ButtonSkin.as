@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright (c) 2010. Vaclav Vancura.
+ * Copyright (c) 2010 Vaclav Vancura.
  * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
  * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
  * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
@@ -23,7 +23,7 @@ package org.vancura.vaclav.widgets.skin {
 	import flash.display.BitmapData;
 	import flash.display.MovieClip;
 
-	import org.vancura.vaclav.core.display.BitmapUtil;
+	import org.vancura.vaclav.core.utils.BitmapUtils;
 	import org.vancura.vaclav.widgets.constants.SkinType;
 	import org.vancura.vaclav.widgets.interfaces.IButtonSkin;
 
@@ -68,10 +68,10 @@ package org.vancura.vaclav.widgets.skin {
 			_assetWidth = source.width / 4;
 			_assetHeight = source.height;
 
-			_guideBD = BitmapUtil.crop(source, 0, 0, _assetWidth, _assetHeight);
-			_outBD = BitmapUtil.crop(source, _assetWidth, 0, _assetWidth, _assetHeight);
-			_hoverBD = BitmapUtil.crop(source, _assetWidth * 2, 0, _assetWidth, _assetHeight);
-			_focusBD = BitmapUtil.crop(source, _assetWidth * 3, 0, _assetWidth, _assetHeight);
+			_guideBD = BitmapUtils.crop(source, 0, 0, _assetWidth, _assetHeight);
+			_outBD = BitmapUtils.crop(source, _assetWidth, 0, _assetWidth, _assetHeight);
+			_hoverBD = BitmapUtils.crop(source, _assetWidth * 2, 0, _assetWidth, _assetHeight);
+			_focusBD = BitmapUtils.crop(source, _assetWidth * 3, 0, _assetWidth, _assetHeight);
 		}
 
 

@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright (c) 2010. Vaclav Vancura.
+ * Copyright (c) 2010 Vaclav Vancura.
  * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
  * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
  * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
@@ -19,19 +19,15 @@
  * DEALINGS IN THE SOFTWARE.
  **********************************************************************************************************************/
 
-package org.vancura.vaclav.core.utils {
+package org.vancura.vaclav.core.display {
 	import flash.display.Sprite;
 	import flash.events.MouseEvent;
 	import flash.text.TextFormat;
 
-	import org.vancura.vaclav.core.display.GraphicsUtil;
-	import org.vancura.vaclav.core.display.QSprite;
-	import org.vancura.vaclav.core.display.QTextField;
-	import org.vancura.vaclav.core.global.removeChildren;
+	import org.vancura.vaclav.core.utils.DisplayUtils;
 
 	/**
 	 * Modal Window allows to show critical information if nothing is embedded and everything is broken.
-	 *
 	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
 	public class ModalWindow extends Sprite {
@@ -62,7 +58,7 @@ package org.vancura.vaclav.core.utils {
 			_descText = new QTextField({embedFonts:false, x:_TEXT_HORIZ_PADDING, y:_TEXT_VERT_PADDING, height:400, defaultTextFormat:new TextFormat(_FONT, _DESCRIPTION_FONT_SIZE, _DESCRIPTION_COLOR)}, this);
 
 			// drawing
-			GraphicsUtil.drawRect(_fillSPR, 0, 0, 2880, 100, _BACKGROUND_COLOR, _BACKGROUND_ALPHA);
+			DisplayUtils.drawRect(_fillSPR, 0, 0, 2880, 100, _BACKGROUND_COLOR, _BACKGROUND_ALPHA);
 
 			// set visual properties
 			this.visible = false;
@@ -81,14 +77,13 @@ package org.vancura.vaclav.core.utils {
 			removeEventListener(MouseEvent.CLICK, _onClick);
 
 			// remove from display list
-			removeChildren(this, _fillSPR, _descText);
+			DisplayUtils.removeChildren(this, _fillSPR, _descText);
 		}
 
 
 
 		/**
 		 * Show the Modal Window.
-		 *
 		 * @param description Text to be displayed ("No description given" used if not defined)
 		 */
 		public function show(description:String = 'No description given'):void {
@@ -116,7 +111,6 @@ package org.vancura.vaclav.core.utils {
 
 		/**
 		 * Set Modal Window width.
-		 *
 		 * @param value Modal Window width
 		 */
 		public override function set width(value:Number):void {
@@ -127,7 +121,6 @@ package org.vancura.vaclav.core.utils {
 
 		/**
 		 * Set Modal Window height. Unused here, so it doesn't do anything at all :]
-		 *
 		 * @param value Modal Window height
 		 */
 		public override function set height(value:Number):void {

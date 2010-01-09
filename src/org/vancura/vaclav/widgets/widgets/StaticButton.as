@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright (c) 2010. Vaclav Vancura.
+ * Copyright (c) 2010 Vaclav Vancura.
  * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
  * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
  * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
@@ -26,7 +26,7 @@ package org.vancura.vaclav.widgets.widgets {
 	import flash.display.DisplayObjectContainer;
 
 	import org.vancura.vaclav.core.display.QBitmap;
-	import org.vancura.vaclav.core.global.removeChildren;
+	import org.vancura.vaclav.core.utils.DisplayUtils;
 	import org.vancura.vaclav.widgets.globals.SkinManager;
 	import org.vancura.vaclav.widgets.interfaces.IButton;
 	import org.vancura.vaclav.widgets.interfaces.IButtonSkin;
@@ -77,7 +77,7 @@ package org.vancura.vaclav.widgets.widgets {
 		override protected function _removeChildren():void {
 			super._removeChildren();
 
-			removeChildren(_contentSpr, _outBM, _hoverBM, _focusBM);
+			DisplayUtils.removeChildren(_contentSpr, _outBM, _hoverBM, _focusBM);
 		}
 
 

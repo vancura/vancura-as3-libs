@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright (c) 2010. Vaclav Vancura.
+ * Copyright (c) 2010 Vaclav Vancura.
  * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
  * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
  * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
@@ -28,7 +28,7 @@ package org.vancura.vaclav.template {
 	import flash.events.IOErrorEvent;
 	import flash.external.ExternalInterface;
 
-	import org.vancura.vaclav.core.global.getClassByName;
+	import org.vancura.vaclav.core.utils.ClassUtils;
 	import org.vancura.vaclav.interfaces.IMain;
 
 	public class GlobalPreloader extends MovieClip {
@@ -79,7 +79,7 @@ package org.vancura.vaclav.template {
 			nextFrame();
 
 			// find and call main class
-			_mainClass = getClassByName(_mainClassName);
+			_mainClass = ClassUtils.getClassByName(_mainClassName);
 			if(_mainClass === null) {
 				// main class not found
 				alert('GlobalPreloader: Main class (' + _mainClassName + ') not found.\nThis is critical.');

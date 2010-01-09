@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright (c) 2010. Vaclav Vancura.
+ * Copyright (c) 2010 Vaclav Vancura.
  * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
  * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
  * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
@@ -19,15 +19,24 @@
  * DEALINGS IN THE SOFTWARE.
  **********************************************************************************************************************/
 
-package org.vancura.vaclav.core.display {
+package org.vancura.vaclav.core.utils {
+	import flash.display.DisplayObject;
+	import flash.display.DisplayObjectContainer;
+	import flash.display.MovieClip;
+	import flash.display.Shape;
 	import flash.display.Sprite;
+	import flash.events.Event;
+	import flash.geom.Matrix;
+	import flash.geom.Point;
+	import flash.geom.Rectangle;
+	import flash.geom.Transform;
 
 	/**
 	 * A class covering few graphics methods I can't put anywhere else.
 	 *
 	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
-	public final class GraphicsUtil {
+	public final class DisplayUtils {
 
 
 
@@ -55,7 +64,6 @@ package org.vancura.vaclav.core.display {
 
 		/**
 		 * Shortcut to draw a rectangle.
-		 *
 		 * @param canvas Canvas to draw on
 		 * @param x X position
 		 * @param y Y position
@@ -76,7 +84,6 @@ package org.vancura.vaclav.core.display {
 
 		/**
 		 * Shortcut to draw a circle.
-		 *
 		 * @param canvas Canvas to draw on
 		 * @param x X center position
 		 * @param y Y center position
@@ -96,7 +103,6 @@ package org.vancura.vaclav.core.display {
 
 		/**
 		 * Shortcut to draw a rounded rectangle.
-		 *
 		 * @param canvas Canvas to draw on
 		 * @param x X position
 		 * @param y Y position
@@ -118,7 +124,6 @@ package org.vancura.vaclav.core.display {
 
 		/**
 		 * Shortcut to draw a pie.
-		 *
 		 * @param canvas Canvas to draw on
 		 * @param x X center position
 		 * @param y Y center position
@@ -200,7 +205,6 @@ package org.vancura.vaclav.core.display {
 
 		/**
 		 * Shortcut to stroke a rectangle.
-		 *
 		 * @param canvas Canvas to draw on
 		 * @param x X position
 		 * @param y Y position
@@ -225,7 +229,6 @@ package org.vancura.vaclav.core.display {
 
 		/**
 		 * Shortcut to draw a line.
-		 *
 		 * @param canvas Canvas to draw on
 		 * @param x1 Start X position
 		 * @param y1 Start Y position
@@ -247,7 +250,6 @@ package org.vancura.vaclav.core.display {
 
 		/**
 		 * Draw bounding corners.
-		 *
 		 * @param canvas Canvas to draw on
 		 * @param x X position
 		 * @param y Y position
@@ -277,6 +279,289 @@ package org.vancura.vaclav.core.display {
 			canvas.graphics.moveTo(padding + x, h + y);
 			canvas.graphics.lineTo(x, h + y);
 			canvas.graphics.lineTo(x, h - padding + y);
+		}
+
+
+
+		/**
+		 * Apply a scroll rect from (0,0) to (width,height).
+		 * Original article: http://jacksondunstan.com/articles/519
+		 * @param dispObj Display object to apply on
+		 * @author Jackson Dunstan (http://jacksondunstan.com)
+		 */
+		public static function applyNaturalScrollRect(dispObj:DisplayObject):void {
+			dispObj.scrollRect = new Rectangle(0, 0, dispObj.width, dispObj.height);
+		}
+
+
+
+		/**
+		 * Wait a given number of frames then call a callback.
+		 * Original article: http://jacksondunstan.com/articles/519
+		 * @param numFrames Number of frames to wait before calling the callback
+		 * @param callback Function to call once the given number of frames have passed
+		 * @author Jackson Dunstan (http://jacksondunstan.com)
+		 */
+		public static function wait(numFrames:uint, callback:Function):void {
+			var nf:uint = numFrames;
+			var obj:Shape = new Shape();
+
+			obj.addEventListener(Event.ENTER_FRAME, function(ev:Event):void {
+				nf--;
+				if(nf == 0) {
+					obj.removeEventListener(Event.ENTER_FRAME, arguments.callee);
+					callback();
+				}
+			});
+		}
+
+
+
+		/**
+		 * Basically an addChild() for more children at once.
+		 * Just saves few lines of code, nothing special.
+		 * @param obj Target DisplayObject
+		 * @param children Children to be added
+		 * @author Vaclav Vancura (http://vaclav.vancura.org)
+		 */
+		public static function addChildren(obj:*, ... children:Array):void {
+			for each(var i:DisplayObject in children) obj.addChild(i);
+		}
+
+
+
+		/**
+		 * Basically an addChild() for more children at once.
+		 * Just saves few lines of code, nothing special.
+		 * @param obj Target DisplayObject
+		 * @param children Children to be removed
+		 * @author Vaclav Vancura (http://vaclav.vancura.org)
+		 */
+		public static function removeChildren(obj:*, ... children:Array):void {
+			for each(var i:DisplayObject in children) obj.removeChild(i);
+		}
+
+
+
+		/**
+		 * Remove all children from a container and leave the bottom few.
+		 * Original article: http://jacksondunstan.com/articles/519
+		 * @param container Container to remove from
+		 * @param leave (optional) Number of bottom children to leave
+		 * @author Jackson Dunstan (http://jacksondunstan.com)
+		 */
+		public static function removeAllChildren(container:DisplayObjectContainer, leave:int = 0):void {
+			while(container.numChildren > leave) container.removeChildAt(leave);
+		}
+
+
+
+		/**
+		 * Duplicate a MovieClip.
+		 * @param source Source MovieClip
+		 * @return Duplicated MovieClip
+		 * @author Vaclav Vancura (http://vaclav.vancura.org)
+		 */
+		public static function duplicateMovieClip(source:MovieClip):MovieClip {
+			var targetClass:Class = Object(source).constructor as Class;
+			return(new targetClass() as MovieClip);
+		}
+
+
+
+		/**
+		 * Instantiate a new instance of a certain class of display object.
+		 * Original article: http://jacksondunstan.com/articles/519
+		 * @param obj Display object whose class a new display object should be instantiated of
+		 * @param args Arguments to pass to the display object's constructor
+		 * @return A new instance of the given display object's class
+		 * @author Jackson Dunstan (http://jacksondunstan.com)
+		 */
+		public static function instantiate(obj:Object, args:Array):DisplayObject {
+			var c:Class = ClassUtils.getDisplayObjectClass(obj);
+
+			//noinspection NestedFunctionCallJS
+			return c == null ? null : DisplayObject(DisplayUtils.instantiate(c, args));
+		}
+
+
+
+		/**
+		 * Check if a display object is visible. This checks all of its parents' visibilities.
+		 * Original article: http://jacksondunstan.com/articles/519
+		 * @param obj Display object to check
+		 * @author Jackson Dunstan (http://jacksondunstan.com)
+		 */
+		public static function isVisible(obj:DisplayObject):Boolean {
+			for(var cur:DisplayObject = obj; cur != null; cur = cur.parent) {
+				if(!cur.visible) return false;
+			}
+			return true;
+		}
+
+
+
+		/**
+		 * Get the children of a container as an array.
+		 * Original article: http://jacksondunstan.com/articles/519
+		 * @param container Container to get the children of
+		 * @return The children of the given container as an array
+		 * @author Jackson Dunstan (http://jacksondunstan.com)
+		 */
+		public static function getChildren(container:DisplayObjectContainer):Array {
+			var ret:Array = [];
+
+			var numChildren:int = container.numChildren;
+			for(var i:int = 0; i < numChildren; ++i) ret.push(container.getChildAt(i));
+
+			return ret;
+		}
+
+
+
+		/**
+		 * Get the parents of a display object as an array.
+		 * Original article: http://jacksondunstan.com/articles/519
+		 * @param obj Object whose parents should be retrieved
+		 * @param includeSelf If obj should be included in the returned array
+		 * @param stopAt Display object to stop getting parents at. Passing null indicates that all parents should be included.
+		 * @return An array of the parents of the given display object. This includes all parents unless stopAt is non-null. If stopAt is non-null, it and its parents will not be included in the returned array.
+		 * @author Jackson Dunstan (http://jacksondunstan.com)
+		 */
+		public static function getParents(obj:DisplayObject, includeSelf:Boolean = true, stopAt:DisplayObject = null):Array {
+			var ret:Array = [];
+
+			for(var cur:DisplayObject = includeSelf ? obj : obj.parent; cur != stopAt && cur != null; cur = cur.parent) {
+				ret.push(cur);
+			}
+
+			return ret;
+		}
+
+
+
+		/**
+		 * @author VitaLee (http://meet.berovbros.com)
+		 */
+		public static function filterChildrenByProps(container:DisplayObjectContainer, props:Object):Array {
+			var filteredChildren:Array = [];
+			var child:DisplayObject;
+
+			for(var i:int = 0, l:int = container.numChildren; i < l; i++) {
+				child = container.getChildAt(i);
+				var isOK:Boolean = true;
+				for(var prop:String in props) {
+					if(child[prop] != props[prop]) {
+						isOK = false;
+						break;
+					}
+				}
+				if(isOK) filteredChildren.push(child);
+			}
+			return filteredChildren;
+		}
+
+
+
+		/**
+		 * @author VitaLee (http://meet.berovbros.com)
+		 */
+		public static function setProperties(children:Array, props:Object):void {
+			var child:DisplayObject;
+			for(var i:int = 0, l:uint = children.length; i < l; i++) {
+				child = children[i];
+				for(var prop:String in props) {
+					child[prop] = props[prop];
+				}
+			}
+		}
+
+
+
+		/**
+		 * @author VitaLee (http://meet.berovbros.com)
+		 */
+		public static function sumProps(children:Array, prop:String):Number {
+			var sum:Number = 0;
+			for(var i:int = 0, l:uint = children.length; i < l; i++) {
+				sum += children[i][prop];
+			}
+			return sum;
+		}
+
+
+
+		/**
+		 * @author VitaLee (http://meet.berovbros.com)
+		 */
+		public static function originalWidth(obj:DisplayObject):Number {
+			return obj.width / obj.scaleX;
+		}
+
+
+
+		/**
+		 * @author VitaLee (http://meet.berovbros.com)
+		 */
+		public static function originalHeight(obj:DisplayObject):Number {
+			return obj.height / obj.scaleY;
+		}
+
+
+
+		/**
+		 * @author Karl Knocking
+		 */
+		public static function relativePos(dO1:DisplayObject, dO2:DisplayObject):Point {
+			var pos:Point = new Point(0, 0);
+			pos = dO1.localToGlobal(pos);
+			pos = dO2.globalToLocal(pos);
+			return pos;
+		}
+
+
+
+		/**
+		 * Determines the full bounds of the display object regardless of masking elements.
+		 * @param displayObject The display object to analyze.
+		 * @return the display object dimensions.
+		 * @author Matt W (http://blog.nobien.net)
+		 */
+		public static function getFullBounds(displayObject:DisplayObject):Rectangle {
+			var bounds:Rectangle, transform:Transform, toGlobalMatrix:Matrix, currentMatrix:Matrix;
+
+			transform = displayObject.transform;
+			currentMatrix = transform.matrix;
+			toGlobalMatrix = transform.concatenatedMatrix;
+			toGlobalMatrix.invert();
+			transform.matrix = toGlobalMatrix;
+
+			bounds = transform.pixelBounds.clone();
+
+			transform.matrix = currentMatrix;
+
+			return bounds;
+		}
+
+
+
+		/**
+		 * Stops all timelines of the specified display object and its children.
+		 * @param displayObject The display object to loop through.
+		 * @author Matt W (http://blog.nobien.net)
+		 */
+		public static function stopAllTimelines(displayObject:DisplayObjectContainer):void {
+			var numChildren:int = displayObject.numChildren;
+
+			for(var i:int = 0; i < numChildren; i++) {
+				var child:DisplayObject = displayObject.getChildAt(i);
+
+				if(child is DisplayObjectContainer) {
+					if(child is MovieClip) MovieClip(child).stop();
+
+					stopAllTimelines(child as DisplayObjectContainer);
+				}
+			}
 		}
 	}
 }

@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright (c) 2010. Vaclav Vancura.
+ * Copyright (c) 2010 Vaclav Vancura.
  * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
  * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
  * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
@@ -23,11 +23,10 @@ package org.vancura.vaclav.core.display {
 	import flash.display.DisplayObjectContainer;
 	import flash.display.Sprite;
 
-	import org.vancura.vaclav.core.global.assign;
+	import org.vancura.vaclav.core.utils.ObjectUtils;
 
 	/**
 	 * Quick creation of Sprite with initial data.
-	 *
 	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
 	public class QSprite extends Sprite {
@@ -108,7 +107,7 @@ package org.vancura.vaclav.core.display {
 			}
 
 			// assign parameters
-			assign(this, c);
+			ObjectUtils.assign(this, c);
 
 			// add child if requested
 			if(parent != null) parent.addChild(this);
@@ -122,7 +121,6 @@ package org.vancura.vaclav.core.display {
 
 		/**
 		 * Get embedded Sprite (nested).
-		 *
 		 * @return Embedded Sprite
 		 */
 		public function get embeddedSpr():Sprite {
@@ -133,7 +131,6 @@ package org.vancura.vaclav.core.display {
 
 		/**
 		 * Moves to the specified position.
-		 *
 		 * @param x New X position
 		 * @param y New Y position
 		 */
@@ -146,7 +143,6 @@ package org.vancura.vaclav.core.display {
 
 		/**
 		 * Rescales to new size.
-		 *
 		 * @param width New width
 		 * @param height New height
 		 */

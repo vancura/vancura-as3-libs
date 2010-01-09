@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright (c) 2010. Vaclav Vancura.
+ * Copyright (c) 2010 Vaclav Vancura.
  * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
  * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
  * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
@@ -23,7 +23,7 @@ package org.vancura.vaclav.widgets.widgets {
 	import flash.display.DisplayObjectContainer;
 
 	import org.vancura.vaclav.core.display.MorphSprite;
-	import org.vancura.vaclav.core.global.removeChildren;
+	import org.vancura.vaclav.core.utils.DisplayUtils;
 	import org.vancura.vaclav.widgets.globals.SkinManager;
 	import org.vancura.vaclav.widgets.interfaces.IBar;
 	import org.vancura.vaclav.widgets.interfaces.IInputBar;
@@ -74,7 +74,7 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		public function destroy():void {
-			removeChildren(this, _bar, _label);
+			DisplayUtils.removeChildren(this, _bar, _label);
 
 			_bar.destroy();
 			_label.destroy();

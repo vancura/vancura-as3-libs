@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright (c) 2010. Vaclav Vancura.
+ * Copyright (c) 2010 Vaclav Vancura.
  * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
  * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
  * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
@@ -34,10 +34,9 @@ package org.vancura.vaclav.widgets.widgets {
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 
-	import org.vancura.vaclav.core.display.GraphicsUtil;
 	import org.vancura.vaclav.core.display.MorphSprite;
 	import org.vancura.vaclav.core.display.QSprite;
-	import org.vancura.vaclav.core.global.removeChildren;
+	import org.vancura.vaclav.core.utils.DisplayUtils;
 	import org.vancura.vaclav.widgets.constants.DebugLevel;
 	import org.vancura.vaclav.widgets.globals.SkinManager;
 	import org.vancura.vaclav.widgets.interfaces.IWidget;
@@ -123,7 +122,7 @@ package org.vancura.vaclav.widgets.widgets {
 
 			_allWidgets[_allIdx] = null;
 
-			removeChildren(this, _contentSpr, _debugSpr);
+			DisplayUtils.removeChildren(this, _contentSpr, _debugSpr);
 		}
 
 
@@ -155,8 +154,8 @@ package org.vancura.vaclav.widgets.widgets {
 				if(_width != 0 && _height != 0) {
 					_debugSpr.graphics.clear();
 
-					GraphicsUtil.drawRect(_debugSpr, 0, 0, _width, _height, _debugColor, 0.15);
-					GraphicsUtil.strokeBounds(_debugSpr, 0, 0, _width, _height, 5, _debugColor);
+					DisplayUtils.drawRect(_debugSpr, 0, 0, _width, _height, _debugColor, 0.15);
+					DisplayUtils.strokeBounds(_debugSpr, 0, 0, _width, _height, 5, _debugColor);
 				}
 			}
 

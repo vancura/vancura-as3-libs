@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright (c) 2010. Vaclav Vancura.
+ * Copyright (c) 2010 Vaclav Vancura.
  * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
  * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
  * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
@@ -28,8 +28,8 @@ package org.vancura.vaclav.widgets.skin {
 	import flash.display.MovieClip;
 	import flash.filters.ColorMatrixFilter;
 
-	import org.vancura.vaclav.core.global.duplicateMovieClip;
-	import org.vancura.vaclav.core.global.randomString;
+	import org.vancura.vaclav.core.utils.DisplayUtils;
+	import org.vancura.vaclav.core.utils.StringUtils;
 	import org.vancura.vaclav.widgets.interfaces.ISkinnable;
 
 	public class Skin implements ISkinnable {
@@ -50,7 +50,7 @@ package org.vancura.vaclav.widgets.skin {
 			_type = type;
 
 			if(_id == null) {
-				var rs:String = randomString();
+				var rs:String = StringUtils.randomString();
 				_id = printf('%s:skin:%s', type, rs);
 			}
 		}
@@ -113,7 +113,7 @@ package org.vancura.vaclav.widgets.skin {
 			// it's needed to duplicate this MovieClip as there was some weird bug:
 			// when used source.gotoAndStop(frame) on one of next lines,
 			// all future getChildByName() on this source failed.
-			var duplicate:MovieClip = duplicateMovieClip(source);
+			var duplicate:MovieClip = DisplayUtils.duplicateMovieClip(source);
 
 			duplicate.gotoAndStop(frame);
 
@@ -127,7 +127,7 @@ package org.vancura.vaclav.widgets.skin {
 			// it's needed to duplicate this MovieClip as there was some weird bug:
 			// when used source.gotoAndStop(frame) on one of next lines,
 			// all future getChildByName() on this source failed.
-			var duplicate:MovieClip = duplicateMovieClip(source);
+			var duplicate:MovieClip = DisplayUtils.duplicateMovieClip(source);
 			var output:BitmapData = new BitmapData(_assetWidth, _assetHeight, true, 0x00000000);
 
 			duplicate.gotoAndStop(frame);
@@ -173,8 +173,7 @@ package org.vancura.vaclav.widgets.skin {
 				// size is not specified, set initial values
 				_assetWidth = source.width;
 				_assetHeight = source.height;
-			}
-			else if(source.width != _assetWidth || source.height != _assetHeight) {
+			} else if(source.width != _assetWidth || source.height != _assetHeight) {
 				// size mismatch
 				throw new Error('Sizes have to match');
 			}

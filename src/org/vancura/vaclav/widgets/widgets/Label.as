@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright (c) 2010. Vaclav Vancura.
+ * Copyright (c) 2010 Vaclav Vancura.
  * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
  * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
  * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
@@ -27,9 +27,8 @@ package org.vancura.vaclav.widgets.widgets {
 	import flash.text.TextFieldType;
 	import flash.text.TextFormat;
 
-	import org.vancura.vaclav.core.display.GraphicsUtil;
 	import org.vancura.vaclav.core.display.QTextField;
-	import org.vancura.vaclav.core.global.removeChildren;
+	import org.vancura.vaclav.core.utils.DisplayUtils;
 	import org.vancura.vaclav.widgets.constants.Align;
 	import org.vancura.vaclav.widgets.constants.DebugLevel;
 	import org.vancura.vaclav.widgets.globals.SkinManager;
@@ -94,7 +93,7 @@ package org.vancura.vaclav.widgets.widgets {
 		override protected function _removeChildren():void {
 			super._removeChildren();
 
-			removeChildren(_contentSpr, _textField);
+			DisplayUtils.removeChildren(_contentSpr, _textField);
 		}
 
 
@@ -126,7 +125,7 @@ package org.vancura.vaclav.widgets.widgets {
 
 				if(_debugLevel == DebugLevel.ALWAYS || _debugLevel == DebugLevel.HOVER) {
 					if(_width != 0 && _height != 0) {
-						GraphicsUtil.strokeBounds(_debugSpr, l, t, w, h, 5, _debugColor);
+						DisplayUtils.strokeBounds(_debugSpr, l, t, w, h, 5, _debugColor);
 					}
 				}
 			}

@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- * Copyright (c) 2010. Vaclav Vancura.
+ * Copyright (c) 2010 Vaclav Vancura.
  * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
  * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
  * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
@@ -19,29 +19,56 @@
  * DEALINGS IN THE SOFTWARE.
  **********************************************************************************************************************/
 
-package org.vancura.vaclav.core.global {
-
-
+package org.vancura.vaclav.core.utils {
+	import flash.display.Bitmap;
+	import flash.display.BitmapData;
+	import flash.geom.Point;
+	import flash.geom.Rectangle;
 
 	/**
-	 * Generate random String.
-	 *
-	 * @param length String length (default 10)
-	 * @param chars Chars used (default 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
-	 * @return Random String
+	 * A class covering few bitmap methods I can't put anywhere else.
 	 * @author Vaclav Vancura (http://vaclav.vancura.org)
 	 */
-	public function randomString(length:uint = 10, chars:String = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'):String {
-		var alphabet:Array = chars.split('');
-		var alphabetLength:int = alphabet.length;
-		var randomLetters:String = '';
+	public final class BitmapUtils {
 
-		for(var j:uint = 0; j < length; j++) {
-			var r:Number = Math.random() * alphabetLength;
-			var s:int = Math.floor(r);
-			randomLetters += alphabet[s];
+
+
+		/**
+		 * Get BitmapData from the source.
+		 * If the source is Bitmap, it's converted, if it is already BitmapData, the reference is returned.
+		 * Serves as a quick filter for Bitmap and BitmapData.
+		 * @param source Source Bitmap or BitmapData
+		 * @return Source converted to BitmapData
+		 * @throws TypeError if the source is not Bitmap nor BitmapData
+		 */
+		public static function embed2BD(source:*):BitmapData {
+			var o:BitmapData;
+
+			if(source is Bitmap) o = source.bitmapData; else if(source is BitmapData) o = source;
+			else throw new TypeError('Bitmap or BitmapData needed');
+
+			return o;
 		}
 
-		return randomLetters;
+
+
+		/**
+		 * Crop the BitmapData source and return a new BitmapData.
+		 * @param source Source BitmapData
+		 * @param x Left margin of crop area
+		 * @param y Top margin of crop area
+		 * @param width Width of crop area
+		 * @param height Height of crop area
+		 * @return Cropped source as BitmapData
+		 */
+		public static function crop(source:BitmapData, x:uint, y:uint, width:uint, height:uint):BitmapData {
+			var o:BitmapData = new BitmapData(width, height);
+			var rectangle:Rectangle = new Rectangle(x, y, width, height);
+			var point:Point = new Point(0, 0);
+
+			o.copyPixels(source, rectangle, point);
+
+			return o;
+		}
 	}
 }
