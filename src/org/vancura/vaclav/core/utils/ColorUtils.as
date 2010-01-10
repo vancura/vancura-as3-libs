@@ -1,26 +1,45 @@
 /***********************************************************************************************************************
- * Copyright (c) 2010 Vaclav Vancura.
- * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
+ * Some methods Copyrighted by their authors, specified in ASDocs.
+ * If not specified elsewhere: Copyright (c) 2010 Vaclav Vancura.
+ *
+ * Contact me at vaclav@vancura.org, @vancura or at my homepage at http://vaclav.vancura.org.
  * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
  * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
- * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
- * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
- * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ * Licensed under Attribution 3.0 Czech Republic (http://creativecommons.org/licenses/by/3.0/cz/deed.en_GB).
  *
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions
- * of the Software.
+ * That means you are free:
+ * * to copy, distribute, display, and perform the work
+ * * to make derivative works
  *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
- * TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
+ * Under the following conditions::
+ * * Attribution Ñ You must give the original author credit.
+ *
+ * With the understanding that:
+ *    * Waiver Ñ Any of the above conditions can be waived if you get permission from the copyright holder. CC licenses
+ *      anticipate that a licensor may want to waive compliance with a specific condition, such as attribution.
+ *    * Other Rights Ñ In no way are any of the following rights affected by the license:
+ *	         - Your fair dealing or fair use rights Ñ All jurisdictions allow some limited uses of copyrighted material
+ *            without permission. CC licenses do not affect the rights of users under those copyright limitations and
+ *            exceptions, such as fair use and fair dealing where applicable.
+ *	         - The author's moral rights Ñ In addition to the right of licensors to request removal of their name from
+ *            the work when used in a derivative or collective they don't like, copyright laws in most jurisdictions
+ *            around the world (with the notable exception of the US except in very limited circumstances) grant
+ *            creators "moral rights" which may provide some redress if a derivative work represents a "derogatory
+ *            treatment" of the licensor's work.
+ *	         - Rights other persons may have either in the work itself or in how the work is used, such as publicity or
+ *            privacy rights. Ñ Publicity rights allow individuals to control how their voice, image or likeness is used
+ *            for commercial purposes in public. If a CC-licensed work includes the voice or image of anyone other than
+ *            the licensor, a user of the work may need to get permission from those individuals before using the work
+ *            for commercial purposes.
+ *
+ * Notice Ñ For any reuse or distribution, you must make clear to others the licence terms of this work.
  **********************************************************************************************************************/
 
 package org.vancura.vaclav.core.utils {
 	import flash.geom.ColorTransform;
+
+	import org.vancura.vaclav.core.types.Percent;
 
 	public class ColorUtils {
 
@@ -52,14 +71,13 @@ package org.vancura.vaclav.core.utils {
 		 * box.graphics.beginFill(0x0000FF);
 		 * box.graphics.drawRect(10, 10, 250, 250);
 		 * box.graphics.endFill();
-		 * box.transform.colorTransform = ColorUtil.interpolateColor(new ColorTransform(), myColor, new Percent(0.5));
+		 * box.transform.colorTransform = ColorUtils.interpolateColor(new ColorTransform(), myColor, new Percent(0.5));
 		 * this.addChild(box);
 		 * </code>
 		 * @author Aaron Clinger (http://casalib.org)
 		 * @author Jon Adams (http://casalib.org)
-		 * TODO: Finish
 		 */
-/*		public static function interpolateColor(begin:ColorTransform, end:ColorTransform, amount:Percent):ColorTransform {
+		public static function interpolateColor(begin:ColorTransform, end:ColorTransform, amount:Percent):ColorTransform {
 			var interpolation:ColorTransform = new ColorTransform();
 
 			interpolation.redMultiplier = NumberUtils.interpolate(amount, begin.redMultiplier, end.redMultiplier);
@@ -72,7 +90,7 @@ package org.vancura.vaclav.core.utils {
 			interpolation.alphaOffset = NumberUtils.interpolate(amount, begin.alphaOffset, end.alphaOffset);
 
 			return interpolation;
-		} */
+		}
 
 
 
@@ -86,7 +104,7 @@ package org.vancura.vaclav.core.utils {
 		 * @return Returns a hexidecimal color as a String.
 		 * @example
 		 * <code>
-		 * var hexColor : String = ColorUtil.getHexStringFromARGB(128, 255, 0, 255);
+		 * var hexColor : String = ColorUtils.getHexStringFromARGB(128, 255, 0, 255);
 		 * trace(hexColor); // Traces 80FF00FF
 		 * </code>
 		 * @author Aaron Clinger (http://casalib.org)
@@ -105,7 +123,7 @@ package org.vancura.vaclav.core.utils {
 		 * @return Returns an object with the properties a, r, g, and b defined.
 		 * @example
 		 * <code>
-		 * var myRGB:Object = ColorUtil.getARGB(0xCCFF00FF);
+		 * var myRGB:Object = ColorUtils.getARGB(0xCCFF00FF);
 		 * trace("Alpha = " + myRGB.a);
 		 * trace("Red = " + myRGB.r);
 		 * trace("Green = " + myRGB.g);
@@ -132,7 +150,7 @@ package org.vancura.vaclav.core.utils {
 		 * @return Returns an object with the properties r, g, and b defined.
 		 * @example
 		 * <code>
-		 * var myRGB:Object = ColorUtil.getRGB(0xFF00FF);
+		 * var myRGB:Object = ColorUtils.getRGB(0xFF00FF);
 		 * trace("Red = " + myRGB.r);
 		 * trace("Green = " + myRGB.g);
 		 * trace("Blue = " + myRGB.b);
@@ -160,7 +178,7 @@ package org.vancura.vaclav.core.utils {
 		 * @return Returns a hexidecimal color as a String.
 		 * @example
 		 * <code>
-		 * var hexColor : String = ColorUtil.getHexStringFromARGB(128, 255, 0, 255);
+		 * var hexColor : String = ColorUtils.getHexStringFromARGB(128, 255, 0, 255);
 		 * trace(hexColor); // Traces 80FF00FF
 		 * </code>
 		 * @author Aaron Clinger (http://casalib.org)
@@ -189,7 +207,7 @@ package org.vancura.vaclav.core.utils {
 		 * @return Returns a hexidecimal color as a String.
 		 * @example
 		 * <code>
-		 * var hexColor : String = ColorUtil.getHexStringFromRGB(255, 0, 255);
+		 * var hexColor : String = ColorUtils.getHexStringFromRGB(255, 0, 255);
 		 * trace(hexColor); // Traces FF00FF
 		 * </code>
 		 * @author Aaron Clinger (http://casalib.org)
@@ -203,6 +221,22 @@ package org.vancura.vaclav.core.utils {
 			gg = (gg.length == 1) ? '0' + gg : gg;
 			bb = (bb.length == 1) ? '0' + bb : bb;
 			return (rr + gg + bb).toUpperCase();
+		}
+
+
+
+		/**
+		 * Original taken from Five3D (http://five3d.mathieu-badimon.com)
+		 * @param colortransform
+		 * @param value
+		 */
+		static public function setBrightness(colortransform:ColorTransform, value:Number):void {
+			if(value > 1) value = 1; else if(value < -1) value = -1;
+			var percent:Number = 1 - Math.abs(value);
+			var offset:Number = 0;
+			if(value > 0) offset = value * 255;
+			colortransform.redMultiplier = colortransform.greenMultiplier = colortransform.blueMultiplier = percent;
+			colortransform.redOffset = colortransform.greenOffset = colortransform.blueOffset = offset;
 		}
 	}
 }

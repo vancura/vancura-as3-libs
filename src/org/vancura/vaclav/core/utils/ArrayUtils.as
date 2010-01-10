@@ -1,22 +1,39 @@
 /***********************************************************************************************************************
- * Copyright (c) 2010 Vaclav Vancura.
- * Contact me at vaclav@vancura.org or see my homepage at vaclav.vancura.org
+ * Some methods Copyrighted by their authors, specified in ASDocs.
+ * If not specified elsewhere: Copyright (c) 2010 Vaclav Vancura.
+ *
+ * Contact me at vaclav@vancura.org, @vancura or at my homepage at http://vaclav.vancura.org.
  * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
  * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
- * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
- * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
- * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ * Licensed under Attribution 3.0 Czech Republic (http://creativecommons.org/licenses/by/3.0/cz/deed.en_GB).
  *
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions
- * of the Software.
+ * That means you are free:
+ * * to copy, distribute, display, and perform the work
+ * * to make derivative works
  *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
- * TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
+ * Under the following conditions::
+ * * Attribution Ñ You must give the original author credit.
+ *
+ * With the understanding that:
+ *    * Waiver Ñ Any of the above conditions can be waived if you get permission from the copyright holder. CC licenses
+ *      anticipate that a licensor may want to waive compliance with a specific condition, such as attribution.
+ *    * Other Rights Ñ In no way are any of the following rights affected by the license:
+ * 	        - Your fair dealing or fair use rights Ñ All jurisdictions allow some limited uses of copyrighted material
+ *            without permission. CC licenses do not affect the rights of users under those copyright limitations and
+ *            exceptions, such as fair use and fair dealing where applicable.
+ * 	        - The author's moral rights Ñ In addition to the right of licensors to request removal of their name from
+ *            the work when used in a derivative or collective they don't like, copyright laws in most jurisdictions
+ *            around the world (with the notable exception of the US except in very limited circumstances) grant
+ *            creators "moral rights" which may provide some redress if a derivative work represents a "derogatory
+ *            treatment" of the licensor's work.
+ * 	        - Rights other persons may have either in the work itself or in how the work is used, such as publicity or
+ *            privacy rights. Ñ Publicity rights allow individuals to control how their voice, image or likeness is used
+ *            for commercial purposes in public. If a CC-licensed work includes the voice or image of anyone other than
+ *            the licensor, a user of the work may need to get permission from those individuals before using the work
+ *            for commercial purposes.
+ *
+ * Notice Ñ For any reuse or distribution, you must make clear to others the licence terms of this work.
  **********************************************************************************************************************/
 
 package org.vancura.vaclav.core.utils {
@@ -151,7 +168,7 @@ package org.vancura.vaclav.core.utils {
 		 * <code>
 		 * var alphabet:Array = new Array("a", "d", "e");
 		 * var parts:Array    = new Array("b", "c");
-		 * ArrayUtil.addItemsAt(alphabet, parts, 1);
+		 * ArrayUtils.addItemsAt(alphabet, parts, 1);
 		 * trace(alphabet);
 		 * </code>
 		 * @author Aaron Clinger (http://casalib.org)
@@ -179,13 +196,13 @@ package org.vancura.vaclav.core.utils {
 		 * @example
 		 * <code>
 		 * var numberArray:Array = new Array(1, 2, 3, 4, 4, 4, 4, 5);
-		 * trace(ArrayUtil.removeDuplicates(numberArray));
+		 * trace(ArrayUtils.removeDuplicates(numberArray));
 		 * </code>
 		 * @author Aaron Clinger (http://casalib.org)
 		 * @author Jon Adams (http://casalib.org)
 		 */
 		public static function removeDuplicates(inArray:Array):Array {
-			return inArray.filter(ArrayUtils._removeDuplicatesFilter);
+			return inArray.filter(_removeDuplicatesFilter);
 		}
 
 
@@ -205,7 +222,7 @@ package org.vancura.vaclav.core.utils {
 		 * @example
 		 * <code>
 		 * var numberArray:Array = new Array(1, 2, 3, 7, 7, 7, 4, 5);
-		 * trace("Removed " + ArrayUtil.removeItem(numberArray, 7) + " items.");
+		 * trace("Removed " + ArrayUtils.removeItem(numberArray, 7) + " items.");
 		 * trace(numberArray);
 		 * </code>
 		 * @author Aaron Clinger (http://casalib.org)
@@ -237,7 +254,7 @@ package org.vancura.vaclav.core.utils {
 		 * @example
 		 * <code>
 		 * var numberArray:Array = new Array(1, 2, 3, 7, 7, 7, 4, 5);
-		 * ArrayUtil.removeItems(numberArray, new Array(1, 3, 7, 5));
+		 * ArrayUtils.removeItems(numberArray, new Array(1, 3, 7, 5));
 		 * trace(numberArray);
 		 * </code>
 		 * @author Aaron Clinger (http://casalib.org)
@@ -268,7 +285,7 @@ package org.vancura.vaclav.core.utils {
 		 * @example
 		 * <code>
 		 * var numberArray:Array = new Array(1, 2, 3, 7, 7, 7, 4, 5);
-		 * ArrayUtil.retainItems(numberArray, new Array(2, 4));
+		 * ArrayUtils.retainItems(numberArray, new Array(2, 4));
 		 * trace(numberArray);
 		 * </code>
 		 * @author Aaron Clinger (http://casalib.org)
@@ -299,7 +316,7 @@ package org.vancura.vaclav.core.utils {
 		 * @example
 		 * <code>
 		 * var numberArray:Array = new Array(1, 2, 3, 7, 7, 7, 4, 5);
-		 * trace("numberArray contains " + ArrayUtil.contains(numberArray, 7) + " 7's.");
+		 * trace("numberArray contains " + ArrayUtils.contains(numberArray, 7) + " 7's.");
 		 * </code>
 		 * @author Aaron Clinger (http://casalib.org)
 		 * @author Jon Adams (http://casalib.org)
@@ -327,7 +344,7 @@ package org.vancura.vaclav.core.utils {
 		 * @example
 		 * <code>
 		 * var numberArray:Array = new Array(1, 2, 3, 4, 5);
-		 * trace(ArrayUtil.containsAll(numberArray, new Array(1, 3, 5)));
+		 * trace(ArrayUtils.containsAll(numberArray, new Array(1, 3, 5)));
 		 * </code>
 		 * @author Aaron Clinger (http://casalib.org)
 		 * @author Jon Adams (http://casalib.org)
@@ -353,7 +370,7 @@ package org.vancura.vaclav.core.utils {
 		 * @example
 		 * <code>
 		 * var numberArray:Array = new Array(1, 2, 3, 4, 5);
-		 * trace(ArrayUtil.containsAny(numberArray, new Array(9, 3, 6)));
+		 * trace(ArrayUtils.containsAny(numberArray, new Array(9, 3, 6)));
 		 * </code>
 		 * @author Aaron Clinger (http://casalib.org)
 		 * @author Jon Adams (http://casalib.org)
@@ -381,7 +398,7 @@ package org.vancura.vaclav.core.utils {
 		 * <code>
 		 * var color:Array     = new Array("Red", "Blue", "Green", "Indigo", "Violet");
 		 * var colorsAlt:Array = new Array("Red", "Blue", "Green", "Violet");
-		 * trace(ArrayUtil.getIndexOfDifference(color, colorsAlt)); // Traces 3
+		 * trace(ArrayUtils.getIndexOfDifference(color, colorsAlt)); // Traces 3
 		 * </code>
 		 * @author Aaron Clinger (http://casalib.org)
 		 * @author Jon Adams (http://casalib.org)
@@ -406,28 +423,27 @@ package org.vancura.vaclav.core.utils {
 		 * @example
 		 * <code>
 		 * var numberArray:Array = new Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-		 * trace(ArrayUtil.randomize(numberArray));
+		 * trace(ArrayUtils.randomize(numberArray));
 		 * </code>
 		 * @author Aaron Clinger (http://casalib.org)
 		 * @author Jon Adams (http://casalib.org)
-		 * TODO: Finish
 		 */
-/*		public static function randomize(inArray:Array):Array {
+		public static function randomize(inArray:Array):Array {
 			var t:Array = new Array();
-			var r:Array = inArray.sort(ArrayUtils._sortRandom, Array.RETURNINDEXEDARRAY);
+			var r:Array = inArray.sort(_sortRandom, Array.RETURNINDEXEDARRAY);
 			var i:int = -1;
 
 			while(++i < inArray.length)
 				t.push(inArray[r[i]]);
 
 			return t;
-		} */
+		}
 
 
 
-/*		protected static function _sortRandom(a:*, b:*):int {
+		protected static function _sortRandom(a:*, b:*):int {
 			return NumberUtils.randomIntegerWithinRange(0, 1) ? 1 : -1;
-		} */
+		}
 
 
 
@@ -439,7 +455,7 @@ package org.vancura.vaclav.core.utils {
 		 * @example
 		 * <code>
 		 * var numberArray:Array = new Array(2, 3);
-		 * trace("Total is: " + ArrayUtil.sum(numberArray));
+		 * trace("Total is: " + ArrayUtils.sum(numberArray));
 		 * </code>
 		 * @author Aaron Clinger (http://casalib.org)
 		 * @author Jon Adams (http://casalib.org)
@@ -464,7 +480,7 @@ package org.vancura.vaclav.core.utils {
 		 * @example
 		 * <code>
 		 * var numberArray:Array = new Array(2, 3, 8, 3);
-		 * trace("Average is: " + ArrayUtil.average(numberArray));
+		 * trace("Average is: " + ArrayUtils.average(numberArray));
 		 * </code>
 		 * @author Aaron Clinger (http://casalib.org)
 		 * @author Jon Adams (http://casalib.org)
@@ -473,7 +489,7 @@ package org.vancura.vaclav.core.utils {
 			if(inArray.length == 0)
 				return 0;
 
-			return ArrayUtils.sum(inArray) / inArray.length;
+			return sum(inArray) / inArray.length;
 		}
 
 
@@ -486,7 +502,7 @@ package org.vancura.vaclav.core.utils {
 		 * @example
 		 * <code>
 		 * var numberArray:Array = new Array(2, 1, 5, 4, 3);
-		 * trace("The lowest value is: " + ArrayUtil.getLowestValue(numberArray));
+		 * trace("The lowest value is: " + ArrayUtils.getLowestValue(numberArray));
 		 * </code>
 		 * @author Aaron Clinger (http://casalib.org)
 		 * @author Jon Adams (http://casalib.org)
@@ -505,7 +521,7 @@ package org.vancura.vaclav.core.utils {
 		 * @example
 		 * <code>
 		 * var numberArray:Array = new Array(2, 1, 5, 4, 3);
-		 * trace("The highest value is: " + ArrayUtil.getHighestValue(numberArray));
+		 * trace("The highest value is: " + ArrayUtils.getHighestValue(numberArray));
 		 * </code>
 		 * @author Aaron Clinger (http://casalib.org)
 		 * @author Jon Adams (http://casalib.org)

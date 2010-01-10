@@ -66,7 +66,7 @@ if [ "$IS_COMPILATION_DISABLED" == "no" ]; then
 	curl http://as3corelib.googlecode.com/files/as3corelib-.92.1.zip -o tmp/as3corelib.zip >/dev/null 2>&1
 	curl http://www.quasimondo.com/colormatrix/ColorMatrix.as -o lib/src/quasimondo/src/com/quasimondo/geom/ColorMatrix.as >/dev/null 2>&1
 #	curl http://github.com/vancura/DestroyFramework/raw/master/src/com/destroytoday/display/Scale9Bitmap.as -o lib/src/destroytoday/src/com/destroytoday/display/Scale9Bitmap.as >/dev/null 2>&1
-	svn checkout http://printf-as3.googlecode.com/svn/trunk lib/src/printf-as3 >/dev/null 2>&1
+#	svn checkout http://printf-as3.googlecode.com/svn/trunk lib/src/printf-as3 >/dev/null 2>&1
 	svn checkout http://vanrijkom-flashlibs.googlecode.com/svn/trunk lib/src/vanrijkom-flashlibs >/dev/null 2>&1
 
 	# Unzip curled files
@@ -77,7 +77,7 @@ if [ "$IS_COMPILATION_DISABLED" == "no" ]; then
 	unzip -j tmp/as3corelib.zip as3corelib-.92.1/lib/as3corelib.swc -d lib/swc >/dev/null 2>&1
 	
 	# Delete colliding directories
-	rm -rf lib/src/printf-as3/test-proj >/dev/null 2>&1
+#	rm -rf lib/src/printf-as3/test-proj >/dev/null 2>&1
 	
 	# Compile vanrijkom-flashlibs.swc
 	echo "---------------------------------------------------------------------------------------------------"
@@ -85,9 +85,9 @@ if [ "$IS_COMPILATION_DISABLED" == "no" ]; then
 	$FLEX_DIR/bin/compc --target-player=10.0.0 -o lib/swc/vanrijkom-flashlibs.swc -l $FLEX_DIR/frameworks/libs/air/airframework.swc -l $FLEX_DIR/frameworks/libs/air/airglobal.swc -l $FLEX_DIR/frameworks/libs/air/applicationupdater_ui.swc -l $FLEX_DIR/frameworks/libs/air/servicemonitor.swc -l $FLEX_DIR/frameworks/libs/flex.swc -l $FLEX_DIR/frameworks/libs/framework.swc -l $FLEX_DIR/frameworks/libs/rpc.swc -l $FLEX_DIR/frameworks/libs/utilities.swc -sp lib/src/vanrijkom-flashlibs -is lib/src/vanrijkom-flashlibs
 	
 	# Compile printf-as3.swc
-	echo "---------------------------------------------------------------------------------------------------"
-	echo "Compiling printf-as3.swc"
-	$FLEX_DIR/bin/compc --target-player=10.0.0 -o lib/swc/printf-as3.swc -l $FLEX_DIR/frameworks/libs/air/airframework.swc -l $FLEX_DIR/frameworks/libs/air/airglobal.swc -l $FLEX_DIR/frameworks/libs/air/applicationupdater_ui.swc -l $FLEX_DIR/frameworks/libs/air/servicemonitor.swc -l $FLEX_DIR/frameworks/libs/flex.swc -l $FLEX_DIR/frameworks/libs/framework.swc -l $FLEX_DIR/frameworks/libs/rpc.swc -l $FLEX_DIR/frameworks/libs/utilities.swc -sp lib/src/printf-as3/src -is lib/src/printf-as3/src
+#	echo "---------------------------------------------------------------------------------------------------"
+#	echo "Compiling printf-as3.swc"
+#	$FLEX_DIR/bin/compc --target-player=10.0.0 -o lib/swc/printf-as3.swc -l $FLEX_DIR/frameworks/libs/air/airframework.swc -l $FLEX_DIR/frameworks/libs/air/airglobal.swc -l $FLEX_DIR/frameworks/libs/air/applicationupdater_ui.swc -l $FLEX_DIR/frameworks/libs/air/servicemonitor.swc -l $FLEX_DIR/frameworks/libs/flex.swc -l $FLEX_DIR/frameworks/libs/framework.swc -l $FLEX_DIR/frameworks/libs/rpc.swc -l $FLEX_DIR/frameworks/libs/utilities.swc -sp lib/src/printf-as3/src -is lib/src/printf-as3/src
 	
 	# Compile greensock-tweening-platform-as3.swc
 	echo "---------------------------------------------------------------------------------------------------"
@@ -107,7 +107,7 @@ if [ "$IS_COMPILATION_DISABLED" == "no" ]; then
 	# Compile the SWC
 	echo "---------------------------------------------------------------------------------------------------"
 	echo "Compiling vancura-as3-libs.swc"
-	$FLEX_DIR/bin/compc --target-player=10.0.0 -o bin/vancura-as3-libs.swc -l $FLEX_DIR/frameworks/libs/player/10/playerglobal.swc -l $FLEX_DIR/frameworks/libs/flex.swc  -l $FLEX_DIR/frameworks/libs/framework.swc -l $FLEX_DIR/frameworks/libs/rpc.swc -l $FLEX_DIR/frameworks/libs/utilities.swc -is src -l lib/swc/vanrijkom-flashlibs.swc -l lib/swc/printf-as3.swc -l lib/swc/greensock-tweening-platform-as3.swc -l lib/swc/quasimondo.swc -l lib/swc/destroytoday.swc -l lib/swc/as3corelib.swc
+	$FLEX_DIR/bin/compc --target-player=10.0.0 -o bin/vancura-as3-libs.swc -l $FLEX_DIR/frameworks/libs/player/10/playerglobal.swc -l $FLEX_DIR/frameworks/libs/flex.swc  -l $FLEX_DIR/frameworks/libs/framework.swc -l $FLEX_DIR/frameworks/libs/rpc.swc -l $FLEX_DIR/frameworks/libs/utilities.swc -is src -l lib/swc/vanrijkom-flashlibs.swc -l lib/swc/greensock-tweening-platform-as3.swc -l lib/swc/quasimondo.swc -l lib/swc/destroytoday.swc -l lib/swc/as3corelib.swc
 else
 	echo "---------------------------------------------------------------------------------------------------"
 	echo "Compilation disabled"
