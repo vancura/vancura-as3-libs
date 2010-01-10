@@ -127,8 +127,8 @@ package org.vancura.vaclav.widgets.widgets {
 
 
 		protected function _addChildren():void {
-			_contentSpr = new QSprite({}, this);
-			_debugSpr = new QSprite({mouseEnabled:false}, this);
+			_contentSpr = new QSprite({mouseEnabled:false}, this);
+			_debugSpr = new QSprite({mouseEnabled:false, mouseChildren:false}, this);
 		}
 
 
