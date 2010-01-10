@@ -153,7 +153,7 @@ package org.vancura.vaclav.widgets.widgets {
 		 * @param padding
 		 * @param max
 		 */
-		public function autoWidth(padding:Number, max:Number = 500):void {
+		public function autoWidth(padding:Number = 0, max:Number = 500):void {
 			this.width = 2000;
 
 			var w:Number = label.width + padding;

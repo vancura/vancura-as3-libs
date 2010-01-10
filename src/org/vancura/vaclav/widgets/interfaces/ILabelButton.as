@@ -43,7 +43,7 @@ package org.vancura.vaclav.widgets.interfaces {
 
 		function forceRelease():void;
 
-		function autoWidth(padding:Number, max:Number = 500):void
+		function autoWidth(padding:Number = 0, max:Number = 500):void
 
 		function get skin():ILabelButtonSkin;
 		function set skin(skin:ILabelButtonSkin):void;

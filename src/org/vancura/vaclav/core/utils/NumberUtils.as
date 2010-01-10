@@ -130,32 +130,6 @@ package org.vancura.vaclav.core.utils {
 
 
 		/**
-		 Creates a random number within the defined range.
-		 CASA
-		 @param min: The minimum value the random number can be.
-		 @param min: The maximum value the random number can be.
-		 @return Returns a random number within the range.
-		 */
-		public static function randomWithinRange(min:Number, max:Number):Number {
-			return min + (Math.random() * (max - min));
-		}
-
-
-
-		/**
-		 Creates a random integer within the defined range.
-		 CASA
-		 @param min: The minimum value the random integer can be.
-		 @param min: The maximum value the random integer can be.
-		 @return Returns a random integer within the range.
-		 */
-		public static function randomIntegerWithinRange(min:int, max:int):int {
-			return Math.round(randomWithinRange(min, max));
-		}
-
-
-
-		/**
 		 Determines if the number is even.
 		 CASA
 		 @param value: A number to determine if it is divisible by <code>2</code>.
