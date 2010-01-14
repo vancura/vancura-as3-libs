@@ -314,8 +314,19 @@ package org.vancura.vaclav.widgets.widgets {
 		override public function removeChild(child:DisplayObject):DisplayObject {
 			var out:DisplayObject;
 
-			if(_contentSpr == null) out = super.removeChild(child);
-			else out = _contentSpr.removeChild(child);
+			try {
+				if(_contentSpr == null && super.contains(child)) {
+					out = super.removeChild(child);
+				}
+				else {
+					if(_contentSpr.contains(child)) {
+						out = _contentSpr.removeChild(child);
+					}
+				}
+			}
+			catch(err:Error) {
+				// TODO: Fix me. This stinks, somewhere something here is totally wrong
+			}
 
 			return out;
 		}
