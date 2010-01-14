@@ -359,12 +359,12 @@ package org.vancura.vaclav.core.utils {
 		/**
 		 * Basically an addChild() for more children at once.
 		 * Just saves few lines of code, nothing special.
-		 * @param obj Target DisplayObject
+		 * @param container Target DisplayObjectContainer
 		 * @param children Children to be added
 		 * @author Vaclav Vancura (http://vaclav.vancura.org)
 		 */
-		public static function addChildren(obj:*, ... children:Array):void {
-			for each(var i:DisplayObject in children) obj.addChild(i);
+		public static function addChildren(container:DisplayObjectContainer, ... children:Array):void {
+			for each(var i:DisplayObject in children) container.addChild(i);
 		}
 
 
@@ -372,12 +372,14 @@ package org.vancura.vaclav.core.utils {
 		/**
 		 * Basically an addChild() for more children at once.
 		 * Just saves few lines of code, nothing special.
-		 * @param obj Target DisplayObject
+		 * @param container Target DisplayObjectContainer
 		 * @param children Children to be removed
 		 * @author Vaclav Vancura (http://vaclav.vancura.org)
 		 */
-		public static function removeChildren(obj:*, ... children:Array):void {
-			for each(var i:DisplayObject in children) obj.removeChild(i);
+		public static function removeChildren(container:DisplayObjectContainer, ... children:Array):void {
+			for each(var i:DisplayObject in children) {
+				if(container.contains(i)) container.removeChild(i);
+			}
 		}
 
 
