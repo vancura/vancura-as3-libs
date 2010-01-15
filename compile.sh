@@ -72,9 +72,9 @@ if [ "$IS_COMPILATION_DISABLED" == "no" ]; then
 	# Unzip curled files
 	echo "---------------------------------------------------------------------------------------------------"
 	echo "Unzipping 3rd party libraries"
-	unzip tmp/greensock-tweening-platform-as3.zip -d lib/src >/dev/null 2>&1
-	unzip tmp/uni_05_x.zip -d lib/fonts >/dev/null 2>&1
-	unzip -j tmp/as3corelib.zip as3corelib-.92.1/lib/as3corelib.swc -d lib/swc >/dev/null 2>&1
+	unzip tmp/greensock-tweening-platform-as3.zip -d lib/src # >/dev/null 2>&1
+	unzip tmp/uni_05_x.zip -d lib/fonts # >/dev/null 2>&1
+	unzip -j tmp/as3corelib.zip as3corelib-.92.1/lib/as3corelib.swc -d lib/swc # >/dev/null 2>&1
 	
 	# Delete colliding directories
 #	rm -rf lib/src/printf-as3/test-proj >/dev/null 2>&1
