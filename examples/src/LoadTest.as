@@ -50,7 +50,7 @@ package {
 		 */
 		public function LoadTest() {
 			// initialize asset provider
-			_assetProvider = new FARAssetProvider('skins/test-skin.far');
+			_assetProvider = new FARAssetProvider('test-skin.far');
 
 			// add event listeners
 			_assetProvider.addEventListener(Event.COMPLETE, _onProviderComplete, false, 0, true);
