@@ -19,7 +19,7 @@
   ~ DEALINGS IN THE SOFTWARE.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
-<far-manifest target="../../bin/skins/test-skin.far">
+<far-manifest target="../../bin/test-skin.far">
 
 	<priorities>
 		<priority>high</priority>
