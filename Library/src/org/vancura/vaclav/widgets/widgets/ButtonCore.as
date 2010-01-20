@@ -37,8 +37,11 @@
  **********************************************************************************************************************/
 
 package org.vancura.vaclav.widgets.widgets {
+	import de.dev_lab.logging.Logger;
+
 	import flash.display.DisplayObjectContainer;
 	import flash.events.FocusEvent;
+	import flash.events.KeyboardEvent;
 	import flash.events.MouseEvent;
 
 	import org.vancura.vaclav.core.display.QSprite;
@@ -96,6 +99,7 @@ package org.vancura.vaclav.widgets.widgets {
 			_activeSpr.addEventListener(MouseEvent.MOUSE_UP, _onRelease, false, 0, true);
 			_activeSpr.addEventListener(FocusEvent.FOCUS_IN, _onFocusIn, false, 0, true);
 			_activeSpr.addEventListener(FocusEvent.FOCUS_OUT, _onFocusOut, false, 0, true);
+			_activeSpr.addEventListener(KeyboardEvent.KEY_DOWN, _onKeyDown, false, 0, true);
 
 			_activeSpr.tabEnabled = true;
 			_activeSpr.focusRect = false;
@@ -406,6 +410,13 @@ package org.vancura.vaclav.widgets.widgets {
 
 		private function _onFocusOut(event:FocusEvent):void {
 			_onOut();
+		}
+
+
+
+		private function _onKeyDown(event:KeyboardEvent):void {
+			// FIXME: Look for all events, like when mouse draggin is on etc.
+			if(event.keyCode == 32 || event.keyCode == 13) dispatchEvent(new ButtonEvent(ButtonEvent.RELEASE_INSIDE, true));
 		}
 	}
 }
