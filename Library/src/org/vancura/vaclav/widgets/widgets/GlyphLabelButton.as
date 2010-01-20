@@ -13,27 +13,27 @@
  * * to make derivative works
  *
  * Under the following conditions::
- * * Attribution Ñ You must give the original author credit.
+ * * Attribution ï¿½ You must give the original author credit.
  *
  * With the understanding that:
- *    * Waiver Ñ Any of the above conditions can be waived if you get permission from the copyright holder. CC licenses
+ *    * Waiver ï¿½ Any of the above conditions can be waived if you get permission from the copyright holder. CC licenses
  *      anticipate that a licensor may want to waive compliance with a specific condition, such as attribution.
- *    * Other Rights Ñ In no way are any of the following rights affected by the license:
- * 	        - Your fair dealing or fair use rights Ñ All jurisdictions allow some limited uses of copyrighted material
+ *    * Other Rights ï¿½ In no way are any of the following rights affected by the license:
+ * 	        - Your fair dealing or fair use rights ï¿½ All jurisdictions allow some limited uses of copyrighted material
  *            without permission. CC licenses do not affect the rights of users under those copyright limitations and
  *            exceptions, such as fair use and fair dealing where applicable.
- * 	        - The author's moral rights Ñ In addition to the right of licensors to request removal of their name from
+ * 	        - The author's moral rights ï¿½ In addition to the right of licensors to request removal of their name from
  *            the work when used in a derivative or collective they don't like, copyright laws in most jurisdictions
  *            around the world (with the notable exception of the US except in very limited circumstances) grant
  *            creators "moral rights" which may provide some redress if a derivative work represents a "derogatory
  *            treatment" of the licensor's work.
  * 	        - Rights other persons may have either in the work itself or in how the work is used, such as publicity or
- *            privacy rights. Ñ Publicity rights allow individuals to control how their voice, image or likeness is used
+ *            privacy rights. ï¿½ Publicity rights allow individuals to control how their voice, image or likeness is used
  *            for commercial purposes in public. If a CC-licensed work includes the voice or image of anyone other than
  *            the licensor, a user of the work may need to get permission from those individuals before using the work
  *            for commercial purposes.
  *
- * Notice Ñ For any reuse or distribution, you must make clear to others the licence terms of this work.
+ * Notice ï¿½ For any reuse or distribution, you must make clear to others the licence terms of this work.
  **********************************************************************************************************************/
 
 package org.vancura.vaclav.widgets.widgets {
@@ -41,6 +41,8 @@ package org.vancura.vaclav.widgets.widgets {
 	import com.greensock.easing.Sine;
 
 	import flash.display.DisplayObjectContainer;
+
+	import flash.events.FocusEvent;
 
 	import org.vancura.vaclav.core.display.MorphSprite;
 	import org.vancura.vaclav.core.utils.DisplayUtils;
@@ -97,7 +99,6 @@ package org.vancura.vaclav.widgets.widgets {
 			this.skin = skin;
 			this.text = text;
 			this.focusRect = false;
-			this.tabEnabled = false;
 
 			_button.addEventListener(ButtonEvent.HOVER_IN_TWEEN, _onButtonHoverInTween, false, 0, true);
 			_button.addEventListener(ButtonEvent.HOVER_OUT_TWEEN, _onButtonHoverOutTween, false, 0, true);
@@ -176,6 +177,30 @@ package org.vancura.vaclav.widgets.widgets {
 			if(w > max) w = max;
 
 			this.width = w;
+		}
+
+
+
+		override public function get tabEnabled():Boolean {
+			return _button.tabEnabled;
+		}
+
+
+
+		override public function set tabEnabled(enabled:Boolean):void {
+			_button.tabEnabled = enabled;
+		}
+
+
+
+		override public function get tabIndex():int {
+			return _button.tabIndex;
+		}
+
+
+
+		override public function set tabIndex(index:int):void {
+			_button.tabIndex = index;
 		}
 
 
