@@ -74,6 +74,7 @@ package org.vancura.vaclav.widgets.widgets {
 			_bar.debugColor = SkinManager.debugColor;
 			_label.debugColor = SkinManager.debugColor;
 			_label.isInput = true;
+			//_label.focusRect = false;
 
 			this.isMorphHeightEnabled = true;
 			this.isMorphWidthEnabled = false;
