@@ -37,8 +37,6 @@
  **********************************************************************************************************************/
 
 package org.vancura.vaclav.widgets.widgets {
-	import de.dev_lab.logging.Logger;
-
 	import flash.display.DisplayObjectContainer;
 	import flash.events.FocusEvent;
 	import flash.events.KeyboardEvent;
@@ -103,6 +101,7 @@ package org.vancura.vaclav.widgets.widgets {
 
 			_activeSpr.tabEnabled = true;
 			_activeSpr.focusRect = false;
+			_activeSpr.buttonMode = true;
 
 			DisplayUtils.drawRect(_activeSpr);
 		}
