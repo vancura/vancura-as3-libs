@@ -1,6 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head><title>ValidationUtils</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" type="text/css" href="../css/VisDoc.css" /><script src="../js/jquery.js" type="text/javascript">//</script><script src="../js/common.js" type="text/javascript">//</script><script src="../js/doc.js" type="text/javascript">//</script></head><body id="page_org_vancura_vaclav_core_utils_ValidationUtils"><script type="text/javascript">VisDoc.initBody();</script><div id="PageTop"><!----></div><div class="VisDoc"><div class="content"><div class="docNav"><ul class="accessKeyLinks"><li><a href="#PageTop" accesskey="t"><span class="accessKey">T</span>op</a></li><li><a href="#Summary" accesskey="s"><span class="accessKey">S</span>ummary</a></li><li><a href="#Constructor" accesskey="c"><span class="accessKey">C</span>onstructors</a></li><li><a href="#Classmethods" accesskey="a">Cl<span class="accessKey">a</span>ss methods</a></li></ul><br class="clear" /></div><h1>ValidationUtils</h1><div class="classProperties"><table cellspacing="0"><tr><th align="left">Kind of class:</th><td>public class</td></tr><tr><th align="left">Package:</th><td><a class="className" href="package-org_vancura_vaclav_core_utils.html">org.vancura.vaclav.core.utils</a></td></tr><tr><th align="left">Inherits from:</th><td>none</td></tr><tr><th class="classDetails" align="left">Classpath:</th><td class="classDetails">org.vancura.vaclav.core.utils.ValidationUtils</td></tr><tr><th class="classDetails" align="left">File last modified:</th><td class="classDetails">Sunday, 10 January 2010, 11:06:45</td></tr></table></div><div class="classDescription"></div><div class="summary"><h2 id="Summary">Summary</h2><div class="docNav"><ul><li><div id="twistyTypeInfo_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide type info</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_on");</script><div id="twistyTypeInfo_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show type info</a></div><span id="twistyTypeInfo_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_off");</script></li><li><div id="twistySummaries_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide summaries</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_on");</script><div id="twistySummaries_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show summaries</a></div><span id="twistySummaries_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_off");</script></li><li><div id="twistySort_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Sort by source order</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_on");</script><div id="twistySort_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Sort alphabetically</a></div><span id="twistySort_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_off");</script></li></ul><br class="clear" /></div><div class="memberList"><div class="memberSummaryPart"><span class="title">Constructor</span><ul class="sortable" id="sortul1"><li class="sortli listnum1"><a href="#ValidationUtils">ValidationUtils</a></li></ul></div><div class="memberSummaryPart"><span class="title">Class methods</span><ul class="sortable" id="sortul2"><li class="sortli listnum1"><a href="#isEmail">isEmail</a><span class="typeInfo"> (email:String) : Boolean</span><ul class="summary"><li>Determines if String is a valid email address.</li></ul></li><li class="sortli listnum2"><a href="#isUsaStateAbbreviation">isUsaStateAbbreviation</a><span class="typeInfo"> (state:String) : Boolean</span><ul class="summary"><li>Determines if String is a valid USA state abbreviation.</li></ul></li><li class="sortli listnum3"><a href="#isCreditCard">isCreditCard</a><span class="typeInfo"> (cardNumber:String) : Boolean</span><ul class="summary"><li>Determines if credit card is valid using the Luhn formula.</li></ul></li><li class="sortli listnum4"><a href="#getCreditCardProvider">getCreditCardProvider</a><span class="typeInfo"> (cardNumber:String) : String</span><ul class="summary"><li>Determines credit card provider by card number.</li></ul></li></ul></div></div></div><div class="memberSection"><h2 id="Constructor">Constructor</h2><div class="member" id="ValidationUtils"><h3>ValidationUtils</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> function <b>ValidationUtils</b> (
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>ValidationUtils</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" type="text/css" href="../css/VisDoc.css" /><script src="../js/jquery.js" type="text/javascript">//</script><script src="../js/common.js" type="text/javascript">//</script><script src="../js/doc.js" type="text/javascript">//</script></head><body id="page_org_vancura_vaclav_core_utils_ValidationUtils"><script type="text/javascript">VisDoc.initBody();</script><div id="PageTop"><!----></div><div class="VisDoc"><div class="content"><div class="docNav"><ul><li><div id="twistyTOC_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited activeWhenNotFramed"><a href="#"><span class="icon">+</span>Show TOC</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyTOC_show");</script><div id="twistyTOC_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited activeWhenFramed"><a href="#"><span class="icon">&times;</span>Hide TOC</a></div><span id="twistyTOC_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyTOC_hide");</script></li></ul><ul class="accessKeyLinks"><li><a href="#PageTop" accesskey="t"><span class="accessKey">T</span>op</a></li><li><a href="#Summary" accesskey="s"><span class="accessKey">S</span>ummary</a></li><li><a href="#Constructor" accesskey="c"><span class="accessKey">C</span>onstructors</a></li><li><a href="#Classmethods" accesskey="a">Cl<span class="accessKey">a</span>ss methods</a></li></ul><ul><li><div id="twistyPrivate_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide private and protected members</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("togglePrivate_on");</script><div id="twistyPrivate_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show private and protected members</a></div><span id="twistyPrivate_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("togglePrivate_off");</script></li></ul><br class="clear" /></div><h1>ValidationUtils</h1><div class="classProperties"><table cellspacing="0"><tr><th align="left">Kind of class:</th><td>public class</td></tr><tr><th align="left">Package:</th><td><a class="className" href="package-org_vancura_vaclav_core_utils.html">org.vancura.vaclav.core.utils</a></td></tr><tr><th align="left">Inherits from:</th><td>none</td></tr><tr><th class="classDetails" align="left">Classpath:</th><td class="classDetails">org.vancura.vaclav.core.utils.ValidationUtils</td></tr><tr><th class="classDetails" align="left">File last modified:</th><td class="classDetails">Sunday, 10 January 2010, 11:06:45</td></tr></table></div><div id="sourceCodeTop" class="sourceCodeView"><div id="twistyViewSourceshow" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting twistyAnimate"><a href="#"><span class="icon">►&nbsp;</span><span class="linkLabel">View source</span></a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourceshow");</script><div id="twistyViewSourcehide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting twistyAnimate"><a href="#"><span class="icon">▼&nbsp;</span><span class="linkLabel">Hide source</span></a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourcehide");</script><div id="twistyViewSourcetoggle" class="twistyContent twistyMakeHidden twistyRememberSetting"><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourcetoggle");</script><div class="sourceCode"><textarea rows="10" cols="10" id="source" readonly="readonly">/***********************************************************************************************************************
+ * Some methods Copyrighted by their authors, specified in ASDocs.
+ * If not specified elsewhere: Copyright (c) 2010 Vaclav Vancura.
+ *
+ * Contact me at vaclav@vancura.org, @vancura or at my homepage at http://vaclav.vancura.org.
+ * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
+ * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
+ *
+ * Licensed under Attribution 3.0 Czech Republic (http://creativecommons.org/licenses/by/3.0/cz/deed.en_GB).
+ *
+ * That means you are free:
+ * * to copy, distribute, display, and perform the work
+ * * to make derivative works
+ *
+ * Under the following conditions::
+ * * Attribution — You must give the original author credit.
+ *
+ * With the understanding that:
+ *    * Waiver — Any of the above conditions can be waived if you get permission from the copyright holder. CC licenses
+ *      anticipate that a licensor may want to waive compliance with a specific condition, such as attribution.
+ *    * Other Rights — In no way are any of the following rights affected by the license:
+ *             - Your fair dealing or fair use rights — All jurisdictions allow some limited uses of copyrighted material
+ *            without permission. CC licenses do not affect the rights of users under those copyright limitations and
+ *            exceptions, such as fair use and fair dealing where applicable.
+ *             - The author's moral rights — In addition to the right of licensors to request removal of their name from
+ *            the work when used in a derivative or collective they don't like, copyright laws in most jurisdictions
+ *            around the world (with the notable exception of the US except in very limited circumstances) grant
+ *            creators "moral rights" which may provide some redress if a derivative work represents a "derogatory
+ *            treatment" of the licensor's work.
+ *             - Rights other persons may have either in the work itself or in how the work is used, such as publicity or
+ *            privacy rights. — Publicity rights allow individuals to control how their voice, image or likeness is used
+ *            for commercial purposes in public. If a CC-licensed work includes the voice or image of anyone other than
+ *            the licensor, a user of the work may need to get permission from those individuals before using the work
+ *            for commercial purposes.
+ *
+ * Notice — For any reuse or distribution, you must make clear to others the licence terms of this work.
+ **********************************************************************************************************************/
+
+package org.vancura.vaclav.core.utils {
+    public class ValidationUtils {
+
+
+
+        /**
+         * Constructor.
+         * Cannot be instantiated, throws an Error.
+         * @throws Error, since the class could not be instantiated
+         */
+        public function ValidationUtils() {
+            throw new Error('The ValidationUtils class cannot be instantiated.');
+        }
+
+
+
+        /**
+         Determines if String is a valid email address.
+         * Original taken from Casalib (http://casalib.org)
+         @param email: String to verify as email.
+         @return Returns &lt;code>true&lt;/code> if String is a valid email; otherwise &lt;code>false&lt;/code>.
+         @see &lt;a href="http://www.regular-expressions.info/email.html">Read more about the regular expression used by this method.&lt;/a>
+         * @author Aaron Clinger (http://casalib.org)
+         * @author Jon Adams (http://casalib.org)
+         */
+        public static function isEmail(email:String):Boolean {
+            var pattern:RegExp = /^[A-Z0-9._%+-]+@(?:[A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+            return email.match(pattern) != null;
+        }
+
+
+
+        /**
+         Determines if String is a valid USA state abbreviation.
+         * Original taken from Casalib (http://casalib.org)
+         @param state: String to verify as two letter state abbreviation (includes DC).
+         @return Returns &lt;code>true&lt;/code> if String is a state abbreviation; otherwise &lt;code>false&lt;/code>.
+         * @author Aaron Clinger (http://casalib.org)
+         * @author Jon Adams (http://casalib.org)
+         */
+        public static function isUsaStateAbbreviation(state:String):Boolean {
+            var states:Array = new Array('ak', 'al', 'ar', 'az', 'ca', 'co', 'ct', 'dc', 'de', 'fl', 'ga', 'hi', 'ia', 'id', 'il', 'in', 'ks', 'ky', 'la', 'ma', 'md', 'me', 'mi', 'mn', 'mo', 'ms', 'mt', 'nb', 'nc', 'nd', 'nh', 'nj', 'nm', 'nv', 'ny', 'oh', 'ok', 'or', 'pa', 'ri', 'sc', 'sd', 'tn', 'tx', 'ut', 'va', 'vt', 'wa', 'wi', 'wv', 'wy');
+            return ArrayUtils.contains(states, state.toLowerCase()) == 1;
+        }
+
+
+
+        /**
+         Determines if credit card is valid using the Luhn formula.
+         * Original taken from Casalib (http://casalib.org)
+         @param cardNumber: The credit card number.
+         @return Returns &lt;code>true&lt;/code> if String is a valid credit card number; otherwise &lt;code>false&lt;/code>.
+         * @author Aaron Clinger (http://casalib.org)
+         * @author Jon Adams (http://casalib.org)
+         */
+        public static function isCreditCard(cardNumber:String):Boolean {
+            if(cardNumber.length &lt; 7 || cardNumber.length > 19 || Number(cardNumber) &lt; 1000000)
+                return false;
+
+            var pre:Number;
+            var sum:Number = 0;
+            var alt:Boolean = true;
+
+            var i:Number = cardNumber.length;
+            while(--i > -1) {
+                if(alt)
+                    sum += Number(cardNumber.substr(i, 1));
+                else {
+                    pre = Number(cardNumber.substr(i, 1)) * 2;
+                    sum += (pre > 8) ? pre -= 9 : pre;
+                }
+
+                alt = !alt;
+            }
+
+            return sum % 10 == 0;
+        }
+
+
+
+        /**
+         Determines credit card provider by card number.
+         * Original taken from Casalib (http://casalib.org)
+         @param cardNumber: The credit card number.
+         @return Returns name of the provider; values can be &lt;code>"visa"&lt;/code>, &lt;code>"mastercard"&lt;/code>, &lt;code>"discover"&lt;/code>, &lt;code>"amex"&lt;/code>, &lt;code>"diners"&lt;/code>, &lt;code>"other"&lt;/code> or &lt;code>"invalid"&lt;/code>.
+         * @author Aaron Clinger (http://casalib.org)
+         * @author Jon Adams (http://casalib.org)
+         */
+        public static function getCreditCardProvider(cardNumber:String):String {
+            if(!isCreditCard(cardNumber))
+                return 'invalid';
+
+            if(cardNumber.length == 13 || cardNumber.length == 16 &amp;&amp; cardNumber.indexOf('4') == 0) {
+                return 'visa';
+            } else if(cardNumber.indexOf('51') == 0 || cardNumber.indexOf('52') == 0 || cardNumber.indexOf('53') == 0 || cardNumber.indexOf('54') == 0 || cardNumber.indexOf('55') == 0 &amp;&amp; cardNumber.length == 16) {
+                return 'mastercard';
+            } else if(cardNumber.length == 16 &amp;&amp; cardNumber.indexOf('6011') == 0) {
+                return 'discover';
+            } else if(cardNumber.indexOf('34') == 0 || cardNumber.indexOf('37') == 0 &amp;&amp; cardNumber.length == 15) {
+                return 'amex';
+            } else if(cardNumber.indexOf('300') == 0 || cardNumber.indexOf('301') == 0 || cardNumber.indexOf('302') == 0 || cardNumber.indexOf('303') == 0 || cardNumber.indexOf('304') == 0 || cardNumber.indexOf('305') == 0 || cardNumber.indexOf('36') == 0 || cardNumber.indexOf('38') == 0 &amp;&amp; cardNumber.length == 14) {
+                return 'diners';
+            }
+            else return 'other';
+        }
+    }
+}
+
+</textarea></div></div></div><div class="classDescription"></div><div class="summary"><h2 id="Summary">Summary</h2><div class="docNav"><ul><li><div id="twistyTypeInfo_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide type info</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_on");</script><div id="twistyTypeInfo_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show type info</a></div><span id="twistyTypeInfo_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_off");</script></li><li><div id="twistySummaries_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide summaries</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_on");</script><div id="twistySummaries_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show summaries</a></div><span id="twistySummaries_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_off");</script></li><li><div id="twistySort_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Sort by source order</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_on");</script><div id="twistySort_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Sort alphabetically</a></div><span id="twistySort_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_off");</script></li></ul><br class="clear" /></div><div class="memberList"><div class="memberSummaryPart"><span class="title">Constructor</span><ul class="sortable" id="sortul1"><li class="sortli listnum1"><a href="#ValidationUtils">ValidationUtils</a></li></ul></div><div class="memberSummaryPart"><span class="title">Class methods</span><ul class="sortable" id="sortul2"><li class="sortli listnum1"><a href="#isEmail">isEmail</a><span class="typeInfo"> (email:String) : Boolean</span><ul class="summary"><li>Determines if String is a valid email address.</li></ul></li><li class="sortli listnum2"><a href="#isUsaStateAbbreviation">isUsaStateAbbreviation</a><span class="typeInfo"> (state:String) : Boolean</span><ul class="summary"><li>Determines if String is a valid USA state abbreviation.</li></ul></li><li class="sortli listnum3"><a href="#isCreditCard">isCreditCard</a><span class="typeInfo"> (cardNumber:String) : Boolean</span><ul class="summary"><li>Determines if credit card is valid using the Luhn formula.</li></ul></li><li class="sortli listnum4"><a href="#getCreditCardProvider">getCreditCardProvider</a><span class="typeInfo"> (cardNumber:String) : String</span><ul class="summary"><li>Determines credit card provider by card number.</li></ul></li></ul></div></div></div><div class="memberSection"><h2 id="Constructor">Constructor</h2><div class="member" id="ValidationUtils"><h3>ValidationUtils</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> function <b>ValidationUtils</b> (
 </div><div class="code">)</div><br class="clear" /></div></div><div class="description">     Constructor.<br />Cannot be instantiated, throws an Error. </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Throws:</span><div class="item"><ul><li> <span class="doesNotExist"> Error</span>, since the class could not be instantiated </li></ul></div></div></div></div></div></div><div class="memberSection"><h2 id="Classmethods">Class methods</h2><div class="member" id="getCreditCardProvider"><h3>getCreditCardProvider</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public static</span> function <b>getCreditCardProvider</b> (
 </div><div class="code">cardNumber:String) : String</div><br class="clear" /></div></div><div class="description"> Determines credit card provider by card number.<br />Original taken from Casalib (<a href="http://casalib.org">http://casalib.org</a>) </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Parameters:</span><div class="item"><div class="floatbox code colorizedCode">cardNumber<span class="itemSeparator">:</span></div><div>The credit card number.</div></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Returns:</span><div class="item"><ul><li> Returns name of the provider; values can be <code><span class="codeString">"visa"</span></code>, <code><span class="codeString">"mastercard"</span></code>, <code><span class="codeString">"discover"</span></code>, <code><span class="codeString">"amex"</span></code>, <code><span class="codeString">"diners"</span></code>, <code><span class="codeString">"other"</span></code> or <code><span class="codeString">"invalid"</span></code>. </li></ul></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Author:</span><div class="item"><ul><li> Aaron Clinger (<a href="http://casalib.org">http://casalib.org</a>) </li><li> Jon Adams (<a href="http://casalib.org">http://casalib.org</a>) </li></ul></div></div></div></div></div><div class="member" id="isCreditCard"><h3>isCreditCard</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public static</span> function <b>isCreditCard</b> (
 </div><div class="code">cardNumber:String) : Boolean</div><br class="clear" /></div></div><div class="description"> Determines if credit card is valid using the Luhn formula.<br />Original taken from Casalib (<a href="http://casalib.org">http://casalib.org</a>) </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Parameters:</span><div class="item"><div class="floatbox code colorizedCode">cardNumber<span class="itemSeparator">:</span></div><div>The credit card number.</div></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Returns:</span><div class="item"><ul><li> Returns <code><span class="codeIdentifier">true</span></code> if String is a valid credit card number; otherwise <code><span class="codeIdentifier">false</span></code>. </li></ul></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Author:</span><div class="item"><ul><li> Aaron Clinger (<a href="http://casalib.org">http://casalib.org</a>) </li><li> Jon Adams (<a href="http://casalib.org">http://casalib.org</a>) </li></ul></div></div></div></div></div><div class="member" id="isEmail"><h3>isEmail</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public static</span> function <b>isEmail</b> (

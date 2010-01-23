@@ -1,18 +1,375 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Container</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" type="text/css" href="../css/VisDoc.css" /><script src="../js/jquery.js" type="text/javascript">//</script><script src="../js/common.js" type="text/javascript">//</script><script src="../js/doc.js" type="text/javascript">//</script></head><body id="page_org_vancura_vaclav_widgets_widgets_Container"><script type="text/javascript">VisDoc.initBody();</script><div id="PageTop"><!----></div><div class="VisDoc"><div class="content"><div class="docNav"><ul class="accessKeyLinks"><li><a href="#PageTop" accesskey="t"><span class="accessKey">T</span>op</a></li><li><a href="#Summary" accesskey="s"><span class="accessKey">S</span>ummary</a></li><li><a href="#Constructor" accesskey="c"><span class="accessKey">C</span>onstructors</a></li><li><a href="#Instanceproperties" accesskey="l">Instance <span class="accessKey">p</span>roperties</a></li><li><a href="#Instancemethods" accesskey="m">Instance <span class="accessKey">m</span>ethods</a></li></ul><br class="clear" /></div><h1>Container</h1><div class="classProperties"><table cellspacing="0"><tr><th align="left">Kind of class:</th><td>public class</td></tr><tr><th align="left">Package:</th><td><a class="className" href="package-org_vancura_vaclav_widgets_widgets.html">org.vancura.vaclav.widgets.widgets</a></td></tr><tr><th align="left">Inherits from:</th><td><a class="className" href="org_vancura_vaclav_widgets_widgets_Widget.html">Widget</a> &lt; <a class="className" href="org_vancura_vaclav_core_display_MorphSprite.html">MorphSprite</a> &lt; <a class="className" href="org_vancura_vaclav_core_display_QSprite.html">QSprite</a> &lt; Sprite</td></tr><tr><th align="left">Implements:</th><td><ul><li><a class="className" href="org_vancura_vaclav_widgets_interfaces_IContainer.html">IContainer</a></li></ul></td></tr><tr><th class="classDetails" align="left">Author:</th><td class="classDetails">Vaclav Vancura (<a href="http://vaclav.vancura.org">http://vaclav.vancura.org</a>)</td></tr><tr><th class="classDetails" align="left">Classpath:</th><td class="classDetails">org.vancura.vaclav.widgets.widgets.Container</td></tr><tr><th class="classDetails" align="left">File last modified:</th><td class="classDetails">Sunday, 10 January 2010, 11:06:45</td></tr></table></div><div class="classDescription"><span class="descriptionSummary">Class: Container</span><br /><br />Container is a.. Container. You can place other DisplayObjects inside and let them automatically align via<br />paddingLeft, paddingRight, paddingTop and paddingBottom properties specified in the skin or altered via skin<br />property. You can set alignment too (left, right, top, bottom, center vertically and/or horizontally). If you<br />need to override inner sprite size, specify it via innerWidth and innerHeight setters (with corresponding<br />getters of course).</div><div class="summary"><h2 id="Summary">Summary</h2><div class="docNav"><ul><li><div id="twistyTypeInfo_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide type info</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_on");</script><div id="twistyTypeInfo_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show type info</a></div><span id="twistyTypeInfo_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_off");</script></li><li><div id="twistySummaries_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide summaries</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_on");</script><div id="twistySummaries_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show summaries</a></div><span id="twistySummaries_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_off");</script></li><li><div id="twistySort_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Sort by source order</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_on");</script><div id="twistySort_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Sort alphabetically</a></div><span id="twistySort_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_off");</script></li></ul><br class="clear" /></div><div class="memberList"><div class="memberSummaryPart"><span class="title">Constructor</span><ul class="sortable" id="sortul1"><li class="sortli listnum1"><a href="#Container">Container</a><span class="typeInfo"> (skin:<a class="className" href="org_vancura_vaclav_widgets_interfaces_IContainerSkin.html">IContainerSkin</a>, config:Object = null, parent:DisplayObjectContainer = null, debugLevel:String = null)</span><ul class="summary"><li>Constructor.</li></ul></li></ul></div><div class="memberSummaryPart"><span class="title">Constants</span><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Constants inherited from <span class="superclass"><a class="className" href="org_vancura_vaclav_widgets_widgets_Widget.html">Widget</a></span></span><div class="item inheritedList"><a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_DEBUG_PADDING">_DEBUG_PADDING</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#DRAW">DRAW</a></div></div></div></div></div><div class="memberSummaryPart"><span class="title">Class properties</span><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Class properties inherited from <span class="superclass"><a class="className" href="org_vancura_vaclav_widgets_widgets_Widget.html">Widget</a></span></span><div class="item inheritedList"><a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_allWidgets">_allWidgets</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#allDebugLevel">allDebugLevel</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#initialDebugLevel">initialDebugLevel</a></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Class properties inherited from <span class="superclass"><a class="className" href="org_vancura_vaclav_core_display_MorphSprite.html">MorphSprite</a></span></span><div class="item inheritedList"><a href="org_vancura_vaclav_core_display_MorphSprite.html#defIsChangeHeightEnabled">defIsChangeHeightEnabled</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#defIsChangeWidthEnabled">defIsChangeWidthEnabled</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#defIsMorphHeightEnabled">defIsMorphHeightEnabled</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#defIsMorphWidthEnabled">defIsMorphWidthEnabled</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#defIsMorphXEnabled">defIsMorphXEnabled</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#defIsMorphYEnabled">defIsMorphYEnabled</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#defMorphDuration">defMorphDuration</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#defMorphEase">defMorphEase</a></div></div></div></div></div><div class="memberSummaryPart"><span class="title">Instance properties</span><ul class="sortable" id="sortul4"><li class="sortli listnum1"><a href="#skin">skin</a><span class="typeInfo">  : <a class="className" href="org_vancura_vaclav_widgets_interfaces_IContainerSkin.html">IContainerSkin</a></span></li><li class="sortli listnum2"><a href="#width">width</a><span class="typeInfo">  : Number</span></li><li class="sortli listnum3"><a href="#height">height</a><span class="typeInfo">  : Number</span></li><li class="sortli listnum4"><a href="#innerWidth">innerWidth</a><span class="typeInfo">  : Number</span></li><li class="sortli listnum5"><a href="#innerHeight">innerHeight</a><span class="typeInfo">  : Number</span></li></ul><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Instance properties inherited from <span class="superclass"><a class="className" href="org_vancura_vaclav_widgets_widgets_Widget.html">Widget</a></span></span><div class="item inheritedList"><a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_allIdx">_allIdx</a>  <a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_config">_config</a>  <a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_contentSpr">_contentSpr</a>  <a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_debugColor">_debugColor</a>  <a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_debugLevel">_debugLevel</a>  <a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_debugSpr">_debugSpr</a>  <a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_height">_height</a>  <a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_width">_width</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#config">config</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#debugColor">debugColor</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#debugLevel">debugLevel</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#height">height</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#width">width</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#x">x</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#y">y</a></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Instance properties inherited from <span class="superclass"><a class="className" href="org_vancura_vaclav_core_display_MorphSprite.html">MorphSprite</a></span></span><div class="item inheritedList"><a class="private" href="org_vancura_vaclav_core_display_MorphSprite.html#_initialProperties">_initialProperties</a>  <a class="private" href="org_vancura_vaclav_core_display_MorphSprite.html#_oldCacheAsBitmap">_oldCacheAsBitmap</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#height">height</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#isChangeHeightEnabled">isChangeHeightEnabled</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#isChangeWidthEnabled">isChangeWidthEnabled</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#isMorphHeightEnabled">isMorphHeightEnabled</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#isMorphWidthEnabled">isMorphWidthEnabled</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#isMorphXEnabled">isMorphXEnabled</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#isMorphYEnabled">isMorphYEnabled</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#morphDuration">morphDuration</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#morphEase">morphEase</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#width">width</a></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Instance properties inherited from <span class="superclass"><a class="className" href="org_vancura_vaclav_core_display_QSprite.html">QSprite</a></span></span><div class="item inheritedList"><a class="private" href="org_vancura_vaclav_core_display_QSprite.html#_embeddedSpr">_embeddedSpr</a>  <a href="org_vancura_vaclav_core_display_QSprite.html#embeddedSpr">embeddedSpr</a></div></div></div></div></div><div class="memberSummaryPart"><span class="title">Class methods</span><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Class methods inherited from <span class="superclass"><a class="className" href="org_vancura_vaclav_widgets_widgets_Widget.html">Widget</a></span></span><div class="item inheritedList"><a href="org_vancura_vaclav_widgets_widgets_Widget.html#initStage">initStage</a></div></div></div></div></div><div class="memberSummaryPart"><span class="title">Instance methods</span><ul class="sortable" id="sortul6"><li class="sortli listnum1"><a href="#draw">draw</a><span class="typeInfo">  : void</span><ul class="summary"><li>Redraw stuff.</li></ul></li><li class="sortli listnum2"><a href="#addChild">addChild</a><span class="typeInfo"> (child:DisplayObject) : DisplayObject</span></li><li class="sortli listnum3"><a href="#removeChild">removeChild</a><span class="typeInfo"> (child:DisplayObject) : DisplayObject</span></li><li class="sortli listnum4"><a href="#contains">contains</a><span class="typeInfo"> (child:DisplayObject) : Boolean</span></li><li class="sortli listnum5"><a href="#swapChildrenAt">swapChildrenAt</a><span class="typeInfo"> (index1:int, index2:int) : void</span></li><li class="sortli listnum6"><a href="#getChildByName">getChildByName</a><span class="typeInfo"> (name:String) : DisplayObject</span></li><li class="sortli listnum7"><a href="#removeChildAt">removeChildAt</a><span class="typeInfo"> (index:int) : DisplayObject</span></li><li class="sortli listnum8"><a href="#getChildIndex">getChildIndex</a><span class="typeInfo"> (child:DisplayObject) : int</span></li><li class="sortli listnum9"><a href="#addChildAt">addChildAt</a><span class="typeInfo"> (child:DisplayObject, index:int) : DisplayObject</span></li><li class="sortli listnum10"><a href="#swapChildren">swapChildren</a><span class="typeInfo"> (child1:DisplayObject, child2:DisplayObject) : void</span></li><li class="sortli listnum11"><a href="#getChildAt">getChildAt</a><span class="typeInfo"> (index:int) : DisplayObject</span></li><li class="sortli listnum12"><a href="#setChildIndex">setChildIndex</a><span class="typeInfo"> (child:DisplayObject, index:int) : void</span></li></ul><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Instance methods inherited from <span class="superclass"><a class="className" href="org_vancura_vaclav_widgets_widgets_Widget.html">Widget</a></span></span><div class="item inheritedList"><a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_addChildren">_addChildren</a>  <a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_init">_init</a>  <a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_invalidate">_invalidate</a>  <a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_onDebugOut">_onDebugOut</a>  <a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_onDebugOver">_onDebugOver</a>  <a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_onInvalidate">_onInvalidate</a>  <a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_removeChildren">_removeChildren</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#addChild">addChild</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#addChildAt">addChildAt</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#contains">contains</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#destroy">destroy</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#draw">draw</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#getChildAt">getChildAt</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#getChildByName">getChildByName</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#getChildIndex">getChildIndex</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#removeChild">removeChild</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#removeChildAt">removeChildAt</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#setChildIndex">setChildIndex</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#setSize">setSize</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#swapChildren">swapChildren</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#swapChildrenAt">swapChildrenAt</a></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Instance methods inherited from <span class="superclass"><a class="className" href="org_vancura_vaclav_core_display_MorphSprite.html">MorphSprite</a></span></span><div class="item inheritedList"><a class="private" href="org_vancura_vaclav_core_display_MorphSprite.html#_onMorphComplete">_onMorphComplete</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#morph">morph</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#morphReset">morphReset</a></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Instance methods inherited from <span class="superclass"><a class="className" href="org_vancura_vaclav_core_display_QSprite.html">QSprite</a></span></span><div class="item inheritedList"><a href="org_vancura_vaclav_core_display_QSprite.html#setPosition">setPosition</a>  <a href="org_vancura_vaclav_core_display_QSprite.html#setSize">setSize</a></div></div></div></div></div></div></div><div class="memberSection"><h2 id="Constructor">Constructor</h2><div class="member" id="Container"><h3>Container</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> function <b>Container</b> (
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Container</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" type="text/css" href="../css/VisDoc.css" /><script src="../js/jquery.js" type="text/javascript">//</script><script src="../js/common.js" type="text/javascript">//</script><script src="../js/doc.js" type="text/javascript">//</script></head><body id="page_org_vancura_vaclav_widgets_widgets_Container"><script type="text/javascript">VisDoc.initBody();</script><div id="PageTop"><!----></div><div class="VisDoc"><div class="content"><div class="docNav"><ul><li><div id="twistyTOC_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited activeWhenNotFramed"><a href="#"><span class="icon">+</span>Show TOC</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyTOC_show");</script><div id="twistyTOC_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited activeWhenFramed"><a href="#"><span class="icon">&times;</span>Hide TOC</a></div><span id="twistyTOC_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyTOC_hide");</script></li></ul><ul class="accessKeyLinks"><li><a href="#PageTop" accesskey="t"><span class="accessKey">T</span>op</a></li><li><a href="#Summary" accesskey="s"><span class="accessKey">S</span>ummary</a></li><li><a href="#Constructor" accesskey="c"><span class="accessKey">C</span>onstructors</a></li><li><a href="#Instanceproperties" accesskey="l">Instance <span class="accessKey">p</span>roperties</a></li><li><a href="#Instancemethods" accesskey="m">Instance <span class="accessKey">m</span>ethods</a></li></ul><ul><li><div id="twistyPrivate_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide private and protected members</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("togglePrivate_on");</script><div id="twistyPrivate_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show private and protected members</a></div><span id="twistyPrivate_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("togglePrivate_off");</script></li></ul><br class="clear" /></div><h1>Container</h1><div class="classProperties"><table cellspacing="0"><tr><th align="left">Kind of class:</th><td>public class</td></tr><tr><th align="left">Package:</th><td><a class="className" href="package-org_vancura_vaclav_widgets_widgets.html">org.vancura.vaclav.widgets.widgets</a></td></tr><tr><th align="left">Inherits from:</th><td><a class="className" href="org_vancura_vaclav_widgets_widgets_Widget.html">Widget</a> &lt; <a class="className" href="org_vancura_vaclav_core_display_MorphSprite.html">MorphSprite</a> &lt; <a class="className" href="org_vancura_vaclav_core_display_QSprite.html">QSprite</a> &lt; Sprite</td></tr><tr><th align="left">Implements:</th><td><ul><li><a class="className" href="org_vancura_vaclav_widgets_interfaces_IContainer.html">IContainer</a></li></ul></td></tr><tr><th class="classDetails" align="left">Author:</th><td class="classDetails">Vaclav Vancura (<a href="http://vaclav.vancura.org">http://vaclav.vancura.org</a>)</td></tr><tr><th class="classDetails" align="left">Classpath:</th><td class="classDetails">org.vancura.vaclav.widgets.widgets.Container</td></tr><tr><th class="classDetails" align="left">File last modified:</th><td class="classDetails">Sunday, 10 January 2010, 11:06:45</td></tr></table></div><div id="sourceCodeTop" class="sourceCodeView"><div id="twistyViewSourceshow" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting twistyAnimate"><a href="#"><span class="icon">►&nbsp;</span><span class="linkLabel">View source</span></a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourceshow");</script><div id="twistyViewSourcehide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting twistyAnimate"><a href="#"><span class="icon">▼&nbsp;</span><span class="linkLabel">Hide source</span></a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourcehide");</script><div id="twistyViewSourcetoggle" class="twistyContent twistyMakeHidden twistyRememberSetting"><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourcetoggle");</script><div class="sourceCode"><textarea rows="10" cols="10" id="source" readonly="readonly">/***********************************************************************************************************************
+ * Some methods Copyrighted by their authors, specified in ASDocs.
+ * If not specified elsewhere: Copyright (c) 2010 Vaclav Vancura.
+ *
+ * Contact me at vaclav@vancura.org, @vancura or at my homepage at http://vaclav.vancura.org.
+ * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
+ * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
+ *
+ * Licensed under Attribution 3.0 Czech Republic (http://creativecommons.org/licenses/by/3.0/cz/deed.en_GB).
+ *
+ * That means you are free:
+ * * to copy, distribute, display, and perform the work
+ * * to make derivative works
+ *
+ * Under the following conditions::
+ * * Attribution — You must give the original author credit.
+ *
+ * With the understanding that:
+ *    * Waiver — Any of the above conditions can be waived if you get permission from the copyright holder. CC licenses
+ *      anticipate that a licensor may want to waive compliance with a specific condition, such as attribution.
+ *    * Other Rights — In no way are any of the following rights affected by the license:
+ *             - Your fair dealing or fair use rights — All jurisdictions allow some limited uses of copyrighted material
+ *            without permission. CC licenses do not affect the rights of users under those copyright limitations and
+ *            exceptions, such as fair use and fair dealing where applicable.
+ *             - The author's moral rights — In addition to the right of licensors to request removal of their name from
+ *            the work when used in a derivative or collective they don't like, copyright laws in most jurisdictions
+ *            around the world (with the notable exception of the US except in very limited circumstances) grant
+ *            creators "moral rights" which may provide some redress if a derivative work represents a "derogatory
+ *            treatment" of the licensor's work.
+ *             - Rights other persons may have either in the work itself or in how the work is used, such as publicity or
+ *            privacy rights. — Publicity rights allow individuals to control how their voice, image or likeness is used
+ *            for commercial purposes in public. If a CC-licensed work includes the voice or image of anyone other than
+ *            the licensor, a user of the work may need to get permission from those individuals before using the work
+ *            for commercial purposes.
+ *
+ * Notice — For any reuse or distribution, you must make clear to others the licence terms of this work.
+ **********************************************************************************************************************/
+
+package org.vancura.vaclav.widgets.widgets {
+    import flash.display.DisplayObject;
+    import flash.display.DisplayObjectContainer;
+
+    import org.vancura.vaclav.core.display.QSprite;
+    import org.vancura.vaclav.core.utils.DisplayUtils;
+    import org.vancura.vaclav.widgets.constants.Align;
+    import org.vancura.vaclav.widgets.constants.DebugLevel;
+    import org.vancura.vaclav.widgets.globals.SkinManager;
+    import org.vancura.vaclav.widgets.interfaces.IContainer;
+    import org.vancura.vaclav.widgets.interfaces.IContainerSkin;
+
+    /**
+     * Class: Container
+     *
+     * Container is a.. Container. You can place other DisplayObjects inside and let them automatically align via
+     * paddingLeft, paddingRight, paddingTop and paddingBottom properties specified in the skin or altered via skin
+     * property. You can set alignment too (left, right, top, bottom, center vertically and/or horizontally). If you
+     * need to override inner sprite size, specify it via innerWidth and innerHeight setters (with corresponding
+     * getters of course).
+     *
+     * @author Vaclav Vancura (http://vaclav.vancura.org)
+     */
+    public class Container extends Widget implements IContainer {
+
+
+        protected var _skin:IContainerSkin;
+
+        private var _innerSpr:QSprite;
+        private var _innerWidth:Number = 0;
+        private var _innerHeight:Number = 0;
+
+
+
+        /**
+         * Constructor.
+         *
+         * @param skin Skin
+         * @param config (Optional) Config Object
+         * @param parent (Optional) parent to addChild() to
+         * @param debugLevel (Optional) DebugLevel
+         * @see QSprite
+         * @see ContainerSkin
+         * @see DebugLevel
+         */
+        public function Container(skin:IContainerSkin, config:Object = null, parent:DisplayObjectContainer = null,
+                                  debugLevel:String = null) {
+            var c:Object;
+
+            if(config == null) c = new Object();
+            else c = config;
+
+            if(c.width == undefined) c.width = skin.assetWidth;
+            if(c.height == undefined) c.height = skin.assetHeight;
+
+            //noinspection NegatedIfStatementJS
+            if(skin != null) super(c, parent, (debugLevel == null) ? SkinManager.debugLevel : debugLevel);
+            else throw new Error('No skin defined');
+
+            this.skin = skin;
+        }
+
+
+
+        override protected function _init():void {
+            super._init();
+
+            isMorphWidthEnabled = true;
+            isMorphHeightEnabled = true;
+            isChangeWidthEnabled = true;
+            isChangeHeightEnabled = true;
+        }
+
+
+
+        override protected function _addChildren():void {
+            super._addChildren();
+
+            _innerSpr = new QSprite({});
+
+            DisplayUtils.addChildren(_contentSpr, _innerSpr);
+        }
+
+
+
+        override protected function _removeChildren():void {
+            super._removeChildren();
+
+            DisplayUtils.removeChildren(_contentSpr, _innerSpr);
+        }
+
+
+
+        /**
+         * Redraw stuff.
+         */
+        override public function draw():void {
+            super.draw();
+
+            if(_skin != null) {
+                var l:Number = _skin.paddingLeft;
+                var t:Number = _skin.paddingTop;
+                var w:Number = _width - _skin.paddingLeft - _skin.paddingRight;
+                var h:Number = _height - _skin.paddingTop - _skin.paddingBottom;
+
+                // check for inner width &amp; height override
+                if(_innerWidth == 0) _innerWidth = _innerSpr.width;
+                if(_innerHeight == 0) _innerHeight = _innerSpr.height;
+
+                // draw debug rectangle
+                if(_debugLevel == DebugLevel.ALWAYS || _debugLevel == DebugLevel.HOVER) {
+                    if(_width != 0 &amp;&amp; _height != 0) {
+                        DisplayUtils.strokeBounds(_debugSpr, l, t, w, h, 5, _debugColor);
+                    }
+                }
+
+                // align inner sprite horizontally
+                if(_skin.hAlign == Align.RIGHT) {
+                    // right
+                    _innerSpr.x = _width - _skin.paddingRight - _innerWidth;
+                } else if(_skin.hAlign == Align.CENTER) {
+                    // center
+                    _innerSpr.x = l + Math.round((w - _innerWidth) / 2);
+                }
+                else {
+                    // left
+                    _innerSpr.x = l;
+                }
+
+                // align inner sprite vertically
+                if(_skin.vAlign == Align.BOTTOM) {
+                    // bottom
+                    _innerSpr.y = _height - _skin.paddingBottom - _innerHeight;
+                } else if(_skin.vAlign == Align.CENTER) {
+                    // center
+                    _innerSpr.y = t + Math.round((h - _innerHeight) / 2);
+                }
+                else {
+                    // top
+                    _innerSpr.y = t;
+                }
+            }
+        }
+
+
+
+        override public function addChild(child:DisplayObject):DisplayObject {
+            var out:DisplayObject;
+
+            if(_innerSpr == null) out = super.addChild(child);
+            else out = _innerSpr.addChild(child);
+
+            return out;
+        }
+
+
+
+        override public function removeChild(child:DisplayObject):DisplayObject {
+            var out:DisplayObject;
+
+            if(_innerSpr == null) out = super.removeChild(child);
+            else out = _innerSpr.removeChild(child);
+
+            return out;
+        }
+
+
+
+        override public function contains(child:DisplayObject):Boolean {
+            var out:Boolean;
+
+            if(_innerSpr == null) out = super.contains(child);
+            else out = _innerSpr.contains(child);
+
+            return out;
+        }
+
+
+
+        override public function swapChildrenAt(index1:int, index2:int):void {
+            if(_innerSpr == null) super.swapChildrenAt(index1, index2);
+            else _innerSpr.swapChildrenAt(index1, index2);
+        }
+
+
+
+        override public function getChildByName(name:String):DisplayObject {
+            var out:DisplayObject;
+
+            if(_innerSpr == null) out = super.getChildByName(name);
+            else out = _innerSpr.getChildByName(name);
+
+            return out;
+        }
+
+
+
+        override public function removeChildAt(index:int):DisplayObject {
+            var out:DisplayObject;
+
+            if(_innerSpr == null) out = super.removeChildAt(index);
+            else out = _innerSpr.removeChildAt(index);
+
+            return out;
+        }
+
+
+
+        override public function getChildIndex(child:DisplayObject):int {
+            var out:int;
+
+            if(_innerSpr == null) out = super.getChildIndex(child);
+            else out = _innerSpr.getChildIndex(child);
+
+            return out;
+        }
+
+
+
+        override public function addChildAt(child:DisplayObject, index:int):DisplayObject {
+            var out:DisplayObject;
+
+            if(_innerSpr == null) out = super.addChildAt(child, index);
+            else out = _innerSpr.addChildAt(child, index);
+
+            return out;
+        }
+
+
+
+        override public function swapChildren(child1:DisplayObject, child2:DisplayObject):void {
+            if(_innerSpr == null) super.swapChildren(child1, child2);
+            else _innerSpr.swapChildren(child1, child2);
+        }
+
+
+
+        override public function getChildAt(index:int):DisplayObject {
+            var out:DisplayObject;
+
+            if(_innerSpr == null) out = super.getChildAt(index);
+            else out = _innerSpr.getChildAt(index);
+
+            return out;
+        }
+
+
+
+        override public function setChildIndex(child:DisplayObject, index:int):void {
+            if(_innerSpr == null) super.setChildIndex(child, index);
+            else _innerSpr.setChildIndex(child, index);
+        }
+
+
+
+        public function get skin():IContainerSkin {
+            return _skin;
+        }
+
+
+
+        public function set skin(skin:IContainerSkin):void {
+            _skin = skin;
+
+            if(_width == 0) _width = _skin.assetWidth;
+            if(_height == 0) _height = _skin.assetHeight;
+
+            draw();
+        }
+
+
+
+        // Getters &amp; setters
+        // -----------------
+
+
+        override public function get width():Number {
+            return _width + _skin.paddingLeft + _skin.paddingRight;
+        }
+
+
+
+        override public function get height():Number {
+            return _height + _skin.paddingTop + _skin.paddingBottom;
+        }
+
+
+
+        public function get innerWidth():Number {
+            return _innerWidth;
+        }
+
+
+
+        public function set innerWidth(value:Number):void {
+            _innerWidth = value;
+        }
+
+
+
+        public function get innerHeight():Number {
+            return _innerWidth;
+        }
+
+
+
+        public function set innerHeight(value:Number):void {
+            _innerHeight = value;
+        }
+    }
+}
+
+</textarea></div></div></div><div class="classDescription"><span class="descriptionSummary">Class: Container</span><br /><br />Container is a.. Container. You can place other DisplayObjects inside and let them automatically align via<br />paddingLeft, paddingRight, paddingTop and paddingBottom properties specified in the skin or altered via skin<br />property. You can set alignment too (left, right, top, bottom, center vertically and/or horizontally). If you<br />need to override inner sprite size, specify it via innerWidth and innerHeight setters (with corresponding<br />getters of course).</div><div class="summary"><h2 id="Summary">Summary</h2><div class="docNav"><ul><li><div id="twistyTypeInfo_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide type info</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_on");</script><div id="twistyTypeInfo_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show type info</a></div><span id="twistyTypeInfo_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_off");</script></li><li><div id="twistySummaries_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide summaries</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_on");</script><div id="twistySummaries_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show summaries</a></div><span id="twistySummaries_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_off");</script></li><li><div id="twistySort_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Sort by source order</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_on");</script><div id="twistySort_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Sort alphabetically</a></div><span id="twistySort_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_off");</script></li></ul><br class="clear" /></div><div class="memberList"><div class="memberSummaryPart"><span class="title">Constructor</span><ul class="sortable" id="sortul1"><li class="sortli listnum1"><a href="#Container">Container</a><span class="typeInfo"> (skin:<a class="className" href="org_vancura_vaclav_widgets_interfaces_IContainerSkin.html">IContainerSkin</a>, config:Object = null, parent:DisplayObjectContainer = null, debugLevel:String = null)</span><ul class="summary"><li>Constructor.</li></ul></li></ul></div><div class="memberSummaryPart"><span class="title">Constants</span><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Constants inherited from <span class="superclass"><a class="className" href="org_vancura_vaclav_widgets_widgets_Widget.html">Widget</a></span></span><div class="item inheritedList"><a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_DEBUG_PADDING">_DEBUG_PADDING</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#DRAW">DRAW</a></div></div></div></div></div><div class="memberSummaryPart"><span class="title">Class properties</span><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Class properties inherited from <span class="superclass"><a class="className" href="org_vancura_vaclav_widgets_widgets_Widget.html">Widget</a></span></span><div class="item inheritedList"><a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_allWidgets">_allWidgets</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#allDebugLevel">allDebugLevel</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#initialDebugLevel">initialDebugLevel</a></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Class properties inherited from <span class="superclass"><a class="className" href="org_vancura_vaclav_core_display_MorphSprite.html">MorphSprite</a></span></span><div class="item inheritedList"><a href="org_vancura_vaclav_core_display_MorphSprite.html#defIsChangeHeightEnabled">defIsChangeHeightEnabled</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#defIsChangeWidthEnabled">defIsChangeWidthEnabled</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#defIsMorphHeightEnabled">defIsMorphHeightEnabled</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#defIsMorphWidthEnabled">defIsMorphWidthEnabled</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#defIsMorphXEnabled">defIsMorphXEnabled</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#defIsMorphYEnabled">defIsMorphYEnabled</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#defMorphDuration">defMorphDuration</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#defMorphEase">defMorphEase</a></div></div></div></div></div><div class="memberSummaryPart"><span class="title">Instance properties</span><ul class="sortable" id="sortul4"><li class="private sortli listnum2"><a href="#_skin">_skin</a><span class="typeInfo">  : <a class="className" href="org_vancura_vaclav_widgets_interfaces_IContainerSkin.html">IContainerSkin</a></span></li><li class="private sortli listnum4"><a href="#_innerSpr">_innerSpr</a><span class="typeInfo">  : <a class="className" href="org_vancura_vaclav_core_display_QSprite.html">QSprite</a></span></li><li class="private sortli listnum6"><a href="#_innerWidth">_innerWidth</a><span class="typeInfo">  : Number</span></li><li class="private sortli listnum8"><a href="#_innerHeight">_innerHeight</a><span class="typeInfo">  : Number</span></li><li class="sortli listnum9"><a href="#skin">skin</a><span class="typeInfo">  : <a class="className" href="org_vancura_vaclav_widgets_interfaces_IContainerSkin.html">IContainerSkin</a></span></li><li class="sortli listnum10"><a href="#width">width</a><span class="typeInfo">  : Number</span></li><li class="sortli listnum11"><a href="#height">height</a><span class="typeInfo">  : Number</span></li><li class="sortli listnum12"><a href="#innerWidth">innerWidth</a><span class="typeInfo">  : Number</span></li><li class="sortli listnum13"><a href="#innerHeight">innerHeight</a><span class="typeInfo">  : Number</span></li></ul><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Instance properties inherited from <span class="superclass"><a class="className" href="org_vancura_vaclav_widgets_widgets_Widget.html">Widget</a></span></span><div class="item inheritedList"><a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_allIdx">_allIdx</a>  <a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_config">_config</a>  <a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_contentSpr">_contentSpr</a>  <a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_debugColor">_debugColor</a>  <a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_debugLevel">_debugLevel</a>  <a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_debugSpr">_debugSpr</a>  <a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_height">_height</a>  <a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_width">_width</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#config">config</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#debugColor">debugColor</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#debugLevel">debugLevel</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#height">height</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#width">width</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#x">x</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#y">y</a></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Instance properties inherited from <span class="superclass"><a class="className" href="org_vancura_vaclav_core_display_MorphSprite.html">MorphSprite</a></span></span><div class="item inheritedList"><a class="private" href="org_vancura_vaclav_core_display_MorphSprite.html#_initialProperties">_initialProperties</a>  <a class="private" href="org_vancura_vaclav_core_display_MorphSprite.html#_oldCacheAsBitmap">_oldCacheAsBitmap</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#height">height</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#isChangeHeightEnabled">isChangeHeightEnabled</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#isChangeWidthEnabled">isChangeWidthEnabled</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#isMorphHeightEnabled">isMorphHeightEnabled</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#isMorphWidthEnabled">isMorphWidthEnabled</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#isMorphXEnabled">isMorphXEnabled</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#isMorphYEnabled">isMorphYEnabled</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#morphDuration">morphDuration</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#morphEase">morphEase</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#width">width</a></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Instance properties inherited from <span class="superclass"><a class="className" href="org_vancura_vaclav_core_display_QSprite.html">QSprite</a></span></span><div class="item inheritedList"><a class="private" href="org_vancura_vaclav_core_display_QSprite.html#_embeddedSpr">_embeddedSpr</a>  <a href="org_vancura_vaclav_core_display_QSprite.html#embeddedSpr">embeddedSpr</a></div></div></div></div></div><div class="memberSummaryPart"><span class="title">Class methods</span><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Class methods inherited from <span class="superclass"><a class="className" href="org_vancura_vaclav_widgets_widgets_Widget.html">Widget</a></span></span><div class="item inheritedList"><a href="org_vancura_vaclav_widgets_widgets_Widget.html#initStage">initStage</a></div></div></div></div></div><div class="memberSummaryPart"><span class="title">Instance methods</span><ul class="sortable" id="sortul6"><li class="private sortli listnum2"><a href="#_init">_init</a><span class="typeInfo">  : void</span></li><li class="private sortli listnum4"><a href="#_addChildren">_addChildren</a><span class="typeInfo">  : void</span></li><li class="private sortli listnum6"><a href="#_removeChildren">_removeChildren</a><span class="typeInfo">  : void</span></li><li class="sortli listnum7"><a href="#draw">draw</a><span class="typeInfo">  : void</span><ul class="summary"><li>Redraw stuff.</li></ul></li><li class="sortli listnum8"><a href="#addChild">addChild</a><span class="typeInfo"> (child:DisplayObject) : DisplayObject</span></li><li class="sortli listnum9"><a href="#removeChild">removeChild</a><span class="typeInfo"> (child:DisplayObject) : DisplayObject</span></li><li class="sortli listnum10"><a href="#contains">contains</a><span class="typeInfo"> (child:DisplayObject) : Boolean</span></li><li class="sortli listnum11"><a href="#swapChildrenAt">swapChildrenAt</a><span class="typeInfo"> (index1:int, index2:int) : void</span></li><li class="sortli listnum12"><a href="#getChildByName">getChildByName</a><span class="typeInfo"> (name:String) : DisplayObject</span></li><li class="sortli listnum13"><a href="#removeChildAt">removeChildAt</a><span class="typeInfo"> (index:int) : DisplayObject</span></li><li class="sortli listnum14"><a href="#getChildIndex">getChildIndex</a><span class="typeInfo"> (child:DisplayObject) : int</span></li><li class="sortli listnum15"><a href="#addChildAt">addChildAt</a><span class="typeInfo"> (child:DisplayObject, index:int) : DisplayObject</span></li><li class="sortli listnum16"><a href="#swapChildren">swapChildren</a><span class="typeInfo"> (child1:DisplayObject, child2:DisplayObject) : void</span></li><li class="sortli listnum17"><a href="#getChildAt">getChildAt</a><span class="typeInfo"> (index:int) : DisplayObject</span></li><li class="sortli listnum18"><a href="#setChildIndex">setChildIndex</a><span class="typeInfo"> (child:DisplayObject, index:int) : void</span></li></ul><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Instance methods inherited from <span class="superclass"><a class="className" href="org_vancura_vaclav_widgets_widgets_Widget.html">Widget</a></span></span><div class="item inheritedList"><a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_addChildren">_addChildren</a>  <a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_init">_init</a>  <a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_invalidate">_invalidate</a>  <a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_onDebugOut">_onDebugOut</a>  <a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_onDebugOver">_onDebugOver</a>  <a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_onInvalidate">_onInvalidate</a>  <a class="private" href="org_vancura_vaclav_widgets_widgets_Widget.html#_removeChildren">_removeChildren</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#addChild">addChild</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#addChildAt">addChildAt</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#contains">contains</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#destroy">destroy</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#draw">draw</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#getChildAt">getChildAt</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#getChildByName">getChildByName</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#getChildIndex">getChildIndex</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#removeChild">removeChild</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#removeChildAt">removeChildAt</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#setChildIndex">setChildIndex</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#setSize">setSize</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#swapChildren">swapChildren</a>  <a href="org_vancura_vaclav_widgets_widgets_Widget.html#swapChildrenAt">swapChildrenAt</a></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Instance methods inherited from <span class="superclass"><a class="className" href="org_vancura_vaclav_core_display_MorphSprite.html">MorphSprite</a></span></span><div class="item inheritedList"><a class="private" href="org_vancura_vaclav_core_display_MorphSprite.html#_onMorphComplete">_onMorphComplete</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#morph">morph</a>  <a href="org_vancura_vaclav_core_display_MorphSprite.html#morphReset">morphReset</a></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Instance methods inherited from <span class="superclass"><a class="className" href="org_vancura_vaclav_core_display_QSprite.html">QSprite</a></span></span><div class="item inheritedList"><a href="org_vancura_vaclav_core_display_QSprite.html#setPosition">setPosition</a>  <a href="org_vancura_vaclav_core_display_QSprite.html#setSize">setSize</a></div></div></div></div></div></div></div><div class="memberSection"><h2 id="Constructor">Constructor</h2><div class="member" id="Container"><h3>Container</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> function <b>Container</b> (
 
 
 
 </div><div class="code">skin:<a class="className" href="org_vancura_vaclav_widgets_interfaces_IContainerSkin.html">IContainerSkin</a>,
 config:Object = null,
 parent:DisplayObjectContainer = null,
-debugLevel:String = null)</div><br class="clear" /></div></div><div class="description"> Constructor. </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Parameters:</span><div class="item"><div class="floatbox code colorizedCode">skin      <span class="itemSeparator">:</span></div><div>Skin</div></div><div class="item"><div class="floatbox code colorizedCode">config    <span class="itemSeparator">:</span></div><div>(Optional) Config Object</div></div><div class="item"><div class="floatbox code colorizedCode">parent    <span class="itemSeparator">:</span></div><div>(Optional) parent to addChild() to</div></div><div class="item"><div class="floatbox code colorizedCode">debugLevel<span class="itemSeparator">:</span></div><div>(Optional) DebugLevel</div></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">See also:</span><div class="item"><ul><li> <a class="className" href="org_vancura_vaclav_core_display_QSprite.html">QSprite</a> </li><li> <a class="className" href="org_vancura_vaclav_widgets_skin_ContainerSkin.html">ContainerSkin</a> </li><li> <a class="className" href="org_vancura_vaclav_widgets_constants_DebugLevel.html">DebugLevel</a> </li></ul></div></div></div></div></div></div><div class="memberSection"><h2 id="Instanceproperties">Instance properties</h2><div class="member" id="height"><h3>height</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">override public</span> <b>height</b>:Number
+debugLevel:String = null)</div><br class="clear" /></div></div><div class="description"> Constructor. </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Parameters:</span><div class="item"><div class="floatbox code colorizedCode">skin      <span class="itemSeparator">:</span></div><div>Skin</div></div><div class="item"><div class="floatbox code colorizedCode">config    <span class="itemSeparator">:</span></div><div>(Optional) Config Object</div></div><div class="item"><div class="floatbox code colorizedCode">parent    <span class="itemSeparator">:</span></div><div>(Optional) parent to addChild() to</div></div><div class="item"><div class="floatbox code colorizedCode">debugLevel<span class="itemSeparator">:</span></div><div>(Optional) DebugLevel</div></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">See also:</span><div class="item"><ul><li> <a class="className" href="org_vancura_vaclav_core_display_QSprite.html">QSprite</a> </li><li> <a class="className" href="org_vancura_vaclav_widgets_skin_ContainerSkin.html">ContainerSkin</a> </li><li> <a class="className" href="org_vancura_vaclav_widgets_constants_DebugLevel.html">DebugLevel</a> </li></ul></div></div></div></div></div></div><div class="memberSection"><h2 id="Instanceproperties">Instance properties</h2><div class="member private" id="_innerHeight"><h3>_innerHeight</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>_innerHeight</b>:Number = <span class="codeNumber">0</span>
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member private" id="_innerSpr"><h3>_innerSpr</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>_innerSpr</b>:<a class="className" href="org_vancura_vaclav_core_display_QSprite.html">QSprite</a>
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member private" id="_innerWidth"><h3>_innerWidth</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>_innerWidth</b>:Number = <span class="codeNumber">0</span>
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member private" id="_skin"><h3>_skin</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">protected</span> <b>_skin</b>:<a class="className" href="org_vancura_vaclav_widgets_interfaces_IContainerSkin.html">IContainerSkin</a>
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member" id="height"><h3>height</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">override public</span> <b>height</b>:Number
 </div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member" id="innerHeight"><h3>innerHeight</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> <b>innerHeight</b>:Number
 </div><div class="floatbox"><span class="access">(read,write)</span></div><br class="clear" /></div></div></div><div class="member" id="innerWidth"><h3>innerWidth</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> <b>innerWidth</b>:Number
 </div><div class="floatbox"><span class="access">(read,write)</span></div><br class="clear" /></div></div></div><div class="member" id="skin"><h3>skin</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> <b>skin</b>:<a class="className" href="org_vancura_vaclav_widgets_interfaces_IContainerSkin.html">IContainerSkin</a>
 </div><div class="floatbox"><span class="access">(read,write)</span></div><br class="clear" /></div></div></div><div class="member" id="width"><h3>width</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">override public</span> <b>width</b>:Number
-</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div></div><div class="memberSection"><h2 id="Instancemethods">Instance methods</h2><div class="member" id="addChild"><h3>addChild</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">override public</span> function <b>addChild</b> (
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div></div><div class="memberSection"><h2 id="Instancemethods">Instance methods</h2><div class="member private" id="_addChildren"><h3>_addChildren</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">override protected</span> function <b>_addChildren</b> (
+</div><div class="code">) : void</div><br class="clear" /></div></div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Overrides:</span><div class="item"><ul><li> <a class="privatInline" href="org_vancura_vaclav_widgets_widgets_Widget.html#_addChildren">Widget._addChildren</a> </li></ul></div></div></div></div></div><div class="member private" id="_init"><h3>_init</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">override protected</span> function <b>_init</b> (
+</div><div class="code">) : void</div><br class="clear" /></div></div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Overrides:</span><div class="item"><ul><li> <a class="privatInline" href="org_vancura_vaclav_widgets_widgets_Widget.html#_init">Widget._init</a> </li></ul></div></div></div></div></div><div class="member private" id="_removeChildren"><h3>_removeChildren</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">override protected</span> function <b>_removeChildren</b> (
+</div><div class="code">) : void</div><br class="clear" /></div></div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Overrides:</span><div class="item"><ul><li> <a class="privatInline" href="org_vancura_vaclav_widgets_widgets_Widget.html#_removeChildren">Widget._removeChildren</a> </li></ul></div></div></div></div></div><div class="member" id="addChild"><h3>addChild</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">override public</span> function <b>addChild</b> (
 </div><div class="code">child:DisplayObject) : DisplayObject</div><br class="clear" /></div></div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Overrides:</span><div class="item"><ul><li> <a href="org_vancura_vaclav_widgets_widgets_Widget.html#addChild">Widget.addChild</a> </li></ul></div></div></div></div></div><div class="member" id="addChildAt"><h3>addChildAt</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">override public</span> function <b>addChildAt</b> (
 
 </div><div class="code">child:DisplayObject,

@@ -1,6 +1,501 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head><title>ConversionUtils</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" type="text/css" href="../css/VisDoc.css" /><script src="../js/jquery.js" type="text/javascript">//</script><script src="../js/common.js" type="text/javascript">//</script><script src="../js/doc.js" type="text/javascript">//</script></head><body id="page_org_vancura_vaclav_core_utils_ConversionUtils"><script type="text/javascript">VisDoc.initBody();</script><div id="PageTop"><!----></div><div class="VisDoc"><div class="content"><div class="docNav"><ul class="accessKeyLinks"><li><a href="#PageTop" accesskey="t"><span class="accessKey">T</span>op</a></li><li><a href="#Summary" accesskey="s"><span class="accessKey">S</span>ummary</a></li><li><a href="#Constructor" accesskey="c"><span class="accessKey">C</span>onstructors</a></li><li><a href="#Classmethods" accesskey="a">Cl<span class="accessKey">a</span>ss methods</a></li></ul><br class="clear" /></div><h1>ConversionUtils</h1><div class="classProperties"><table cellspacing="0"><tr><th align="left">Kind of class:</th><td>public class</td></tr><tr><th align="left">Package:</th><td><a class="className" href="package-org_vancura_vaclav_core_utils.html">org.vancura.vaclav.core.utils</a></td></tr><tr><th align="left">Inherits from:</th><td>none</td></tr><tr><th class="classDetails" align="left">Classpath:</th><td class="classDetails">org.vancura.vaclav.core.utils.ConversionUtils</td></tr><tr><th class="classDetails" align="left">File last modified:</th><td class="classDetails">Sunday, 10 January 2010, 11:06:45</td></tr></table></div><div class="classDescription"></div><div class="summary"><h2 id="Summary">Summary</h2><div class="docNav"><ul><li><div id="twistyTypeInfo_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide type info</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_on");</script><div id="twistyTypeInfo_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show type info</a></div><span id="twistyTypeInfo_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_off");</script></li><li><div id="twistySummaries_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide summaries</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_on");</script><div id="twistySummaries_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show summaries</a></div><span id="twistySummaries_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_off");</script></li><li><div id="twistySort_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Sort by source order</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_on");</script><div id="twistySort_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Sort alphabetically</a></div><span id="twistySort_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_off");</script></li></ul><br class="clear" /></div><div class="memberList"><div class="memberSummaryPart"><span class="title">Constructor</span><ul class="sortable" id="sortul1"><li class="sortli listnum1"><a href="#ConversionUtils">ConversionUtils</a></li></ul></div><div class="memberSummaryPart"><span class="title">Class methods</span><ul class="sortable" id="sortul2"><li class="sortli listnum1"><a href="#bitsToBytes">bitsToBytes</a><span class="typeInfo"> (bits:Number) : Number</span><ul class="summary"><li>Converts bits to bytes.</li></ul></li><li class="sortli listnum2"><a href="#bitsToKilobits">bitsToKilobits</a><span class="typeInfo"> (bits:Number) : Number</span><ul class="summary"><li>Converts bits to kilobits.</li></ul></li><li class="sortli listnum3"><a href="#bitsToKilobytes">bitsToKilobytes</a><span class="typeInfo"> (bits:Number) : Number</span><ul class="summary"><li>Converts bits to kilobytes.</li></ul></li><li class="sortli listnum4"><a href="#bytesToBits">bytesToBits</a><span class="typeInfo"> (bytes:Number) : Number</span><ul class="summary"><li>Converts bytes to bits.</li></ul></li><li class="sortli listnum5"><a href="#bytesToKilobits">bytesToKilobits</a><span class="typeInfo"> (bytes:Number) : Number</span><ul class="summary"><li>Converts bytes to kilobits.</li></ul></li><li class="sortli listnum6"><a href="#bytesToKilobytes">bytesToKilobytes</a><span class="typeInfo"> (bytes:Number) : Number</span><ul class="summary"><li>Converts bytes to kilobytes.</li></ul></li><li class="sortli listnum7"><a href="#kilobitsToBits">kilobitsToBits</a><span class="typeInfo"> (kilobits:Number) : Number</span><ul class="summary"><li>Converts kilobits to bits.</li></ul></li><li class="sortli listnum8"><a href="#kilobitsToBytes">kilobitsToBytes</a><span class="typeInfo"> (kilobits:Number) : Number</span><ul class="summary"><li>Converts kilobits to bytes.</li></ul></li><li class="sortli listnum9"><a href="#kilobitsToKilobytes">kilobitsToKilobytes</a><span class="typeInfo"> (kilobits:Number) : Number</span><ul class="summary"><li>Converts kilobits to kilobytes.</li></ul></li><li class="sortli listnum10"><a href="#kilobytesToBits">kilobytesToBits</a><span class="typeInfo"> (kilobytes:Number) : Number</span><ul class="summary"><li>Converts kilobytes to bits.</li></ul></li><li class="sortli listnum11"><a href="#kilobytesToBytes">kilobytesToBytes</a><span class="typeInfo"> (kilobytes:Number) : Number</span><ul class="summary"><li>Converts kilobytes to bytes.</li></ul></li><li class="sortli listnum12"><a href="#kilobytesToKilobits">kilobytesToKilobits</a><span class="typeInfo"> (kilobytes:Number) : Number</span><ul class="summary"><li>Converts kilobytes to kilobits.</li></ul></li><li class="sortli listnum13"><a href="#millisecondsToSeconds">millisecondsToSeconds</a><span class="typeInfo"> (milliseconds:Number) : Number</span><ul class="summary"><li>Converts milliseconds to seconds.</li></ul></li><li class="sortli listnum14"><a href="#millisecondsToMinutes">millisecondsToMinutes</a><span class="typeInfo"> (milliseconds:Number) : Number</span><ul class="summary"><li>Converts milliseconds to minutes.</li></ul></li><li class="sortli listnum15"><a href="#millisecondsToHours">millisecondsToHours</a><span class="typeInfo"> (milliseconds:Number) : Number</span><ul class="summary"><li>Converts milliseconds to hours.</li></ul></li><li class="sortli listnum16"><a href="#millisecondsToDays">millisecondsToDays</a><span class="typeInfo"> (milliseconds:Number) : Number</span><ul class="summary"><li>Converts milliseconds to days.</li></ul></li><li class="sortli listnum17"><a href="#secondsToMilliseconds">secondsToMilliseconds</a><span class="typeInfo"> (seconds:Number) : Number</span><ul class="summary"><li>Converts seconds to milliseconds.</li></ul></li><li class="sortli listnum18"><a href="#secondsToMinutes">secondsToMinutes</a><span class="typeInfo"> (seconds:Number) : Number</span><ul class="summary"><li>Converts seconds to minutes.</li></ul></li><li class="sortli listnum19"><a href="#secondsToHours">secondsToHours</a><span class="typeInfo"> (seconds:Number) : Number</span><ul class="summary"><li>Converts seconds to hours.</li></ul></li><li class="sortli listnum20"><a href="#secondsToDays">secondsToDays</a><span class="typeInfo"> (seconds:Number) : Number</span><ul class="summary"><li>Converts seconds to days.</li></ul></li><li class="sortli listnum21"><a href="#minutesToMilliseconds">minutesToMilliseconds</a><span class="typeInfo"> (minutes:Number) : Number</span><ul class="summary"><li>Converts minutes to milliseconds.</li></ul></li><li class="sortli listnum22"><a href="#minutesToSeconds">minutesToSeconds</a><span class="typeInfo"> (minutes:Number) : Number</span><ul class="summary"><li>Converts minutes to seconds.</li></ul></li><li class="sortli listnum23"><a href="#minutesToHours">minutesToHours</a><span class="typeInfo"> (minutes:Number) : Number</span><ul class="summary"><li>Converts minutes to hours.</li></ul></li><li class="sortli listnum24"><a href="#minutesToDays">minutesToDays</a><span class="typeInfo"> (minutes:Number) : Number</span><ul class="summary"><li>Converts minutes to days.</li></ul></li><li class="sortli listnum25"><a href="#hoursToMilliseconds">hoursToMilliseconds</a><span class="typeInfo"> (hours:Number) : Number</span><ul class="summary"><li>Converts hours to milliseconds.</li></ul></li><li class="sortli listnum26"><a href="#hoursToSeconds">hoursToSeconds</a><span class="typeInfo"> (hours:Number) : Number</span><ul class="summary"><li>Converts hours to seconds.</li></ul></li><li class="sortli listnum27"><a href="#hoursToMinutes">hoursToMinutes</a><span class="typeInfo"> (hours:Number) : Number</span><ul class="summary"><li>Converts hours to minutes.</li></ul></li><li class="sortli listnum28"><a href="#hoursToDays">hoursToDays</a><span class="typeInfo"> (hours:Number) : Number</span><ul class="summary"><li>Converts hours to days.</li></ul></li><li class="sortli listnum29"><a href="#daysToMilliseconds">daysToMilliseconds</a><span class="typeInfo"> (days:Number) : Number</span><ul class="summary"><li>Converts days to milliseconds.</li></ul></li><li class="sortli listnum30"><a href="#daysToSeconds">daysToSeconds</a><span class="typeInfo"> (days:Number) : Number</span><ul class="summary"><li>Converts days to seconds.</li></ul></li><li class="sortli listnum31"><a href="#daysToMinutes">daysToMinutes</a><span class="typeInfo"> (days:Number) : Number</span><ul class="summary"><li>Converts days to minutes.</li></ul></li><li class="sortli listnum32"><a href="#daysToHours">daysToHours</a><span class="typeInfo"> (days:Number) : Number</span><ul class="summary"><li>Converts days to hours.</li></ul></li><li class="sortli listnum33"><a href="#degreesToRadians">degreesToRadians</a><span class="typeInfo"> (degrees:Number) : Number</span><ul class="summary"><li>Converts degrees to radians.</li></ul></li><li class="sortli listnum34"><a href="#radiansToDegrees">radiansToDegrees</a><span class="typeInfo"> (radians:Number) : Number</span><ul class="summary"><li>Converts radians to degrees.</li></ul></li></ul></div></div></div><div class="memberSection"><h2 id="Constructor">Constructor</h2><div class="member" id="ConversionUtils"><h3>ConversionUtils</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> function <b>ConversionUtils</b> (
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>ConversionUtils</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" type="text/css" href="../css/VisDoc.css" /><script src="../js/jquery.js" type="text/javascript">//</script><script src="../js/common.js" type="text/javascript">//</script><script src="../js/doc.js" type="text/javascript">//</script></head><body id="page_org_vancura_vaclav_core_utils_ConversionUtils"><script type="text/javascript">VisDoc.initBody();</script><div id="PageTop"><!----></div><div class="VisDoc"><div class="content"><div class="docNav"><ul><li><div id="twistyTOC_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited activeWhenNotFramed"><a href="#"><span class="icon">+</span>Show TOC</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyTOC_show");</script><div id="twistyTOC_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited activeWhenFramed"><a href="#"><span class="icon">&times;</span>Hide TOC</a></div><span id="twistyTOC_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyTOC_hide");</script></li></ul><ul class="accessKeyLinks"><li><a href="#PageTop" accesskey="t"><span class="accessKey">T</span>op</a></li><li><a href="#Summary" accesskey="s"><span class="accessKey">S</span>ummary</a></li><li><a href="#Constructor" accesskey="c"><span class="accessKey">C</span>onstructors</a></li><li><a href="#Classmethods" accesskey="a">Cl<span class="accessKey">a</span>ss methods</a></li></ul><ul><li><div id="twistyPrivate_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide private and protected members</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("togglePrivate_on");</script><div id="twistyPrivate_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show private and protected members</a></div><span id="twistyPrivate_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("togglePrivate_off");</script></li></ul><br class="clear" /></div><h1>ConversionUtils</h1><div class="classProperties"><table cellspacing="0"><tr><th align="left">Kind of class:</th><td>public class</td></tr><tr><th align="left">Package:</th><td><a class="className" href="package-org_vancura_vaclav_core_utils.html">org.vancura.vaclav.core.utils</a></td></tr><tr><th align="left">Inherits from:</th><td>none</td></tr><tr><th class="classDetails" align="left">Classpath:</th><td class="classDetails">org.vancura.vaclav.core.utils.ConversionUtils</td></tr><tr><th class="classDetails" align="left">File last modified:</th><td class="classDetails">Sunday, 10 January 2010, 11:06:45</td></tr></table></div><div id="sourceCodeTop" class="sourceCodeView"><div id="twistyViewSourceshow" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting twistyAnimate"><a href="#"><span class="icon">►&nbsp;</span><span class="linkLabel">View source</span></a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourceshow");</script><div id="twistyViewSourcehide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting twistyAnimate"><a href="#"><span class="icon">▼&nbsp;</span><span class="linkLabel">Hide source</span></a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourcehide");</script><div id="twistyViewSourcetoggle" class="twistyContent twistyMakeHidden twistyRememberSetting"><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourcetoggle");</script><div class="sourceCode"><textarea rows="10" cols="10" id="source" readonly="readonly">/***********************************************************************************************************************
+ * Some methods Copyrighted by their authors, specified in ASDocs.
+ * If not specified elsewhere: Copyright (c) 2010 Vaclav Vancura.
+ *
+ * Contact me at vaclav@vancura.org, @vancura or at my homepage at http://vaclav.vancura.org.
+ * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
+ * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
+ *
+ * Licensed under Attribution 3.0 Czech Republic (http://creativecommons.org/licenses/by/3.0/cz/deed.en_GB).
+ *
+ * That means you are free:
+ * * to copy, distribute, display, and perform the work
+ * * to make derivative works
+ *
+ * Under the following conditions::
+ * * Attribution — You must give the original author credit.
+ *
+ * With the understanding that:
+ *    * Waiver — Any of the above conditions can be waived if you get permission from the copyright holder. CC licenses
+ *      anticipate that a licensor may want to waive compliance with a specific condition, such as attribution.
+ *    * Other Rights — In no way are any of the following rights affected by the license:
+ *             - Your fair dealing or fair use rights — All jurisdictions allow some limited uses of copyrighted material
+ *            without permission. CC licenses do not affect the rights of users under those copyright limitations and
+ *            exceptions, such as fair use and fair dealing where applicable.
+ *             - The author's moral rights — In addition to the right of licensors to request removal of their name from
+ *            the work when used in a derivative or collective they don't like, copyright laws in most jurisdictions
+ *            around the world (with the notable exception of the US except in very limited circumstances) grant
+ *            creators "moral rights" which may provide some redress if a derivative work represents a "derogatory
+ *            treatment" of the licensor's work.
+ *             - Rights other persons may have either in the work itself or in how the work is used, such as publicity or
+ *            privacy rights. — Publicity rights allow individuals to control how their voice, image or likeness is used
+ *            for commercial purposes in public. If a CC-licensed work includes the voice or image of anyone other than
+ *            the licensor, a user of the work may need to get permission from those individuals before using the work
+ *            for commercial purposes.
+ *
+ * Notice — For any reuse or distribution, you must make clear to others the licence terms of this work.
+ **********************************************************************************************************************/
+
+package org.vancura.vaclav.core.utils {
+    public class ConversionUtils {
+
+
+
+        /**
+         * Constructor.
+         * Cannot be instantiated, throws an Error.
+         * @throws Error, since the class could not be instantiated
+         */
+        public function ConversionUtils() {
+            throw new Error('The ConversionUtils class cannot be instantiated.');
+        }
+
+
+
+        /**
+         Converts bits to bytes.
+         * Original taken from Casalib (http://casalib.org)
+         @param bits: The number of bits.
+         @return Returns the number of bytes.
+         */
+        public static function bitsToBytes(bits:Number):Number {
+            return bits / 8;
+        }
+
+
+
+        /**
+         Converts bits to kilobits.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param bits: The number of bits.
+         @return Returns the number of kilobits.
+         */
+        public static function bitsToKilobits(bits:Number):Number {
+            return bits / 1024;
+        }
+
+
+
+        /**
+         Converts bits to kilobytes.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param bits: The number of bits.
+         @return Returns the number of kilobits.
+         */
+        public static function bitsToKilobytes(bits:Number):Number {
+            return bits / 8192;
+        }
+
+
+
+        /**
+         Converts bytes to bits.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param bytes: The number of bytes.
+         @return Returns the number of bits.
+         */
+        public static function bytesToBits(bytes:Number):Number {
+            return bytes * 8;
+        }
+
+
+
+        /**
+         Converts bytes to kilobits.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param bytes: The number of bytes.
+         @return Returns the number of kilobits.
+         */
+        public static function bytesToKilobits(bytes:Number):Number {
+            return bytes / 128;
+        }
+
+
+
+        /**
+         Converts bytes to kilobytes.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param bytes: The number of bytes.
+         @return Returns the number of kilobytes.
+         */
+        public static function bytesToKilobytes(bytes:Number):Number {
+            return bytes / 1024;
+        }
+
+
+
+        /**
+         Converts kilobits to bits.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param kilobits: The number of kilobits.
+         @return Returns the number of bits.
+         */
+        public static function kilobitsToBits(kilobits:Number):Number {
+            return kilobits * 1024;
+        }
+
+
+
+        /**
+         Converts kilobits to bytes.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param kilobits: The number of kilobits.
+         @return Returns the number of bytes.
+         */
+        public static function kilobitsToBytes(kilobits:Number):Number {
+            return kilobits * 128;
+        }
+
+
+
+        /**
+         Converts kilobits to kilobytes.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param kilobytes: The number of kilobits.
+         @return Returns the number of kilobytes.
+         */
+        public static function kilobitsToKilobytes(kilobits:Number):Number {
+            return kilobits / 8;
+        }
+
+
+
+        /**
+         Converts kilobytes to bits.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param kilobytes: The number of kilobytes.
+         @return Returns the number of bits.
+         */
+        public static function kilobytesToBits(kilobytes:Number):Number {
+            return kilobytes * 8192;
+        }
+
+
+
+        /**
+         Converts kilobytes to bytes.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param kilobytes: The number of kilobytes.
+         @return Returns the number of bytes.
+         */
+        public static function kilobytesToBytes(kilobytes:Number):Number {
+            return kilobytes * 1024;
+        }
+
+
+
+        /**
+         Converts kilobytes to kilobits.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param kilobytes: The number of kilobytes.
+         @return Returns the number of kilobits.
+         */
+        public static function kilobytesToKilobits(kilobytes:Number):Number {
+            return kilobytes * 8;
+        }
+
+
+
+        /**
+         Converts milliseconds to seconds.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param milliseconds: The number of milliseconds.
+         @return Returns the number of seconds.
+         */
+        public static function millisecondsToSeconds(milliseconds:Number):Number {
+            return milliseconds / 1000;
+        }
+
+
+
+        /**
+         Converts milliseconds to minutes.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param milliseconds: The number of milliseconds.
+         @return Returns the number of minutes.
+         */
+        public static function millisecondsToMinutes(milliseconds:Number):Number {
+            return secondsToMinutes(millisecondsToSeconds(milliseconds));
+        }
+
+
+
+        /**
+         Converts milliseconds to hours.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param milliseconds: The number of milliseconds.
+         @return Returns the number of hours.
+         */
+        public static function millisecondsToHours(milliseconds:Number):Number {
+            return minutesToHours(millisecondsToMinutes(milliseconds));
+        }
+
+
+
+        /**
+         Converts milliseconds to days.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param milliseconds: The number of milliseconds.
+         @return Returns the number of days.
+         */
+        public static function millisecondsToDays(milliseconds:Number):Number {
+            return hoursToDays(millisecondsToHours(milliseconds));
+        }
+
+
+
+        /**
+         Converts seconds to milliseconds.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param seconds: The number of seconds.
+         @return Returns the number of milliseconds.
+         */
+        public static function secondsToMilliseconds(seconds:Number):Number {
+            return seconds * 1000;
+        }
+
+
+
+        /**
+         Converts seconds to minutes.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param seconds: The number of seconds.
+         @return Returns the number of minutes.
+         */
+        public static function secondsToMinutes(seconds:Number):Number {
+            return seconds / 60;
+        }
+
+
+
+        /**
+         Converts seconds to hours.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param seconds: The number of seconds.
+         @return Returns the number of hours.
+         */
+        public static function secondsToHours(seconds:Number):Number {
+            return minutesToHours(secondsToMinutes(seconds));
+        }
+
+
+
+        /**
+         Converts seconds to days.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param seconds: The number of seconds.
+         @return Returns the number of days.
+         */
+        public static function secondsToDays(seconds:Number):Number {
+            return hoursToDays(secondsToHours(seconds));
+        }
+
+
+
+        /**
+         Converts minutes to milliseconds.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param minutes: The number of minutes.
+         @return Returns the number of milliseconds.
+         */
+        public static function minutesToMilliseconds(minutes:Number):Number {
+            return secondsToMilliseconds(minutesToSeconds(minutes));
+        }
+
+
+
+        /**
+         Converts minutes to seconds.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param minutes: The number of minutes.
+         @return Returns the number of seconds.
+         */
+        public static function minutesToSeconds(minutes:Number):Number {
+            return minutes * 60;
+        }
+
+
+
+        /**
+         Converts minutes to hours.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param minutes: The number of minutes.
+         @return Returns the number of hours.
+         */
+        public static function minutesToHours(minutes:Number):Number {
+            return minutes / 60;
+        }
+
+
+
+        /**
+         Converts minutes to days.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param minutes: The number of minutes.
+         @return Returns the number of days.
+         */
+        public static function minutesToDays(minutes:Number):Number {
+            return hoursToDays(minutesToHours(minutes));
+        }
+
+
+
+        /**
+         Converts hours to milliseconds.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param hours: The number of hours.
+         @return Returns the number of milliseconds.
+         */
+        public static function hoursToMilliseconds(hours:Number):Number {
+            return secondsToMilliseconds(hoursToSeconds(hours));
+        }
+
+
+
+        /**
+         Converts hours to seconds.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param hours: The number of hours.
+         @return Returns the number of seconds.
+         */
+        public static function hoursToSeconds(hours:Number):Number {
+            return minutesToSeconds(hoursToMinutes(hours));
+        }
+
+
+
+        /**
+         Converts hours to minutes.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param hours: The number of hours.
+         @return Returns the number of minutes.
+         */
+        public static function hoursToMinutes(hours:Number):Number {
+            return hours * 60;
+        }
+
+
+
+        /**
+         Converts hours to days.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param hours: The number of hours.
+         @return Returns the number of days.
+         */
+        public static function hoursToDays(hours:Number):Number {
+            return hours / 24;
+        }
+
+
+
+        /**
+         Converts days to milliseconds.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param days: The number of days.
+         @return Returns the number of milliseconds.
+         */
+        public static function daysToMilliseconds(days:Number):Number {
+            return secondsToMilliseconds(daysToSeconds(days));
+        }
+
+
+
+        /**
+         Converts days to seconds.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param days: The number of days.
+         @return Returns the number of seconds.
+         */
+        public static function daysToSeconds(days:Number):Number {
+            return minutesToSeconds(daysToMinutes(days));
+        }
+
+
+
+        /**
+         Converts days to minutes.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param days: The number of days.
+         @return Returns the number of minutes.
+         */
+        public static function daysToMinutes(days:Number):Number {
+            return hoursToMinutes(daysToHours(days));
+        }
+
+
+
+        /**
+         Converts days to hours.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param days: The number of days.
+         @return Returns the number of hours.
+         */
+        public static function daysToHours(days:Number):Number {
+            return days * 24;
+        }
+
+
+
+        /**
+         Converts degrees to radians.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param degrees: The number of degrees.
+         @return Returns the number of radians.
+         */
+        public static function degreesToRadians(degrees:Number):Number {
+            return degrees * (Math.PI / 180);
+        }
+
+
+
+        /**
+         Converts radians to degrees.
+         * Original taken from Casalib (http://casalib.org)
+
+         @param radians: The number of radians.
+         @return Returns the number of degrees.
+         */
+        public static function radiansToDegrees(radians:Number):Number {
+            return radians * (180 / Math.PI);
+        }
+    }
+}
+
+</textarea></div></div></div><div class="classDescription"></div><div class="summary"><h2 id="Summary">Summary</h2><div class="docNav"><ul><li><div id="twistyTypeInfo_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide type info</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_on");</script><div id="twistyTypeInfo_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show type info</a></div><span id="twistyTypeInfo_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_off");</script></li><li><div id="twistySummaries_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide summaries</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_on");</script><div id="twistySummaries_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show summaries</a></div><span id="twistySummaries_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_off");</script></li><li><div id="twistySort_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Sort by source order</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_on");</script><div id="twistySort_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Sort alphabetically</a></div><span id="twistySort_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_off");</script></li></ul><br class="clear" /></div><div class="memberList"><div class="memberSummaryPart"><span class="title">Constructor</span><ul class="sortable" id="sortul1"><li class="sortli listnum1"><a href="#ConversionUtils">ConversionUtils</a></li></ul></div><div class="memberSummaryPart"><span class="title">Class methods</span><ul class="sortable" id="sortul2"><li class="sortli listnum1"><a href="#bitsToBytes">bitsToBytes</a><span class="typeInfo"> (bits:Number) : Number</span><ul class="summary"><li>Converts bits to bytes.</li></ul></li><li class="sortli listnum2"><a href="#bitsToKilobits">bitsToKilobits</a><span class="typeInfo"> (bits:Number) : Number</span><ul class="summary"><li>Converts bits to kilobits.</li></ul></li><li class="sortli listnum3"><a href="#bitsToKilobytes">bitsToKilobytes</a><span class="typeInfo"> (bits:Number) : Number</span><ul class="summary"><li>Converts bits to kilobytes.</li></ul></li><li class="sortli listnum4"><a href="#bytesToBits">bytesToBits</a><span class="typeInfo"> (bytes:Number) : Number</span><ul class="summary"><li>Converts bytes to bits.</li></ul></li><li class="sortli listnum5"><a href="#bytesToKilobits">bytesToKilobits</a><span class="typeInfo"> (bytes:Number) : Number</span><ul class="summary"><li>Converts bytes to kilobits.</li></ul></li><li class="sortli listnum6"><a href="#bytesToKilobytes">bytesToKilobytes</a><span class="typeInfo"> (bytes:Number) : Number</span><ul class="summary"><li>Converts bytes to kilobytes.</li></ul></li><li class="sortli listnum7"><a href="#kilobitsToBits">kilobitsToBits</a><span class="typeInfo"> (kilobits:Number) : Number</span><ul class="summary"><li>Converts kilobits to bits.</li></ul></li><li class="sortli listnum8"><a href="#kilobitsToBytes">kilobitsToBytes</a><span class="typeInfo"> (kilobits:Number) : Number</span><ul class="summary"><li>Converts kilobits to bytes.</li></ul></li><li class="sortli listnum9"><a href="#kilobitsToKilobytes">kilobitsToKilobytes</a><span class="typeInfo"> (kilobits:Number) : Number</span><ul class="summary"><li>Converts kilobits to kilobytes.</li></ul></li><li class="sortli listnum10"><a href="#kilobytesToBits">kilobytesToBits</a><span class="typeInfo"> (kilobytes:Number) : Number</span><ul class="summary"><li>Converts kilobytes to bits.</li></ul></li><li class="sortli listnum11"><a href="#kilobytesToBytes">kilobytesToBytes</a><span class="typeInfo"> (kilobytes:Number) : Number</span><ul class="summary"><li>Converts kilobytes to bytes.</li></ul></li><li class="sortli listnum12"><a href="#kilobytesToKilobits">kilobytesToKilobits</a><span class="typeInfo"> (kilobytes:Number) : Number</span><ul class="summary"><li>Converts kilobytes to kilobits.</li></ul></li><li class="sortli listnum13"><a href="#millisecondsToSeconds">millisecondsToSeconds</a><span class="typeInfo"> (milliseconds:Number) : Number</span><ul class="summary"><li>Converts milliseconds to seconds.</li></ul></li><li class="sortli listnum14"><a href="#millisecondsToMinutes">millisecondsToMinutes</a><span class="typeInfo"> (milliseconds:Number) : Number</span><ul class="summary"><li>Converts milliseconds to minutes.</li></ul></li><li class="sortli listnum15"><a href="#millisecondsToHours">millisecondsToHours</a><span class="typeInfo"> (milliseconds:Number) : Number</span><ul class="summary"><li>Converts milliseconds to hours.</li></ul></li><li class="sortli listnum16"><a href="#millisecondsToDays">millisecondsToDays</a><span class="typeInfo"> (milliseconds:Number) : Number</span><ul class="summary"><li>Converts milliseconds to days.</li></ul></li><li class="sortli listnum17"><a href="#secondsToMilliseconds">secondsToMilliseconds</a><span class="typeInfo"> (seconds:Number) : Number</span><ul class="summary"><li>Converts seconds to milliseconds.</li></ul></li><li class="sortli listnum18"><a href="#secondsToMinutes">secondsToMinutes</a><span class="typeInfo"> (seconds:Number) : Number</span><ul class="summary"><li>Converts seconds to minutes.</li></ul></li><li class="sortli listnum19"><a href="#secondsToHours">secondsToHours</a><span class="typeInfo"> (seconds:Number) : Number</span><ul class="summary"><li>Converts seconds to hours.</li></ul></li><li class="sortli listnum20"><a href="#secondsToDays">secondsToDays</a><span class="typeInfo"> (seconds:Number) : Number</span><ul class="summary"><li>Converts seconds to days.</li></ul></li><li class="sortli listnum21"><a href="#minutesToMilliseconds">minutesToMilliseconds</a><span class="typeInfo"> (minutes:Number) : Number</span><ul class="summary"><li>Converts minutes to milliseconds.</li></ul></li><li class="sortli listnum22"><a href="#minutesToSeconds">minutesToSeconds</a><span class="typeInfo"> (minutes:Number) : Number</span><ul class="summary"><li>Converts minutes to seconds.</li></ul></li><li class="sortli listnum23"><a href="#minutesToHours">minutesToHours</a><span class="typeInfo"> (minutes:Number) : Number</span><ul class="summary"><li>Converts minutes to hours.</li></ul></li><li class="sortli listnum24"><a href="#minutesToDays">minutesToDays</a><span class="typeInfo"> (minutes:Number) : Number</span><ul class="summary"><li>Converts minutes to days.</li></ul></li><li class="sortli listnum25"><a href="#hoursToMilliseconds">hoursToMilliseconds</a><span class="typeInfo"> (hours:Number) : Number</span><ul class="summary"><li>Converts hours to milliseconds.</li></ul></li><li class="sortli listnum26"><a href="#hoursToSeconds">hoursToSeconds</a><span class="typeInfo"> (hours:Number) : Number</span><ul class="summary"><li>Converts hours to seconds.</li></ul></li><li class="sortli listnum27"><a href="#hoursToMinutes">hoursToMinutes</a><span class="typeInfo"> (hours:Number) : Number</span><ul class="summary"><li>Converts hours to minutes.</li></ul></li><li class="sortli listnum28"><a href="#hoursToDays">hoursToDays</a><span class="typeInfo"> (hours:Number) : Number</span><ul class="summary"><li>Converts hours to days.</li></ul></li><li class="sortli listnum29"><a href="#daysToMilliseconds">daysToMilliseconds</a><span class="typeInfo"> (days:Number) : Number</span><ul class="summary"><li>Converts days to milliseconds.</li></ul></li><li class="sortli listnum30"><a href="#daysToSeconds">daysToSeconds</a><span class="typeInfo"> (days:Number) : Number</span><ul class="summary"><li>Converts days to seconds.</li></ul></li><li class="sortli listnum31"><a href="#daysToMinutes">daysToMinutes</a><span class="typeInfo"> (days:Number) : Number</span><ul class="summary"><li>Converts days to minutes.</li></ul></li><li class="sortli listnum32"><a href="#daysToHours">daysToHours</a><span class="typeInfo"> (days:Number) : Number</span><ul class="summary"><li>Converts days to hours.</li></ul></li><li class="sortli listnum33"><a href="#degreesToRadians">degreesToRadians</a><span class="typeInfo"> (degrees:Number) : Number</span><ul class="summary"><li>Converts degrees to radians.</li></ul></li><li class="sortli listnum34"><a href="#radiansToDegrees">radiansToDegrees</a><span class="typeInfo"> (radians:Number) : Number</span><ul class="summary"><li>Converts radians to degrees.</li></ul></li></ul></div></div></div><div class="memberSection"><h2 id="Constructor">Constructor</h2><div class="member" id="ConversionUtils"><h3>ConversionUtils</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> function <b>ConversionUtils</b> (
 </div><div class="code">)</div><br class="clear" /></div></div><div class="description">     Constructor.<br />Cannot be instantiated, throws an Error. </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Throws:</span><div class="item"><ul><li> <span class="doesNotExist"> Error</span>, since the class could not be instantiated </li></ul></div></div></div></div></div></div><div class="memberSection"><h2 id="Classmethods">Class methods</h2><div class="member" id="bitsToBytes"><h3>bitsToBytes</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public static</span> function <b>bitsToBytes</b> (
 </div><div class="code">bits:Number) : Number</div><br class="clear" /></div></div><div class="description"> Converts bits to bytes.<br />Original taken from Casalib (<a href="http://casalib.org">http://casalib.org</a>) </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Parameters:</span><div class="item"><div class="floatbox code colorizedCode">bits<span class="itemSeparator">:</span></div><div>The number of bits.</div></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Returns:</span><div class="item"><ul><li> Returns the number of bytes. </li></ul></div></div></div></div></div><div class="member" id="bitsToKilobits"><h3>bitsToKilobits</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public static</span> function <b>bitsToKilobits</b> (
 </div><div class="code">bits:Number) : Number</div><br class="clear" /></div></div><div class="description"> Converts bits to kilobits.<br />Original taken from Casalib (<a href="http://casalib.org">http://casalib.org</a>) </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Parameters:</span><div class="item"><div class="floatbox code colorizedCode">bits<span class="itemSeparator">:</span></div><div>The number of bits.</div></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Returns:</span><div class="item"><ul><li> Returns the number of kilobits. </li></ul></div></div></div></div></div><div class="member" id="bitsToKilobytes"><h3>bitsToKilobytes</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public static</span> function <b>bitsToKilobytes</b> (

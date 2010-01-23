@@ -1,6 +1,322 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head><title>ObjectUtils</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" type="text/css" href="../css/VisDoc.css" /><script src="../js/jquery.js" type="text/javascript">//</script><script src="../js/common.js" type="text/javascript">//</script><script src="../js/doc.js" type="text/javascript">//</script></head><body id="page_org_vancura_vaclav_core_utils_ObjectUtils"><script type="text/javascript">VisDoc.initBody();</script><div id="PageTop"><!----></div><div class="VisDoc"><div class="content"><div class="docNav"><ul class="accessKeyLinks"><li><a href="#PageTop" accesskey="t"><span class="accessKey">T</span>op</a></li><li><a href="#Summary" accesskey="s"><span class="accessKey">S</span>ummary</a></li><li><a href="#Constructor" accesskey="c"><span class="accessKey">C</span>onstructors</a></li><li><a href="#Classmethods" accesskey="a">Cl<span class="accessKey">a</span>ss methods</a></li></ul><br class="clear" /></div><h1>ObjectUtils</h1><div class="classProperties"><table cellspacing="0"><tr><th align="left">Kind of class:</th><td>public class</td></tr><tr><th align="left">Package:</th><td><a class="className" href="package-org_vancura_vaclav_core_utils.html">org.vancura.vaclav.core.utils</a></td></tr><tr><th align="left">Inherits from:</th><td>none</td></tr><tr><th class="classDetails" align="left">Classpath:</th><td class="classDetails">org.vancura.vaclav.core.utils.ObjectUtils</td></tr><tr><th class="classDetails" align="left">File last modified:</th><td class="classDetails">Sunday, 10 January 2010, 16:41:32</td></tr></table></div><div class="classDescription"></div><div class="summary"><h2 id="Summary">Summary</h2><div class="docNav"><ul><li><div id="twistyTypeInfo_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide type info</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_on");</script><div id="twistyTypeInfo_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show type info</a></div><span id="twistyTypeInfo_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_off");</script></li><li><div id="twistySummaries_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide summaries</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_on");</script><div id="twistySummaries_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show summaries</a></div><span id="twistySummaries_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_off");</script></li><li><div id="twistySort_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Sort by source order</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_on");</script><div id="twistySort_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Sort alphabetically</a></div><span id="twistySort_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_off");</script></li></ul><br class="clear" /></div><div class="memberList"><div class="memberSummaryPart"><span class="title">Constructor</span><ul class="sortable" id="sortul1"><li class="sortli listnum1"><a href="#ObjectUtils">ObjectUtils</a></li></ul></div><div class="memberSummaryPart"><span class="title">Class methods</span><ul class="sortable" id="sortul2"><li class="sortli listnum1"><a href="#numProperties">numProperties</a><span class="typeInfo"> (obj:Object) : int</span><ul class="summary"><li>Count the properties in an object.</li></ul></li><li class="sortli listnum2"><a href="#hasProperties">hasProperties</a><span class="typeInfo"> (obj:Object) : Boolean</span><ul class="summary"><li>Check if an object has any properties.</li></ul></li><li class="sortli listnum3"><a href="#isUniformPropertyType">isUniformPropertyType</a><span class="typeInfo"> (obj:Object, type:Class) : Boolean</span><ul class="summary"><li>Check if the properties of an object are all the same.</li></ul></li><li class="sortli listnum4"><a href="#assign">assign</a><span class="typeInfo"> (obj:Object, params:Object) : Object</span><ul class="summary"><li>Assign properties from params to an Object.</li></ul></li><li class="sortli listnum5"><a href="#clone">clone</a><span class="typeInfo"> (source:*) : Object</span><ul class="summary"><li>Clone an Object.</li></ul></li><li class="sortli listnum6"><a href="#inspect">inspect</a><span class="typeInfo"> (obj:Object, depth:int = 2) : String</span><ul class="summary"><li>Scan an Object.</li></ul></li><li class="sortli listnum7"><a href="#copy">copy</a><span class="typeInfo"> (obj:Object, into:Object = null) : Object</span><ul class="summary"><li>Copy an object.</li></ul></li><li class="sortli listnum8"><a href="#toArray">toArray</a><span class="typeInfo"> (obj:Object) : Array</span><ul class="summary"><li>Convert the object to an array.</li></ul></li><li class="sortli listnum9"><a href="#contains">contains</a><span class="typeInfo"> (obj:Object, member:Object) : Boolean</span><ul class="summary"><li>Searches the first level properties of an object for a another object.</li></ul></li><li class="sortli listnum10"><a href="#isUndefined">isUndefined</a><span class="typeInfo"> (obj:Object) : Boolean</span><ul class="summary"><li>Uses the strict equality operator to determine if object is <span class="codeIdentifier">undefined</span>.</li></ul></li><li class="sortli listnum11"><a href="#isNull">isNull</a><span class="typeInfo"> (obj:Object) : Boolean</span><ul class="summary"><li>Uses the strict equality operator to determine if object is <span class="codeIdentifier">null</span>.</li></ul></li><li class="sortli listnum12"><a href="#isEmpty">isEmpty</a><span class="typeInfo"> (obj:*) : Boolean</span><ul class="summary"><li>Determines if object contains no value(s).</li></ul></li></ul></div></div></div><div class="memberSection"><h2 id="Constructor">Constructor</h2><div class="member" id="ObjectUtils"><h3>ObjectUtils</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> function <b>ObjectUtils</b> (
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>ObjectUtils</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" type="text/css" href="../css/VisDoc.css" /><script src="../js/jquery.js" type="text/javascript">//</script><script src="../js/common.js" type="text/javascript">//</script><script src="../js/doc.js" type="text/javascript">//</script></head><body id="page_org_vancura_vaclav_core_utils_ObjectUtils"><script type="text/javascript">VisDoc.initBody();</script><div id="PageTop"><!----></div><div class="VisDoc"><div class="content"><div class="docNav"><ul><li><div id="twistyTOC_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited activeWhenNotFramed"><a href="#"><span class="icon">+</span>Show TOC</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyTOC_show");</script><div id="twistyTOC_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited activeWhenFramed"><a href="#"><span class="icon">&times;</span>Hide TOC</a></div><span id="twistyTOC_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyTOC_hide");</script></li></ul><ul class="accessKeyLinks"><li><a href="#PageTop" accesskey="t"><span class="accessKey">T</span>op</a></li><li><a href="#Summary" accesskey="s"><span class="accessKey">S</span>ummary</a></li><li><a href="#Constructor" accesskey="c"><span class="accessKey">C</span>onstructors</a></li><li><a href="#Classmethods" accesskey="a">Cl<span class="accessKey">a</span>ss methods</a></li></ul><ul><li><div id="twistyPrivate_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide private and protected members</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("togglePrivate_on");</script><div id="twistyPrivate_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show private and protected members</a></div><span id="twistyPrivate_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("togglePrivate_off");</script></li></ul><br class="clear" /></div><h1>ObjectUtils</h1><div class="classProperties"><table cellspacing="0"><tr><th align="left">Kind of class:</th><td>public class</td></tr><tr><th align="left">Package:</th><td><a class="className" href="package-org_vancura_vaclav_core_utils.html">org.vancura.vaclav.core.utils</a></td></tr><tr><th align="left">Inherits from:</th><td>none</td></tr><tr><th class="classDetails" align="left">Classpath:</th><td class="classDetails">org.vancura.vaclav.core.utils.ObjectUtils</td></tr><tr><th class="classDetails" align="left">File last modified:</th><td class="classDetails">Sunday, 10 January 2010, 16:41:32</td></tr></table></div><div id="sourceCodeTop" class="sourceCodeView"><div id="twistyViewSourceshow" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting twistyAnimate"><a href="#"><span class="icon">►&nbsp;</span><span class="linkLabel">View source</span></a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourceshow");</script><div id="twistyViewSourcehide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting twistyAnimate"><a href="#"><span class="icon">▼&nbsp;</span><span class="linkLabel">Hide source</span></a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourcehide");</script><div id="twistyViewSourcetoggle" class="twistyContent twistyMakeHidden twistyRememberSetting"><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourcetoggle");</script><div class="sourceCode"><textarea rows="10" cols="10" id="source" readonly="readonly">/***********************************************************************************************************************
+ * Some methods Copyrighted by their authors, specified in ASDocs.
+ * If not specified elsewhere: Copyright (c) 2010 Vaclav Vancura.
+ *
+ * Contact me at vaclav@vancura.org, @vancura or at my homepage at http://vaclav.vancura.org.
+ * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
+ * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
+ *
+ * Licensed under Attribution 3.0 Czech Republic (http://creativecommons.org/licenses/by/3.0/cz/deed.en_GB).
+ *
+ * That means you are free:
+ * * to copy, distribute, display, and perform the work
+ * * to make derivative works
+ *
+ * Under the following conditions::
+ * * Attribution — You must give the original author credit.
+ *
+ * With the understanding that:
+ *    * Waiver — Any of the above conditions can be waived if you get permission from the copyright holder. CC licenses
+ *      anticipate that a licensor may want to waive compliance with a specific condition, such as attribution.
+ *    * Other Rights — In no way are any of the following rights affected by the license:
+ *             - Your fair dealing or fair use rights — All jurisdictions allow some limited uses of copyrighted material
+ *            without permission. CC licenses do not affect the rights of users under those copyright limitations and
+ *            exceptions, such as fair use and fair dealing where applicable.
+ *             - The author's moral rights — In addition to the right of licensors to request removal of their name from
+ *            the work when used in a derivative or collective they don't like, copyright laws in most jurisdictions
+ *            around the world (with the notable exception of the US except in very limited circumstances) grant
+ *            creators "moral rights" which may provide some redress if a derivative work represents a "derogatory
+ *            treatment" of the licensor's work.
+ *             - Rights other persons may have either in the work itself or in how the work is used, such as publicity or
+ *            privacy rights. — Publicity rights allow individuals to control how their voice, image or likeness is used
+ *            for commercial purposes in public. If a CC-licensed work includes the voice or image of anyone other than
+ *            the licensor, a user of the work may need to get permission from those individuals before using the work
+ *            for commercial purposes.
+ *
+ * Notice — For any reuse or distribution, you must make clear to others the licence terms of this work.
+ **********************************************************************************************************************/
+
+package org.vancura.vaclav.core.utils {
+    import flash.utils.ByteArray;
+    import flash.utils.describeType;
+
+    public class ObjectUtils {
+
+
+
+        /**
+         * Constructor.
+         * Cannot be instantiated, throws an Error.
+         * @throws Error, since the class could not be instantiated
+         */
+        public function ObjectUtils() {
+            throw new Error('The ObjectUtils class cannot be instantiated.');
+        }
+
+
+
+        /**
+         * Count the properties in an object.
+         * Original article: http://jacksondunstan.com/articles/509
+         * @param obj Object to count the properties of
+         * @return The number of properties in the specified object. If the specified object is null, this is 0
+         * @author Jackson Dunstan (http://jacksondunstan.com)
+         */
+        public static function numProperties(obj:Object):int {
+            var count:int = 0;
+            for each(var prop:Object in obj) count++;
+            return count;
+        }
+
+
+
+        /**
+         * Check if an object has any properties.
+         * Original article: http://jacksondunstan.com/articles/509
+         * @param obj Object to check for properties
+         * @return If the specified object has any properties. If the specified object is null, this is false.
+         * @author Jackson Dunstan (http://jacksondunstan.com)
+         */
+        public static function hasProperties(obj:Object):Boolean {
+            for each(var prop:Object in obj) return true;
+            return false;
+        }
+
+
+
+        /**
+         * Check if the properties of an object are all the same.
+         * Original article: http://jacksondunstan.com/articles/509
+         * @param obj Object whose properties should be checked
+         * @param type Type to check the object's properties against
+         * @return If all of the properties of the specified object are of the specified type
+         * @author Jackson Dunstan (http://jacksondunstan.com)
+         */
+        public static function isUniformPropertyType(obj:Object, type:Class):Boolean {
+            for each(var prop:Object in obj) {
+                if(!(prop is type)) return false;
+            }
+            return true;
+        }
+
+
+
+        /**
+         * Assign properties from params to an Object.
+         * @param obj Target Object
+         * @param params Source Object
+         * @return Resulting Object
+         */
+        public static function assign(obj:Object, params:Object):Object {
+            var out:Object = (obj);
+
+            for(var i:String in params) {
+                //noinspection EmptyCatchBlockJS,UnusedCatchParameterJS
+                try {
+                    out[i] = params[i];
+                }
+                catch(err:Error) {
+                }
+            }
+
+            return out;
+        }
+
+
+
+        /**
+         * Clone an Object.
+         * @param source Source Object
+         * @return Cloned Object
+         */
+        public static function clone(source:*):Object {
+            var copier:ByteArray = new ByteArray();
+
+            copier.writeObject(source as Object);
+            copier.position = 0;
+
+            return copier.readObject();
+        }
+
+
+
+        /**
+         * Scan an Object.
+         * Original article: http://jacksondunstan.com/articles/509
+         * @param obj Object to be scanned
+         * @param depth Depth of scanning
+         * @return Scan result
+         * @author whitered
+         */
+        public static function inspect(obj:Object, depth:int = 2):String {
+            return scan(obj, depth, '');
+        }
+
+
+
+        /**
+         * Copy an object.
+         * Original article: http://jacksondunstan.com/articles/509
+         * @param obj Object to copy
+         * @param into (optional) Object to copy into. If null, a new object is created.
+         * @return A one-level deep copy of the object or null if the argument is null
+         * @author Jackson Dunstan (http://jacksondunstan.com)
+         */
+        public static function copy(obj:Object, into:Object = null):Object {
+            if(into == null) into = {};
+            if(obj != null) {
+                for(var o:* in obj) into[o] = obj[o];
+            }
+            return into;
+        }
+
+
+
+        /**
+         * Convert the object to an array. Note that the order of the array is undefined.
+         * Original article: http://jacksondunstan.com/articles/509
+         * @param obj Object to convert
+         * @return An array with all of the properties of the given object or null if the given object is null
+         * @author Jackson Dunstan (http://jacksondunstan.com)
+         */
+        public static function toArray(obj:Object):Array {
+            if(obj == null) return null;
+            else {
+                var ret:Array = [];
+                for each (var prop:Object in obj) ret.push(prop);
+                return ret;
+            }
+        }
+
+
+
+        /**
+         * Convert the object to a string of form: PROP: VAL&amp;PROP: VAL where:
+         *   - PROP is a property
+         *   - VAL is its corresponding value
+         *   - &amp; is the specified optional delimiter
+         * Original article: http://jacksondunstan.com/articles/509
+         * @param obj Object to convert
+         * @param delimiter (optional) Delimiter of property/value pairs
+         * @return An string of all property/value pairs delimited by the given string or null if the input object or delimiter is null.
+         * @author Jackson Dunstan (http://jacksondunstan.com)
+         */
+        public static function toString(obj:Object = null, delimiter:String = '\n'):String {
+            if(obj == null || delimiter == null) return '';
+            else {
+                var ret:Array = [];
+                for(var s:Object in obj) ret.push(s + ': ' + obj[s]);
+                return ret.join(delimiter);
+            }
+        }
+
+
+
+        /**
+         Searches the first level properties of an object for a another object.
+         CASA
+         @param obj: Object to search in.
+         @param member: Object to search for.
+         @return Returns &lt;code>true&lt;/code> if object was found; otherwise &lt;code>false&lt;/code>.
+         */
+        public static function contains(obj:Object, member:Object):Boolean {
+            for(var prop:String in obj)
+                if(obj[prop] == member)
+                    return true;
+
+            return false;
+        }
+
+
+
+        /**
+         Uses the strict equality operator to determine if object is &lt;code>undefined&lt;/code>.
+         CASA
+         @param obj: Object to determine if &lt;code>undefined&lt;/code>.
+         @return Returns &lt;code>true&lt;/code> if object is &lt;code>undefined&lt;/code>; otherwise &lt;code>false&lt;/code>.
+         */
+        public static function isUndefined(obj:Object):Boolean {
+            return obj is undefined;
+        }
+
+
+
+        /**
+         Uses the strict equality operator to determine if object is &lt;code>null&lt;/code>.
+         CASA
+         @param obj: Object to determine if &lt;code>null&lt;/code>.
+         @return Returns &lt;code>true&lt;/code> if object is &lt;code>null&lt;/code>; otherwise &lt;code>false&lt;/code>.
+         */
+        public static function isNull(obj:Object):Boolean {
+            return obj === null;
+        }
+
+
+
+        /**
+         Determines if object contains no value(s).
+         CASA
+         @param obj: Object to derimine if empty.
+         @return Returns &lt;code>true&lt;/code> if object is empty; otherwise &lt;code>false&lt;/code>.
+         @example
+         &lt;code>
+         var testNumber:Number;
+         var testArray:Array   = new Array();
+         var testString:String = "";
+         var testObject:Object = new Object();
+
+         trace(ObjectUtils.isEmpty(testNumber)); // traces "true"
+         trace(ObjectUtils.isEmpty(testArray));  // traces "true"
+         trace(ObjectUtils.isEmpty(testString)); // traces "true"
+         trace(ObjectUtils.isEmpty(testObject)); // traces "true"
+         &lt;/code>
+         */
+        public static function isEmpty(obj:*):Boolean {
+            if(obj == undefined)
+                return true;
+
+            if(obj is Number)
+                return isNaN(obj);
+
+            if(obj is Array || obj is String)
+                return obj.length == 0;
+
+            if(obj is Object) {
+                for(var prop:String in obj)
+                    return false;
+
+                return true;
+            }
+
+            return false;
+        }
+
+
+
+        // Private methods
+
+
+        private static function scan(obj:Object, depth:int, prefix:String):String {
+            if(depth &lt; 1) return String(obj);
+
+            const classDef:XML = describeType(obj);
+
+            var str:String = '';
+            for each(var variable:XML in classDef.variable) {
+                str += prefix + variable.@name + ' : ' + scan(obj[variable.@name], depth - 1, prefix + '\t') + '\n';
+            }
+
+            for(var s:* in obj) {
+                str += prefix + s + ' = ' + scan(obj[s], depth - 1, prefix + '\t') + '\n';
+            }
+            return str != '' ? ('[' + classDef.@name + '] {\n' + str + prefix + '}\n') : ((obj != null) ? obj + '' : 'null');
+        }
+    }
+}
+
+</textarea></div></div></div><div class="classDescription"></div><div class="summary"><h2 id="Summary">Summary</h2><div class="docNav"><ul><li><div id="twistyTypeInfo_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide type info</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_on");</script><div id="twistyTypeInfo_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show type info</a></div><span id="twistyTypeInfo_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_off");</script></li><li><div id="twistySummaries_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide summaries</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_on");</script><div id="twistySummaries_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show summaries</a></div><span id="twistySummaries_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_off");</script></li><li><div id="twistySort_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Sort by source order</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_on");</script><div id="twistySort_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Sort alphabetically</a></div><span id="twistySort_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_off");</script></li></ul><br class="clear" /></div><div class="memberList"><div class="memberSummaryPart"><span class="title">Constructor</span><ul class="sortable" id="sortul1"><li class="sortli listnum1"><a href="#ObjectUtils">ObjectUtils</a></li></ul></div><div class="memberSummaryPart"><span class="title">Class methods</span><ul class="sortable" id="sortul2"><li class="sortli listnum1"><a href="#numProperties">numProperties</a><span class="typeInfo"> (obj:Object) : int</span><ul class="summary"><li>Count the properties in an object.</li></ul></li><li class="sortli listnum2"><a href="#hasProperties">hasProperties</a><span class="typeInfo"> (obj:Object) : Boolean</span><ul class="summary"><li>Check if an object has any properties.</li></ul></li><li class="sortli listnum3"><a href="#isUniformPropertyType">isUniformPropertyType</a><span class="typeInfo"> (obj:Object, type:Class) : Boolean</span><ul class="summary"><li>Check if the properties of an object are all the same.</li></ul></li><li class="sortli listnum4"><a href="#assign">assign</a><span class="typeInfo"> (obj:Object, params:Object) : Object</span><ul class="summary"><li>Assign properties from params to an Object.</li></ul></li><li class="sortli listnum5"><a href="#clone">clone</a><span class="typeInfo"> (source:*) : Object</span><ul class="summary"><li>Clone an Object.</li></ul></li><li class="sortli listnum6"><a href="#inspect">inspect</a><span class="typeInfo"> (obj:Object, depth:int = 2) : String</span><ul class="summary"><li>Scan an Object.</li></ul></li><li class="sortli listnum7"><a href="#copy">copy</a><span class="typeInfo"> (obj:Object, into:Object = null) : Object</span><ul class="summary"><li>Copy an object.</li></ul></li><li class="sortli listnum8"><a href="#toArray">toArray</a><span class="typeInfo"> (obj:Object) : Array</span><ul class="summary"><li>Convert the object to an array.</li></ul></li><li class="sortli listnum9"><a href="#contains">contains</a><span class="typeInfo"> (obj:Object, member:Object) : Boolean</span><ul class="summary"><li>Searches the first level properties of an object for a another object.</li></ul></li><li class="sortli listnum10"><a href="#isUndefined">isUndefined</a><span class="typeInfo"> (obj:Object) : Boolean</span><ul class="summary"><li>Uses the strict equality operator to determine if object is <span class="codeIdentifier">undefined</span>.</li></ul></li><li class="sortli listnum11"><a href="#isNull">isNull</a><span class="typeInfo"> (obj:Object) : Boolean</span><ul class="summary"><li>Uses the strict equality operator to determine if object is <span class="codeIdentifier">null</span>.</li></ul></li><li class="sortli listnum12"><a href="#isEmpty">isEmpty</a><span class="typeInfo"> (obj:*) : Boolean</span><ul class="summary"><li>Determines if object contains no value(s).</li></ul></li><li class="private sortli listnum14"><a href="#scan">scan</a><span class="typeInfo"> (obj:Object, depth:int, prefix:String) : String</span></li></ul></div></div></div><div class="memberSection"><h2 id="Constructor">Constructor</h2><div class="member" id="ObjectUtils"><h3>ObjectUtils</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> function <b>ObjectUtils</b> (
 </div><div class="code">)</div><br class="clear" /></div></div><div class="description">     Constructor.<br />Cannot be instantiated, throws an Error. </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Throws:</span><div class="item"><ul><li> <span class="doesNotExist"> Error</span>, since the class could not be instantiated </li></ul></div></div></div></div></div></div><div class="memberSection"><h2 id="Classmethods">Class methods</h2><div class="member" id="assign"><h3>assign</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public static</span> function <b>assign</b> (
 
 </div><div class="code">obj:Object,
@@ -31,5 +347,10 @@ depth:int = 2) : String</div><br class="clear" /></div></div><div class="descrip
 
 </div><div class="code">obj:Object,
 type:Class) : Boolean</div><br class="clear" /></div></div><div class="description"> Check if the properties of an object are all the same.<br />Original article: <a href="http://jacksondunstan.com/articles/509">http://jacksondunstan.com/articles/509</a> </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Parameters:</span><div class="item"><div class="floatbox code colorizedCode">obj <span class="itemSeparator">:</span></div><div>Object whose properties should be checked</div></div><div class="item"><div class="floatbox code colorizedCode">type<span class="itemSeparator">:</span></div><div>Type to check the object's properties against</div></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Returns:</span><div class="item"><ul><li> If all of the properties of the specified object are of the specified type </li></ul></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Author:</span><div class="item"><ul><li> Jackson Dunstan (<a href="http://jacksondunstan.com">http://jacksondunstan.com</a>) </li></ul></div></div></div></div></div><div class="member" id="numProperties"><h3>numProperties</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public static</span> function <b>numProperties</b> (
-</div><div class="code">obj:Object) : int</div><br class="clear" /></div></div><div class="description"> Count the properties in an object.<br />Original article: <a href="http://jacksondunstan.com/articles/509">http://jacksondunstan.com/articles/509</a> </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Parameters:</span><div class="item"><div class="floatbox code colorizedCode">obj<span class="itemSeparator">:</span></div><div>Object to count the properties of</div></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Returns:</span><div class="item"><ul><li> The number of properties in the specified object. If the specified object is null, this is 0 </li></ul></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Author:</span><div class="item"><ul><li> Jackson Dunstan (<a href="http://jacksondunstan.com">http://jacksondunstan.com</a>) </li></ul></div></div></div></div></div><div class="member" id="toArray"><h3>toArray</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public static</span> function <b>toArray</b> (
+</div><div class="code">obj:Object) : int</div><br class="clear" /></div></div><div class="description"> Count the properties in an object.<br />Original article: <a href="http://jacksondunstan.com/articles/509">http://jacksondunstan.com/articles/509</a> </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Parameters:</span><div class="item"><div class="floatbox code colorizedCode">obj<span class="itemSeparator">:</span></div><div>Object to count the properties of</div></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Returns:</span><div class="item"><ul><li> The number of properties in the specified object. If the specified object is null, this is 0 </li></ul></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Author:</span><div class="item"><ul><li> Jackson Dunstan (<a href="http://jacksondunstan.com">http://jacksondunstan.com</a>) </li></ul></div></div></div></div></div><div class="member private" id="scan"><h3>scan</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private static</span> function <b>scan</b> (
+
+
+</div><div class="code">obj:Object,
+depth:int,
+prefix:String) : String</div><br class="clear" /></div></div></div><div class="member" id="toArray"><h3>toArray</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public static</span> function <b>toArray</b> (
 </div><div class="code">obj:Object) : Array</div><br class="clear" /></div></div><div class="description"> Convert the object to an array. Note that the order of the array is undefined.<br />Original article: <a href="http://jacksondunstan.com/articles/509">http://jacksondunstan.com/articles/509</a> </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Parameters:</span><div class="item"><div class="floatbox code colorizedCode">obj<span class="itemSeparator">:</span></div><div>Object to convert</div></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Returns:</span><div class="item"><ul><li> An array with all of the properties of the given object or null if the given object is null </li></ul></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Author:</span><div class="item"><ul><li> Jackson Dunstan (<a href="http://jacksondunstan.com">http://jacksondunstan.com</a>) </li></ul></div></div></div></div></div></div><div class="footer"><ul class="docFooter"></ul></div></div></div></body></html>

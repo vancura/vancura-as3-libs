@@ -1,7 +1,758 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head><title>NumberUtils</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" type="text/css" href="../css/VisDoc.css" /><script src="../js/jquery.js" type="text/javascript">//</script><script src="../js/common.js" type="text/javascript">//</script><script src="../js/doc.js" type="text/javascript">//</script></head><body id="page_org_vancura_vaclav_core_utils_NumberUtils"><script type="text/javascript">VisDoc.initBody();</script><div id="PageTop"><!----></div><div class="VisDoc"><div class="content"><div class="docNav"><ul class="accessKeyLinks"><li><a href="#PageTop" accesskey="t"><span class="accessKey">T</span>op</a></li><li><a href="#Summary" accesskey="s"><span class="accessKey">S</span>ummary</a></li><li><a href="#Constructor" accesskey="c"><span class="accessKey">C</span>onstructors</a></li><li><a href="#Classmethods" accesskey="a">Cl<span class="accessKey">a</span>ss methods</a></li></ul><br class="clear" /></div><h1>NumberUtils</h1><div class="classProperties"><table cellspacing="0"><tr><th align="left">Kind of class:</th><td>public class</td></tr><tr><th align="left">Package:</th><td><a class="className" href="package-org_vancura_vaclav_core_utils.html">org.vancura.vaclav.core.utils</a></td></tr><tr><th align="left">Inherits from:</th><td>none</td></tr><tr><th class="classDetails" align="left">Classpath:</th><td class="classDetails">org.vancura.vaclav.core.utils.NumberUtils</td></tr><tr><th class="classDetails" align="left">File last modified:</th><td class="classDetails">Sunday, 10 January 2010, 14:43:34</td></tr></table></div><div class="classDescription"></div><div class="summary"><h2 id="Summary">Summary</h2><div class="docNav"><ul><li><div id="twistyTypeInfo_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide type info</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_on");</script><div id="twistyTypeInfo_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show type info</a></div><span id="twistyTypeInfo_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_off");</script></li><li><div id="twistySummaries_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide summaries</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_on");</script><div id="twistySummaries_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show summaries</a></div><span id="twistySummaries_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_off");</script></li><li><div id="twistySort_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Sort by source order</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_on");</script><div id="twistySort_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Sort alphabetically</a></div><span id="twistySort_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_off");</script></li></ul><br class="clear" /></div><div class="memberList"><div class="memberSummaryPart"><span class="title">Constructor</span><ul class="sortable" id="sortul1"><li class="sortli listnum1"><a href="#NumberUtils">NumberUtils</a></li></ul></div><div class="memberSummaryPart"><span class="title">Class methods</span><ul class="sortable" id="sortul2"><li class="sortli listnum1"><a href="#isEqual">isEqual</a><span class="typeInfo"> (val1:Number, val2:Number, precision:Number = 0) : Boolean</span><ul class="summary"><li>Determines if the two values are equal, with the option to define the precision.</li></ul></li><li class="sortli listnum2"><a href="#min">min</a><span class="typeInfo"> (val1:*, val2:*) : Number</span><ul class="summary"><li>Evaluates val1 and val2 and returns the smaller value.</li></ul></li><li class="sortli listnum3"><a href="#max">max</a><span class="typeInfo"> (val1:*, val2:*) : Number</span><ul class="summary"><li>Evaluates val1 and val2 and returns the larger value.</li></ul></li><li class="sortli listnum4"><a href="#isEven">isEven</a><span class="typeInfo"> (value:Number) : Boolean</span><ul class="summary"><li>Determines if the number is even.</li></ul></li><li class="sortli listnum5"><a href="#isOdd">isOdd</a><span class="typeInfo"> (value:Number) : Boolean</span><ul class="summary"><li>Determines if the number is odd.</li></ul></li><li class="sortli listnum6"><a href="#isInteger">isInteger</a><span class="typeInfo"> (value:Number) : Boolean</span><ul class="summary"><li>Determines if the number is an integer.</li></ul></li><li class="sortli listnum7"><a href="#isPrime">isPrime</a><span class="typeInfo"> (value:Number) : Boolean</span><ul class="summary"><li>Determines if the number is prime.</li></ul></li><li class="sortli listnum8"><a href="#roundDecimalToPlace">roundDecimalToPlace</a><span class="typeInfo"> (value:Number, place:uint) : Number</span><ul class="summary"><li>Rounds a number's decimal value to a specific place.</li></ul></li><li class="sortli listnum9"><a href="#loopIndex">loopIndex</a><span class="typeInfo"> (index:int, length:uint) : uint</span><ul class="summary"><li>Determines if index is included within the collection length otherwise the index loops to the beginning or end of the range and continues.</li></ul></li><li class="sortli listnum10"><a href="#isBetween">isBetween</a><span class="typeInfo"> (value:Number, firstValue:Number, secondValue:Number) : Boolean</span><ul class="summary"><li>Determines if the value is included within a range.</li></ul></li><li class="sortli listnum11"><a href="#confine">confine</a><span class="typeInfo"> (value:Number, min:Number, max:Number) : Number</span><ul class="summary"><li>Determines if value falls within a range; if not it is snapped to the nearest range value.</li></ul></li><li class="sortli listnum12"><a href="#pad">pad</a><span class="typeInfo"> (value:Number, beforePoint:uint, afterPoint:uint = 0) : String</span><ul class="summary"><li>Pads the value with the set number of digits before and after the point.</li></ul></li><li class="sortli listnum13"><a href="#round">round</a><span class="typeInfo"> (value:Number, digits:int) : Number</span><ul class="summary"><li>Rounds a number to the nearest nth, where digits is n / 10.</li></ul></li><li class="sortli listnum14"><a href="#insertCommas">insertCommas</a><span class="typeInfo"> (value:Number) : String</span><ul class="summary"><li>Inserts commas every three digits in the integer of value</li></ul></li><li class="sortli listnum15"><a href="#createStepsBetween">createStepsBetween</a><span class="typeInfo"> (begin:Number, end:Number, steps:Number) : Array</span><ul class="summary"><li>Creates evenly spaced numerical increments between two numbers.</li></ul></li><li class="sortli listnum16"><a href="#interpolate">interpolate</a><span class="typeInfo"> (amount:<a class="className" href="org_vancura_vaclav_core_types_Percent.html">Percent</a>, minimum:Number, maximum:Number) : Number</span><ul class="summary"><li>Determines a value between two specified values.</li></ul></li><li class="sortli listnum17"><a href="#normalize">normalize</a><span class="typeInfo"> (value:Number, minimum:Number, maximum:Number) : <a class="className" href="org_vancura_vaclav_core_types_Percent.html">Percent</a></span><ul class="summary"><li>Determines a percentage of a value in a given range.</li></ul></li><li class="sortli listnum18"><a href="#map">map</a><span class="typeInfo"> (value:Number, min1:Number, max1:Number, min2:Number, max2:Number) : Number</span><ul class="summary"><li>Maps a value from one coordinate space to another.</li></ul></li><li class="sortli listnum19"><a href="#getWeightedAverage">getWeightedAverage</a><span class="typeInfo"> (value:Number, dest:Number, n:Number) : Number</span><ul class="summary"><li>Low pass filter alogrithm for easing a value toward a destination value.</li></ul></li><li class="sortli listnum20"><a href="#format">format</a><span class="typeInfo"> (value:Number, minLength:uint, thouDelim:String = null, fillChar:String = null) : String</span><ul class="summary"><li>Formats a number.</li></ul></li><li class="sortli listnum21"><a href="#getOrdinalSuffix">getOrdinalSuffix</a><span class="typeInfo"> (value:int) : String</span><ul class="summary"><li>Finds the English ordinal suffix for the number given.</li></ul></li><li class="sortli listnum22"><a href="#addLeadingZero">addLeadingZero</a><span class="typeInfo"> (value:Number) : String</span><ul class="summary"><li>Adds a leading zero for numbers less than ten.</li></ul></li><li class="sortli listnum23"><a href="#isPositive">isPositive</a><span class="typeInfo"> (_num:Number) : Boolean</span><ul class="summary"><li>Determines whether or not the supplied number is positive</li></ul></li><li class="sortli listnum24"><a href="#isNegative">isNegative</a><span class="typeInfo"> (_num:Number) : Boolean</span><ul class="summary"><li>Determines whether or not the supplied number is negative</li></ul></li><li class="sortli listnum25"><a href="#isDecimalNumber">isDecimalNumber</a><span class="typeInfo"> (_num:Number) : Boolean</span><ul class="summary"><li>Determines whether or not the supplied number is a decimal</li></ul></li><li class="sortli listnum26"><a href="#getEvenNumbersWithinRange">getEvenNumbersWithinRange</a><span class="typeInfo"> (_min:int, _max:int) : Array</span><ul class="summary"><li>Returns an Array of even numbers within the supplied range</li></ul></li><li class="sortli listnum27"><a href="#getOddNumbersWithinRange">getOddNumbersWithinRange</a><span class="typeInfo"> (_min:int, _max:int) : Array</span><ul class="summary"><li>Returns an Array of odd numbers within the supplied range</li></ul></li><li class="sortli listnum28"><a href="#getPrimeNumbersWithinRange">getPrimeNumbersWithinRange</a><span class="typeInfo"> (_min:int, _max:int) : Array</span><ul class="summary"><li>Returns an Array of prime numbers within the supplied range</li></ul></li></ul></div></div></div><div class="memberSection"><h2 id="Constructor">Constructor</h2><div class="member" id="NumberUtils"><h3>NumberUtils</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> function <b>NumberUtils</b> (
-</div><div class="code">)</div><br class="clear" /></div></div><div class="description">     Constructor.<br />Cannot be instantiated, throws an Error. </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Throws:</span><div class="item"><ul><li> <span class="doesNotExist"> Error</span>, since the class could not be instantiated </li></ul></div></div></div></div></div></div><div class="memberSection"><h2 id="Classmethods">Class methods</h2><div class="member" id="addLeadingZero"><h3>addLeadingZero</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public static</span> function <b>addLeadingZero</b> (
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>NumberUtils</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" type="text/css" href="../css/VisDoc.css" /><script src="../js/jquery.js" type="text/javascript">//</script><script src="../js/common.js" type="text/javascript">//</script><script src="../js/doc.js" type="text/javascript">//</script></head><body id="page_org_vancura_vaclav_core_utils_NumberUtils"><script type="text/javascript">VisDoc.initBody();</script><div id="PageTop"><!----></div><div class="VisDoc"><div class="content"><div class="docNav"><ul><li><div id="twistyTOC_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited activeWhenNotFramed"><a href="#"><span class="icon">+</span>Show TOC</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyTOC_show");</script><div id="twistyTOC_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited activeWhenFramed"><a href="#"><span class="icon">&times;</span>Hide TOC</a></div><span id="twistyTOC_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyTOC_hide");</script></li></ul><ul class="accessKeyLinks"><li><a href="#PageTop" accesskey="t"><span class="accessKey">T</span>op</a></li><li><a href="#Summary" accesskey="s"><span class="accessKey">S</span>ummary</a></li><li><a href="#Constructor" accesskey="c"><span class="accessKey">C</span>onstructors</a></li><li><a href="#Classmethods" accesskey="a">Cl<span class="accessKey">a</span>ss methods</a></li></ul><ul><li><div id="twistyPrivate_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide private and protected members</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("togglePrivate_on");</script><div id="twistyPrivate_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show private and protected members</a></div><span id="twistyPrivate_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("togglePrivate_off");</script></li></ul><br class="clear" /></div><h1>NumberUtils</h1><div class="classProperties"><table cellspacing="0"><tr><th align="left">Kind of class:</th><td>public class</td></tr><tr><th align="left">Package:</th><td><a class="className" href="package-org_vancura_vaclav_core_utils.html">org.vancura.vaclav.core.utils</a></td></tr><tr><th align="left">Inherits from:</th><td>none</td></tr><tr><th class="classDetails" align="left">Classpath:</th><td class="classDetails">org.vancura.vaclav.core.utils.NumberUtils</td></tr><tr><th class="classDetails" align="left">File last modified:</th><td class="classDetails">Sunday, 10 January 2010, 14:43:34</td></tr></table></div><div id="sourceCodeTop" class="sourceCodeView"><div id="twistyViewSourceshow" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting twistyAnimate"><a href="#"><span class="icon">►&nbsp;</span><span class="linkLabel">View source</span></a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourceshow");</script><div id="twistyViewSourcehide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting twistyAnimate"><a href="#"><span class="icon">▼&nbsp;</span><span class="linkLabel">Hide source</span></a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourcehide");</script><div id="twistyViewSourcetoggle" class="twistyContent twistyMakeHidden twistyRememberSetting"><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourcetoggle");</script><div class="sourceCode"><textarea rows="10" cols="10" id="source" readonly="readonly">/***********************************************************************************************************************
+ * Some methods Copyrighted by their authors, specified in ASDocs.
+ * If not specified elsewhere: Copyright (c) 2010 Vaclav Vancura.
+ *
+ * Contact me at vaclav@vancura.org, @vancura or at my homepage at http://vaclav.vancura.org.
+ * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
+ * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
+ *
+ * Licensed under Attribution 3.0 Czech Republic (http://creativecommons.org/licenses/by/3.0/cz/deed.en_GB).
+ *
+ * That means you are free:
+ * * to copy, distribute, display, and perform the work
+ * * to make derivative works
+ *
+ * Under the following conditions::
+ * * Attribution — You must give the original author credit.
+ *
+ * With the understanding that:
+ *    * Waiver — Any of the above conditions can be waived if you get permission from the copyright holder. CC licenses
+ *      anticipate that a licensor may want to waive compliance with a specific condition, such as attribution.
+ *    * Other Rights — In no way are any of the following rights affected by the license:
+ *             - Your fair dealing or fair use rights — All jurisdictions allow some limited uses of copyrighted material
+ *            without permission. CC licenses do not affect the rights of users under those copyright limitations and
+ *            exceptions, such as fair use and fair dealing where applicable.
+ *             - The author's moral rights — In addition to the right of licensors to request removal of their name from
+ *            the work when used in a derivative or collective they don't like, copyright laws in most jurisdictions
+ *            around the world (with the notable exception of the US except in very limited circumstances) grant
+ *            creators "moral rights" which may provide some redress if a derivative work represents a "derogatory
+ *            treatment" of the licensor's work.
+ *             - Rights other persons may have either in the work itself or in how the work is used, such as publicity or
+ *            privacy rights. — Publicity rights allow individuals to control how their voice, image or likeness is used
+ *            for commercial purposes in public. If a CC-licensed work includes the voice or image of anyone other than
+ *            the licensor, a user of the work may need to get permission from those individuals before using the work
+ *            for commercial purposes.
+ *
+ * Notice — For any reuse or distribution, you must make clear to others the licence terms of this work.
+ **********************************************************************************************************************/
+
+package org.vancura.vaclav.core.utils {
+    import org.vancura.vaclav.core.types.Percent;
+
+    public class NumberUtils {
+
+
+
+        /**
+         * Constructor.
+         * Cannot be instantiated, throws an Error.
+         * @throws Error, since the class could not be instantiated
+         */
+        public function NumberUtils() {
+            throw new Error('The NumberUtils class cannot be instantiated.');
+        }
+
+
+
+        /**
+         Determines if the two values are equal, with the option to define the precision.
+         CASA
+         @param val1: A value to compare.
+         @param val2: A value to compare.
+         @param precision: The maximum amount the two values can differ and still be considered equal.
+         @return Returns &lt;code>true&lt;/code> the values are equal; otherwise &lt;code>false&lt;/code>.
+         @example
+         &lt;code>
+         trace(NumberUtils.isEqual(3.042, 3, 0)); // Traces false
+         trace(NumberUtils.isEqual(3.042, 3, 0.5)); // Traces true
+         &lt;/code>
+         */
+        public static function isEqual(val1:Number, val2:Number, precision:Number = 0):Boolean {
+            return Math.abs(val1 - val2) &lt;= Math.abs(precision);
+        }
+
+
+
+        /**
+         Evaluates &lt;code>val1&lt;/code> and &lt;code>val2&lt;/code> and returns the smaller value. Unlike &lt;code>Math.min&lt;/code> this method will return the defined value if the other value is &lt;code>null&lt;/code> or not a number.
+         CASA
+         @param val1: A value to compare.
+         @param val2: A value to compare.
+         @return Returns the smallest value, or the value out of the two that is defined and valid.
+         @example
+         &lt;code>
+         trace(NumberUtils.min(5, null)); // Traces 5
+         trace(NumberUtils.min(5, "CASA")); // Traces 5
+         trace(NumberUtils.min(5, 13)); // Traces 5
+         &lt;/code>
+         */
+        public static function min(val1:*, val2:*):Number {
+            if(isNaN(val1) &amp;&amp; isNaN(val2) || val1 == null &amp;&amp; val2 == null)
+                return NaN;
+
+            if(val1 == null || val2 == null)
+                return (val2 == null) ? val1 : val2;
+
+            if(isNaN(val1) || isNaN(val2))
+                return isNaN(val2) ? val1 : val2;
+
+            return Math.min(val1, val2);
+        }
+
+
+
+        /**
+         Evaluates &lt;code>val1&lt;/code> and &lt;code>val2&lt;/code> and returns the larger value. Unlike &lt;code>Math.max&lt;/code> this method will return the defined value if the other value is &lt;code>null&lt;/code> or not a number.
+         CASA
+         @param val1: A value to compare.
+         @param val2: A value to compare.
+         @return Returns the largest value, or the value out of the two that is defined and valid.
+         @example
+         &lt;code>
+         trace(NumberUtils.max(-5, null)); // Traces -5
+         trace(NumberUtils.max(-5, "CASA")); // Traces -5
+         trace(NumberUtils.max(-5, -13)); // Traces -5
+         &lt;/code>
+         */
+        public static function max(val1:*, val2:*):Number {
+            if(isNaN(val1) &amp;&amp; isNaN(val2) || val1 == null &amp;&amp; val2 == null)
+                return NaN;
+
+            if(val1 == null || val2 == null)
+                return (val2 == null) ? val1 : val2;
+
+            if(isNaN(val1) || isNaN(val2))
+                return (isNaN(val2)) ? val1 : val2;
+
+            return Math.max(val1, val2);
+        }
+
+
+
+        /**
+         Determines if the number is even.
+         CASA
+         @param value: A number to determine if it is divisible by &lt;code>2&lt;/code>.
+         @return Returns &lt;code>true&lt;/code> if the number is even; otherwise &lt;code>false&lt;/code>.
+         @example
+         &lt;code>
+         trace(NumberUtils.isEven(7)); // Traces false
+         trace(NumberUtils.isEven(12)); // Traces true
+         &lt;/code>
+         */
+        public static function isEven(value:Number):Boolean {
+            return (value &amp; 1) == 0;
+        }
+
+
+
+        /**
+         Determines if the number is odd.
+         CASA
+         @param value: A number to determine if it is not divisible by &lt;code>2&lt;/code>.
+         @return Returns &lt;code>true&lt;/code> if the number is odd; otherwise &lt;code>false&lt;/code>.
+         @example
+         &lt;code>
+         trace(NumberUtils.isOdd(7)); // Traces true
+         trace(NumberUtils.isOdd(12)); // Traces false
+         &lt;/code>
+         */
+        public static function isOdd(value:Number):Boolean {
+            return !isEven(value);
+        }
+
+
+
+        /**
+         Determines if the number is an integer.
+         CASA
+         @param value: A number to determine if it contains no decimal values.
+         @return Returns &lt;code>true&lt;/code> if the number is an integer; otherwise &lt;code>false&lt;/code>.
+         @example
+         &lt;code>
+         trace(NumberUtils.isInteger(13)); // Traces true
+         trace(NumberUtils.isInteger(1.2345)); // Traces false
+         &lt;/code>
+         */
+        public static function isInteger(value:Number):Boolean {
+            return (value % 1) == 0;
+        }
+
+
+
+        /**
+         Determines if the number is prime.
+         CASA
+         @param value: A number to determine if it is only divisible by &lt;code>1&lt;/code> and itself.
+         @return Returns &lt;code>true&lt;/code> if the number is prime; otherwise &lt;code>false&lt;/code>.
+         @example
+         &lt;code>
+         trace(NumberUtils.isPrime(13)); // Traces true
+         trace(NumberUtils.isPrime(4)); // Traces false
+         &lt;/code>
+         */
+        public static function isPrime(value:Number):Boolean {
+            if(value == 1 || value == 2)
+                return true;
+
+            if(isEven(value))
+                return false;
+
+            var s:Number = Math.sqrt(value);
+            for(var i:Number = 3; i &lt;= s; i++)
+                if(value % i == 0)
+                    return false;
+
+            return true;
+        }
+
+
+
+        /**
+         Rounds a number's decimal value to a specific place.
+         CASA
+         @param value: The number to round.
+         @param place: The decimal place to round.
+         @return Returns the value rounded to the defined place.
+         @example
+         &lt;code>
+         trace(NumberUtils.roundToPlace(3.14159, 2)); // Traces 3.14
+         trace(NumberUtils.roundToPlace(3.14159, 3)); // Traces 3.142
+         &lt;/code>
+         */
+        public static function roundDecimalToPlace(value:Number, place:uint):Number {
+            var p:Number = Math.pow(10, place);
+
+            return Math.round(value * p) / p;
+        }
+
+
+
+        /**
+         Determines if index is included within the collection length otherwise the index loops to the beginning or end of the range and continues.
+         CASA
+         @param index: Index to loop if needed.
+         @param length: The total elements in the collection.
+         @return A valid zero-based index.
+         @example
+         &lt;code>
+         var colors:Array = new Array("Red", "Green", "Blue");
+
+         trace(colors[NumberUtils.loopIndex(2, colors.length)]); // Traces Blue
+         trace(colors[NumberUtils.loopIndex(4, colors.length)]); // Traces Green
+         trace(colors[NumberUtils.loopIndex(-6, colors.length)]); // Traces Red
+         &lt;/code>
+         */
+        public static function loopIndex(index:int, length:uint):uint {
+            if(index &lt; 0)
+                index = length + index % length;
+
+            if(index >= length)
+                return index % length;
+
+            return index;
+        }
+
+
+
+        /**
+         Determines if the value is included within a range.
+
+         @param value: Number to determine if it is included in the range.
+         @param firstValue: First value of the range.
+         @param secondValue: Second value of the range.
+         @return Returns &lt;code>true&lt;/code> if the number falls within the range; otherwise &lt;code>false&lt;/code>.
+         @usageNote The range values do not need to be in order.
+         @example
+         &lt;code>
+         trace(NumberUtils.isBetween(3, 0, 5)); // Traces true
+         trace(NumberUtils.isBetween(7, 0, 5)); // Traces false
+         &lt;/code>
+         */
+        public static function isBetween(value:Number, firstValue:Number, secondValue:Number):Boolean {
+            return !(value &lt; Math.min(firstValue, secondValue) || value > Math.max(firstValue, secondValue));
+        }
+
+
+
+        /**
+         Determines if value falls within a range; if not it is snapped to the nearest range value.
+
+         @param value: Number to determine if it is included in the range.
+         @param firstValue: First value of the range.
+         @param secondValue: Second value of the range.
+         @return Returns either the number as passed, or its value once snapped to nearest range value.
+         @usageNote The constraint values do not need to be in order.
+         @example
+         &lt;code>
+         trace(NumberUtils.constrain(3, 0, 5)); // Traces 3
+         trace(NumberUtils.constrain(7, 0, 5)); // Traces 5
+         &lt;/code>
+         */
+
+
+        /**
+         * Resticts the &lt;code>value&lt;/code> to the &lt;code>min&lt;/code> and &lt;code>max&lt;/code>
+         * @param value the number to restrict
+         * @param min the minimum number for &lt;code>value&lt;/code> to be
+         * @param max the maximmum number for &lt;code>value&lt;/code> to be
+         * @return
+         * @author Jonnie Hallman / Destroytoday (http://destroytoday.com)
+         */
+        public static function confine(value:Number, min:Number, max:Number):Number {
+            return value &lt; min ? min : (value > max ? max : value);
+        }
+
+
+
+        /**
+         * Pads the &lt;code>value&lt;/code> with the set number of digits before and after the point.
+         * If the number of digits in the integer of &lt;code>value&lt;/code> is less than &lt;code>beforePoint&lt;/code>, the remaining digits are filled with zeros.
+         * If the number of digits in the decimal of &lt;code>value&lt;/code> is less than &lt;code>afterPoint&lt;/code>, the remaning digits are filled with zeros.
+         * @param value the number to pad
+         * @param beforePoint the number of digits to pad before the point
+         * @param afterPoint the number of digits to pad after the point
+         * @return &lt;code>value&lt;/code> padded as a &lt;code>String&lt;/code>
+         * @example
+         * &lt;listing version="3.0">
+         * NumberUtils.pad(.824, 0, 5); // returns ".82400"
+         * NumberUtils.pad(9, 3, 2); // returns "009.00"
+         * NumberUtils.pad(2835.3, 4, 2); // returns "2835.30"
+         * &lt;/listing>
+         * @author Jonnie Hallman / Destroytoday (http://destroytoday.com)
+         */
+        public static function pad(value:Number, beforePoint:uint, afterPoint:uint = 0):String {
+            // separate the integer from the decimal
+            var valueArray:Array = String(value).split(".");
+
+            var integer:String = valueArray[0];
+
+            // determine the sign of the value
+            var negative:Boolean = integer.substr(0, 1) == "-";
+
+            // remove the "-" if it exists
+            if(negative) integer = integer.substr(1);
+
+            // treat zeros as empty, so integer.length doesn't return 1 when integer is 0
+            if(integer == "0") {
+                integer = "";
+            }
+
+            var len:int = integer.length;
+
+            // determine how many times "0" needs to be prepended
+            var zeros:int = Math.max(0, beforePoint - len);
+
+            // prepend "0" until zeros == 0
+            while(zeros--) integer = "0" + integer;
+
+            var decimal:String;
+
+            // if a point didn't exist or the decimal is 0, empty the decimal
+            if(valueArray.length == 1 || valueArray[1] == "0") {
+                decimal = "";
+            }
+            else {
+                decimal = valueArray[1];
+            }
+
+            len = decimal.length;
+
+            // determine how many times "0" needs to be appended
+            zeros = Math.max(0, afterPoint - len);
+
+            // append "0" until zeros == 0
+            while(zeros--) decimal += "0";
+
+            // set sign if negative
+            var sign:String = negative ? "-" : "";
+
+            // set point if a decimal exists (or afterPoint > 0, determined earlier)
+            var point:String = decimal ? "." : "";
+
+            return sign + integer + point + decimal;
+        }
+
+
+
+        /**
+         * Rounds a number to the nearest nth, where &lt;code>digits&lt;/code> is n / 10.
+         * @param value the number to round
+         * @param digits the number of digits to show after the point
+         * @return
+         * @author Jonnie Hallman / Destroytoday (http://destroytoday.com)
+         */
+        public static function round(value:Number, digits:int):Number {
+            digits = Math.pow(10, digits);
+
+            return Math.round(value * digits) / digits;
+        }
+
+
+
+        /**
+         * Inserts commas every three digits in the integer of &lt;code>value&lt;/code>
+         * @param value the number to insert commas into
+         * @return &lt;code>value&lt;/code> as a &lt;code>String&lt;/code> formatted with commas
+         * @author Jonnie Hallman / Destroytoday (http://destroytoday.com)
+         */
+        public static function insertCommas(value:Number):String {
+            // convert the value to a string
+            var valueString:String = String(value);
+
+            // determine the location of the point
+            var commaIndex:int = valueString.indexOf(".");
+
+            // if a point doesn't exist, consider it to be at the end of the value
+            if(commaIndex == -1) commaIndex = valueString.length;
+
+            do {
+                // move to the left three digits
+                commaIndex -= 3;
+
+                // if index is beyond the beginning of the value, end the loop
+                if(commaIndex &lt;= 0) break;
+
+                // insert the comma
+                valueString = valueString.substring(0, commaIndex) + "," + valueString.substr(commaIndex);
+            }
+            while(true);
+
+            // remove "0" if value is a decimal
+            if(valueString.substr(0, 2) == "0.") valueString = valueString.substr(1);
+
+            return valueString;
+        }
+
+
+
+        /**
+         Creates evenly spaced numerical increments between two numbers.
+         CASA
+         @param begin: The starting value.
+         @param end: The ending value.
+         @param steps: The number of increments between the starting and ending values.
+         @return Returns an Array composed of the increments between the two values.
+         @example
+         &lt;code>
+         trace(NumberUtils.createStepsBetween(0, 5, 4)); // Traces 1,2,3,4
+         trace(NumberUtils.createStepsBetween(1, 3, 3)); // Traces 1.5,2,2.5
+         &lt;/code>
+         */
+        public static function createStepsBetween(begin:Number, end:Number, steps:Number):Array {
+            steps++;
+
+            var i:uint = 0;
+            var stepsBetween:Array = new Array();
+            var increment:Number = (end - begin) / steps;
+
+            while(++i &lt; steps)
+                stepsBetween.push((i * increment) + begin);
+
+            return stepsBetween;
+        }
+
+
+
+        /**
+         Determines a value between two specified values.
+         CASA
+         @param amount: The level of interpolation between the two values. If &lt;code>0%&lt;/code>, &lt;code>begin&lt;/code> value is returned; if &lt;code>100%&lt;/code>, &lt;code>end&lt;/code> value is returned.
+         @param minimum: The lower value.
+         @param maximum: The upper value.
+         @example
+         &lt;code>
+         trace(NumberUtils.interpolate(new Percent(0.5), 0, 10)); // Traces 5
+         &lt;/code>
+         */
+        public static function interpolate(amount:Percent, minimum:Number, maximum:Number):Number {
+            return minimum + (maximum - minimum) * amount.decimalPercentage;
+        }
+
+
+
+        /**
+         Determines a percentage of a value in a given range.
+         CASA
+         @param value: The value to be converted.
+         @param minimum: The lower value of the range.
+         @param maximum: The upper value of the range.
+         @example
+         &lt;code>
+         trace(NumberUtils.normalize(8, 4, 20).decimalPercentage); // Traces 0.25
+         &lt;/code>
+         */
+        public static function normalize(value:Number, minimum:Number, maximum:Number):Percent {
+            return new Percent((value - minimum) / (maximum - minimum));
+        }
+
+
+
+        /**
+         Maps a value from one coordinate space to another.
+         CASA
+         @param value: Value from the input coordinate space to map to the output coordinate space.
+         @param min1: Starting value of the input coordinate space.
+         @param max1: Ending value of the input coordinate space.
+         @param min2: Starting value of the output coordinate space.
+         @param max2: Ending value of the output coordinate space.
+         @example
+         &lt;code>
+         trace(NumberUtils.map(0.75, 0, 1, 0, 100)); // Traces 75
+         &lt;/code>
+         */
+        public static function map(value:Number, min1:Number, max1:Number, min2:Number, max2:Number):Number {
+            return min2 + (max2 - min2) * ((value - min1) / (max1 - min1));
+        }
+
+
+
+        /**
+         Low pass filter alogrithm for easing a value toward a destination value. Works best for tweening values when no definite time duration exists and when the destination value changes.
+         CASA
+         If &lt;code>(0.5 &lt; n &lt; 1)&lt;/code>, then the resulting values will overshoot (ping-pong) until they reach the destination value. When &lt;code>n&lt;/code> is greater than 1, as its value increases, the time it takes to reach the destination also increases. A pleasing value for &lt;code>n&lt;/code> is 5.
+
+         @param value: The current value.
+         @param dest: The destination value.
+         @param n: The slowdown factor.
+         @return The weighted average.
+         */
+        public static function getWeightedAverage(value:Number, dest:Number, n:Number):Number {
+            return value + (dest - value) / n;
+        }
+
+
+
+        /**
+         Formats a number.
+         CASA
+         @param value: The number you wish to format.
+         @param minLength: The minimum length of the number.
+         @param thouDelim: The character used to seperate thousands.
+         @param fillChar: The leading character used to make the number the minimum length.
+         @return Returns the formated number as a String.
+         @example
+         &lt;code>
+         trace(NumberUtils.format(1234567, 8, ",")); // Traces 01,234,567
+         &lt;/code>
+         */
+        public static function format(value:Number, minLength:uint, thouDelim:String = null, fillChar:String = null):String {
+            var num:String = value.toString();
+            var len:uint = num.length;
+
+            if(thouDelim != null) {
+                var numSplit:Array = num.split('');
+                var counter:uint = 3;
+                var i:uint = numSplit.length;
+
+                while(--i > 0) {
+                    counter--;
+                    if(counter == 0) {
+                        counter = 3;
+                        numSplit.splice(i, 0, thouDelim);
+                    }
+                }
+
+                num = numSplit.join('');
+            }
+
+            if(minLength != 0) {
+                if(len &lt; minLength) {
+                    minLength -= len;
+
+                    var addChar:String = (fillChar == null) ? '0' : fillChar;
+
+                    while(minLength--)
+                        num = addChar + num;
+                }
+            }
+
+            return num;
+        }
+
+
+
+        /**
+         Finds the English ordinal suffix for the number given.
+         CASA
+         @param value: Number to find the ordinal suffix of.
+         @return Returns the suffix for the number, 2 characters.
+         @example
+         &lt;code>
+         trace(32 + NumberUtils.getOrdinalSuffix(32)); // Traces 32nd
+         &lt;/code>
+         */
+        public static function getOrdinalSuffix(value:int):String {
+            if(value >= 10 &amp;&amp; value &lt;= 20)
+                return 'th';
+
+            switch(value % 10) {
+                case 0 :
+                case 4 :
+                case 5 :
+                case 6 :
+                case 7 :
+                case 8 :
+                case 9 :
+                    return 'th';
+                case 3 :
+                    return 'rd';
+                case 2 :
+                    return 'nd';
+                case 1 :
+                    return 'st';
+                default :
+                    return '';
+            }
+        }
+
+
+
+        /**
+         Adds a leading zero for numbers less than ten.
+         CASA
+         @param value: Number to add leading zero.
+         @return Number as a String; if the number was less than ten the number will have a leading zero.
+         @example
+         &lt;code>
+         trace(NumberUtils.addLeadingZero(7)); // Traces 07
+         trace(NumberUtils.addLeadingZero(11)); // Traces 11
+         &lt;/code>
+         */
+        public static function addLeadingZero(value:Number):String {
+            return (value &lt; 10) ? '0' + value : value.toString();
+        }
+
+
+
+        /**
+         * Determines whether or not the supplied number is positive
+         * Nemo
+         * @param _num     The number to evaluate
+         * @return Whether or not the supplied number is positive
+         */
+        public static function isPositive(_num:Number):Boolean {
+            return(_num >= 0) as Boolean;
+        }
+
+
+
+        /**
+         * Determines whether or not the supplied number is negative
+         * Nemo
+         * @param _num     The number to evaluate
+         * @return Whether or not the supplied number is negative
+         */
+        public static function isNegative(_num:Number):Boolean {
+            return !isPositive(_num);
+        }
+
+
+
+        /**
+         * Determines whether or not the supplied number is a decimal
+         * Nemo
+         * @param _num    The number to be evaluated
+         * @return         True if _num is a decimal
+         * @example
+         * &lt;code>
+         * trace(MathUtils.isDecimalNumber(1.1)); // true
+         * trace(MathUtils.isDecimalNumber(0.3)); // true
+         * trace(MathUtils.isDecimalNumber(5)); // false
+         * &lt;/code>
+         */
+        public static function isDecimalNumber(_num:Number):Boolean {
+            return !isInteger(_num);
+        }
+
+
+
+        /**
+         * Returns an {@code Array} of even numbers within the supplied range
+         * Nemo
+         * @param _min    The minimum range, if a decimal is passed the floor is used
+         * @param _max    The maximum range, if a decimal is passed the floor is used
+         * @return         {@code Array} of even numbers within the supplied range
+         */
+        public static function getEvenNumbersWithinRange(_min:int, _max:int):Array {
+            var _int:int = 0;
+            if(isEven(_min)) _int = 1;
+            var _evens:Array = new Array();
+            for(var i:int = _min; i &lt;= _max; i++) {
+                //if(isEven(i)) _evens.push(i);        // this works but whats being used is faster as it requires no division
+                if(_int == 1) _evens.push(i);
+                _int = _abs(_int - 1);
+            }
+            return _evens;
+        }
+
+
+
+        /**
+         * Returns an {@code Array} of odd numbers within the supplied range
+         * Nemo
+         * @param _min    The minimum range, if a decimal is passed the floor is used
+         * @param _max    The maximum range, if a decimal is passed the floor is used
+         * @return         {@code Array} of odd numbers within the supplied range
+         */
+        public static function getOddNumbersWithinRange(_min:int, _max:int):Array {
+
+            var _int:int = 0;
+            if(isOdd(_min)) _int = 1;
+            var _odds:Array = new Array();
+            for(var i:int = _min; i &lt;= _max; i++) {
+                //if(isOdd(i)) _odds.push(i);    // this works but whats being used is faster as it requires no division
+                if(_int == 1) _odds.push(i);
+                _int = _abs(_int - 1);
+            }
+            return _odds;
+        }
+
+
+
+        /**
+         * Returns an {@code Array} of prime numbers within the supplied range
+         * Nemo
+         * @param _min    The minimum range, if a decimal is passed the floor is used
+         * @param _max    The maximum range, if a decimal is passed the floor is used
+         * @return         {@code Array} of primes within the supplied range
+         */
+        public static function getPrimeNumbersWithinRange(_min:int, _max:int):Array {
+            var _primes:Array = new Array();
+            for(var i:int = _min; i &lt;= _max; i++) {
+                if(isPrime(i)) _primes.push(i);
+            }
+            return _primes;
+        }
+
+
+
+        private static function _random(n:Number):Number {
+            return (Math.random() * n);
+        }
+
+
+
+        private static function _round(n:Number):int {
+            return(Math.round(n));
+        }
+
+
+
+        private static function _abs(n:Number):Number {
+            if(n &lt; 0) return -n;
+            return n;
+        }
+    }
+}
+
+</textarea></div></div></div><div class="classDescription"></div><div class="summary"><h2 id="Summary">Summary</h2><div class="docNav"><ul><li><div id="twistyTypeInfo_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide type info</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_on");</script><div id="twistyTypeInfo_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show type info</a></div><span id="twistyTypeInfo_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_off");</script></li><li><div id="twistySummaries_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide summaries</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_on");</script><div id="twistySummaries_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show summaries</a></div><span id="twistySummaries_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_off");</script></li><li><div id="twistySort_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Sort by source order</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_on");</script><div id="twistySort_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Sort alphabetically</a></div><span id="twistySort_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_off");</script></li></ul><br class="clear" /></div><div class="memberList"><div class="memberSummaryPart"><span class="title">Constructor</span><ul class="sortable" id="sortul1"><li class="sortli listnum1"><a href="#NumberUtils">NumberUtils</a></li></ul></div><div class="memberSummaryPart"><span class="title">Class methods</span><ul class="sortable" id="sortul2"><li class="sortli listnum1"><a href="#isEqual">isEqual</a><span class="typeInfo"> (val1:Number, val2:Number, precision:Number = 0) : Boolean</span><ul class="summary"><li>Determines if the two values are equal, with the option to define the precision.</li></ul></li><li class="sortli listnum2"><a href="#min">min</a><span class="typeInfo"> (val1:*, val2:*) : Number</span><ul class="summary"><li>Evaluates val1 and val2 and returns the smaller value.</li></ul></li><li class="sortli listnum3"><a href="#max">max</a><span class="typeInfo"> (val1:*, val2:*) : Number</span><ul class="summary"><li>Evaluates val1 and val2 and returns the larger value.</li></ul></li><li class="sortli listnum4"><a href="#isEven">isEven</a><span class="typeInfo"> (value:Number) : Boolean</span><ul class="summary"><li>Determines if the number is even.</li></ul></li><li class="sortli listnum5"><a href="#isOdd">isOdd</a><span class="typeInfo"> (value:Number) : Boolean</span><ul class="summary"><li>Determines if the number is odd.</li></ul></li><li class="sortli listnum6"><a href="#isInteger">isInteger</a><span class="typeInfo"> (value:Number) : Boolean</span><ul class="summary"><li>Determines if the number is an integer.</li></ul></li><li class="sortli listnum7"><a href="#isPrime">isPrime</a><span class="typeInfo"> (value:Number) : Boolean</span><ul class="summary"><li>Determines if the number is prime.</li></ul></li><li class="sortli listnum8"><a href="#roundDecimalToPlace">roundDecimalToPlace</a><span class="typeInfo"> (value:Number, place:uint) : Number</span><ul class="summary"><li>Rounds a number's decimal value to a specific place.</li></ul></li><li class="sortli listnum9"><a href="#loopIndex">loopIndex</a><span class="typeInfo"> (index:int, length:uint) : uint</span><ul class="summary"><li>Determines if index is included within the collection length otherwise the index loops to the beginning or end of the range and continues.</li></ul></li><li class="sortli listnum10"><a href="#isBetween">isBetween</a><span class="typeInfo"> (value:Number, firstValue:Number, secondValue:Number) : Boolean</span><ul class="summary"><li>Determines if the value is included within a range.</li></ul></li><li class="sortli listnum11"><a href="#confine">confine</a><span class="typeInfo"> (value:Number, min:Number, max:Number) : Number</span><ul class="summary"><li>Determines if value falls within a range; if not it is snapped to the nearest range value.</li></ul></li><li class="sortli listnum12"><a href="#pad">pad</a><span class="typeInfo"> (value:Number, beforePoint:uint, afterPoint:uint = 0) : String</span><ul class="summary"><li>Pads the value with the set number of digits before and after the point.</li></ul></li><li class="sortli listnum13"><a href="#round">round</a><span class="typeInfo"> (value:Number, digits:int) : Number</span><ul class="summary"><li>Rounds a number to the nearest nth, where digits is n / 10.</li></ul></li><li class="sortli listnum14"><a href="#insertCommas">insertCommas</a><span class="typeInfo"> (value:Number) : String</span><ul class="summary"><li>Inserts commas every three digits in the integer of value</li></ul></li><li class="sortli listnum15"><a href="#createStepsBetween">createStepsBetween</a><span class="typeInfo"> (begin:Number, end:Number, steps:Number) : Array</span><ul class="summary"><li>Creates evenly spaced numerical increments between two numbers.</li></ul></li><li class="sortli listnum16"><a href="#interpolate">interpolate</a><span class="typeInfo"> (amount:<a class="className" href="org_vancura_vaclav_core_types_Percent.html">Percent</a>, minimum:Number, maximum:Number) : Number</span><ul class="summary"><li>Determines a value between two specified values.</li></ul></li><li class="sortli listnum17"><a href="#normalize">normalize</a><span class="typeInfo"> (value:Number, minimum:Number, maximum:Number) : <a class="className" href="org_vancura_vaclav_core_types_Percent.html">Percent</a></span><ul class="summary"><li>Determines a percentage of a value in a given range.</li></ul></li><li class="sortli listnum18"><a href="#map">map</a><span class="typeInfo"> (value:Number, min1:Number, max1:Number, min2:Number, max2:Number) : Number</span><ul class="summary"><li>Maps a value from one coordinate space to another.</li></ul></li><li class="sortli listnum19"><a href="#getWeightedAverage">getWeightedAverage</a><span class="typeInfo"> (value:Number, dest:Number, n:Number) : Number</span><ul class="summary"><li>Low pass filter alogrithm for easing a value toward a destination value.</li></ul></li><li class="sortli listnum20"><a href="#format">format</a><span class="typeInfo"> (value:Number, minLength:uint, thouDelim:String = null, fillChar:String = null) : String</span><ul class="summary"><li>Formats a number.</li></ul></li><li class="sortli listnum21"><a href="#getOrdinalSuffix">getOrdinalSuffix</a><span class="typeInfo"> (value:int) : String</span><ul class="summary"><li>Finds the English ordinal suffix for the number given.</li></ul></li><li class="sortli listnum22"><a href="#addLeadingZero">addLeadingZero</a><span class="typeInfo"> (value:Number) : String</span><ul class="summary"><li>Adds a leading zero for numbers less than ten.</li></ul></li><li class="sortli listnum23"><a href="#isPositive">isPositive</a><span class="typeInfo"> (_num:Number) : Boolean</span><ul class="summary"><li>Determines whether or not the supplied number is positive</li></ul></li><li class="sortli listnum24"><a href="#isNegative">isNegative</a><span class="typeInfo"> (_num:Number) : Boolean</span><ul class="summary"><li>Determines whether or not the supplied number is negative</li></ul></li><li class="sortli listnum25"><a href="#isDecimalNumber">isDecimalNumber</a><span class="typeInfo"> (_num:Number) : Boolean</span><ul class="summary"><li>Determines whether or not the supplied number is a decimal</li></ul></li><li class="sortli listnum26"><a href="#getEvenNumbersWithinRange">getEvenNumbersWithinRange</a><span class="typeInfo"> (_min:int, _max:int) : Array</span><ul class="summary"><li>Returns an Array of even numbers within the supplied range</li></ul></li><li class="sortli listnum27"><a href="#getOddNumbersWithinRange">getOddNumbersWithinRange</a><span class="typeInfo"> (_min:int, _max:int) : Array</span><ul class="summary"><li>Returns an Array of odd numbers within the supplied range</li></ul></li><li class="sortli listnum28"><a href="#getPrimeNumbersWithinRange">getPrimeNumbersWithinRange</a><span class="typeInfo"> (_min:int, _max:int) : Array</span><ul class="summary"><li>Returns an Array of prime numbers within the supplied range</li></ul></li><li class="private sortli listnum30"><a href="#_random">_random</a><span class="typeInfo"> (n:Number) : Number</span></li><li class="private sortli listnum32"><a href="#_round">_round</a><span class="typeInfo"> (n:Number) : int</span></li><li class="private sortli listnum34"><a href="#_abs">_abs</a><span class="typeInfo"> (n:Number) : Number</span></li></ul></div></div></div><div class="memberSection"><h2 id="Constructor">Constructor</h2><div class="member" id="NumberUtils"><h3>NumberUtils</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> function <b>NumberUtils</b> (
+</div><div class="code">)</div><br class="clear" /></div></div><div class="description">     Constructor.<br />Cannot be instantiated, throws an Error. </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Throws:</span><div class="item"><ul><li> <span class="doesNotExist"> Error</span>, since the class could not be instantiated </li></ul></div></div></div></div></div></div><div class="memberSection"><h2 id="Classmethods">Class methods</h2><div class="member private" id="_abs"><h3>_abs</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private static</span> function <b>_abs</b> (
+</div><div class="code">n:Number) : Number</div><br class="clear" /></div></div></div><div class="member private" id="_random"><h3>_random</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private static</span> function <b>_random</b> (
+</div><div class="code">n:Number) : Number</div><br class="clear" /></div></div></div><div class="member private" id="_round"><h3>_round</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private static</span> function <b>_round</b> (
+</div><div class="code">n:Number) : int</div><br class="clear" /></div></div></div><div class="member" id="addLeadingZero"><h3>addLeadingZero</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public static</span> function <b>addLeadingZero</b> (
 </div><div class="code">value:Number) : String</div><br class="clear" /></div></div><div class="description"> Adds a leading zero for numbers less than ten.<br />     CASA </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Parameters:</span><div class="item"><div class="floatbox code colorizedCode">value<span class="itemSeparator">:</span></div><div>Number to add leading zero.</div></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Returns:</span><div class="item"><ul><li> Number as a String; if the number was less than ten the number will have a leading zero. </li></ul></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Example:</span><div class="item"><ul><li> <pre>
 <span class="codeIdentifier">trace</span>(NumberUtils.addLeadingZero(<span class="codeNumber">7</span>)); <span class="codeComment">// Traces 07</span>
 <span class="codeIdentifier">trace</span>(NumberUtils.addLeadingZero(<span class="codeNumber">11</span>)); <span class="codeComment">// Traces 11</span></pre> </li></ul></div></div></div></div></div><div class="member" id="confine"><h3>confine</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public static</span> function <b>confine</b> (

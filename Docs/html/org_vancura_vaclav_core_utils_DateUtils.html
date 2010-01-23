@@ -1,6 +1,855 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head><title>DateUtils</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" type="text/css" href="../css/VisDoc.css" /><script src="../js/jquery.js" type="text/javascript">//</script><script src="../js/common.js" type="text/javascript">//</script><script src="../js/doc.js" type="text/javascript">//</script></head><body id="page_org_vancura_vaclav_core_utils_DateUtils"><script type="text/javascript">VisDoc.initBody();</script><div id="PageTop"><!----></div><div class="VisDoc"><div class="content"><div class="docNav"><ul class="accessKeyLinks"><li><a href="#PageTop" accesskey="t"><span class="accessKey">T</span>op</a></li><li><a href="#Summary" accesskey="s"><span class="accessKey">S</span>ummary</a></li><li><a href="#Constructor" accesskey="c"><span class="accessKey">C</span>onstructors</a></li><li><a href="#Classmethods" accesskey="a">Cl<span class="accessKey">a</span>ss methods</a></li></ul><br class="clear" /></div><h1>DateUtils</h1><div class="classProperties"><table cellspacing="0"><tr><th align="left">Kind of class:</th><td>public class</td></tr><tr><th align="left">Package:</th><td><a class="className" href="package-org_vancura_vaclav_core_utils.html">org.vancura.vaclav.core.utils</a></td></tr><tr><th align="left">Inherits from:</th><td>none</td></tr><tr><th class="classDetails" align="left">Classpath:</th><td class="classDetails">org.vancura.vaclav.core.utils.DateUtils</td></tr><tr><th class="classDetails" align="left">File last modified:</th><td class="classDetails">Sunday, 10 January 2010, 11:06:45</td></tr></table></div><div class="classDescription"></div><div class="summary"><h2 id="Summary">Summary</h2><div class="docNav"><ul><li><div id="twistyTypeInfo_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide type info</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_on");</script><div id="twistyTypeInfo_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show type info</a></div><span id="twistyTypeInfo_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_off");</script></li><li><div id="twistySummaries_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide summaries</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_on");</script><div id="twistySummaries_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show summaries</a></div><span id="twistySummaries_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_off");</script></li><li><div id="twistySort_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Sort by source order</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_on");</script><div id="twistySort_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Sort alphabetically</a></div><span id="twistySort_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_off");</script></li></ul><br class="clear" /></div><div class="memberList"><div class="memberSummaryPart"><span class="title">Constructor</span><ul class="sortable" id="sortul1"><li class="sortli listnum1"><a href="#DateUtils">DateUtils</a></li></ul></div><div class="memberSummaryPart"><span class="title">Class methods</span><ul class="sortable" id="sortul2"><li class="sortli listnum1"><a href="#formatDate">formatDate</a><span class="typeInfo"> (dateToFormat:Date, formatString:String) : String</span><ul class="summary"><li>Formats a Date object for display.</li></ul></li><li class="sortli listnum2"><a href="#iso8601ToDate">iso8601ToDate</a><span class="typeInfo"> (iso8601:String) : Date</span><ul class="summary"><li>Converts W3C ISO 8601 date strings into a Date object.</li></ul></li><li class="sortli listnum3"><a href="#getMonthAsString">getMonthAsString</a><span class="typeInfo"> (month:Number) : String</span><ul class="summary"><li>Converts the month number into the full month name.</li></ul></li><li class="sortli listnum4"><a href="#getMonthAbbrAsString">getMonthAbbrAsString</a><span class="typeInfo"> (month:Number) : String</span><ul class="summary"><li>Converts the month number into the month abbreviation.</li></ul></li><li class="sortli listnum5"><a href="#getDayAsString">getDayAsString</a><span class="typeInfo"> (day:Number) : String</span><ul class="summary"><li>Converts the day of the week number into the full day name.</li></ul></li><li class="sortli listnum6"><a href="#getDayAbbrAsString">getDayAbbrAsString</a><span class="typeInfo"> (day:Number) : String</span><ul class="summary"><li>Converts the day of the week number into the day abbreviation.</li></ul></li><li class="sortli listnum7"><a href="#getDaysInMonth">getDaysInMonth</a><span class="typeInfo"> (year:Number, month:Number) : uint</span><ul class="summary"><li>Finds the number of days in the given month.</li></ul></li><li class="sortli listnum8"><a href="#getMeridiem">getMeridiem</a><span class="typeInfo"> (hours:Number) : String</span><ul class="summary"><li>Determines if time is Ante meridiem or Post meridiem.</li></ul></li><li class="sortli listnum9"><a href="#getTimeBetween">getTimeBetween</a><span class="typeInfo"> (startDate:Date, endDate:Date) : Number</span><ul class="summary"><li>Determines the difference between two dates.</li></ul></li><li class="sortli listnum10"><a href="#getCountdownUntil">getCountdownUntil</a><span class="typeInfo"> (startDate:Date, endDate:Date) : Object</span><ul class="summary"><li>Determines the time remaining until a certain date.</li></ul></li><li class="sortli listnum11"><a href="#getDifferenceFromUTCInSeconds">getDifferenceFromUTCInSeconds</a><span class="typeInfo"> (d:Date) : int</span><ul class="summary"><li>Determines the difference to coordinated universal time (UTC) in seconds.</li></ul></li><li class="sortli listnum12"><a href="#getDifferenceFromUTCInHours">getDifferenceFromUTCInHours</a><span class="typeInfo"> (d:Date) : int</span><ul class="summary"><li>Determines the difference to coordinated universal time (UTC) in hours.</li></ul></li><li class="sortli listnum13"><a href="#getFormattedDifferenceFromUTC">getFormattedDifferenceFromUTC</a><span class="typeInfo"> (d:Date, separator:String = "") : String</span><ul class="summary"><li>Formats the difference to coordinated undefined time (UTC).</li></ul></li><li class="sortli listnum14"><a href="#getTimezone">getTimezone</a><span class="typeInfo"> (d:Date) : String</span><ul class="summary"><li>Determines the time zone of the user from a Date object.</li></ul></li><li class="sortli listnum15"><a href="#isLeapYear">isLeapYear</a><span class="typeInfo"> (year:Number) : Boolean</span><ul class="summary"><li>Determines if year is a leap year or a common year.</li></ul></li><li class="sortli listnum16"><a href="#isDaylightSavings">isDaylightSavings</a><span class="typeInfo"> (d:Date) : Boolean</span><ul class="summary"><li>Determines if or not the date is in daylight saving time.</li></ul></li><li class="sortli listnum17"><a href="#getInternetTime">getInternetTime</a><span class="typeInfo"> (d:Date) : Number</span><ul class="summary"><li>Converts current time into Swatch internet time or beats.</li></ul></li><li class="sortli listnum18"><a href="#getDayOfTheYear">getDayOfTheYear</a><span class="typeInfo"> (d:Date) : uint</span><ul class="summary"><li>Gets the current day out of the total days in the year (starting from 0).</li></ul></li><li class="sortli listnum19"><a href="#getWeekOfTheYear">getWeekOfTheYear</a><span class="typeInfo"> (d:Date) : uint</span><ul class="summary"><li>Determines the week number of year, weeks start on Mondays.</li></ul></li><li class="sortli listnum20"><a href="#equals">equals</a><span class="typeInfo"> (first:Date, second:Date) : Boolean</span><ul class="summary"><li>Determines if two Dates are the same time.</li></ul></li><li class="sortli listnum21"><a href="#timeCode">timeCode</a><span class="typeInfo"> (sec:Number) : String</span><ul class="summary"><li>Utility function for generating time code given a number seconds.</li></ul></li><li class="sortli listnum22"><a href="#compare">compare</a><span class="typeInfo"> (d1:Date, d2:Date) : Number</span><ul class="summary"><li>Compares two dates.</li></ul></li></ul></div></div></div><div class="memberSection"><h2 id="Constructor">Constructor</h2><div class="member" id="DateUtils"><h3>DateUtils</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> function <b>DateUtils</b> (
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>DateUtils</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" type="text/css" href="../css/VisDoc.css" /><script src="../js/jquery.js" type="text/javascript">//</script><script src="../js/common.js" type="text/javascript">//</script><script src="../js/doc.js" type="text/javascript">//</script></head><body id="page_org_vancura_vaclav_core_utils_DateUtils"><script type="text/javascript">VisDoc.initBody();</script><div id="PageTop"><!----></div><div class="VisDoc"><div class="content"><div class="docNav"><ul><li><div id="twistyTOC_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited activeWhenNotFramed"><a href="#"><span class="icon">+</span>Show TOC</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyTOC_show");</script><div id="twistyTOC_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited activeWhenFramed"><a href="#"><span class="icon">&times;</span>Hide TOC</a></div><span id="twistyTOC_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyTOC_hide");</script></li></ul><ul class="accessKeyLinks"><li><a href="#PageTop" accesskey="t"><span class="accessKey">T</span>op</a></li><li><a href="#Summary" accesskey="s"><span class="accessKey">S</span>ummary</a></li><li><a href="#Constructor" accesskey="c"><span class="accessKey">C</span>onstructors</a></li><li><a href="#Classmethods" accesskey="a">Cl<span class="accessKey">a</span>ss methods</a></li></ul><ul><li><div id="twistyPrivate_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide private and protected members</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("togglePrivate_on");</script><div id="twistyPrivate_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show private and protected members</a></div><span id="twistyPrivate_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("togglePrivate_off");</script></li></ul><br class="clear" /></div><h1>DateUtils</h1><div class="classProperties"><table cellspacing="0"><tr><th align="left">Kind of class:</th><td>public class</td></tr><tr><th align="left">Package:</th><td><a class="className" href="package-org_vancura_vaclav_core_utils.html">org.vancura.vaclav.core.utils</a></td></tr><tr><th align="left">Inherits from:</th><td>none</td></tr><tr><th class="classDetails" align="left">Classpath:</th><td class="classDetails">org.vancura.vaclav.core.utils.DateUtils</td></tr><tr><th class="classDetails" align="left">File last modified:</th><td class="classDetails">Sunday, 10 January 2010, 11:06:45</td></tr></table></div><div id="sourceCodeTop" class="sourceCodeView"><div id="twistyViewSourceshow" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting twistyAnimate"><a href="#"><span class="icon">►&nbsp;</span><span class="linkLabel">View source</span></a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourceshow");</script><div id="twistyViewSourcehide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting twistyAnimate"><a href="#"><span class="icon">▼&nbsp;</span><span class="linkLabel">Hide source</span></a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourcehide");</script><div id="twistyViewSourcetoggle" class="twistyContent twistyMakeHidden twistyRememberSetting"><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourcetoggle");</script><div class="sourceCode"><textarea rows="10" cols="10" id="source" readonly="readonly">/***********************************************************************************************************************
+ * Some methods Copyrighted by their authors, specified in ASDocs.
+ * If not specified elsewhere: Copyright (c) 2010 Vaclav Vancura.
+ *
+ * Contact me at vaclav@vancura.org, @vancura or at my homepage at http://vaclav.vancura.org.
+ * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
+ * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
+ *
+ * Licensed under Attribution 3.0 Czech Republic (http://creativecommons.org/licenses/by/3.0/cz/deed.en_GB).
+ *
+ * That means you are free:
+ * * to copy, distribute, display, and perform the work
+ * * to make derivative works
+ *
+ * Under the following conditions::
+ * * Attribution — You must give the original author credit.
+ *
+ * With the understanding that:
+ *    * Waiver — Any of the above conditions can be waived if you get permission from the copyright holder. CC licenses
+ *      anticipate that a licensor may want to waive compliance with a specific condition, such as attribution.
+ *    * Other Rights — In no way are any of the following rights affected by the license:
+ *             - Your fair dealing or fair use rights — All jurisdictions allow some limited uses of copyrighted material
+ *            without permission. CC licenses do not affect the rights of users under those copyright limitations and
+ *            exceptions, such as fair use and fair dealing where applicable.
+ *             - The author's moral rights — In addition to the right of licensors to request removal of their name from
+ *            the work when used in a derivative or collective they don't like, copyright laws in most jurisdictions
+ *            around the world (with the notable exception of the US except in very limited circumstances) grant
+ *            creators "moral rights" which may provide some redress if a derivative work represents a "derogatory
+ *            treatment" of the licensor's work.
+ *             - Rights other persons may have either in the work itself or in how the work is used, such as publicity or
+ *            privacy rights. — Publicity rights allow individuals to control how their voice, image or likeness is used
+ *            for commercial purposes in public. If a CC-licensed work includes the voice or image of anyone other than
+ *            the licensor, a user of the work may need to get permission from those individuals before using the work
+ *            for commercial purposes.
+ *
+ * Notice — For any reuse or distribution, you must make clear to others the licence terms of this work.
+ **********************************************************************************************************************/
+
+package org.vancura.vaclav.core.utils {
+
+    public class DateUtils {
+
+
+
+        /**
+         * Constructor.
+         */
+        public function DateUtils() {
+        }
+
+
+
+        /**
+         Formats a Date object for display. Acts almost identically to the PHP &lt;code>date&lt;/code> function.
+         CASA
+         &lt;table border="1">
+         &lt;tr style="background-color:#e1e1e1;">
+         &lt;th style="width:150px;">Format character&lt;/th>
+         &lt;th>Description&lt;/th>
+         &lt;th style="width:200px;">Example returned values&lt;/th>
+         &lt;/tr>
+         &lt;tr>
+         &lt;td>d&lt;/td>
+         &lt;td>Day of the month, 2 digits with leading zeros.&lt;/td>
+         &lt;td>01 to 31&lt;/td>
+         &lt;/tr>
+         &lt;tr style="background-color:#f0f5f9;">
+         &lt;td>D&lt;/td>
+         &lt;td>A textual representation of a day, three letters.&lt;/td>
+         &lt;td>Mon through Sun&lt;/td>
+         &lt;/tr>
+         &lt;tr>
+         &lt;td>j&lt;/td>
+         &lt;td>Day of the month without leading zeros.&lt;/td>
+         &lt;td>1 to 31&lt;/td>
+         &lt;/tr>
+         &lt;tr style="background-color:#f0f5f9;">
+         &lt;td>l&lt;/td>
+         &lt;td>A full textual representation of the day of the week.&lt;/td>
+         &lt;td>Sunday through Saturday&lt;/td>
+         &lt;/tr>
+         &lt;tr>
+         &lt;td>N&lt;/td>
+         &lt;td>ISO-8601 numeric representation of the day of the week.&lt;/td>
+         &lt;td>1 (for Monday) through 7 (for Sunday)&lt;/td>
+         &lt;/tr>
+         &lt;tr style="background-color:#f0f5f9;">
+         &lt;td>S&lt;/td>
+         &lt;td>English ordinal suffix for the day of the month, 2 characters.&lt;/td>
+         &lt;td>st, nd, rd or th&lt;/td>
+         &lt;/tr>
+         &lt;tr>
+         &lt;td>w&lt;/td>
+         &lt;td>Numeric representation of the day of the week.&lt;/td>
+         &lt;td>0 (for Sunday) through 6 (for Saturday)&lt;/td>
+         &lt;/tr>
+         &lt;tr style="background-color:#f0f5f9;">
+         &lt;td>z&lt;/td>
+         &lt;td>The day of the year (starting from 0).&lt;/td>
+         &lt;td>0 through 365&lt;/td>
+         &lt;/tr>
+         &lt;tr>
+         &lt;td>W&lt;/td>
+         &lt;td>ISO-8601 week number of year, weeks starting on Monday.&lt;/td>
+         &lt;td>Example: 42 (the 42nd week in the year)&lt;/td>
+         &lt;/tr>
+         &lt;tr style="background-color:#f0f5f9;">
+         &lt;td>F&lt;/td>
+         &lt;td>A full textual representation of a month, such as January or March.&lt;/td>
+         &lt;td>January through December&lt;/td>
+         &lt;/tr>
+         &lt;tr>
+         &lt;td>m&lt;/td>
+         &lt;td>Numeric representation of a month, with leading zeros.&lt;/td>
+         &lt;td>01 through 12&lt;/td>
+         &lt;/tr>
+         &lt;tr style="background-color:#f0f5f9;">
+         &lt;td>M&lt;/td>
+         &lt;td>A short textual representation of a month, three letters.&lt;/td>
+         &lt;td>Jan through Dec&lt;/td>
+         &lt;/tr>
+         &lt;tr>
+         &lt;td>n&lt;/td>
+         &lt;td>Numeric representation of a month, without leading zeros.&lt;/td>
+         &lt;td>1 through 12&lt;/td>
+         &lt;/tr>
+         &lt;tr style="background-color:#f0f5f9;">
+         &lt;td>t&lt;/td>
+         &lt;td>Number of days in the given month.&lt;/td>
+         &lt;td>28 through 31&lt;/td>
+         &lt;/tr>
+         &lt;tr>
+         &lt;td>L&lt;/td>
+         &lt;td>Determines if it is a leap year.&lt;/td>
+         &lt;td>1 if it is a leap year, 0 otherwise&lt;/td>
+         &lt;/tr>
+         &lt;tr style="background-color:#f0f5f9;">
+         &lt;td>o or Y&lt;/td>
+         &lt;td>A full numeric representation of a year, 4 digits.&lt;/td>
+         &lt;td>Examples: 1999 or 2003&lt;/td>
+         &lt;/tr>
+         &lt;tr>
+         &lt;td>y&lt;/td>
+         &lt;td>A two digit representation of a year.&lt;/td>
+         &lt;td>Examples: 99 or 03&lt;/td>
+         &lt;/tr>
+         &lt;tr style="background-color:#f0f5f9;">
+         &lt;td>a&lt;/td>
+         &lt;td>Lowercase Ante meridiem and Post meridiem.&lt;/td>
+         &lt;td>am or pm&lt;/td>
+         &lt;/tr>
+         &lt;tr>
+         &lt;td>A&lt;/td>
+         &lt;td>Uppercase Ante meridiem and Post meridiem.&lt;/td>
+         &lt;td>AM or PM&lt;/td>
+         &lt;/tr>
+         &lt;tr style="background-color:#f0f5f9;">
+         &lt;td>B&lt;/td>
+         &lt;td>Swatch Internet time.&lt;/td>
+         &lt;td>000 through 999&lt;/td>
+         &lt;/tr>
+         &lt;tr>
+         &lt;td>g&lt;/td>
+         &lt;td>12-hour format of an hour without leading zeros.&lt;/td>
+         &lt;td>1 through 12&lt;/td>
+         &lt;/tr>
+         &lt;tr style="background-color:#f0f5f9;">
+         &lt;td>G&lt;/td>
+         &lt;td>24-hour format of an hour without leading zeros.&lt;/td>
+         &lt;td>0 through 23&lt;/td>
+         &lt;/tr>
+         &lt;tr>
+         &lt;td>h&lt;/td>
+         &lt;td>12-hour format of an hour with leading zeros.&lt;/td>
+         &lt;td>01 through 12&lt;/td>
+         &lt;/tr>
+         &lt;tr style="background-color:#f0f5f9;">
+         &lt;td>H&lt;/td>
+         &lt;td>24-hour format of an hour with leading zeros.&lt;/td>
+         &lt;td>00 through 23&lt;/td>
+         &lt;/tr>
+         &lt;tr>
+         &lt;td>i&lt;/td>
+         &lt;td>Minutes with leading zeros.&lt;/td>
+         &lt;td>00 to 59&lt;/td>
+         &lt;/tr>
+         &lt;tr style="background-color:#f0f5f9;">
+         &lt;td>s&lt;/td>
+         &lt;td>Seconds, with leading zeros.&lt;/td>
+         &lt;td>00 through 59&lt;/td>
+         &lt;/tr>
+         &lt;tr>
+         &lt;td>I&lt;/td>
+         &lt;td>Determines if the date is in daylight saving time.&lt;/td>
+         &lt;td>1 if Daylight Saving Time, 0 otherwise&lt;/td>
+         &lt;/tr>
+         &lt;tr style="background-color:#f0f5f9;">
+         &lt;td>O&lt;/td>
+         &lt;td>Difference to coordinated universal time (UTC) in hours.&lt;/td>
+         &lt;td>Example: +0200&lt;/td>
+         &lt;/tr>
+         &lt;tr>
+         &lt;td>P&lt;/td>
+         &lt;td>Difference to Greenwich time (GMT/UTC) in hours with colon between hours and minutes.&lt;/td>
+         &lt;td>Example: +02:00&lt;/td>
+         &lt;/tr>
+         &lt;tr style="background-color:#f0f5f9;">
+         &lt;td>e or T&lt;/td>
+         &lt;td>Timezone abbreviation.&lt;/td>
+         &lt;td>Examples: EST, MDT&lt;/td>
+         &lt;/tr>
+         &lt;tr>
+         &lt;td>Z&lt;/td>
+         &lt;td>Timezone offset in seconds.&lt;/td>
+         &lt;td>-43200 through 50400&lt;/td>
+         &lt;/tr>
+         &lt;tr style="background-color:#f0f5f9;">
+         &lt;td>c&lt;/td>
+         &lt;td>ISO 8601 date.&lt;/td>
+         &lt;td>2004-02-12T15:19:21+00:00&lt;/td>
+         &lt;/tr>
+         &lt;tr>
+         &lt;td>r&lt;/td>
+         &lt;td>RFC 2822 formatted date.&lt;/td>
+         &lt;td>Example: Thu, 21 Dec 2000 16:01:07 +0200&lt;/td>
+         &lt;/tr>
+         &lt;tr style="background-color:#f0f5f9;">
+         &lt;td>U&lt;/td>
+         &lt;td>Seconds since the Unix Epoch.&lt;/td>
+         &lt;td>Example: 1171479314&lt;/td>
+         &lt;/tr>
+         &lt;/table>
+
+         @param dateToFormat: The Date object you wish to format.
+         @param formatString: The format of the outputted date String. See the format characters options above.
+         @usageNote You can prevent a recognized character in the format string from being expanded by escaping it with a preceding &lt;code>^&lt;/code>.
+         @example
+         &lt;code>
+         trace(formatDate(new Date(), "l ^t^h^e dS ^of F Y h:i:s A"));
+         &lt;/code>
+         */
+        public static function formatDate(dateToFormat:Date, formatString:String):String {
+            var returnString:String = '';
+            var char:String;
+            var i:int = -1;
+            var l:uint = formatString.length;
+            var t:Number;
+
+            while(++i &lt; l) {
+                char = formatString.substr(i, 1);
+
+                if(char == '^')
+                    returnString += formatString.substr(++i, 1);
+                else {
+                    switch(char) {
+                        // Day of the month, 2 digits with leading zeros
+                        case 'd' :
+                            returnString += NumberUtils.addLeadingZero(dateToFormat.getDate());
+                            break;
+                        // A textual representation of a day, three letters
+                        case 'D' :
+                            returnString += getDayAbbrAsString(dateToFormat.getDay());
+                            break;
+                        // Day of the month without leading zeros
+                        case 'j' :
+                            returnString += dateToFormat.getDate().toString();
+                            break;
+                        // A full textual representation of the day of the week
+                        case 'l' :
+                            returnString += getDayAsString(dateToFormat.getDay());
+                            break;
+                        // ISO-8601 numeric representation of the day of the week
+                        case 'N' :
+                            t = dateToFormat.getDay();
+
+                            if(t == 0)
+                                t = 7;
+
+                            returnString += t.toString();
+                            break;
+                        // English ordinal suffix for the day of the month, 2 characters
+                        case 'S' :
+                            returnString += NumberUtils.getOrdinalSuffix(dateToFormat.getDate());
+                            break;
+                        // Numeric representation of the day of the week
+                        case 'w' :
+                            returnString += dateToFormat.getDay().toString();
+                            break;
+                        // The day of the year (starting from 0)
+                        case 'z' :
+                            returnString += NumberUtils.addLeadingZero(getDayOfTheYear(dateToFormat)).toString();
+                            break;
+                        // ISO-8601 week number of year, weeks starting on Monday
+                        case 'W' :
+                            returnString += NumberUtils.addLeadingZero(getWeekOfTheYear(dateToFormat)).toString();
+                            break;
+                        // A full textual representation of a month, such as January or March
+                        case 'F' :
+                            returnString += getMonthAsString(dateToFormat.getMonth());
+                            break;
+                        // Numeric representation of a month, with leading zeros
+                        case 'm' :
+                            returnString += NumberUtils.addLeadingZero(dateToFormat.getMonth() + 1);
+                            break;
+                        // A short textual representation of a month, three letters
+                        case 'M' :
+                            returnString += getMonthAbbrAsString(dateToFormat.getMonth());
+                            break;
+                        // Numeric representation of a month, without leading zeros
+                        case 'n' :
+                            returnString += (dateToFormat.getMonth() + 1).toString();
+                            break;
+                        // Number of days in the given month
+                        case 't' :
+                            returnString += getDaysInMonth(dateToFormat.getMonth(), dateToFormat.getFullYear()).toString();
+                            break;
+                        // Whether it is a leap year
+                        case 'L' :
+                            returnString += (isLeapYear(dateToFormat.getFullYear())) ? '1' : '0';
+                            break;
+                        // A full numeric representation of a year, 4 digits
+                        case 'o' :
+                        case 'Y' :
+                            returnString += dateToFormat.getFullYear().toString();
+                            break;
+                        // A two digit representation of a year
+                        case 'y' :
+                            returnString += dateToFormat.getFullYear().toString().substr(-2);
+                            break;
+                        // Lowercase Ante meridiem and Post meridiem
+                        case 'a' :
+                            returnString += getMeridiem(dateToFormat.getHours()).toLowerCase();
+                            break;
+                        // Uppercase Ante meridiem and Post meridiem
+                        case 'A' :
+                            returnString += getMeridiem(dateToFormat.getHours());
+                            break;
+                        // Swatch Internet time
+                        case 'B' :
+                            returnString += NumberUtils.format(getInternetTime(dateToFormat), 3, null, '0');
+                            break;
+                        // 12-hour format of an hour without leading zeros
+                        case 'g' :
+                            t = dateToFormat.getHours();
+
+                            if(t == 0)
+                                t = 12; else if(t > 12)
+                                t -= 12;
+
+                            returnString += t.toString();
+                            break;
+                        // 24-hour format of an hour without leading zeros
+                        case 'G' :
+                            returnString += dateToFormat.getHours().toString();
+                            break;
+                        // 12-hour format of an hour with leading zeros
+                        case 'h' :
+                            t = dateToFormat.getHours() + 1;
+
+                            if(t == 0)
+                                t = 12; else if(t > 12)
+                                t -= 12;
+
+                            returnString += NumberUtils.addLeadingZero(t);
+                            break;
+                        // 24-hour format of an hour with leading zeros
+                        case 'H' :
+                            returnString += NumberUtils.addLeadingZero(dateToFormat.getHours());
+                            break;
+                        // Minutes with leading zeros
+                        case 'i' :
+                            returnString += NumberUtils.addLeadingZero(dateToFormat.getMinutes());
+                            break;
+                        // Seconds, with leading zeros
+                        case 's' :
+                            returnString += NumberUtils.addLeadingZero(dateToFormat.getSeconds());
+                            break;
+                        // Whether or not the date is in daylights savings time
+                        case 'I' :
+                            returnString += (isDaylightSavings(dateToFormat)) ? '1' : '0';
+                            break;
+                        // Difference to Greenwich time (GMT/UTC) in hours
+                        case 'O' :
+                            returnString += getFormattedDifferenceFromUTC(dateToFormat);
+                            break;
+                        case 'P' :
+                            returnString += getFormattedDifferenceFromUTC(dateToFormat, ':');
+                            break;
+                        // Timezone identifier
+                        case 'e' :
+                        case 'T' :
+                            returnString += getTimezone(dateToFormat);
+                            break;
+                        // Timezone offset (GMT/UTC) in seconds.
+                        case 'Z' :
+                            returnString += Math.round(getDifferenceFromUTCInSeconds(dateToFormat)).toString();
+                            break;
+                        // ISO 8601 date
+                        case 'c' :
+                            returnString += dateToFormat.getFullYear() + "-" + NumberUtils.addLeadingZero(dateToFormat.getMonth() + 1) + "-" + NumberUtils.addLeadingZero(dateToFormat.getDate()) + "T" + NumberUtils.addLeadingZero(dateToFormat.getHours()) + ":" + NumberUtils.addLeadingZero(dateToFormat.getMinutes()) + ":" + NumberUtils.addLeadingZero(dateToFormat.getSeconds()) + getFormattedDifferenceFromUTC(dateToFormat, ':');
+                            break;
+                        // RFC 2822 formatted date
+                        case 'r' :
+                            returnString += getDayAbbrAsString(dateToFormat.getDay()) + ', ' + dateToFormat.getDate() + ' ' + getMonthAbbrAsString(dateToFormat.getMonth()) + ' ' + dateToFormat.getFullYear() + ' ' + NumberUtils.addLeadingZero(dateToFormat.getHours()) + ':' + NumberUtils.addLeadingZero(dateToFormat.getMinutes()) + ':' + NumberUtils.addLeadingZero(dateToFormat.getSeconds()) + ' ' + getFormattedDifferenceFromUTC(dateToFormat);
+                            break;
+                        // Seconds since the Unix Epoch (January 1 1970 00:00:00 GMT)
+                        case 'U' :
+                            t = Math.round(dateToFormat.getTime() / 1000);
+                            returnString += t.toString();
+                            break;
+                        default :
+                            returnString += formatString.substr(i, 1);
+                    }
+                }
+            }
+
+
+            return returnString;
+        }
+
+
+
+        /**
+         Converts W3C ISO 8601 date strings into a Date object.
+         CASA
+
+         @param iso8601: A valid ISO 8601 formatted String.
+         @return Returns a Date object of the specified date and time of the ISO 8601 string in universal time.
+         @see &lt;a href="http://www.w3.org/TR/NOTE-datetime">W3C ISO 8601 specification&lt;/a>
+         @example
+         &lt;code>
+         trace(iso8601ToDate("1994-11-05T08:15:30-05:00").toString());
+         &lt;/code>
+         */
+        public static function iso8601ToDate(iso8601:String):Date {
+            var parts:Array = iso8601.toUpperCase().split('T');
+            var date:Array = parts[0].split('-');
+            var time:Array = (parts.length &lt;= 1) ? new Array() : parts[1].split(':');
+            var year:uint = ObjectUtils.isEmpty(date[0]) ? 0 : Number(date[0]);
+            var month:uint = ObjectUtils.isEmpty(date[1]) ? 0 : Number(date[1] - 1);
+            var day:uint = ObjectUtils.isEmpty(date[2]) ? 1 : Number(date[2]);
+            var hour:int = ObjectUtils.isEmpty(time[0]) ? 0 : Number(time[0]);
+            var minute:uint = ObjectUtils.isEmpty(time[1]) ? 0 : Number(time[1]);
+            var second:uint = 0;
+            var millisecond:uint = 0;
+
+            if(time[2] != undefined) {
+                var index:int = time[2].length;
+                var temp:Number;
+                if(time[2].indexOf('+') > -1)
+                    index = time[2].indexOf('+'); else if(time[2].indexOf('-') > -1)
+                    index = time[2].indexOf('-'); else if(time[2].indexOf('Z') > -1)
+                    index = time[2].indexOf('Z');
+
+                if(isNaN(index)) {
+                    temp = Number(time[2].slice(0, index));
+                    second = Math.floor(temp);
+                    millisecond = 1000 * ((temp % 1) / 1);
+                }
+
+                if(index != time[2].length) {
+                    var offset:String = time[2].slice(index);
+                    var userOffset:Number = getDifferenceFromUTCInHours(new Date(year, month, day));
+
+                    switch(offset.charAt(0)) {
+                        case '+' :
+                        case '-' :
+                            hour -= userOffset + Number(offset.slice(0));
+                            break;
+                        case 'Z' :
+                            hour -= userOffset;
+                            break;
+                    }
+                }
+            }
+
+            return new Date(year, month, day, hour, minute, second, millisecond);
+        }
+
+
+
+        /**
+         Converts the month number into the full month name.
+         CASA
+
+         @param month: The month number (0 for January, 1 for February, and so on).
+         @return Returns a full textual representation of a month, such as January or March.
+         @example
+         &lt;code>
+         var myDate:Date = new Date(2000, 0, 1);
+
+         trace(getMonthAsString(myDate.getMonth())); // Traces January
+         &lt;/code>
+         */
+        public static function getMonthAsString(month:Number):String {
+            var monthNamesFull:Array = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+            return monthNamesFull[month];
+        }
+
+
+
+        /**
+         Converts the month number into the month abbreviation.
+         CASA
+
+         @param month: The month number (0 for January, 1 for February, and so on).
+         @return Returns a short textual representation of a month, three letters.
+         @example
+         &lt;code>
+         var myDate:Date = new Date(2000, 0, 1);
+
+         trace(getMonthAbbrAsString(myDate.getMonth())); // Traces Jan
+         &lt;/code>
+         */
+        public static function getMonthAbbrAsString(month:Number):String {
+            return getMonthAsString(month).substr(0, 3);
+        }
+
+
+
+        /**
+         Converts the day of the week number into the full day name.
+         CASA
+
+         @param day: An integer representing the day of the week (0 for Sunday, 1 for Monday, and so on).
+         @return Returns a full textual representation of the day of the week.
+         @example
+         &lt;code>
+         var myDate:Date = new Date(2000, 0, 1);
+
+         trace(getDayAsString(myDate.getDay())); // Traces Saturday
+         &lt;/code>
+         */
+        public static function getDayAsString(day:Number):String {
+            var dayNamesFull:Array = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+            return dayNamesFull[day];
+        }
+
+
+
+        /**
+         Converts the day of the week number into the day abbreviation.
+         CASA
+
+         @param day: An integer representing the day of the week (0 for Sunday, 1 for Monday, and so on).
+         @return Returns a textual representation of a day, three letters.
+         @example
+         &lt;code>
+         var myDate:Date = new Date(2000, 0, 1);
+
+         trace(getDayAbbrAsString(myDate.getDay())); // Traces Sat
+         &lt;/code>
+         */
+        public static function getDayAbbrAsString(day:Number):String {
+            return getDayAsString(day).substr(0, 3);
+        }
+
+
+
+        /**
+         Finds the number of days in the given month.
+         CASA
+
+         @param year: The full year.
+         @param month: The month number (0 for January, 1 for February, and so on).
+         @return The number of days in the month; 28 through 31.
+         @example
+         &lt;code>
+         var myDate:Date = new Date(2000, 0, 1);
+
+         trace(getDaysInMonth(myDate.getFullYear(), myDate.getMonth())); // Traces 31
+         &lt;/code>
+         */
+        public static function getDaysInMonth(year:Number, month:Number):uint {
+            return (new Date(year, ++month, 0)).getDate();
+        }
+
+
+
+        /**
+         Determines if time is Ante meridiem or Post meridiem.
+         CASA
+
+         @param hours: The hour to find the meridiem of (an integer from 0 to 23).
+         @return Returns either &lt;code>"AM"&lt;/code> or &lt;code>"PM"&lt;/code>
+         @example
+         &lt;code>
+         trace(getMeridiem(17)); // Traces PM
+         &lt;/code>
+         */
+        public static function getMeridiem(hours:Number):String {
+            return (hours &lt; 12) ? 'AM' : 'PM';
+        }
+
+
+
+        /**
+         Determines the difference between two dates.
+         CASA
+
+         @param startDate: The starting date.
+         @param endDate: The ending date.
+         @return Returns the difference in milliseconds between the two dates.
+         @example
+         &lt;code>
+         trace(ConversionUtil.millisecondsToDays(getTimeBetween(new Date(2007, 0, 1), new Date(2007, 0, 11)))); // Traces 10
+         &lt;/code>
+         */
+        public static function getTimeBetween(startDate:Date, endDate:Date):Number {
+            return endDate.getTime() - startDate.getTime();
+        }
+
+
+
+        /**
+         Determines the time remaining until a certain date.
+         CASA
+
+         @param startDate: The starting date.
+         @param endDate: The ending date.
+         @return Returns an Object with the properties &lt;code>days&lt;/code>, &lt;code>hours&lt;/code>, &lt;code>minutes&lt;/code>, &lt;code>seconds&lt;/code> and &lt;code>milliseconds&lt;/code> defined as numbers.
+         @example
+         &lt;code>
+         var countdown:Object = getCountdownUntil(new Date(2006, 11, 31, 21, 36), new Date(2007, 0, 1));
+         trace("There are " + countdown.hours + " hours and " + countdown.minutes + " minutes until the new year!");
+         &lt;/code>
+         */
+        public static function getCountdownUntil(startDate:Date, endDate:Date):Object {
+            var daysUntil:Number = ConversionUtils.millisecondsToDays(getTimeBetween(startDate, endDate));
+            var hoursUntil:Number = ConversionUtils.daysToHours(daysUntil % 1);
+            var minsUntil:Number = ConversionUtils.hoursToMinutes(hoursUntil % 1);
+            var secsUntil:Number = ConversionUtils.minutesToSeconds(minsUntil % 1);
+            var milliUntil:Number = ConversionUtils.secondsToMilliseconds(secsUntil % 1);
+
+            return {
+                days:         int(daysUntil),
+                hours:        int(hoursUntil),
+                minutes:      int(minsUntil),
+                seconds:      int(secsUntil),
+                milliseconds: int(milliUntil)};
+        }
+
+
+
+        /**
+         Determines the difference to coordinated universal time (UTC) in seconds.
+         CASA
+
+         @param d: Date object to find the time zone offset of.
+         @return Returns the difference in seconds from UTC.
+         */
+        public static function getDifferenceFromUTCInSeconds(d:Date):int {
+            return ConversionUtils.minutesToSeconds(d.getTimezoneOffset());
+        }
+
+
+
+        /**
+         Determines the difference to coordinated universal time (UTC) in hours.
+         CASA
+
+         @param d: Date object to find the time zone offset of.
+         @return Returns the difference in hours from UTC.
+         */
+        public static function getDifferenceFromUTCInHours(d:Date):int {
+            return ConversionUtils.minutesToHours(d.getTimezoneOffset());
+        }
+
+
+
+        /**
+         Formats the difference to coordinated undefined time (UTC).
+         CASA
+
+         @param d: Date object to find the time zone offset of.
+         @param separator: The character(s) that separates the hours from minutes.
+         @return Returns the formatted time difference from UTC.
+         */
+        public static function getFormattedDifferenceFromUTC(d:Date, separator:String = ""):String {
+            var pre:String = (-d.getTimezoneOffset() &lt; 0) ? '-' : '+';
+
+            return pre + NumberUtils.addLeadingZero(Math.floor(getDifferenceFromUTCInHours(d))) + separator + NumberUtils.addLeadingZero(d.getTimezoneOffset() % 60);
+        }
+
+
+
+        /**
+         Determines the time zone of the user from a Date object.
+         CASA
+
+         @param d: Date object to find the time zone of.
+         @return Returns the time zone abbreviation.
+         @example
+         &lt;code>
+         trace(getTimezone(new Date()));
+         &lt;/code>
+         */
+        public static function getTimezone(d:Date):String {
+            var timeZones:Array = new Array('IDLW', 'NT', 'HST', 'AKST', 'PST', 'MST', 'CST', 'EST', 'AST', 'ADT', 'AT', 'WAT', 'GMT', 'CET', 'EET', 'MSK', 'ZP4', 'ZP5', 'ZP6', 'WAST', 'WST', 'JST', 'AEST', 'AEDT', 'NZST');
+            var hour:uint = Math.round(12 + -(d.getTimezoneOffset() / 60));
+
+            if(isDaylightSavings(d))
+                hour--;
+
+            return timeZones[hour];
+        }
+
+
+
+        /**
+         Determines if year is a leap year or a common year.
+         CASA
+
+         @param year: The full year.
+         @return Returns &lt;code>true&lt;/code> if year is a leap year; otherwise &lt;code>false&lt;/code>.
+         @example
+         &lt;code>
+         var myDate:Date = new Date(2000, 0, 1);
+
+         trace(isLeapYear(myDate.getFullYear())); // Traces true
+         &lt;/code>
+         */
+        public static function isLeapYear(year:Number):Boolean {
+            return getDaysInMonth(year, 1) == 29;
+        }
+
+
+
+        /**
+         Determines if or not the date is in daylight saving time.
+         CASA
+
+         @param d: Date to find if it is during daylight savings time.
+         @return Returns &lt;code>true&lt;/code> if daylight savings time; otherwise &lt;code>false&lt;/code>.
+         */
+        public static function isDaylightSavings(d:Date):Boolean {
+            var months:uint = 12;
+            var offset:uint = d.getTimezoneOffset();
+            var offsetCheck:Number;
+
+            while(months--) {
+                offsetCheck = (new Date(d.getFullYear(), months, 1)).getTimezoneOffset();
+
+                if(offsetCheck != offset)
+                    return (offsetCheck > offset);
+            }
+
+            return false;
+        }
+
+
+
+        /**
+         Converts current time into Swatch internet time or beats.
+         CASA
+
+         @param d: Date object to convert.
+         @return Returns time in beats (0 to 999).
+         */
+        public static function getInternetTime(d:Date):Number {
+            var beats:uint = ((d.getUTCHours() + 1 + ConversionUtils.minutesToHours(d.getUTCMinutes()) + ConversionUtils.secondsToHours(d.getUTCSeconds())) / 0.024);
+            return (beats > 1000) ? beats - 1000 : beats;
+        }
+
+
+
+        /**
+         Gets the current day out of the total days in the year (starting from 0).
+         CASA
+
+         @param d: Date object to find the current day of the year from.
+         @return Returns the current day of the year (0-364 or 0-365 on a leap year).
+         */
+        public static function getDayOfTheYear(d:Date):uint {
+            var firstDay:Date = new Date(d.getFullYear(), 0, 1);
+            return (d.getTime() - firstDay.getTime()) / 86400000;
+        }
+
+
+
+        /**
+         Determines the week number of year, weeks start on Mondays.
+         CASA
+
+         @param d: Date object to find the current week number of.
+         @return Returns the the week of the year the date falls in.
+         */
+        public static function getWeekOfTheYear(d:Date):uint {
+            var firstDay:Date = new Date(d.getFullYear(), 0, 1);
+            var dayOffset:uint = 9 - firstDay.getDay();
+            var firstMonday:Date = new Date(d.getFullYear(), 0, (dayOffset > 7) ? dayOffset - 7 : dayOffset);
+            var currentDay:Date = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+            var weekNumber:uint = (ConversionUtils.millisecondsToDays(currentDay.getTime() - firstMonday.getTime()) / 7) + 1;
+
+            return (weekNumber == 0) ? getWeekOfTheYear(new Date(d.getFullYear() - 1, 11, 31)) : weekNumber;
+        }
+
+
+
+        /**
+         Determines if two Dates are the same time.
+         CASA
+
+         @param first: First Date to compare to &lt;code>second&lt;/code>.
+         @param second: Second Date to compare to &lt;code>first&lt;/code>.
+         @return Returns &lt;code>true&lt;/code> if Dates are the same; otherwise &lt;code>false&lt;/code>.
+         */
+        public static function equals(first:Date, second:Date):Boolean {
+            return first.valueOf() == second.valueOf();
+        }
+
+
+
+        /** Utility function for generating time code given a number seconds.
+         * OpenVideoPlayer
+         */
+        public static function timeCode(sec:Number):String {
+            var h:Number = Math.floor(sec / 3600);
+            var m:Number = Math.floor((sec % 3600) / 60);
+            var s:Number = Math.floor((sec % 3600) % 60);
+            return (h == 0 ? "" : (h &lt; 10 ? "0" + h.toString() + ":" : h.toString() + ":")) + (m &lt; 10 ? "0" + m.toString() : m.toString()) + ":" + (s &lt; 10 ? "0" + s.toString() : s.toString());
+        }
+
+
+
+        /**
+         *  Compares two dates.
+         * OpenVideoPlayer
+         *  @param d1 The first date to compare.
+         *
+         *  @param d2 The second date to compare.
+         *
+         *  @return -1 if the first date is earlier than the second. 0 if the dates are equal. 1 if the first date is later than the second.
+         */
+        public static function compare(d1:Date, d2:Date):Number {
+            var d1Ts:Number = d1.getTime();
+            var d2Ts:Number = d2.getTime();
+
+            var result:Number = -1;
+
+            if(d1Ts == d2Ts)
+                result = 0; else if(d1Ts > d2Ts)
+                result = 1;
+
+            return result;
+        }
+    }
+}
+
+</textarea></div></div></div><div class="classDescription"></div><div class="summary"><h2 id="Summary">Summary</h2><div class="docNav"><ul><li><div id="twistyTypeInfo_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide type info</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_on");</script><div id="twistyTypeInfo_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show type info</a></div><span id="twistyTypeInfo_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_off");</script></li><li><div id="twistySummaries_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide summaries</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_on");</script><div id="twistySummaries_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show summaries</a></div><span id="twistySummaries_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_off");</script></li><li><div id="twistySort_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Sort by source order</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_on");</script><div id="twistySort_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Sort alphabetically</a></div><span id="twistySort_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_off");</script></li></ul><br class="clear" /></div><div class="memberList"><div class="memberSummaryPart"><span class="title">Constructor</span><ul class="sortable" id="sortul1"><li class="sortli listnum1"><a href="#DateUtils">DateUtils</a></li></ul></div><div class="memberSummaryPart"><span class="title">Class methods</span><ul class="sortable" id="sortul2"><li class="sortli listnum1"><a href="#formatDate">formatDate</a><span class="typeInfo"> (dateToFormat:Date, formatString:String) : String</span><ul class="summary"><li>Formats a Date object for display.</li></ul></li><li class="sortli listnum2"><a href="#iso8601ToDate">iso8601ToDate</a><span class="typeInfo"> (iso8601:String) : Date</span><ul class="summary"><li>Converts W3C ISO 8601 date strings into a Date object.</li></ul></li><li class="sortli listnum3"><a href="#getMonthAsString">getMonthAsString</a><span class="typeInfo"> (month:Number) : String</span><ul class="summary"><li>Converts the month number into the full month name.</li></ul></li><li class="sortli listnum4"><a href="#getMonthAbbrAsString">getMonthAbbrAsString</a><span class="typeInfo"> (month:Number) : String</span><ul class="summary"><li>Converts the month number into the month abbreviation.</li></ul></li><li class="sortli listnum5"><a href="#getDayAsString">getDayAsString</a><span class="typeInfo"> (day:Number) : String</span><ul class="summary"><li>Converts the day of the week number into the full day name.</li></ul></li><li class="sortli listnum6"><a href="#getDayAbbrAsString">getDayAbbrAsString</a><span class="typeInfo"> (day:Number) : String</span><ul class="summary"><li>Converts the day of the week number into the day abbreviation.</li></ul></li><li class="sortli listnum7"><a href="#getDaysInMonth">getDaysInMonth</a><span class="typeInfo"> (year:Number, month:Number) : uint</span><ul class="summary"><li>Finds the number of days in the given month.</li></ul></li><li class="sortli listnum8"><a href="#getMeridiem">getMeridiem</a><span class="typeInfo"> (hours:Number) : String</span><ul class="summary"><li>Determines if time is Ante meridiem or Post meridiem.</li></ul></li><li class="sortli listnum9"><a href="#getTimeBetween">getTimeBetween</a><span class="typeInfo"> (startDate:Date, endDate:Date) : Number</span><ul class="summary"><li>Determines the difference between two dates.</li></ul></li><li class="sortli listnum10"><a href="#getCountdownUntil">getCountdownUntil</a><span class="typeInfo"> (startDate:Date, endDate:Date) : Object</span><ul class="summary"><li>Determines the time remaining until a certain date.</li></ul></li><li class="sortli listnum11"><a href="#getDifferenceFromUTCInSeconds">getDifferenceFromUTCInSeconds</a><span class="typeInfo"> (d:Date) : int</span><ul class="summary"><li>Determines the difference to coordinated universal time (UTC) in seconds.</li></ul></li><li class="sortli listnum12"><a href="#getDifferenceFromUTCInHours">getDifferenceFromUTCInHours</a><span class="typeInfo"> (d:Date) : int</span><ul class="summary"><li>Determines the difference to coordinated universal time (UTC) in hours.</li></ul></li><li class="sortli listnum13"><a href="#getFormattedDifferenceFromUTC">getFormattedDifferenceFromUTC</a><span class="typeInfo"> (d:Date, separator:String = "") : String</span><ul class="summary"><li>Formats the difference to coordinated undefined time (UTC).</li></ul></li><li class="sortli listnum14"><a href="#getTimezone">getTimezone</a><span class="typeInfo"> (d:Date) : String</span><ul class="summary"><li>Determines the time zone of the user from a Date object.</li></ul></li><li class="sortli listnum15"><a href="#isLeapYear">isLeapYear</a><span class="typeInfo"> (year:Number) : Boolean</span><ul class="summary"><li>Determines if year is a leap year or a common year.</li></ul></li><li class="sortli listnum16"><a href="#isDaylightSavings">isDaylightSavings</a><span class="typeInfo"> (d:Date) : Boolean</span><ul class="summary"><li>Determines if or not the date is in daylight saving time.</li></ul></li><li class="sortli listnum17"><a href="#getInternetTime">getInternetTime</a><span class="typeInfo"> (d:Date) : Number</span><ul class="summary"><li>Converts current time into Swatch internet time or beats.</li></ul></li><li class="sortli listnum18"><a href="#getDayOfTheYear">getDayOfTheYear</a><span class="typeInfo"> (d:Date) : uint</span><ul class="summary"><li>Gets the current day out of the total days in the year (starting from 0).</li></ul></li><li class="sortli listnum19"><a href="#getWeekOfTheYear">getWeekOfTheYear</a><span class="typeInfo"> (d:Date) : uint</span><ul class="summary"><li>Determines the week number of year, weeks start on Mondays.</li></ul></li><li class="sortli listnum20"><a href="#equals">equals</a><span class="typeInfo"> (first:Date, second:Date) : Boolean</span><ul class="summary"><li>Determines if two Dates are the same time.</li></ul></li><li class="sortli listnum21"><a href="#timeCode">timeCode</a><span class="typeInfo"> (sec:Number) : String</span><ul class="summary"><li>Utility function for generating time code given a number seconds.</li></ul></li><li class="sortli listnum22"><a href="#compare">compare</a><span class="typeInfo"> (d1:Date, d2:Date) : Number</span><ul class="summary"><li>Compares two dates.</li></ul></li></ul></div></div></div><div class="memberSection"><h2 id="Constructor">Constructor</h2><div class="member" id="DateUtils"><h3>DateUtils</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> function <b>DateUtils</b> (
 </div><div class="code">)</div><br class="clear" /></div></div><div class="description">     Constructor. </div></div></div><div class="memberSection"><h2 id="Classmethods">Class methods</h2><div class="member" id="compare"><h3>compare</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public static</span> function <b>compare</b> (
 
 </div><div class="code">d1:Date,

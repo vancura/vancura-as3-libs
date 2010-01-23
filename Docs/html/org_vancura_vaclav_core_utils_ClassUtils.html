@@ -1,10 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head><title>ClassUtils</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" type="text/css" href="../css/VisDoc.css" /><script src="../js/jquery.js" type="text/javascript">//</script><script src="../js/common.js" type="text/javascript">//</script><script src="../js/doc.js" type="text/javascript">//</script></head><body id="page_org_vancura_vaclav_core_utils_ClassUtils"><script type="text/javascript">VisDoc.initBody();</script><div id="PageTop"><!----></div><div class="VisDoc"><div class="content"><div class="docNav"><ul class="accessKeyLinks"><li><a href="#PageTop" accesskey="t"><span class="accessKey">T</span>op</a></li><li><a href="#Summary" accesskey="s"><span class="accessKey">S</span>ummary</a></li><li><a href="#Constructor" accesskey="c"><span class="accessKey">C</span>onstructors</a></li><li><a href="#Classmethods" accesskey="a">Cl<span class="accessKey">a</span>ss methods</a></li></ul><br class="clear" /></div><h1>ClassUtils</h1><div class="classProperties"><table cellspacing="0"><tr><th align="left">Kind of class:</th><td>public class</td></tr><tr><th align="left">Package:</th><td><a class="className" href="package-org_vancura_vaclav_core_utils.html">org.vancura.vaclav.core.utils</a></td></tr><tr><th align="left">Inherits from:</th><td>none</td></tr><tr><th class="classDetails" align="left">Classpath:</th><td class="classDetails">org.vancura.vaclav.core.utils.ClassUtils</td></tr><tr><th class="classDetails" align="left">File last modified:</th><td class="classDetails">Sunday, 10 January 2010, 11:06:45</td></tr></table></div><div class="classDescription"></div><div class="summary"><h2 id="Summary">Summary</h2><div class="docNav"><ul><li><div id="twistyTypeInfo_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide type info</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_on");</script><div id="twistyTypeInfo_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show type info</a></div><span id="twistyTypeInfo_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_off");</script></li><li><div id="twistySummaries_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide summaries</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_on");</script><div id="twistySummaries_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show summaries</a></div><span id="twistySummaries_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_off");</script></li><li><div id="twistySort_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Sort by source order</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_on");</script><div id="twistySort_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Sort alphabetically</a></div><span id="twistySort_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_off");</script></li></ul><br class="clear" /></div><div class="memberList"><div class="memberSummaryPart"><span class="title">Constructor</span><ul class="sortable" id="sortul1"><li class="sortli listnum1"><a href="#ClassUtils">ClassUtils</a></li></ul></div><div class="memberSummaryPart"><span class="title">Class methods</span><ul class="sortable" id="sortul2"><li class="sortli listnum1"><a href="#getClass">getClass</a><span class="typeInfo"> (obj:Object) : Class</span><ul class="summary"><li>Get the Class of an Object.</li></ul></li><li class="sortli listnum2"><a href="#getClassByName">getClassByName</a><span class="typeInfo"> (className:String) : Class</span><ul class="summary"><li>Get a Class by its fully-qualified name.</li></ul></li><li class="sortli listnum3"><a href="#getDisplayObjectClass">getDisplayObjectClass</a><span class="typeInfo"> (obj:Object) : Class</span><ul class="summary"><li>Get the Class of a DisplayObject.</li></ul></li><li class="sortli listnum4"><a href="#construct">construct</a><span class="typeInfo"> (type:Class, arguments) : *</span><ul class="summary"><li>Dynamically constructs a Class.</li></ul></li></ul></div></div></div><div class="memberSection"><h2 id="Constructor">Constructor</h2><div class="member" id="ClassUtils"><h3>ClassUtils</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> function <b>ClassUtils</b> (
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>ClassUtils</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" type="text/css" href="../css/VisDoc.css" /><script src="../js/jquery.js" type="text/javascript">//</script><script src="../js/common.js" type="text/javascript">//</script><script src="../js/doc.js" type="text/javascript">//</script></head><body id="page_org_vancura_vaclav_core_utils_ClassUtils"><script type="text/javascript">VisDoc.initBody();</script><div id="PageTop"><!----></div><div class="VisDoc"><div class="content"><div class="docNav"><ul><li><div id="twistyTOC_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited activeWhenNotFramed"><a href="#"><span class="icon">+</span>Show TOC</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyTOC_show");</script><div id="twistyTOC_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited activeWhenFramed"><a href="#"><span class="icon">&times;</span>Hide TOC</a></div><span id="twistyTOC_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyTOC_hide");</script></li></ul><ul class="accessKeyLinks"><li><a href="#PageTop" accesskey="t"><span class="accessKey">T</span>op</a></li><li><a href="#Summary" accesskey="s"><span class="accessKey">S</span>ummary</a></li><li><a href="#Constructor" accesskey="c"><span class="accessKey">C</span>onstructors</a></li><li><a href="#Classmethods" accesskey="a">Cl<span class="accessKey">a</span>ss methods</a></li></ul><ul><li><div id="twistyPrivate_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide private and protected members</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("togglePrivate_on");</script><div id="twistyPrivate_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show private and protected members</a></div><span id="twistyPrivate_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("togglePrivate_off");</script></li></ul><br class="clear" /></div><h1>ClassUtils</h1><div class="classProperties"><table cellspacing="0"><tr><th align="left">Kind of class:</th><td>public class</td></tr><tr><th align="left">Package:</th><td><a class="className" href="package-org_vancura_vaclav_core_utils.html">org.vancura.vaclav.core.utils</a></td></tr><tr><th align="left">Inherits from:</th><td>none</td></tr><tr><th class="classDetails" align="left">Classpath:</th><td class="classDetails">org.vancura.vaclav.core.utils.ClassUtils</td></tr><tr><th class="classDetails" align="left">File last modified:</th><td class="classDetails">Saturday, 23 January 2010, 22:06:23</td></tr></table></div><div id="sourceCodeTop" class="sourceCodeView"><div id="twistyViewSourceshow" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting twistyAnimate"><a href="#"><span class="icon">►&nbsp;</span><span class="linkLabel">View source</span></a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourceshow");</script><div id="twistyViewSourcehide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting twistyAnimate"><a href="#"><span class="icon">▼&nbsp;</span><span class="linkLabel">Hide source</span></a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourcehide");</script><div id="twistyViewSourcetoggle" class="twistyContent twistyMakeHidden twistyRememberSetting"><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourcetoggle");</script><div class="sourceCode"><textarea rows="10" cols="10" id="source" readonly="readonly">/***********************************************************************************************************************
+ * Some methods Copyrighted by their authors, specified in ASDocs.
+ * If not specified elsewhere: Copyright (c) 2010 Vaclav Vancura.
+ *
+ * Contact me at vaclav@vancura.org, @vancura or at my homepage at http://vaclav.vancura.org.
+ * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
+ * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
+ *
+ * Licensed under Attribution 3.0 Czech Republic (http://creativecommons.org/licenses/by/3.0/cz/deed.en_GB).
+ *
+ * That means you are free:
+ * * to copy, distribute, display, and perform the work
+ * * to make derivative works
+ *
+ * Under the following conditions::
+ * * Attribution ÔøΩ You must give the original author credit.
+ *
+ * With the understanding that:
+ *    * Waiver ÔøΩ Any of the above conditions can be waived if you get permission from the copyright holder. CC licenses
+ *      anticipate that a licensor may want to waive compliance with a specific condition, such as attribution.
+ *    * Other Rights ÔøΩ In no way are any of the following rights affected by the license:
+ *             - Your fair dealing or fair use rights ÔøΩ All jurisdictions allow some limited uses of copyrighted material
+ *            without permission. CC licenses do not affect the rights of users under those copyright limitations and
+ *            exceptions, such as fair use and fair dealing where applicable.
+ *             - The author's moral rights ÔøΩ In addition to the right of licensors to request removal of their name from
+ *            the work when used in a derivative or collective they don't like, copyright laws in most jurisdictions
+ *            around the world (with the notable exception of the US except in very limited circumstances) grant
+ *            creators "moral rights" which may provide some redress if a derivative work represents a "derogatory
+ *            treatment" of the licensor's work.
+ *             - Rights other persons may have either in the work itself or in how the work is used, such as publicity or
+ *            privacy rights. ÔøΩ Publicity rights allow individuals to control how their voice, image or likeness is used
+ *            for commercial purposes in public. If a CC-licensed work includes the voice or image of anyone other than
+ *            the licensor, a user of the work may need to get permission from those individuals before using the work
+ *            for commercial purposes.
+ *
+ * Notice ÔøΩ For any reuse or distribution, you must make clear to others the licence terms of this work.
+ **********************************************************************************************************************/
+
+package org.vancura.vaclav.core.utils {
+    import flash.display.DisplayObject;
+    import flash.utils.getDefinitionByName;
+    import flash.utils.getQualifiedClassName;
+
+    public class ClassUtils {
+
+
+
+        /**
+         * Constructor.
+         * Cannot be instantiated, throws an Error.
+         * @throws Error, since the class could not be instantiated
+         */
+        public function ClassUtils() {
+            throw new Error('The ClassUtils class cannot be instantiated.');
+        }
+
+
+
+        /**
+         * Get the Class of an Object.
+         * Original article: http://jacksondunstan.com/articles/512
+         * @param obj DisplayObject to get the Class of
+         * @return The Class of the given DisplayObject or null if the class cannot be determined.
+         * @author Jackson Dunstan (http://jacksondunstan.com)
+         */
+        //noinspection FunctionWithMultipleReturnPointsJS
+        public static function getClass(obj:Object):Class {
+            //noinspection UnusedCatchParameterJS
+            try {
+                var cn:String = getQualifiedClassName(obj);
+                var gd:* = obj.loaderInfo.applicationDomain.getDefinition(cn);
+                return Class(gd);
+            }
+            catch(refError:ReferenceError) {
+                return null;
+            }
+            catch(typeError:TypeError) {
+                return null;
+            }
+
+            //noinspection UnreachableCodeJS
+            return null;
+        }
+
+
+
+        /**
+         * Get a Class by its fully-qualified name.
+         * Original article: http://jacksondunstan.com/articles/512
+         * @param className Fully-qualified name of the class
+         * @return The Class with the given name or null if none exists.
+         * @author Jackson Dunstan (http://jacksondunstan.com)
+         */
+        //noinspection FunctionWithMultipleReturnPointsJS
+        public static function getClassByName(className:String):Class {
+            //noinspection UnusedCatchParameterJS
+            try {
+                var dn:Object = getDefinitionByName(className);
+                return Class(dn);
+            }
+            catch(refError:ReferenceError) {
+                return null;
+            }
+            catch(typeError:TypeError) {
+                return null;
+            }
+
+            //noinspection UnreachableCodeJS
+            return null;
+        }
+
+
+
+        /**
+         * Get the Class of a DisplayObject.
+         * Original article: http://jacksondunstan.com/articles/512
+         * @param obj Object to get the Class of
+         * @return The Class of the given Object or null if the class cannot be determined.
+         * @author Jackson Dunstan (http://jacksondunstan.com)
+         */
+        //noinspection FunctionWithMultipleReturnPointsJS
+        public static function getDisplayObjectClass(obj:Object):Class {
+            if(obj == null) return null;
+
+            //noinspection UnusedCatchParameterJS
+            try {
+                var cn:String = getQualifiedClassName(obj);
+                var dn:Object = getDefinitionByName(cn);
+                var ret:Class = Class(dn);
+
+                if(ret == null &amp;&amp; obj is DisplayObject) {
+                    var dj:DisplayObject = DisplayObject(obj);
+                    ret = getDisplayObjectClass(dj);
+                }
+
+                return ret;
+            }
+            catch(refError:ReferenceError) {
+                return null;
+            }
+            catch(typeError:TypeError) {
+                return null;
+            }
+
+            //noinspection UnreachableCodeJS
+            return null;
+        }
+
+
+
+        /**
+         * Dynamically constructs a Class.
+         * Original taken from Casalib (http://casalib.org)
+         * @param type The Class to create.
+         * @param args Up to ten arguments to the constructor.
+         * @return Returns the dynamically created instance of the Class specified by &lt;code>type&lt;/code> parameter.
+         * @example
+         * &lt;code>
+         * var bData:* = ClassUtils.construct(BitmapData, 200, 200);
+         * trace(bData is BitmapData, bData.width);
+         * &lt;/code>
+         * @author Aaron Clinger (http://casalib.org)
+         * @author Jon Adams (http://casalib.org)
+         */
+        //noinspection OverlyComplexFunctionJS
+        public static function construct(type:Class, ...args):* {
+            var out:*;
+
+            switch(args.length) {
+                case 0 :
+                    out = new type(); break;
+                case 1 :
+                    out = new type(args[0]); break;
+                case 2 :
+                    out = new type(args[0], args[1]); break;
+                case 3 :
+                    out = new type(args[0], args[1], args[2]); break;
+                case 4 :
+                    out = new type(args[0], args[1], args[2], args[3]); break;
+                case 5 :
+                    out = new type(args[0], args[1], args[2], args[3], args[4]); break;
+                case 6 :
+                    out = new type(args[0], args[1], args[2], args[3], args[4], args[5]); break;
+                case 7 :
+                    out = new type(args[0], args[1], args[2], args[3], args[4], args[5], args[6]); break;
+                case 8 :
+                    out = new type(args[0], args[1], args[2], args[3], args[4], args[5], args[6], args[7]); break;
+                case 9 :
+                    out = new type(args[0], args[1], args[2], args[3], args[4], args[5], args[6], args[7], args[8]); break;
+                case 10 :
+                    out = new type(args[0], args[1], args[2], args[3], args[4], args[5], args[6], args[7], args[8], args[9]); break;
+                default:
+                    throw new Error('You have passed more arguments than this method excepts (Ten or less).');
+            }
+
+            return out;
+        }
+    }
+}
+
+</textarea></div></div></div><div class="classDescription"></div><div class="summary"><h2 id="Summary">Summary</h2><div class="docNav"><ul><li><div id="twistyTypeInfo_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide type info</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_on");</script><div id="twistyTypeInfo_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show type info</a></div><span id="twistyTypeInfo_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_off");</script></li><li><div id="twistySummaries_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide summaries</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_on");</script><div id="twistySummaries_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show summaries</a></div><span id="twistySummaries_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_off");</script></li><li><div id="twistySort_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Sort by source order</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_on");</script><div id="twistySort_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Sort alphabetically</a></div><span id="twistySort_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_off");</script></li></ul><br class="clear" /></div><div class="memberList"><div class="memberSummaryPart"><span class="title">Constructor</span><ul class="sortable" id="sortul1"><li class="sortli listnum1"><a href="#ClassUtils">ClassUtils</a></li></ul></div><div class="memberSummaryPart"><span class="title">Class methods</span><ul class="sortable" id="sortul2"><li class="sortli listnum1"><a href="#getClass">getClass</a><span class="typeInfo"> (obj:Object) : Class</span><ul class="summary"><li>Get the Class of an Object.</li></ul></li><li class="sortli listnum2"><a href="#getClassByName">getClassByName</a><span class="typeInfo"> (className:String) : Class</span><ul class="summary"><li>Get a Class by its fully-qualified name.</li></ul></li><li class="sortli listnum3"><a href="#getDisplayObjectClass">getDisplayObjectClass</a><span class="typeInfo"> (obj:Object) : Class</span><ul class="summary"><li>Get the Class of a DisplayObject.</li></ul></li><li class="sortli listnum4"><a href="#construct">construct</a><span class="typeInfo"> (type:Class, args) : *</span><ul class="summary"><li>Dynamically constructs a Class.</li></ul></li></ul></div></div></div><div class="memberSection"><h2 id="Constructor">Constructor</h2><div class="member" id="ClassUtils"><h3>ClassUtils</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> function <b>ClassUtils</b> (
 </div><div class="code">)</div><br class="clear" /></div></div><div class="description">     Constructor.<br />Cannot be instantiated, throws an Error. </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Throws:</span><div class="item"><ul><li> <span class="doesNotExist"> Error</span>, since the class could not be instantiated </li></ul></div></div></div></div></div></div><div class="memberSection"><h2 id="Classmethods">Class methods</h2><div class="member" id="construct"><h3>construct</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public static</span> function <b>construct</b> (
 
 </div><div class="code">type:Class,
-arguments) : *</div><br class="clear" /></div></div><div class="description"> Dynamically constructs a Class.<br />Original taken from Casalib (<a href="http://casalib.org">http://casalib.org</a>) </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Parameters:</span><div class="item"><div class="floatbox code colorizedCode">type     <span class="itemSeparator">:</span></div><div>The Class to create.</div></div><div class="item"><div class="floatbox code colorizedCode">arguments<span class="itemSeparator">:</span></div><div>Up to ten arguments to the constructor.</div></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Returns:</span><div class="item"><ul><li> Returns the dynamically created instance of the Class specified by <code>type</code> parameter. </li></ul></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Example:</span><div class="item"><ul><li> <pre>
+args) : *</div><br class="clear" /></div></div><div class="description"> Dynamically constructs a Class.<br />Original taken from Casalib (<a href="http://casalib.org">http://casalib.org</a>) </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Parameters:</span><div class="item"><div class="floatbox code colorizedCode">type<span class="itemSeparator">:</span></div><div>The Class to create.</div></div><div class="item"><div class="floatbox code colorizedCode">args<span class="itemSeparator">:</span></div><div>Up to ten arguments to the constructor.</div></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Returns:</span><div class="item"><ul><li> Returns the dynamically created instance of the Class specified by <code>type</code> parameter. </li></ul></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Example:</span><div class="item"><ul><li> <pre>
 <span class="codeKeyword">var</span> bData:* = ClassUtils.construct(<span class="codeIdentifier">BitmapData</span>, <span class="codeNumber">200</span>, <span class="codeNumber">200</span>);
 <span class="codeIdentifier">trace</span>(bData is <span class="codeIdentifier">BitmapData</span>, bData<span class="codeIdentifier">.width</span>);</pre> </li></ul></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Author:</span><div class="item"><ul><li> Aaron Clinger (<a href="http://casalib.org">http://casalib.org</a>) </li><li> Jon Adams (<a href="http://casalib.org">http://casalib.org</a>) </li></ul></div></div></div></div></div><div class="member" id="getClass"><h3>getClass</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public static</span> function <b>getClass</b> (
 </div><div class="code">obj:Object) : Class</div><br class="clear" /></div></div><div class="description"> Get the Class of an Object.<br />Original article: <a href="http://jacksondunstan.com/articles/512">http://jacksondunstan.com/articles/512</a> </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Parameters:</span><div class="item"><div class="floatbox code colorizedCode">obj<span class="itemSeparator">:</span></div><div>DisplayObject to get the Class of</div></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Returns:</span><div class="item"><ul><li> The Class of the given DisplayObject or null if the class cannot be determined. </li></ul></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Author:</span><div class="item"><ul><li> Jackson Dunstan (<a href="http://jacksondunstan.com">http://jacksondunstan.com</a>) </li></ul></div></div></div></div></div><div class="member" id="getClassByName"><h3>getClassByName</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public static</span> function <b>getClassByName</b> (

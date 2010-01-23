@@ -1,8 +1,401 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head><title>FARAssetProvider</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" type="text/css" href="../css/VisDoc.css" /><script src="../js/jquery.js" type="text/javascript">//</script><script src="../js/common.js" type="text/javascript">//</script><script src="../js/doc.js" type="text/javascript">//</script></head><body id="page_org_vancura_vaclav_assets_providers_FARAssetProvider"><script type="text/javascript">VisDoc.initBody();</script><div id="PageTop"><!----></div><div class="VisDoc"><div class="content"><div class="docNav"><ul class="accessKeyLinks"><li><a href="#PageTop" accesskey="t"><span class="accessKey">T</span>op</a></li><li><a href="#Summary" accesskey="s"><span class="accessKey">S</span>ummary</a></li><li><a href="#Constructor" accesskey="c"><span class="accessKey">C</span>onstructors</a></li><li><a href="#Instanceproperties" accesskey="l">Instance <span class="accessKey">p</span>roperties</a></li><li><a href="#Instancemethods" accesskey="m">Instance <span class="accessKey">m</span>ethods</a></li></ul><br class="clear" /></div><h1>FARAssetProvider</h1><div class="classProperties"><table cellspacing="0"><tr><th align="left">Kind of class:</th><td>public class</td></tr><tr><th align="left">Package:</th><td><a class="className" href="package-org_vancura_vaclav_assets_providers.html">org.vancura.vaclav.assets.providers</a></td></tr><tr><th align="left">Inherits from:</th><td><a class="className" href="org_vancura_vaclav_assets_providers_AssetProvider.html">AssetProvider</a> &lt; EventDispatcher</td></tr><tr><th align="left">Implements:</th><td><ul><li><a class="className" href="org_vancura_vaclav_assets_interfaces_IAssetProvider.html">IAssetProvider</a></li></ul></td></tr><tr><th class="classDetails" align="left">Author:</th><td class="classDetails">Vaclav Vancura (<a href="http://vaclav.vancura.org">http://vaclav.vancura.org</a>)<br /><br />TODO: When loading a FAR and some (or no) index not found, everything silently fails. This is critical!</td></tr><tr><th class="classDetails" align="left">Classpath:</th><td class="classDetails">org.vancura.vaclav.assets.providers.FARAssetProvider</td></tr><tr><th class="classDetails" align="left">File last modified:</th><td class="classDetails">Tuesday, 12 January 2010, 21:18:19</td></tr></table></div><div class="classDescription"><span class="descriptionSummary">FAR Asset provider.</span><br />Based on the FAR loader by Edwin van Rijkom (<a href="http://code.google.com/p/vanrijkom-flashlibs">http://code.google.com/p/vanrijkom-flashlibs</a>)</div><div class="summary"><h2 id="Summary">Summary</h2><div class="docNav"><ul><li><div id="twistyTypeInfo_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide type info</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_on");</script><div id="twistyTypeInfo_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show type info</a></div><span id="twistyTypeInfo_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_off");</script></li><li><div id="twistySummaries_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide summaries</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_on");</script><div id="twistySummaries_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show summaries</a></div><span id="twistySummaries_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_off");</script></li><li><div id="twistySort_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Sort by source order</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_on");</script><div id="twistySort_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Sort alphabetically</a></div><span id="twistySort_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_off");</script></li></ul><br class="clear" /></div><div class="memberList"><div class="memberSummaryPart"><span class="title">Constructor</span><ul class="sortable" id="sortul1"><li class="sortli listnum1"><a href="#FARAssetProvider">FARAssetProvider</a><span class="typeInfo"> (contentURL:String, assetsConfigIndex:String = _ASSETS_CONFIG_INDEX)</span><ul class="summary"><li>FAR Asset provider constructor.</li></ul></li></ul></div><div class="memberSummaryPart"><span class="title">Instance properties</span><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Instance properties inherited from <span class="superclass"><a class="className" href="org_vancura_vaclav_assets_providers_AssetProvider.html">AssetProvider</a></span></span><div class="item inheritedList"><a class="private" href="org_vancura_vaclav_assets_providers_AssetProvider.html#_assetsList">_assetsList</a>  <a class="private" href="org_vancura_vaclav_assets_providers_AssetProvider.html#_isActive">_isActive</a>  <a class="private" href="org_vancura_vaclav_assets_providers_AssetProvider.html#_isError">_isError</a>  <a class="private" href="org_vancura_vaclav_assets_providers_AssetProvider.html#_isLoaded">_isLoaded</a>  <a href="org_vancura_vaclav_assets_providers_AssetProvider.html#assetsList">assetsList</a>  <a href="org_vancura_vaclav_assets_providers_AssetProvider.html#isActive">isActive</a>  <a href="org_vancura_vaclav_assets_providers_AssetProvider.html#isError">isError</a>  <a href="org_vancura_vaclav_assets_providers_AssetProvider.html#isLoaded">isLoaded</a></div></div></div></div></div><div class="memberSummaryPart"><span class="title">Instance methods</span><ul class="sortable" id="sortul3"><li class="sortli listnum1"><a href="#destroy">destroy</a><span class="typeInfo">  : void</span><ul class="summary"><li>FAR Asset provider destructor.</li></ul></li><li class="sortli listnum2"><a href="#getAsset">getAsset</a><span class="typeInfo"> (id:String) : <a class="className" href="org_vancura_vaclav_assets_Asset.html">Asset</a></span><ul class="summary"><li>Get an Asset from the provider.</li></ul></li></ul><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Instance methods inherited from <span class="superclass"><a class="className" href="org_vancura_vaclav_assets_providers_AssetProvider.html">AssetProvider</a></span></span><div class="item inheritedList"><a href="org_vancura_vaclav_assets_providers_AssetProvider.html#destroy">destroy</a>  <a href="org_vancura_vaclav_assets_providers_AssetProvider.html#getAsset">getAsset</a></div></div></div></div></div></div></div><div class="memberSection"><h2 id="Constructor">Constructor</h2><div class="member" id="FARAssetProvider"><h3>FARAssetProvider</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> function <b>FARAssetProvider</b> (
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>FARAssetProvider</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" type="text/css" href="../css/VisDoc.css" /><script src="../js/jquery.js" type="text/javascript">//</script><script src="../js/common.js" type="text/javascript">//</script><script src="../js/doc.js" type="text/javascript">//</script></head><body id="page_org_vancura_vaclav_assets_providers_FARAssetProvider"><script type="text/javascript">VisDoc.initBody();</script><div id="PageTop"><!----></div><div class="VisDoc"><div class="content"><div class="docNav"><ul><li><div id="twistyTOC_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited activeWhenNotFramed"><a href="#"><span class="icon">+</span>Show TOC</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyTOC_show");</script><div id="twistyTOC_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited activeWhenFramed"><a href="#"><span class="icon">&times;</span>Hide TOC</a></div><span id="twistyTOC_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyTOC_hide");</script></li></ul><ul class="accessKeyLinks"><li><a href="#PageTop" accesskey="t"><span class="accessKey">T</span>op</a></li><li><a href="#Summary" accesskey="s"><span class="accessKey">S</span>ummary</a></li><li><a href="#Constructor" accesskey="c"><span class="accessKey">C</span>onstructors</a></li><li><a href="#Instanceproperties" accesskey="l">Instance <span class="accessKey">p</span>roperties</a></li><li><a href="#Instancemethods" accesskey="m">Instance <span class="accessKey">m</span>ethods</a></li></ul><ul><li><div id="twistyPrivate_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide private and protected members</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("togglePrivate_on");</script><div id="twistyPrivate_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show private and protected members</a></div><span id="twistyPrivate_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("togglePrivate_off");</script></li></ul><br class="clear" /></div><h1>FARAssetProvider</h1><div class="classProperties"><table cellspacing="0"><tr><th align="left">Kind of class:</th><td>public class</td></tr><tr><th align="left">Package:</th><td><a class="className" href="package-org_vancura_vaclav_assets_providers.html">org.vancura.vaclav.assets.providers</a></td></tr><tr><th align="left">Inherits from:</th><td><a class="className" href="org_vancura_vaclav_assets_providers_AssetProvider.html">AssetProvider</a> &lt; EventDispatcher</td></tr><tr><th align="left">Implements:</th><td><ul><li><a class="className" href="org_vancura_vaclav_assets_interfaces_IAssetProvider.html">IAssetProvider</a></li></ul></td></tr><tr><th class="classDetails" align="left">Author:</th><td class="classDetails">Vaclav Vancura (<a href="http://vaclav.vancura.org">http://vaclav.vancura.org</a>)<br /><br />TODO: When loading a FAR and some (or no) index not found, everything silently fails. This is critical!</td></tr><tr><th class="classDetails" align="left">Classpath:</th><td class="classDetails">org.vancura.vaclav.assets.providers.FARAssetProvider</td></tr><tr><th class="classDetails" align="left">File last modified:</th><td class="classDetails">Tuesday, 12 January 2010, 21:18:19</td></tr></table></div><div id="sourceCodeTop" class="sourceCodeView"><div id="twistyViewSourceshow" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting twistyAnimate"><a href="#"><span class="icon">►&nbsp;</span><span class="linkLabel">View source</span></a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourceshow");</script><div id="twistyViewSourcehide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting twistyAnimate"><a href="#"><span class="icon">▼&nbsp;</span><span class="linkLabel">Hide source</span></a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourcehide");</script><div id="twistyViewSourcetoggle" class="twistyContent twistyMakeHidden twistyRememberSetting"><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourcetoggle");</script><div class="sourceCode"><textarea rows="10" cols="10" id="source" readonly="readonly">/***********************************************************************************************************************
+ * Some methods Copyrighted by their authors, specified in ASDocs.
+ * If not specified elsewhere: Copyright (c) 2010 Vaclav Vancura.
+ *
+ * Contact me at vaclav@vancura.org, @vancura or at my homepage at http://vaclav.vancura.org.
+ * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
+ * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
+ *
+ * Licensed under Attribution 3.0 Czech Republic (http://creativecommons.org/licenses/by/3.0/cz/deed.en_GB).
+ *
+ * That means you are free:
+ * * to copy, distribute, display, and perform the work
+ * * to make derivative works
+ *
+ * Under the following conditions::
+ * * Attribution — You must give the original author credit.
+ *
+ * With the understanding that:
+ *    * Waiver — Any of the above conditions can be waived if you get permission from the copyright holder. CC licenses
+ *      anticipate that a licensor may want to waive compliance with a specific condition, such as attribution.
+ *    * Other Rights — In no way are any of the following rights affected by the license:
+ *             - Your fair dealing or fair use rights — All jurisdictions allow some limited uses of copyrighted material
+ *            without permission. CC licenses do not affect the rights of users under those copyright limitations and
+ *            exceptions, such as fair use and fair dealing where applicable.
+ *             - The author's moral rights — In addition to the right of licensors to request removal of their name from
+ *            the work when used in a derivative or collective they don't like, copyright laws in most jurisdictions
+ *            around the world (with the notable exception of the US except in very limited circumstances) grant
+ *            creators "moral rights" which may provide some redress if a derivative work represents a "derogatory
+ *            treatment" of the licensor's work.
+ *             - Rights other persons may have either in the work itself or in how the work is used, such as publicity or
+ *            privacy rights. — Publicity rights allow individuals to control how their voice, image or likeness is used
+ *            for commercial purposes in public. If a CC-licensed work includes the voice or image of anyone other than
+ *            the licensor, a user of the work may need to get permission from those individuals before using the work
+ *            for commercial purposes.
+ *
+ * Notice — For any reuse or distribution, you must make clear to others the licence terms of this work.
+ **********************************************************************************************************************/
+
+
+package org.vancura.vaclav.assets.providers {
+    import com.adobe.serialization.json.JSON;
+
+    import flash.events.Event;
+
+    import org.vancura.vaclav.assets.Asset;
+    import org.vancura.vaclav.assets.Chunk;
+    import org.vancura.vaclav.assets.events.ProviderErrorEvent;
+    import org.vancura.vaclav.assets.events.ProviderItemEvent;
+    import org.vancura.vaclav.assets.interfaces.IAssetProvider;
+    import org.vancura.vaclav.far.FarHelper;
+    import org.vancura.vaclav.far.FarHelperItem;
+    import org.vancura.vaclav.far.events.FarHelperAssignEvent;
+    import org.vancura.vaclav.far.events.FarHelperEvent;
+    import org.vancura.vaclav.far.events.FarHelperProgressEvent;
+
+    /**
+     * FAR Asset provider.
+     * Based on the FAR loader by Edwin van Rijkom (http://code.google.com/p/vanrijkom-flashlibs)
+     *
+     * @author Vaclav Vancura (http://vaclav.vancura.org)
+     *
+     * TODO: When loading a FAR and some (or no) index not found, everything silently fails. This is critical!
+     */
+    public class FARAssetProvider extends AssetProvider implements IAssetProvider {
+
+
+        private static const _ASSETS_CONFIG_INDEX:String = 'config.json';
+        private static const _INDEX_URL_PREFIX:String = 'index:';
+
+        private var _contentURL:String;
+        private var _farHelper:FarHelper;
+        private var _chunkLoadCounter:uint;
+        private var _chunksList:Array;
+        private var _assetsConfig:Object;
+        private var _indexList:Array;
+        private var _streamProgress:Number;
+        private var _assetsConfigIndex:String;
+
+
+
+        /**
+         * FAR Asset provider constructor.
+         *
+         * @param contentURL FAR URL
+         * @param assetsConfigIndex Item name of the config, "config.json" by default
+         */
+        public function FARAssetProvider(contentURL:String, assetsConfigIndex:String = _ASSETS_CONFIG_INDEX) {
+            super();
+
+            // store varialbes
+            _contentURL = contentURL;
+            _chunksList = new Array();
+            _chunkLoadCounter = 0;
+            _indexList = new Array();
+            _isActive = true;
+            _assetsConfigIndex = assetsConfigIndex;
+
+            // create a new FarHelper
+            _farHelper = new FarHelper();
+
+            // add event listeners
+            _farHelper.addEventListener(FarHelperEvent.STREAM_IO_ERROR, _onFarIOError, false, 0, true);
+            _farHelper.addEventListener(FarHelperEvent.STREAM_SECURITY_ERROR, _onFarSecurityError, false, 0, true);
+            _farHelper.addEventListener(FarHelperEvent.ITEM_NOT_FOUND, _onItemNotFound, false, 0, true);
+            _farHelper.addEventListener(FarHelperEvent.ITEM_LOAD_COMPLETE, _onItemLoadComplete, false, 0, true);
+            _farHelper.addEventListener(FarHelperEvent.ITEM_LOAD_FAILED, _onItemLoadFailed, false, 0, true);
+            _farHelper.addEventListener(FarHelperProgressEvent.STREAM_LOAD_PROGRESS, _onStreamLoadProgress, false, 0, true);
+
+            // load FAR and config item
+            _farHelper.load(_contentURL);
+            _farHelper.loadItem(_assetsConfigIndex);
+        }
+
+
+
+        /**
+         * FAR Asset provider destructor.
+         */
+        override public function destroy():void {
+            if(_isActive) {
+                // remove event listeners
+                _farHelper.removeEventListener(FarHelperEvent.STREAM_IO_ERROR, _onFarIOError);
+                _farHelper.removeEventListener(FarHelperEvent.STREAM_SECURITY_ERROR, _onFarSecurityError);
+                _farHelper.removeEventListener(FarHelperProgressEvent.STREAM_LOAD_PROGRESS, _onStreamLoadProgress);
+                _farHelper.removeEventListener(FarHelperEvent.ITEM_NOT_FOUND, _onItemNotFound);
+                _farHelper.removeEventListener(FarHelperEvent.ITEM_LOAD_COMPLETE, _onItemLoadComplete);
+                _farHelper.removeEventListener(FarHelperEvent.ITEM_LOAD_FAILED, _onItemLoadFailed);
+
+                // destroy FarHelper
+                _farHelper.destroy();
+
+                // destroy super
+                super.destroy();
+            }
+        }
+
+
+
+        /**
+         * Get an Asset from the provider.
+         *
+         * @param id Asset ID
+         * @return Asset
+         * @see Asset (if found, null if not)
+         */
+        override public function getAsset(id:String):Asset {
+            var asset:Asset = super.getAsset(id);
+
+            if(asset != null) {
+                // dispatch en event that the item was loaded
+                var e:ProviderItemEvent = new ProviderItemEvent(ProviderItemEvent.ITEM_LOADED, false, false, asset);
+                dispatchEvent(e);
+            }
+
+            return asset;
+        }
+
+
+
+        // Event listeners
+        // ---------------
+
+        private function _onFarSecurityError(event:FarHelperEvent):void {
+            _isError = true;
+            _isLoaded = false;
+
+            var d:String = 'Security error loading asset library: ' + event.text;
+            var e:ProviderErrorEvent = new ProviderErrorEvent(ProviderErrorEvent.PROVIDER_ERROR, false, false, d);
+            dispatchEvent(e);
+        }
+
+
+
+        private function _onFarIOError(event:FarHelperEvent):void {
+            _isError = true;
+            _isLoaded = false;
+
+            var d:String = 'IO error loading asset library: ' + event.text;
+            var e:ProviderErrorEvent = new ProviderErrorEvent(ProviderErrorEvent.PROVIDER_ERROR, false, false, d);
+            dispatchEvent(e);
+        }
+
+
+
+        private function _onItemNotFound(event:FarHelperEvent):void {
+            var d:String = 'Asset item "' + event.helperItem.index + '" not found in the asset library';
+            var e:ProviderErrorEvent = new ProviderErrorEvent(ProviderErrorEvent.ITEM_NOT_FOUND, false, false, d);
+            dispatchEvent(e);
+        }
+
+
+
+        private function _onItemLoadFailed(event:FarHelperEvent):void {
+            var d:String = 'Asset item "' + event.helperItem.index + '" load failed';
+            var e:ProviderErrorEvent = new ProviderErrorEvent(ProviderErrorEvent.ITEM_LOAD_FAILED, false, false, d);
+            dispatchEvent(e);
+        }
+
+
+
+        //noinspection FunctionWithMultipleReturnPointsJS
+        private function _onItemLoadComplete(event:FarHelperEvent):void {
+            var itemHelper:FarHelperItem = event.helperItem as FarHelperItem;
+
+            if(itemHelper.index == _assetsConfigIndex) {
+                // assets library config found
+
+                var c:String = itemHelper.farItem.data.toString();
+                try {
+                    _assetsConfig = JSON.decode(c);
+                }
+                catch(err:Error) {
+                    var m:String = 'Error parsing config JSON (' + err.message + ')';
+                    var e:ProviderErrorEvent = new ProviderErrorEvent(ProviderErrorEvent.CONFIG_PARSING_ERROR, false, false, m);
+                    dispatchEvent(e);
+                    return;
+                }
+
+                // find all assets specified in the config
+                for each(var assetConfig:Object in _assetsConfig) {
+
+                    // create new asset
+                    // find all URLs referenced by the asset
+                    // add it to the list for future reference
+                    var newAsset:Asset = new Asset(assetConfig.id, assetConfig);
+                    _findURLs(newAsset, assetConfig);
+                    _assetsList.push(newAsset);
+                }
+            }
+            else {
+                // standard asset
+
+                // find all chunks previously found by the _findURLs() method
+                for each(var chunk:Chunk in _chunksList) {
+                    if(chunk.url.substr(_INDEX_URL_PREFIX.length) == itemHelper.index) {
+                        // chunk index contains even the prefix (like this:),
+                        // but itemHelper.index contains just index
+                        // hence we need to strip it this way
+
+                        // add event listener to check for bitmap assignment afterwards
+                        itemHelper.addEventListener(FarHelperAssignEvent.ITEM_READY, _onItemReady, false, 0, true);
+
+                        // and assign a bitmap to the chunk
+                        itemHelper.assignBitmap(chunk.bitmap);
+                    }
+                }
+            }
+        }
+
+
+
+        private function _onStreamLoadProgress(event:FarHelperProgressEvent):void {
+            _streamProgress = event.progress;
+
+            var e:Event = event.clone();
+            dispatchEvent(e);
+        }
+
+
+
+        //noinspection OverlyComplexFunctionJS
+        private function _findURLs(asset:Asset, branch:Object):void {
+            // browse all items in the list
+            for each(var leaf:Object in branch) {
+                // test for the leaf, if it's string, then it *may* contain an URL reference
+
+                if(leaf is String) {
+                    // ok, it's a String
+
+                    var leafAsString:String = leaf as String;
+
+                    if(leafAsString.indexOf(_INDEX_URL_PREFIX) == 0) {
+                        // strip the trailing this
+
+                        var isNewChunk:Boolean = true;
+                        var isNewIndex:Boolean = true;
+                        var index:String = leafAsString.substr(_INDEX_URL_PREFIX.length);
+
+                        // browse all stored chunks and test if the chunk is already there
+                        for each(var testedChunk:Chunk in _chunksList) {
+                            if(testedChunk.url == leafAsString) {
+                                // it's there, so ignore it, preventing dupes
+                                isNewChunk = false;
+                            }
+                        }
+
+                        // browse all stored assets and test if the asset is already there
+                        for each(var ix:Asset in _indexList[index]) {
+                            if(ix == asset) {
+                                // it's there, so ignore it, preventing dupes
+                                isNewIndex = true;
+                            }
+                        }
+
+                        if(isNewChunk) {
+                            // ok, so it's a new chunk
+
+                            var newChunk:Chunk = new Chunk(leafAsString, Chunk.BITMAP);
+
+                            // increase counter to test for the last loaded chunk
+                            _chunkLoadCounter++;
+
+                            // load item
+                            // _onItemLoadComplete() is a handler called on successful load
+                            _farHelper.loadItem(index);
+
+                            // add to the list
+                            _chunksList.push(newChunk);
+                        }
+
+                        if(isNewIndex) {
+                            // ok, so it's a new asset
+
+                            // create a new list of assets if not created before
+                            if(_indexList[index] == null) _indexList[index] = new Array();
+
+                            // add it to the list of assets
+                            _indexList[index].push(asset);
+                        }
+                    }
+                } // if(leaf is String)
+
+                else if(leaf is Object) {
+                    // no, it's an Object, so go deeper
+                    _findURLs(asset, leaf);
+                }
+            }
+        }
+
+
+
+        private function _onItemReady(event:FarHelperAssignEvent):void {
+            var itemHelper:FarHelperItem = event.helperItem as FarHelperItem;
+
+            // remove all event listeners
+            itemHelper.removeEventListener(FarHelperAssignEvent.ITEM_READY, _onItemReady);
+
+            // check for all assets where the item is used
+            for(var i:String in _indexList) {
+                // _indexList[] contains a list of all assets
+
+                if(i == itemHelper.index) {
+                    // now we got an asset list just for this particular farItem
+
+                    var chunk:Chunk;
+
+                    // find all chunks
+                    for each(var ch:Chunk in _chunksList) {
+                        if(ch.url.substr(_INDEX_URL_PREFIX.length) == itemHelper.index) {
+                            chunk = ch;
+                        }
+                    }
+
+                    // add this chunk to the asset
+                    for each(var asset:Asset in _indexList[i]) {
+                        asset.addChunk(chunk);
+                    }
+                }
+            }
+
+            // check if all items are loaded
+            --_chunkLoadCounter;
+            if(_chunkLoadCounter == 0) {
+                // all is done
+                _isLoaded = true;
+
+                var e:Event = new Event(Event.COMPLETE);
+                dispatchEvent(e);
+            }
+        }
+    }
+}
+
+</textarea></div></div></div><div class="classDescription"><span class="descriptionSummary">FAR Asset provider.</span><br />Based on the FAR loader by Edwin van Rijkom (<a href="http://code.google.com/p/vanrijkom-flashlibs">http://code.google.com/p/vanrijkom-flashlibs</a>)</div><div class="summary"><h2 id="Summary">Summary</h2><div class="docNav"><ul><li><div id="twistyTypeInfo_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide type info</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_on");</script><div id="twistyTypeInfo_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show type info</a></div><span id="twistyTypeInfo_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_off");</script></li><li><div id="twistySummaries_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide summaries</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_on");</script><div id="twistySummaries_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show summaries</a></div><span id="twistySummaries_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_off");</script></li><li><div id="twistySort_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Sort by source order</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_on");</script><div id="twistySort_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Sort alphabetically</a></div><span id="twistySort_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_off");</script></li></ul><br class="clear" /></div><div class="memberList"><div class="memberSummaryPart"><span class="title">Constructor</span><ul class="sortable" id="sortul1"><li class="sortli listnum1"><a href="#FARAssetProvider">FARAssetProvider</a><span class="typeInfo"> (contentURL:String, assetsConfigIndex:String = _ASSETS_CONFIG_INDEX)</span><ul class="summary"><li>FAR Asset provider constructor.</li></ul></li></ul></div><div class="memberSummaryPart private"><span class="title">Constants</span><ul class="sortable" id="sortul2"><li class="private sortli listnum2"><a href="#_ASSETS_CONFIG_INDEX">_ASSETS_CONFIG_INDEX</a><span class="typeInfo">  : String</span></li><li class="private sortli listnum4"><a href="#_INDEX_URL_PREFIX">_INDEX_URL_PREFIX</a><span class="typeInfo">  : String</span></li></ul></div><div class="memberSummaryPart"><span class="title">Instance properties</span><ul class="sortable" id="sortul3"><li class="private sortli listnum2"><a href="#_contentURL">_contentURL</a><span class="typeInfo">  : String</span></li><li class="private sortli listnum4"><a href="#_farHelper">_farHelper</a><span class="typeInfo">  : <a class="className" href="org_vancura_vaclav_far_FarHelper.html">FarHelper</a></span></li><li class="private sortli listnum6"><a href="#_chunkLoadCounter">_chunkLoadCounter</a><span class="typeInfo">  : uint</span></li><li class="private sortli listnum8"><a href="#_chunksList">_chunksList</a><span class="typeInfo">  : Array</span></li><li class="private sortli listnum10"><a href="#_assetsConfig">_assetsConfig</a><span class="typeInfo">  : Object</span></li><li class="private sortli listnum12"><a href="#_indexList">_indexList</a><span class="typeInfo">  : Array</span></li><li class="private sortli listnum14"><a href="#_streamProgress">_streamProgress</a><span class="typeInfo">  : Number</span></li><li class="private sortli listnum16"><a href="#_assetsConfigIndex">_assetsConfigIndex</a><span class="typeInfo">  : String</span></li></ul><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Instance properties inherited from <span class="superclass"><a class="className" href="org_vancura_vaclav_assets_providers_AssetProvider.html">AssetProvider</a></span></span><div class="item inheritedList"><a class="private" href="org_vancura_vaclav_assets_providers_AssetProvider.html#_assetsList">_assetsList</a>  <a class="private" href="org_vancura_vaclav_assets_providers_AssetProvider.html#_isActive">_isActive</a>  <a class="private" href="org_vancura_vaclav_assets_providers_AssetProvider.html#_isError">_isError</a>  <a class="private" href="org_vancura_vaclav_assets_providers_AssetProvider.html#_isLoaded">_isLoaded</a>  <a href="org_vancura_vaclav_assets_providers_AssetProvider.html#assetsList">assetsList</a>  <a href="org_vancura_vaclav_assets_providers_AssetProvider.html#isActive">isActive</a>  <a href="org_vancura_vaclav_assets_providers_AssetProvider.html#isError">isError</a>  <a href="org_vancura_vaclav_assets_providers_AssetProvider.html#isLoaded">isLoaded</a></div></div></div></div></div><div class="memberSummaryPart"><span class="title">Instance methods</span><ul class="sortable" id="sortul4"><li class="sortli listnum1"><a href="#destroy">destroy</a><span class="typeInfo">  : void</span><ul class="summary"><li>FAR Asset provider destructor.</li></ul></li><li class="sortli listnum2"><a href="#getAsset">getAsset</a><span class="typeInfo"> (id:String) : <a class="className" href="org_vancura_vaclav_assets_Asset.html">Asset</a></span><ul class="summary"><li>Get an Asset from the provider.</li></ul></li><li class="private sortli listnum4"><a href="#_onFarSecurityError">_onFarSecurityError</a><span class="typeInfo"> (event:<a class="className" href="org_vancura_vaclav_far_events_FarHelperEvent.html">FarHelperEvent</a>) : void</span></li><li class="private sortli listnum6"><a href="#_onFarIOError">_onFarIOError</a><span class="typeInfo"> (event:<a class="className" href="org_vancura_vaclav_far_events_FarHelperEvent.html">FarHelperEvent</a>) : void</span></li><li class="private sortli listnum8"><a href="#_onItemNotFound">_onItemNotFound</a><span class="typeInfo"> (event:<a class="className" href="org_vancura_vaclav_far_events_FarHelperEvent.html">FarHelperEvent</a>) : void</span></li><li class="private sortli listnum10"><a href="#_onItemLoadFailed">_onItemLoadFailed</a><span class="typeInfo"> (event:<a class="className" href="org_vancura_vaclav_far_events_FarHelperEvent.html">FarHelperEvent</a>) : void</span></li><li class="private sortli listnum12"><a href="#_onItemLoadComplete">_onItemLoadComplete</a><span class="typeInfo"> (event:<a class="className" href="org_vancura_vaclav_far_events_FarHelperEvent.html">FarHelperEvent</a>) : void</span></li><li class="private sortli listnum14"><a href="#_onStreamLoadProgress">_onStreamLoadProgress</a><span class="typeInfo"> (event:<a class="className" href="org_vancura_vaclav_far_events_FarHelperProgressEvent.html">FarHelperProgressEvent</a>) : void</span></li><li class="private sortli listnum16"><a href="#_findURLs">_findURLs</a><span class="typeInfo"> (asset:<a class="className" href="org_vancura_vaclav_assets_Asset.html">Asset</a>, branch:Object) : void</span></li><li class="private sortli listnum18"><a href="#_onItemReady">_onItemReady</a><span class="typeInfo"> (event:<a class="className" href="org_vancura_vaclav_far_events_FarHelperAssignEvent.html">FarHelperAssignEvent</a>) : void</span></li></ul><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Instance methods inherited from <span class="superclass"><a class="className" href="org_vancura_vaclav_assets_providers_AssetProvider.html">AssetProvider</a></span></span><div class="item inheritedList"><a href="org_vancura_vaclav_assets_providers_AssetProvider.html#destroy">destroy</a>  <a href="org_vancura_vaclav_assets_providers_AssetProvider.html#getAsset">getAsset</a></div></div></div></div></div></div></div><div class="memberSection"><h2 id="Constructor">Constructor</h2><div class="member" id="FARAssetProvider"><h3>FARAssetProvider</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> function <b>FARAssetProvider</b> (
 
 </div><div class="code">contentURL:String,
-assetsConfigIndex:String = _ASSETS_CONFIG_INDEX)</div><br class="clear" /></div></div><div class="description"> FAR Asset provider constructor. </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Parameters:</span><div class="item"><div class="floatbox code colorizedCode">contentURL       <span class="itemSeparator">:</span></div><div>FAR URL</div></div><div class="item"><div class="floatbox code colorizedCode">assetsConfigIndex<span class="itemSeparator">:</span></div><div>Item name of the config, "config.json" by default</div></div></div></div></div></div></div><div class="memberSection"><h2 id="Instancemethods">Instance methods</h2><div class="member" id="destroy"><h3>destroy</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">override public</span> function <b>destroy</b> (
+assetsConfigIndex:String = _ASSETS_CONFIG_INDEX)</div><br class="clear" /></div></div><div class="description"> FAR Asset provider constructor. </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Parameters:</span><div class="item"><div class="floatbox code colorizedCode">contentURL       <span class="itemSeparator">:</span></div><div>FAR URL</div></div><div class="item"><div class="floatbox code colorizedCode">assetsConfigIndex<span class="itemSeparator">:</span></div><div>Item name of the config, "config.json" by default</div></div></div></div></div></div></div><div class="memberSection private"><h2 id="Constants">Constants</h2><div class="member private" id="_ASSETS_CONFIG_INDEX"><h3>_ASSETS_CONFIG_INDEX</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private static const</span> <b>_ASSETS_CONFIG_INDEX</b>:String = <span class="codeString">'config.json'</span>
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member private" id="_INDEX_URL_PREFIX"><h3>_INDEX_URL_PREFIX</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private static const</span> <b>_INDEX_URL_PREFIX</b>:String = <span class="codeString">'index:'</span>
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div></div><div class="memberSection private"><h2 id="Instanceproperties">Instance properties</h2><div class="member private" id="_assetsConfig"><h3>_assetsConfig</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>_assetsConfig</b>:Object
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member private" id="_assetsConfigIndex"><h3>_assetsConfigIndex</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>_assetsConfigIndex</b>:String
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member private" id="_chunkLoadCounter"><h3>_chunkLoadCounter</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>_chunkLoadCounter</b>:uint
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member private" id="_chunksList"><h3>_chunksList</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>_chunksList</b>:Array
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member private" id="_contentURL"><h3>_contentURL</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>_contentURL</b>:String
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member private" id="_farHelper"><h3>_farHelper</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>_farHelper</b>:<a class="className" href="org_vancura_vaclav_far_FarHelper.html">FarHelper</a>
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member private" id="_indexList"><h3>_indexList</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>_indexList</b>:Array
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member private" id="_streamProgress"><h3>_streamProgress</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>_streamProgress</b>:Number
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div></div><div class="memberSection"><h2 id="Instancemethods">Instance methods</h2><div class="member private" id="_findURLs"><h3>_findURLs</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> function <b>_findURLs</b> (
+
+</div><div class="code">asset:<a class="className" href="org_vancura_vaclav_assets_Asset.html">Asset</a>,
+branch:Object) : void</div><br class="clear" /></div></div></div><div class="member private" id="_onFarIOError"><h3>_onFarIOError</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> function <b>_onFarIOError</b> (
+</div><div class="code">event:<a class="className" href="org_vancura_vaclav_far_events_FarHelperEvent.html">FarHelperEvent</a>) : void</div><br class="clear" /></div></div></div><div class="member private" id="_onFarSecurityError"><h3>_onFarSecurityError</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> function <b>_onFarSecurityError</b> (
+</div><div class="code">event:<a class="className" href="org_vancura_vaclav_far_events_FarHelperEvent.html">FarHelperEvent</a>) : void</div><br class="clear" /></div></div></div><div class="member private" id="_onItemLoadComplete"><h3>_onItemLoadComplete</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> function <b>_onItemLoadComplete</b> (
+</div><div class="code">event:<a class="className" href="org_vancura_vaclav_far_events_FarHelperEvent.html">FarHelperEvent</a>) : void</div><br class="clear" /></div></div></div><div class="member private" id="_onItemLoadFailed"><h3>_onItemLoadFailed</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> function <b>_onItemLoadFailed</b> (
+</div><div class="code">event:<a class="className" href="org_vancura_vaclav_far_events_FarHelperEvent.html">FarHelperEvent</a>) : void</div><br class="clear" /></div></div></div><div class="member private" id="_onItemNotFound"><h3>_onItemNotFound</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> function <b>_onItemNotFound</b> (
+</div><div class="code">event:<a class="className" href="org_vancura_vaclav_far_events_FarHelperEvent.html">FarHelperEvent</a>) : void</div><br class="clear" /></div></div></div><div class="member private" id="_onItemReady"><h3>_onItemReady</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> function <b>_onItemReady</b> (
+</div><div class="code">event:<a class="className" href="org_vancura_vaclav_far_events_FarHelperAssignEvent.html">FarHelperAssignEvent</a>) : void</div><br class="clear" /></div></div></div><div class="member private" id="_onStreamLoadProgress"><h3>_onStreamLoadProgress</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> function <b>_onStreamLoadProgress</b> (
+</div><div class="code">event:<a class="className" href="org_vancura_vaclav_far_events_FarHelperProgressEvent.html">FarHelperProgressEvent</a>) : void</div><br class="clear" /></div></div></div><div class="member" id="destroy"><h3>destroy</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">override public</span> function <b>destroy</b> (
 </div><div class="code">) : void</div><br class="clear" /></div></div><div class="description"> FAR Asset provider destructor. </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Overrides:</span><div class="item"><ul><li> <a href="org_vancura_vaclav_assets_providers_AssetProvider.html#destroy">AssetProvider.destroy</a> </li></ul></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Specified by:</span><div class="item"><ul><li> <a href="org_vancura_vaclav_assets_interfaces_IAssetProvider.html#destroy">IAssetProvider.destroy</a> </li></ul></div></div></div></div></div><div class="member" id="getAsset"><h3>getAsset</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">override public</span> function <b>getAsset</b> (
 </div><div class="code">id:String) : <a class="className" href="org_vancura_vaclav_assets_Asset.html">Asset</a></div><br class="clear" /></div></div><div class="description"> Get an Asset from the provider. </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Parameters:</span><div class="item"><div class="floatbox code colorizedCode">id<span class="itemSeparator">:</span></div><div>Asset ID</div></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Returns:</span><div class="item"><ul><li> Asset </li></ul></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">See also:</span><div class="item"><ul><li> <a class="className" href="org_vancura_vaclav_assets_Asset.html">(if found, null if not)</a> </li></ul></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Overrides:</span><div class="item"><ul><li> <a href="org_vancura_vaclav_assets_providers_AssetProvider.html#getAsset">AssetProvider.getAsset</a> </li></ul></div></div></div><div class="boxedElem"><div class="contentHolder"><span class="title">Specified by:</span><div class="item"><ul><li> <a href="org_vancura_vaclav_assets_interfaces_IAssetProvider.html#getAsset">IAssetProvider.getAsset</a> </li></ul></div></div></div></div></div></div><div class="footer"><ul class="docFooter"></ul></div></div></div></body></html>

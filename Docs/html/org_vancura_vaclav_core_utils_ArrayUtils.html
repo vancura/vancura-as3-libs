@@ -1,7 +1,549 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head><title>ArrayUtils</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" type="text/css" href="../css/VisDoc.css" /><script src="../js/jquery.js" type="text/javascript">//</script><script src="../js/common.js" type="text/javascript">//</script><script src="../js/doc.js" type="text/javascript">//</script></head><body id="page_org_vancura_vaclav_core_utils_ArrayUtils"><script type="text/javascript">VisDoc.initBody();</script><div id="PageTop"><!----></div><div class="VisDoc"><div class="content"><div class="docNav"><ul class="accessKeyLinks"><li><a href="#PageTop" accesskey="t"><span class="accessKey">T</span>op</a></li><li><a href="#Summary" accesskey="s"><span class="accessKey">S</span>ummary</a></li><li><a href="#Constructor" accesskey="c"><span class="accessKey">C</span>onstructors</a></li><li><a href="#Classmethods" accesskey="a">Cl<span class="accessKey">a</span>ss methods</a></li></ul><br class="clear" /></div><h1>ArrayUtils</h1><div class="classProperties"><table cellspacing="0"><tr><th align="left">Kind of class:</th><td>public class</td></tr><tr><th align="left">Package:</th><td><a class="className" href="package-org_vancura_vaclav_core_utils.html">org.vancura.vaclav.core.utils</a></td></tr><tr><th align="left">Inherits from:</th><td>none</td></tr><tr><th class="classDetails" align="left">Classpath:</th><td class="classDetails">org.vancura.vaclav.core.utils.ArrayUtils</td></tr><tr><th class="classDetails" align="left">File last modified:</th><td class="classDetails">Friday, 15 January 2010, 15:36:10</td></tr></table></div><div class="classDescription"></div><div class="summary"><h2 id="Summary">Summary</h2><div class="docNav"><ul><li><div id="twistyTypeInfo_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide type info</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_on");</script><div id="twistyTypeInfo_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show type info</a></div><span id="twistyTypeInfo_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_off");</script></li><li><div id="twistySummaries_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide summaries</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_on");</script><div id="twistySummaries_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show summaries</a></div><span id="twistySummaries_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_off");</script></li><li><div id="twistySort_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Sort by source order</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_on");</script><div id="twistySort_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Sort alphabetically</a></div><span id="twistySort_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_off");</script></li></ul><br class="clear" /></div><div class="memberList"><div class="memberSummaryPart"><span class="title">Constructor</span><ul class="sortable" id="sortul1"><li class="sortli listnum1"><a href="#ArrayUtils">ArrayUtils</a></li></ul></div><div class="memberSummaryPart"><span class="title">Class methods</span><ul class="sortable" id="sortul2"><li class="sortli listnum1"><a href="#getItemByKey">getItemByKey</a><span class="typeInfo"> (inArray:Array, key:String, match:*) : *</span><ul class="summary"><li>Returns the first element that matches match for the property key.</li></ul></li><li class="sortli listnum2"><a href="#getItemsByKey">getItemsByKey</a><span class="typeInfo"> (inArray:Array, key:String, match:*) : Array</span><ul class="summary"><li>Returns every element that matches match for the property key.</li></ul></li><li class="sortli listnum3"><a href="#getItemByType">getItemByType</a><span class="typeInfo"> (inArray:Array, type:Class) : *</span><ul class="summary"><li>Returns the first element that is compatible with a specific data type, class, or interface.</li></ul></li><li class="sortli listnum4"><a href="#getItemsByType">getItemsByType</a><span class="typeInfo"> (inArray:Array, type:Class) : Array</span><ul class="summary"><li>Returns every element that is compatible with a specific data type, class, or interface.</li></ul></li><li class="sortli listnum5"><a href="#equals">equals</a><span class="typeInfo"> (first:Array, second:Array) : Boolean</span><ul class="summary"><li>Determines if two Arrays contain the same objects at the same index.</li></ul></li><li class="sortli listnum6"><a href="#addItemsAt">addItemsAt</a><span class="typeInfo"> (tarArray:Array, items:Array, index:int = 0x7FFFFFFF) : Boolean</span><ul class="summary"><li>Modifies original Array by adding all the elements from another Array at a specified position.</li></ul></li><li class="sortli listnum7"><a href="#removeDuplicates">removeDuplicates</a><span class="typeInfo"> (inArray:Array) : Array</span><ul class="summary"><li>Creates new Array composed of only the non-identical elements of passed Array.</li></ul></li><li class="sortli listnum8"><a href="#removeItem">removeItem</a><span class="typeInfo"> (tarArray:Array, item:*) : uint</span><ul class="summary"><li>Modifies original Array by removing all items that are identical to the specified item.</li></ul></li><li class="sortli listnum9"><a href="#removeItems">removeItems</a><span class="typeInfo"> (tarArray:Array, items:Array) : Boolean</span><ul class="summary"><li>Removes only the specified items in an Array.</li></ul></li><li class="sortli listnum10"><a href="#retainItems">retainItems</a><span class="typeInfo"> (tarArray:Array, items:Array) : Boolean</span><ul class="summary"><li>Retains only the specified items in an Array.</li></ul></li><li class="sortli listnum11"><a href="#contains">contains</a><span class="typeInfo"> (inArray:Array, item:*) : uint</span><ul class="summary"><li>Finds out how many instances of item Array contains.</li></ul></li><li class="sortli listnum12"><a href="#containsAll">containsAll</a><span class="typeInfo"> (inArray:Array, items:Array) : Boolean</span><ul class="summary"><li>Determines if Array contains all items.</li></ul></li><li class="sortli listnum13"><a href="#containsAny">containsAny</a><span class="typeInfo"> (inArray:Array, items:Array) : Boolean</span><ul class="summary"><li>Determines if Array inArray contains any element of Array items.</li></ul></li><li class="sortli listnum14"><a href="#getIndexOfDifference">getIndexOfDifference</a><span class="typeInfo"> (first:Array, second:Array, fromIndex:uint = 0) : int</span><ul class="summary"><li>Compares two Arrays and finds the first index where they differ.</li></ul></li><li class="sortli listnum15"><a href="#randomize">randomize</a><span class="typeInfo"> (inArray:Array) : Array</span><ul class="summary"><li>Creates new Array composed of passed Array's items in a random order.</li></ul></li><li class="sortli listnum16"><a href="#sum">sum</a><span class="typeInfo"> (inArray:Array) : Number</span><ul class="summary"><li>Adds all items in inArray and returns the value.</li></ul></li><li class="sortli listnum17"><a href="#average">average</a><span class="typeInfo"> (inArray:Array) : Number</span><ul class="summary"><li>Averages the values in inArray.</li></ul></li><li class="sortli listnum18"><a href="#getLowestValue">getLowestValue</a><span class="typeInfo"> (inArray:Array) : Number</span><ul class="summary"><li>Finds the lowest value in inArray.</li></ul></li><li class="sortli listnum19"><a href="#getHighestValue">getHighestValue</a><span class="typeInfo"> (inArray:Array) : Number</span><ul class="summary"><li>Finds the highest value in inArray.</li></ul></li></ul></div></div></div><div class="memberSection"><h2 id="Constructor">Constructor</h2><div class="member" id="ArrayUtils"><h3>ArrayUtils</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> function <b>ArrayUtils</b> (
-</div><div class="code">)</div><br class="clear" /></div></div><div class="description">     Constructor.<br />Cannot be instantiated, throws an Error. </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Throws:</span><div class="item"><ul><li> <span class="doesNotExist"> Error</span>, since the class could not be instantiated </li></ul></div></div></div></div></div></div><div class="memberSection"><h2 id="Classmethods">Class methods</h2><div class="member" id="addItemsAt"><h3>addItemsAt</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public static</span> function <b>addItemsAt</b> (
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>ArrayUtils</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" type="text/css" href="../css/VisDoc.css" /><script src="../js/jquery.js" type="text/javascript">//</script><script src="../js/common.js" type="text/javascript">//</script><script src="../js/doc.js" type="text/javascript">//</script></head><body id="page_org_vancura_vaclav_core_utils_ArrayUtils"><script type="text/javascript">VisDoc.initBody();</script><div id="PageTop"><!----></div><div class="VisDoc"><div class="content"><div class="docNav"><ul><li><div id="twistyTOC_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited activeWhenNotFramed"><a href="#"><span class="icon">+</span>Show TOC</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyTOC_show");</script><div id="twistyTOC_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited activeWhenFramed"><a href="#"><span class="icon">&times;</span>Hide TOC</a></div><span id="twistyTOC_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyTOC_hide");</script></li></ul><ul class="accessKeyLinks"><li><a href="#PageTop" accesskey="t"><span class="accessKey">T</span>op</a></li><li><a href="#Summary" accesskey="s"><span class="accessKey">S</span>ummary</a></li><li><a href="#Constructor" accesskey="c"><span class="accessKey">C</span>onstructors</a></li><li><a href="#Classmethods" accesskey="a">Cl<span class="accessKey">a</span>ss methods</a></li></ul><ul><li><div id="twistyPrivate_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide private and protected members</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("togglePrivate_on");</script><div id="twistyPrivate_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show private and protected members</a></div><span id="twistyPrivate_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("togglePrivate_off");</script></li></ul><br class="clear" /></div><h1>ArrayUtils</h1><div class="classProperties"><table cellspacing="0"><tr><th align="left">Kind of class:</th><td>public class</td></tr><tr><th align="left">Package:</th><td><a class="className" href="package-org_vancura_vaclav_core_utils.html">org.vancura.vaclav.core.utils</a></td></tr><tr><th align="left">Inherits from:</th><td>none</td></tr><tr><th class="classDetails" align="left">Classpath:</th><td class="classDetails">org.vancura.vaclav.core.utils.ArrayUtils</td></tr><tr><th class="classDetails" align="left">File last modified:</th><td class="classDetails">Friday, 15 January 2010, 15:36:10</td></tr></table></div><div id="sourceCodeTop" class="sourceCodeView"><div id="twistyViewSourceshow" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting twistyAnimate"><a href="#"><span class="icon">►&nbsp;</span><span class="linkLabel">View source</span></a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourceshow");</script><div id="twistyViewSourcehide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting twistyAnimate"><a href="#"><span class="icon">▼&nbsp;</span><span class="linkLabel">Hide source</span></a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourcehide");</script><div id="twistyViewSourcetoggle" class="twistyContent twistyMakeHidden twistyRememberSetting"><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourcetoggle");</script><div class="sourceCode"><textarea rows="10" cols="10" id="source" readonly="readonly">/***********************************************************************************************************************
+ * Some methods Copyrighted by their authors, specified in ASDocs.
+ * If not specified elsewhere: Copyright (c) 2010 Vaclav Vancura.
+ *
+ * Contact me at vaclav@vancura.org, @vancura or at my homepage at http://vaclav.vancura.org.
+ * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
+ * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
+ *
+ * Licensed under Attribution 3.0 Czech Republic (http://creativecommons.org/licenses/by/3.0/cz/deed.en_GB).
+ *
+ * That means you are free:
+ * * to copy, distribute, display, and perform the work
+ * * to make derivative works
+ *
+ * Under the following conditions::
+ * * Attribution √ë You must give the original author credit.
+ *
+ * With the understanding that:
+ *    * Waiver √ë Any of the above conditions can be waived if you get permission from the copyright holder. CC licenses
+ *      anticipate that a licensor may want to waive compliance with a specific condition, such as attribution.
+ *    * Other Rights √ë In no way are any of the following rights affected by the license:
+ *             - Your fair dealing or fair use rights √ë All jurisdictions allow some limited uses of copyrighted material
+ *            without permission. CC licenses do not affect the rights of users under those copyright limitations and
+ *            exceptions, such as fair use and fair dealing where applicable.
+ *             - The author's moral rights √ë In addition to the right of licensors to request removal of their name from
+ *            the work when used in a derivative or collective they don't like, copyright laws in most jurisdictions
+ *            around the world (with the notable exception of the US except in very limited circumstances) grant
+ *            creators "moral rights" which may provide some redress if a derivative work represents a "derogatory
+ *            treatment" of the licensor's work.
+ *             - Rights other persons may have either in the work itself or in how the work is used, such as publicity or
+ *            privacy rights. √ë Publicity rights allow individuals to control how their voice, image or likeness is used
+ *            for commercial purposes in public. If a CC-licensed work includes the voice or image of anyone other than
+ *            the licensor, a user of the work may need to get permission from those individuals before using the work
+ *            for commercial purposes.
+ *
+ * Notice √ë For any reuse or distribution, you must make clear to others the licence terms of this work.
+ **********************************************************************************************************************/
+
+package org.vancura.vaclav.core.utils {
+    public class ArrayUtils {
+
+
+
+        /**
+         * Constructor.
+         * Cannot be instantiated, throws an Error.
+         * @throws Error, since the class could not be instantiated
+         */
+        public function ArrayUtils() {
+            throw new Error('The ArrayUtils class cannot be instantiated.');
+        }
+
+
+
+        /**
+         * Returns the first element that matches &lt;code>match&lt;/code> for the property &lt;code>key&lt;/code>.
+         * Original taken from Casalib (http://casalib.org)
+         * @param inArray Array to search for an element with a &lt;code>key&lt;/code> that matches &lt;code>match&lt;/code>.
+         * @param key Name of the property to match.
+         * @param match Value to match against.
+         * @return Returns matched &lt;code>Object&lt;/code>; otherwise &lt;code>null&lt;/code>.
+         * @author Aaron Clinger (http://casalib.org)
+         * @author Jon Adams (http://casalib.org)
+         */
+        public static function getItemByKey(inArray:Array, key:String, match:*):* {
+            for each (var item:* in inArray)
+                if(item[key] == match)
+                    return item;
+
+            return null;
+        }
+
+
+
+        /**
+         * Returns every element that matches &lt;code>match&lt;/code> for the property &lt;code>key&lt;/code>.
+         * Original taken from Casalib (http://casalib.org)
+         * @param inArray Array to search for object with &lt;code>key&lt;/code> that matches &lt;code>match&lt;/code>.
+         * @param key Name of the property to match.
+         * @param match Value to match against.
+         * @return Returns all the matched elements.
+         * @author Aaron Clinger (http://casalib.org)
+         * @author Jon Adams (http://casalib.org)
+         */
+        public static function getItemsByKey(inArray:Array, key:String, match:*):Array {
+            var t:Array = new Array();
+
+            for each (var item:* in inArray)
+                if(item[key] == match)
+                    t.push(item);
+
+            return t;
+        }
+
+
+
+        /**
+         * Returns the first element that is compatible with a specific data type, class, or interface.
+         * Original taken from Casalib (http://casalib.org)
+         * @param inArray Array to search for an element of a specific type.
+         * @param type The type to compare the elements to.
+         * @return Returns all the matched elements.
+         * @author Aaron Clinger (http://casalib.org)
+         * @author Jon Adams (http://casalib.org)
+         */
+        public static function getItemByType(inArray:Array, type:Class):* {
+            for each (var item:* in inArray)
+                if(item is type)
+                    return item;
+
+            return null;
+        }
+
+
+
+        /**
+         * Returns every element that is compatible with a specific data type, class, or interface.
+         * Original taken from Casalib (http://casalib.org)
+         * @param inArray Array to search for elements of a specific type.
+         * @param type The type to compare the elements to.
+         * @return Returns all the matched elements.
+         * @author Aaron Clinger (http://casalib.org)
+         * @author Jon Adams (http://casalib.org)
+         */
+        public static function getItemsByType(inArray:Array, type:Class):Array {
+            var t:Array = new Array();
+
+            for each (var item:* in inArray)
+                if(item is type)
+                    t.push(item);
+
+            return t;
+        }
+
+
+
+        /**
+         * Determines if two Arrays contain the same objects at the same index.
+         * Original taken from Casalib (http://casalib.org)
+         * @param first First Array to compare to the &lt;code>second&lt;/code>.
+         * @param second Second Array to compare to the &lt;code>first&lt;/code>.
+         * @return Returns &lt;code>true&lt;/code> if Arrays are the same; otherwise &lt;code>false&lt;/code>.
+         * @author Aaron Clinger (http://casalib.org)
+         * @author Jon Adams (http://casalib.org)
+         */
+        public static function equals(first:Array, second:Array):Boolean {
+            var i:uint = first.length;
+            if(i != second.length)
+                return false;
+
+            while(i--)
+                if(first[i] != second[i])
+                    return false;
+
+            return true;
+        }
+
+
+
+        /**
+         * Modifies original Array by adding all the elements from another Array at a specified position.
+         * Original taken from Casalib (http://casalib.org)
+         * @param tarArray Array to add elements to.
+         * @param items Array of elements to add.
+         * @param index Position where the elements should be added.
+         * @return Returns &lt;code>true&lt;/code> if the Array was changed as a result of the call; otherwise &lt;code>false&lt;/code>.
+         * @example
+         * &lt;code>
+         * var alphabet:Array = new Array("a", "d", "e");
+         * var parts:Array    = new Array("b", "c");
+         * ArrayUtils.addItemsAt(alphabet, parts, 1);
+         * trace(alphabet);
+         * &lt;/code>
+         * @author Aaron Clinger (http://casalib.org)
+         * @author Jon Adams (http://casalib.org)
+         */
+        public static function addItemsAt(tarArray:Array, items:Array, index:int = 0x7FFFFFFF):Boolean {
+            if(items.length == 0)
+                return false;
+
+            var args:Array = items.concat();
+            args.splice(0, 0, index, 0);
+
+            tarArray.splice.apply(null, args);
+
+            return true;
+        }
+
+
+
+        /**
+         * Creates new Array composed of only the non-identical elements of passed Array.
+         * Original taken from Casalib (http://casalib.org)
+         * @param inArray Array to remove equivalent items.
+         * @return A new Array composed of only unique elements.
+         * @example
+         * &lt;code>
+         * var numberArray:Array = new Array(1, 2, 3, 4, 4, 4, 4, 5);
+         * trace(ArrayUtils.removeDuplicates(numberArray));
+         * &lt;/code>
+         * @author Aaron Clinger (http://casalib.org)
+         * @author Jon Adams (http://casalib.org)
+         */
+        public static function removeDuplicates(inArray:Array):Array {
+            return inArray.filter(_removeDuplicatesFilter);
+        }
+
+
+
+        protected static function _removeDuplicatesFilter(e:*, i:int, inArray:Array):Boolean {
+            return (i == 0) ? true : inArray.lastIndexOf(e, i - 1) == -1;
+        }
+
+
+
+        /**
+         * Modifies original Array by removing all items that are identical to the specified item.
+         * Original taken from Casalib (http://casalib.org)
+         * @param tarArray Array to remove passed &lt;code>item&lt;/code>.
+         * @param item Element to remove.
+         * @return The amount of removed elements that matched &lt;code>item&lt;/code>, if none found returns &lt;code>0&lt;/code>.
+         * @example
+         * &lt;code>
+         * var numberArray:Array = new Array(1, 2, 3, 7, 7, 7, 4, 5);
+         * trace("Removed " + ArrayUtils.removeItem(numberArray, 7) + " items.");
+         * trace(numberArray);
+         * &lt;/code>
+         * @author Aaron Clinger (http://casalib.org)
+         * @author Jon Adams (http://casalib.org)
+         */
+        public static function removeItem(tarArray:Array, item:*):uint {
+            var i:int = tarArray.indexOf(item);
+            var f:uint = 0;
+
+            while(i != -1) {
+                tarArray.splice(i, 1);
+
+                i = tarArray.indexOf(item, i);
+
+                f++;
+            }
+
+            return f;
+        }
+
+
+
+        /**
+         * Removes only the specified items in an Array.
+         * Original taken from Casalib (http://casalib.org)
+         * @param tarArray Array to remove specified items from.
+         * @param items Array of elements to remove.
+         * @return Returns &lt;code>true&lt;/code> if the Array was changed as a result of the call; otherwise &lt;code>false&lt;/code>.
+         * @example
+         * &lt;code>
+         * var numberArray:Array = new Array(1, 2, 3, 7, 7, 7, 4, 5);
+         * ArrayUtils.removeItems(numberArray, new Array(1, 3, 7, 5));
+         * trace(numberArray);
+         * &lt;/code>
+         * @author Aaron Clinger (http://casalib.org)
+         * @author Jon Adams (http://casalib.org)
+         */
+        public static function removeItems(tarArray:Array, items:Array):Boolean {
+            var removed:Boolean = false;
+            var l:uint = tarArray.length;
+
+            while(l--) {
+                if(items.indexOf(tarArray[l]) > -1) {
+                    tarArray.splice(l, 1);
+                    removed = true;
+                }
+            }
+
+            return removed;
+        }
+
+
+
+        /**
+         Retains only the specified items in an Array.
+         * Original taken from Casalib (http://casalib.org)
+         * @param tarArray Array to remove non specified items from.
+         * @param items Array of elements to keep.
+         * @return Returns &lt;code>true&lt;/code> if the Array was changed as a result of the call; otherwise &lt;code>false&lt;/code>.
+         * @example
+         * &lt;code>
+         * var numberArray:Array = new Array(1, 2, 3, 7, 7, 7, 4, 5);
+         * ArrayUtils.retainItems(numberArray, new Array(2, 4));
+         * trace(numberArray);
+         * &lt;/code>
+         * @author Aaron Clinger (http://casalib.org)
+         * @author Jon Adams (http://casalib.org)
+         */
+        public static function retainItems(tarArray:Array, items:Array):Boolean {
+            var removed:Boolean = false;
+            var l:uint = tarArray.length;
+
+            while(l--) {
+                if(items.indexOf(tarArray[l]) == -1) {
+                    tarArray.splice(l, 1);
+                    removed = true;
+                }
+            }
+
+            return removed;
+        }
+
+
+
+        /**
+         * Finds out how many instances of &lt;code>item&lt;/code> Array contains.
+         * Original taken from Casalib (http://casalib.org)
+         * @param inArray Array to search for &lt;code>item&lt;/code> in.
+         * @param item Object to find.
+         * @return The amount of &lt;code>item&lt;/code>'s found; if none were found returns &lt;code>0&lt;/code>.
+         * @example
+         * &lt;code>
+         * var numberArray:Array = new Array(1, 2, 3, 7, 7, 7, 4, 5);
+         * trace("numberArray contains " + ArrayUtils.contains(numberArray, 7) + " 7's.");
+         * &lt;/code>
+         * @author Aaron Clinger (http://casalib.org)
+         * @author Jon Adams (http://casalib.org)
+         */
+        public static function contains(inArray:Array, item:*):uint {
+            var i:int = inArray.indexOf(item, 0);
+            var t:uint = 0;
+
+            while(i != -1) {
+                i = inArray.indexOf(item, i + 1);
+                t++;
+            }
+
+            return t;
+        }
+
+
+
+        /**
+         * Determines if Array contains all items.
+         * Original taken from Casalib (http://casalib.org)
+         * @param inArray Array to search for &lt;code>items&lt;/code> in.
+         * @param items Array of elements to search for.
+         * @return Returns &lt;code>true&lt;/code> if &lt;code>inArray&lt;/code> contains all elements of &lt;code>items&lt;/code>; otherwise &lt;code>false&lt;/code>.
+         * @example
+         * &lt;code>
+         * var numberArray:Array = new Array(1, 2, 3, 4, 5);
+         * trace(ArrayUtils.containsAll(numberArray, new Array(1, 3, 5)));
+         * &lt;/code>
+         * @author Aaron Clinger (http://casalib.org)
+         * @author Jon Adams (http://casalib.org)
+         */
+        public static function containsAll(inArray:Array, items:Array):Boolean {
+            var l:uint = items.length;
+
+            while(l--)
+                if(inArray.indexOf(items[l]) == -1)
+                    return false;
+
+            return true;
+        }
+
+
+
+        /**
+         * Determines if Array &lt;code>inArray&lt;/code> contains any element of Array &lt;code>items&lt;/code>.
+         * Original taken from Casalib (http://casalib.org)
+         * @param inArray Array to search for &lt;code>items&lt;/code> in.
+         * @param items Array of elements to search for.
+         * @return Returns &lt;code>true&lt;/code> if &lt;code>inArray&lt;/code> contains any element of &lt;code>items&lt;/code>; otherwise &lt;code>false&lt;/code>.
+         * @example
+         * &lt;code>
+         * var numberArray:Array = new Array(1, 2, 3, 4, 5);
+         * trace(ArrayUtils.containsAny(numberArray, new Array(9, 3, 6)));
+         * &lt;/code>
+         * @author Aaron Clinger (http://casalib.org)
+         * @author Jon Adams (http://casalib.org)
+         */
+        public static function containsAny(inArray:Array, items:Array):Boolean {
+            var l:uint = items.length;
+
+            while(l--)
+                if(inArray.indexOf(items[l]) > -1)
+                    return true;
+
+            return false;
+        }
+
+
+
+        /**
+         * Compares two Arrays and finds the first index where they differ.
+         * Original taken from Casalib (http://casalib.org)
+         * @param first First Array to compare to the &lt;code>second&lt;/code>.
+         * @param second Second Array to compare to the &lt;code>first&lt;/code>.
+         * @param fromIndex The location in the Arrays from which to start searching for a difference.
+         * @return The first position/index where the Arrays differ; if Arrays are identical returns &lt;code>-1&lt;/code>.
+         * @example
+         * &lt;code>
+         * var color:Array     = new Array("Red", "Blue", "Green", "Indigo", "Violet");
+         * var colorsAlt:Array = new Array("Red", "Blue", "Green", "Violet");
+         * trace(ArrayUtils.getIndexOfDifference(color, colorsAlt)); // Traces 3
+         * &lt;/code>
+         * @author Aaron Clinger (http://casalib.org)
+         * @author Jon Adams (http://casalib.org)
+         */
+        public static function getIndexOfDifference(first:Array, second:Array, fromIndex:uint = 0):int {
+            var i:int = fromIndex - 1;
+
+            while(++i &lt; first.length)
+                if(first[i] != second[i])
+                    return i;
+
+            return -1;
+        }
+
+
+
+        /**
+         * Creates new Array composed of passed Array's items in a random order.
+         * Original taken from Casalib (http://casalib.org)
+         * @param inArray Array to create copy of, and randomize.
+         * @return A new Array composed of passed Array's items in a random order.
+         * @example
+         * &lt;code>
+         * var numberArray:Array = new Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+         * trace(ArrayUtils.randomize(numberArray));
+         * &lt;/code>
+         * @author Aaron Clinger (http://casalib.org)
+         * @author Jon Adams (http://casalib.org)
+         */
+        public static function randomize(inArray:Array):Array {
+            var t:Array = new Array();
+            var r:Array = inArray.sort(_sortRandom, Array.RETURNINDEXEDARRAY);
+            var i:int = -1;
+
+            while(++i &lt; inArray.length)
+                t.push(inArray[r[i]]);
+
+            return t;
+        }
+
+
+
+        protected static function _sortRandom(a:*, b:*):int {
+            return RandomUtils.integer(0, 1) ? 1 : -1;
+        }
+
+
+
+        /**
+         * Adds all items in &lt;code>inArray&lt;/code> and returns the value.
+         * Original taken from Casalib (http://casalib.org)
+         * @param inArray Array composed only of numbers.
+         * @return The total of all numbers in &lt;code>inArray&lt;/code> added.
+         * @example
+         * &lt;code>
+         * var numberArray:Array = new Array(2, 3);
+         * trace("Total is: " + ArrayUtils.sum(numberArray));
+         * &lt;/code>
+         * @author Aaron Clinger (http://casalib.org)
+         * @author Jon Adams (http://casalib.org)
+         */
+        public static function sum(inArray:Array):Number {
+            var t:Number = 0;
+            var l:uint = inArray.length;
+
+            while(l--)
+                t += inArray[l];
+
+            return t;
+        }
+
+
+
+        /**
+         * Averages the values in &lt;code>inArray&lt;/code>.
+         * Original taken from Casalib (http://casalib.org)
+         * @param inArray Array composed only of numbers.
+         * @return The average of all numbers in the &lt;code>inArray&lt;/code>.
+         * @example
+         * &lt;code>
+         * var numberArray:Array = new Array(2, 3, 8, 3);
+         * trace("Average is: " + ArrayUtils.average(numberArray));
+         * &lt;/code>
+         * @author Aaron Clinger (http://casalib.org)
+         * @author Jon Adams (http://casalib.org)
+         */
+        public static function average(inArray:Array):Number {
+            if(inArray.length == 0)
+                return 0;
+
+            return sum(inArray) / inArray.length;
+        }
+
+
+
+        /**
+         * Finds the lowest value in &lt;code>inArray&lt;/code>.
+         * Original taken from Casalib (http://casalib.org)
+         * @param inArray Array composed only of numbers.
+         * @return The lowest value in &lt;code>inArray&lt;/code>.
+         * @example
+         * &lt;code>
+         * var numberArray:Array = new Array(2, 1, 5, 4, 3);
+         * trace("The lowest value is: " + ArrayUtils.getLowestValue(numberArray));
+         * &lt;/code>
+         * @author Aaron Clinger (http://casalib.org)
+         * @author Jon Adams (http://casalib.org)
+         */
+        public static function getLowestValue(inArray:Array):Number {
+            return inArray[inArray.sort(16 | 8)[0]];
+        }
+
+
+
+        /**
+         * Finds the highest value in &lt;code>inArray&lt;/code>.
+         * Original taken from Casalib (http://casalib.org)
+         * @param inArray Array composed only of numbers.
+         * @return The highest value in &lt;code>inArray&lt;/code>.
+         * @example
+         * &lt;code>
+         * var numberArray:Array = new Array(2, 1, 5, 4, 3);
+         * trace("The highest value is: " + ArrayUtils.getHighestValue(numberArray));
+         * &lt;/code>
+         * @author Aaron Clinger (http://casalib.org)
+         * @author Jon Adams (http://casalib.org)
+         */
+        public static function getHighestValue(inArray:Array):Number {
+            return inArray[inArray.sort(16 | 8)[inArray.length - 1]];
+        }
+    }
+}
+
+</textarea></div></div></div><div class="classDescription"></div><div class="summary"><h2 id="Summary">Summary</h2><div class="docNav"><ul><li><div id="twistyTypeInfo_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide type info</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_on");</script><div id="twistyTypeInfo_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show type info</a></div><span id="twistyTypeInfo_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_off");</script></li><li><div id="twistySummaries_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide summaries</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_on");</script><div id="twistySummaries_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show summaries</a></div><span id="twistySummaries_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_off");</script></li><li><div id="twistySort_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Sort by source order</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_on");</script><div id="twistySort_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Sort alphabetically</a></div><span id="twistySort_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_off");</script></li></ul><br class="clear" /></div><div class="memberList"><div class="memberSummaryPart"><span class="title">Constructor</span><ul class="sortable" id="sortul1"><li class="sortli listnum1"><a href="#ArrayUtils">ArrayUtils</a></li></ul></div><div class="memberSummaryPart"><span class="title">Class methods</span><ul class="sortable" id="sortul2"><li class="sortli listnum1"><a href="#getItemByKey">getItemByKey</a><span class="typeInfo"> (inArray:Array, key:String, match:*) : *</span><ul class="summary"><li>Returns the first element that matches match for the property key.</li></ul></li><li class="sortli listnum2"><a href="#getItemsByKey">getItemsByKey</a><span class="typeInfo"> (inArray:Array, key:String, match:*) : Array</span><ul class="summary"><li>Returns every element that matches match for the property key.</li></ul></li><li class="sortli listnum3"><a href="#getItemByType">getItemByType</a><span class="typeInfo"> (inArray:Array, type:Class) : *</span><ul class="summary"><li>Returns the first element that is compatible with a specific data type, class, or interface.</li></ul></li><li class="sortli listnum4"><a href="#getItemsByType">getItemsByType</a><span class="typeInfo"> (inArray:Array, type:Class) : Array</span><ul class="summary"><li>Returns every element that is compatible with a specific data type, class, or interface.</li></ul></li><li class="sortli listnum5"><a href="#equals">equals</a><span class="typeInfo"> (first:Array, second:Array) : Boolean</span><ul class="summary"><li>Determines if two Arrays contain the same objects at the same index.</li></ul></li><li class="sortli listnum6"><a href="#addItemsAt">addItemsAt</a><span class="typeInfo"> (tarArray:Array, items:Array, index:int = 0x7FFFFFFF) : Boolean</span><ul class="summary"><li>Modifies original Array by adding all the elements from another Array at a specified position.</li></ul></li><li class="sortli listnum7"><a href="#removeDuplicates">removeDuplicates</a><span class="typeInfo"> (inArray:Array) : Array</span><ul class="summary"><li>Creates new Array composed of only the non-identical elements of passed Array.</li></ul></li><li class="private sortli listnum9"><a href="#_removeDuplicatesFilter">_removeDuplicatesFilter</a><span class="typeInfo"> (e:*, i:int, inArray:Array) : Boolean</span></li><li class="sortli listnum10"><a href="#removeItem">removeItem</a><span class="typeInfo"> (tarArray:Array, item:*) : uint</span><ul class="summary"><li>Modifies original Array by removing all items that are identical to the specified item.</li></ul></li><li class="sortli listnum11"><a href="#removeItems">removeItems</a><span class="typeInfo"> (tarArray:Array, items:Array) : Boolean</span><ul class="summary"><li>Removes only the specified items in an Array.</li></ul></li><li class="sortli listnum12"><a href="#retainItems">retainItems</a><span class="typeInfo"> (tarArray:Array, items:Array) : Boolean</span><ul class="summary"><li>Retains only the specified items in an Array.</li></ul></li><li class="sortli listnum13"><a href="#contains">contains</a><span class="typeInfo"> (inArray:Array, item:*) : uint</span><ul class="summary"><li>Finds out how many instances of item Array contains.</li></ul></li><li class="sortli listnum14"><a href="#containsAll">containsAll</a><span class="typeInfo"> (inArray:Array, items:Array) : Boolean</span><ul class="summary"><li>Determines if Array contains all items.</li></ul></li><li class="sortli listnum15"><a href="#containsAny">containsAny</a><span class="typeInfo"> (inArray:Array, items:Array) : Boolean</span><ul class="summary"><li>Determines if Array inArray contains any element of Array items.</li></ul></li><li class="sortli listnum16"><a href="#getIndexOfDifference">getIndexOfDifference</a><span class="typeInfo"> (first:Array, second:Array, fromIndex:uint = 0) : int</span><ul class="summary"><li>Compares two Arrays and finds the first index where they differ.</li></ul></li><li class="sortli listnum17"><a href="#randomize">randomize</a><span class="typeInfo"> (inArray:Array) : Array</span><ul class="summary"><li>Creates new Array composed of passed Array's items in a random order.</li></ul></li><li class="private sortli listnum19"><a href="#_sortRandom">_sortRandom</a><span class="typeInfo"> (a:*, b:*) : int</span></li><li class="sortli listnum20"><a href="#sum">sum</a><span class="typeInfo"> (inArray:Array) : Number</span><ul class="summary"><li>Adds all items in inArray and returns the value.</li></ul></li><li class="sortli listnum21"><a href="#average">average</a><span class="typeInfo"> (inArray:Array) : Number</span><ul class="summary"><li>Averages the values in inArray.</li></ul></li><li class="sortli listnum22"><a href="#getLowestValue">getLowestValue</a><span class="typeInfo"> (inArray:Array) : Number</span><ul class="summary"><li>Finds the lowest value in inArray.</li></ul></li><li class="sortli listnum23"><a href="#getHighestValue">getHighestValue</a><span class="typeInfo"> (inArray:Array) : Number</span><ul class="summary"><li>Finds the highest value in inArray.</li></ul></li></ul></div></div></div><div class="memberSection"><h2 id="Constructor">Constructor</h2><div class="member" id="ArrayUtils"><h3>ArrayUtils</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> function <b>ArrayUtils</b> (
+</div><div class="code">)</div><br class="clear" /></div></div><div class="description">     Constructor.<br />Cannot be instantiated, throws an Error. </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Throws:</span><div class="item"><ul><li> <span class="doesNotExist"> Error</span>, since the class could not be instantiated </li></ul></div></div></div></div></div></div><div class="memberSection"><h2 id="Classmethods">Class methods</h2><div class="member private" id="_removeDuplicatesFilter"><h3>_removeDuplicatesFilter</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">protected static</span> function <b>_removeDuplicatesFilter</b> (
+
+
+</div><div class="code">e:*,
+i:int,
+inArray:Array) : Boolean</div><br class="clear" /></div></div></div><div class="member private" id="_sortRandom"><h3>_sortRandom</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">protected static</span> function <b>_sortRandom</b> (
+
+</div><div class="code">a:*,
+b:*) : int</div><br class="clear" /></div></div></div><div class="member" id="addItemsAt"><h3>addItemsAt</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public static</span> function <b>addItemsAt</b> (
 
 
 </div><div class="code">tarArray:Array,
