@@ -13,27 +13,27 @@
  * * to make derivative works
  *
  * Under the following conditions::
- * * Attribution Ñ You must give the original author credit.
+ * * Attribution ï¿½ You must give the original author credit.
  *
  * With the understanding that:
- *    * Waiver Ñ Any of the above conditions can be waived if you get permission from the copyright holder. CC licenses
+ *    * Waiver ï¿½ Any of the above conditions can be waived if you get permission from the copyright holder. CC licenses
  *      anticipate that a licensor may want to waive compliance with a specific condition, such as attribution.
- *    * Other Rights Ñ In no way are any of the following rights affected by the license:
- * 	        - Your fair dealing or fair use rights Ñ All jurisdictions allow some limited uses of copyrighted material
+ *    * Other Rights ï¿½ In no way are any of the following rights affected by the license:
+ *	         - Your fair dealing or fair use rights ï¿½ All jurisdictions allow some limited uses of copyrighted material
  *            without permission. CC licenses do not affect the rights of users under those copyright limitations and
  *            exceptions, such as fair use and fair dealing where applicable.
- * 	        - The author's moral rights Ñ In addition to the right of licensors to request removal of their name from
+ *	         - The author's moral rights ï¿½ In addition to the right of licensors to request removal of their name from
  *            the work when used in a derivative or collective they don't like, copyright laws in most jurisdictions
  *            around the world (with the notable exception of the US except in very limited circumstances) grant
  *            creators "moral rights" which may provide some redress if a derivative work represents a "derogatory
  *            treatment" of the licensor's work.
- * 	        - Rights other persons may have either in the work itself or in how the work is used, such as publicity or
- *            privacy rights. Ñ Publicity rights allow individuals to control how their voice, image or likeness is used
+ *	         - Rights other persons may have either in the work itself or in how the work is used, such as publicity or
+ *            privacy rights. ï¿½ Publicity rights allow individuals to control how their voice, image or likeness is used
  *            for commercial purposes in public. If a CC-licensed work includes the voice or image of anyone other than
  *            the licensor, a user of the work may need to get permission from those individuals before using the work
  *            for commercial purposes.
  *
- * Notice Ñ For any reuse or distribution, you must make clear to others the licence terms of this work.
+ * Notice ï¿½ For any reuse or distribution, you must make clear to others the licence terms of this work.
  **********************************************************************************************************************/
 
 package org.vancura.vaclav.core.utils {
@@ -152,7 +152,7 @@ package org.vancura.vaclav.core.utils {
 		 * Dynamically constructs a Class.
 		 * Original taken from Casalib (http://casalib.org)
 		 * @param type The Class to create.
-		 * @param arguments Up to ten arguments to the constructor.
+		 * @param args Up to ten arguments to the constructor.
 		 * @return Returns the dynamically created instance of the Class specified by <code>type</code> parameter.
 		 * @example
 		 * <code>
@@ -162,33 +162,38 @@ package org.vancura.vaclav.core.utils {
 		 * @author Aaron Clinger (http://casalib.org)
 		 * @author Jon Adams (http://casalib.org)
 		 */
-		public static function construct(type:Class, ...arguments):* {
-			if(arguments.length > 10) throw new Error('You have passed more arguments than this method excepts (Ten or less).');
+		//noinspection OverlyComplexFunctionJS
+		public static function construct(type:Class, ...args):* {
+			var out:*;
 
-			switch(arguments.length) {
+			switch(args.length) {
 				case 0 :
-					return new type();
+					out = new type(); break;
 				case 1 :
-					return new type(arguments[0]);
+					out = new type(args[0]); break;
 				case 2 :
-					return new type(arguments[0], arguments[1]);
+					out = new type(args[0], args[1]); break;
 				case 3 :
-					return new type(arguments[0], arguments[1], arguments[2]);
+					out = new type(args[0], args[1], args[2]); break;
 				case 4 :
-					return new type(arguments[0], arguments[1], arguments[2], arguments[3]);
+					out = new type(args[0], args[1], args[2], args[3]); break;
 				case 5 :
-					return new type(arguments[0], arguments[1], arguments[2], arguments[3], arguments[4]);
+					out = new type(args[0], args[1], args[2], args[3], args[4]); break;
 				case 6 :
-					return new type(arguments[0], arguments[1], arguments[2], arguments[3], arguments[4], arguments[5]);
+					out = new type(args[0], args[1], args[2], args[3], args[4], args[5]); break;
 				case 7 :
-					return new type(arguments[0], arguments[1], arguments[2], arguments[3], arguments[4], arguments[5], arguments[6]);
+					out = new type(args[0], args[1], args[2], args[3], args[4], args[5], args[6]); break;
 				case 8 :
-					return new type(arguments[0], arguments[1], arguments[2], arguments[3], arguments[4], arguments[5], arguments[6], arguments[7]);
+					out = new type(args[0], args[1], args[2], args[3], args[4], args[5], args[6], args[7]); break;
 				case 9 :
-					return new type(arguments[0], arguments[1], arguments[2], arguments[3], arguments[4], arguments[5], arguments[6], arguments[7], arguments[8]);
+					out = new type(args[0], args[1], args[2], args[3], args[4], args[5], args[6], args[7], args[8]); break;
 				case 10 :
-					return new type(arguments[0], arguments[1], arguments[2], arguments[3], arguments[4], arguments[5], arguments[6], arguments[7], arguments[8], arguments[9]);
+					out = new type(args[0], args[1], args[2], args[3], args[4], args[5], args[6], args[7], args[8], args[9]); break;
+				default:
+					throw new Error('You have passed more arguments than this method excepts (Ten or less).');
 			}
+
+			return out;
 		}
 	}
 }
