@@ -1,171 +1,619 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head><title>QBitmap</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" type="text/css" href="../css/VisDoc.css" /><script src="../js/jquery.js" type="text/javascript">//</script><script src="../js/common.js" type="text/javascript">//</script><script src="../js/doc.js" type="text/javascript">//</script></head><body id="page_org_vancura_vaclav_core_display_QBitmap"><script type="text/javascript">VisDoc.initBody();</script><div id="PageTop"><!----></div><div class="VisDoc"><div class="content"><div class="docNav"><ul><li><div id="twistyTOC_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited activeWhenNotFramed"><a href="#"><span class="icon">+</span>Show TOC</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyTOC_show");</script><div id="twistyTOC_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited activeWhenFramed"><a href="#"><span class="icon">&times;</span>Hide TOC</a></div><span id="twistyTOC_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyTOC_hide");</script></li></ul><ul class="accessKeyLinks"><li><a href="#PageTop" accesskey="t"><span class="accessKey">T</span>op</a></li><li><a href="#Summary" accesskey="s"><span class="accessKey">S</span>ummary</a></li><li><a href="#Constructor" accesskey="c"><span class="accessKey">C</span>onstructors</a></li><li><a href="#Instancemethods" accesskey="m">Instance <span class="accessKey">m</span>ethods</a></li></ul><ul><li><div id="twistyPrivate_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide private and protected members</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("togglePrivate_on");</script><div id="twistyPrivate_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show private and protected members</a></div><span id="twistyPrivate_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("togglePrivate_off");</script></li></ul><br class="clear" /></div><h1>QBitmap</h1><div class="classProperties"><table cellspacing="0"><tr><th align="left">Kind of class:</th><td>public class</td></tr><tr><th align="left">Package:</th><td><a class="className" href="package-org_vancura_vaclav_core_display.html">org.vancura.vaclav.core.display</a></td></tr><tr><th align="left">Inherits from:</th><td>Bitmap</td></tr><tr><th class="classDetails" align="left">Author:</th><td class="classDetails">Vaclav Vancura (<a href="http://vaclav.vancura.org">http://vaclav.vancura.org</a>)</td></tr><tr><th class="classDetails" align="left">Classpath:</th><td class="classDetails">org.vancura.vaclav.core.display.QBitmap</td></tr><tr><th class="classDetails" align="left">File last modified:</th><td class="classDetails">Sunday, 10 January 2010, 11:06:45</td></tr></table></div><div id="sourceCodeTop" class="sourceCodeView"><div id="twistyViewSourceshow" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting twistyAnimate"><a href="#"><span class="icon">►&nbsp;</span><span class="linkLabel">View source</span></a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourceshow");</script><div id="twistyViewSourcehide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting twistyAnimate"><a href="#"><span class="icon">▼&nbsp;</span><span class="linkLabel">Hide source</span></a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourcehide");</script><div id="twistyViewSourcetoggle" class="twistyContent twistyMakeHidden twistyRememberSetting"><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourcetoggle");</script><div class="sourceCode"><textarea rows="10" cols="10" id="source" readonly="readonly">/***********************************************************************************************************************
- * Some methods Copyrighted by their authors, specified in ASDocs.
- * If not specified elsewhere: Copyright (c) 2010 Vaclav Vancura.
- *
- * Contact me at vaclav@vancura.org, @vancura or at my homepage at http://vaclav.vancura.org.
- * Project's GIT repo: http://github.com/vancura/vancura-as3-libs
- * Documentation: http://doc.vaclav.vancura.org/vancura-as3-libs
- *
- * Licensed under Attribution 3.0 Czech Republic (http://creativecommons.org/licenses/by/3.0/cz/deed.en_GB).
- *
- * That means you are free:
- * * to copy, distribute, display, and perform the work
- * * to make derivative works
- *
- * Under the following conditions::
- * * Attribution — You must give the original author credit.
- *
- * With the understanding that:
- *    * Waiver — Any of the above conditions can be waived if you get permission from the copyright holder. CC licenses
- *      anticipate that a licensor may want to waive compliance with a specific condition, such as attribution.
- *    * Other Rights — In no way are any of the following rights affected by the license:
- *             - Your fair dealing or fair use rights — All jurisdictions allow some limited uses of copyrighted material
- *            without permission. CC licenses do not affect the rights of users under those copyright limitations and
- *            exceptions, such as fair use and fair dealing where applicable.
- *             - The author's moral rights — In addition to the right of licensors to request removal of their name from
- *            the work when used in a derivative or collective they don't like, copyright laws in most jurisdictions
- *            around the world (with the notable exception of the US except in very limited circumstances) grant
- *            creators "moral rights" which may provide some redress if a derivative work represents a "derogatory
- *            treatment" of the licensor's work.
- *             - Rights other persons may have either in the work itself or in how the work is used, such as publicity or
- *            privacy rights. — Publicity rights allow individuals to control how their voice, image or likeness is used
- *            for commercial purposes in public. If a CC-licensed work includes the voice or image of anyone other than
- *            the licensor, a user of the work may need to get permission from those individuals before using the work
- *            for commercial purposes.
- *
- * Notice — For any reuse or distribution, you must make clear to others the licence terms of this work.
- **********************************************************************************************************************/
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>QBitmap</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="../css/VisDoc.css" />
+	<script src="../js/jquery.js" type="text/javascript">//</script>
+	<script src="../js/common.js" type="text/javascript">//</script>
+	<script src="../js/doc.js" type="text/javascript">//</script>
+</head>
+<body id="page_org_vancura_vaclav_core_display_QBitmap">
+<script type="text/javascript">VisDoc.initBody();</script>
+<div id="PageTop"><!----></div>
+<div class="VisDoc">
+	<div class="content">
+		<div class="docNav">
+			<ul>
+				<li>
+					<div id="twistyTOC_show"
+					     class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited activeWhenNotFramed"><a
+							href="#"><span class="icon">+</span>Show TOC</a></div>
+					<script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyTOC_show");</script>
+					<div id="twistyTOC_hide"
+					     class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited activeWhenFramed"><a
+							href="#"><span class="icon">&times;</span>Hide TOC</a></div>
+					<span id="twistyTOC_toggle" class="twistyContent"><!----></span>
+					<script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyTOC_hide");</script>
+				</li>
+			</ul>
+			<ul class="accessKeyLinks">
+				<li><a href="#PageTop" accesskey="t"><span class="accessKey">T</span>op</a></li>
+				<li><a href="#Summary" accesskey="s"><span class="accessKey">S</span>ummary</a></li>
+				<li><a href="#Constructor" accesskey="c"><span class="accessKey">C</span>onstructors</a></li>
+				<li><a href="#Instancemethods" accesskey="m">Instance <span class="accessKey">m</span>ethods</a></li>
+			</ul>
+			<ul>
+				<li>
+					<div id="twistyPrivate_show"
+					     class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a
+							href="#"><span class="icon">&times;</span>Hide private and protected members</a></div>
+					<script type="text/javascript">twiki.JQueryTwistyPlugin.initId("togglePrivate_on");</script>
+					<div id="twistyPrivate_hide"
+					     class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a
+							href="#"><span class="icon">+</span>Show private and protected members</a></div>
+					<span id="twistyPrivate_toggle" class="twistyContent"><!----></span>
+					<script type="text/javascript">twiki.JQueryTwistyPlugin.initId("togglePrivate_off");</script>
+				</li>
+			</ul>
+			<br class="clear" /></div>
+		<h1>QBitmap</h1>
 
-package org.vancura.vaclav.core.display {
-    import flash.display.Bitmap;
-    import flash.display.BitmapData;
-    import flash.display.DisplayObjectContainer;
+		<div class="classProperties">
+			<table cellspacing="0">
+				<tr>
+					<th align="left">Kind of class:</th>
+					<td>public class</td>
+				</tr>
+				<tr>
+					<th align="left">Package:</th>
+					<td><a class="className" href="package-org_vancura_vaclav_core_display.html">org.vancura.vaclav.core.display</a>
+					</td>
+				</tr>
+				<tr>
+					<th align="left">Inherits from:</th>
+					<td>Bitmap</td>
+				</tr>
+				<tr>
+					<th class="classDetails" align="left">Author:</th>
+					<td class="classDetails">Vaclav Vancura (<a href="http://vaclav.vancura.org">http://vaclav.vancura.org</a>)
+					</td>
+				</tr>
+				<tr>
+					<th class="classDetails" align="left">Classpath:</th>
+					<td class="classDetails">org.vancura.vaclav.core.display.QBitmap</td>
+				</tr>
+				<tr>
+					<th class="classDetails" align="left">File last modified:</th>
+					<td class="classDetails">Sunday, 24 January 2010, 10:48:27</td>
+				</tr>
+			</table>
+		</div>
+		<div id="sourceCodeTop" class="sourceCodeView">
+			<div id="twistyViewSourceshow"
+			     class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting twistyAnimate">
+				<a href="#"><span class="icon">►&nbsp;</span><span class="linkLabel">View source</span></a></div>
+			<script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourceshow");</script>
+			<div id="twistyViewSourcehide"
+			     class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting twistyAnimate">
+				<a href="#"><span class="icon">▼&nbsp;</span><span class="linkLabel">Hide source</span></a></div>
+			<script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourcehide");</script>
+			<div id="twistyViewSourcetoggle" class="twistyContent twistyMakeHidden twistyRememberSetting">
+				<script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourcetoggle");</script>
+				<div class="sourceCode"><textarea rows="10" cols="10" id="source" readonly="readonly">/***********************************************************************************************************************
+				                                                                                      * Some methods
+				                                                                                      Copyrighted by
+				                                                                                      their authors,
+				                                                                                      specified in
+				                                                                                      ASDocs.
+				                                                                                      * If not specified
+				                                                                                      elsewhere:
+				                                                                                      Copyright (c) 2010
+				                                                                                      Vaclav Vancura.
+				                                                                                      *
+				                                                                                      * Contact me at
+				                                                                                      vaclav@vancura.org,
+				                                                                                      @vancura or at my
+				                                                                                      homepage at
+				                                                                                      http://vaclav.vancura.org.
+				                                                                                      * Project's GIT
+				                                                                                      repo:
+				                                                                                      http://github.com/vancura/vancura-as3-libs
+				                                                                                      * Documentation:
+				                                                                                      http://doc.vaclav.vancura.org/vancura-as3-libs
+				                                                                                      *
+				                                                                                      * Licensed under
+				                                                                                      Attribution 3.0
+				                                                                                      Czech Republic
+				                                                                                      (http://creativecommons.org/licenses/by/3.0/cz/deed.en_GB).
+				                                                                                      *
+				                                                                                      * That means you
+				                                                                                      are free:
+				                                                                                      * * to copy,
+				                                                                                      distribute,
+				                                                                                      display, and
+				                                                                                      perform the work
+				                                                                                      * * to make
+				                                                                                      derivative works
+				                                                                                      *
+				                                                                                      * Under the
+				                                                                                      following
+				                                                                                      conditions::
+				                                                                                      * * Attribution —
+				                                                                                      You must give the
+				                                                                                      original author
+				                                                                                      credit.
+				                                                                                      *
+				                                                                                      * With the
+				                                                                                      understanding
+				                                                                                      that:
+				                                                                                      * * Waiver — Any
+				                                                                                      of the above
+				                                                                                      conditions can be
+				                                                                                      waived if you get
+				                                                                                      permission from
+				                                                                                      the copyright
+				                                                                                      holder. CC
+				                                                                                      licenses
+				                                                                                      * anticipate that
+				                                                                                      a licensor may
+				                                                                                      want to waive
+				                                                                                      compliance with a
+				                                                                                      specific
+				                                                                                      condition, such as
+				                                                                                      attribution.
+				                                                                                      * * Other Rights —
+				                                                                                      In no way are any
+				                                                                                      of the following
+				                                                                                      rights affected by
+				                                                                                      the license:
+				                                                                                      * - Your fair
+				                                                                                      dealing or fair
+				                                                                                      use rights — All
+				                                                                                      jurisdictions
+				                                                                                      allow some limited
+				                                                                                      uses of
+				                                                                                      copyrighted
+				                                                                                      material
+				                                                                                      * without
+				                                                                                      permission. CC
+				                                                                                      licenses do not
+				                                                                                      affect the rights
+				                                                                                      of users under
+				                                                                                      those copyright
+				                                                                                      limitations and
+				                                                                                      * exceptions, such
+				                                                                                      as fair use and
+				                                                                                      fair dealing where
+				                                                                                      applicable.
+				                                                                                      * - The author's
+				                                                                                      moral rights — In
+				                                                                                      addition to the
+				                                                                                      right of licensors
+				                                                                                      to request removal
+				                                                                                      of their name from
+				                                                                                      * the work when
+				                                                                                      used in a
+				                                                                                      derivative or
+				                                                                                      collective they
+				                                                                                      don't like,
+				                                                                                      copyright laws in
+				                                                                                      most jurisdictions
+				                                                                                      * around the world
+				                                                                                      (with the notable
+				                                                                                      exception of the
+				                                                                                      US except in very
+				                                                                                      limited
+				                                                                                      circumstances)
+				                                                                                      grant
+				                                                                                      * creators "moral
+				                                                                                      rights" which may
+				                                                                                      provide some
+				                                                                                      redress if a
+				                                                                                      derivative work
+				                                                                                      represents a
+				                                                                                      "derogatory
+				                                                                                      * treatment" of
+				                                                                                      the licensor's
+				                                                                                      work.
+				                                                                                      * - Rights other
+				                                                                                      persons may have
+				                                                                                      either in the work
+				                                                                                      itself or in how
+				                                                                                      the work is used,
+				                                                                                      such as publicity
+				                                                                                      or
+				                                                                                      * privacy rights.
+				                                                                                      — Publicity rights
+				                                                                                      allow individuals
+				                                                                                      to control how
+				                                                                                      their voice, image
+				                                                                                      or likeness is
+				                                                                                      used
+				                                                                                      * for commercial
+				                                                                                      purposes in
+				                                                                                      public. If a
+				                                                                                      CC-licensed work
+				                                                                                      includes the voice
+				                                                                                      or image of anyone
+				                                                                                      other than
+				                                                                                      * the licensor, a
+				                                                                                      user of the work
+				                                                                                      may need to get
+				                                                                                      permission from
+				                                                                                      those individuals
+				                                                                                      before using the
+				                                                                                      work
+				                                                                                      * for commercial
+				                                                                                      purposes.
+				                                                                                      *
+				                                                                                      * Notice — For any
+				                                                                                      reuse or
+				                                                                                      distribution, you
+				                                                                                      must make clear to
+				                                                                                      others the licence
+				                                                                                      terms of this
+				                                                                                      work.
+				                                                                                      **********************************************************************************************************************/
 
-    import org.vancura.vaclav.core.utils.ObjectUtils;
+				                                                                                      package
+				                                                                                      org.vancura.vaclav.core.display
+				                                                                                      {
+				                                                                                      import
+				                                                                                      flash.display.Bitmap;
+				                                                                                      import
+				                                                                                      flash.display.BitmapData;
+				                                                                                      import
+				                                                                                      flash.display.DisplayObjectContainer;
 
-    /**
-     * Quick creation of Bitmap with initial data.
-     *
-     * @author Vaclav Vancura (http://vaclav.vancura.org)
-     */
-    public class QBitmap extends Bitmap {
+				                                                                                      import
+				                                                                                      org.vancura.vaclav.core.utils.ObjectUtils;
 
-
-
-        /*
-         * Constructor: QBitmap
-         *
-         * Create a new QBitmap instance.
-         *
-         * Parameters:
-         *
-         *         c        - Config object
-         *         parent    - Parent DisplayObjectContainer
-         *
-         * Every sane parameter of Bitmap and DisplayObject is supported, that means:
-         *
-         * Bitmap parameters: bitmapData, pixelSnapping, smoothing
-         *
-         * DisplayObject parameters: accessibilityProperties, alpha, blendMode, cacheAsBitmap,
-         * filters, height, mask, name, opaqueBackground, rotation, scale9Grid, scaleX, scaleY,
-         * scrollRect, transform, visible, width, x, y
-         *
-         * Additionally these parameters are added:
-         *
-         *         embed    - Bitmap or BitmapData object to be used as Bitmap source (throws
-         *                     a TypeError if the embed object is not Bitmap nor BitmapData)
-         *
-         * Example code:
-         *
-         * (start code)
-         *
-         *         import org.vancura.graphics.QBitmap;
-         *
-         *         [Embed(source='bitmap-test.png')] private static var _bitmapTest:Class;
-         *
-         *         var myBitmap:QBitmap = new QBitmap({
-         *             embed: new _bitmapTest(),
-         *             x: 100,
-         *             y: 50,
-         *             alpha: .5
-         *         });
-         *         addChild(myBitmap);
-         *
-         * (end)
-         *
-         * Another example:
-         *
-         * (start code)
-         *
-         *         import org.vancura.graphics.QSprite;
-         *
-         *         var myBitmap:QBitmap = new QBitmap({embed: new _bitmapTest()}, this);
-         *
-         * (end)
-         */
-        public function QBitmap(config:Object = null, parent:DisplayObjectContainer = null) {
-            // if config is not defined, prepare it
-            var c:Object;
-
-            if(config == null) c = new Object();
-            else c = config;
-
-            super();
-
-            // Bitmap overrides and custom config
-            if(c.embed) {
-                if(c.embed is Bitmap) this.bitmapData = c.embed.bitmapData; else if(c.embed is BitmapData) this.bitmapData = c.embed;
-                else throw new TypeError('Invalid embed object');
-            }
-
-            // assign parameters
-            ObjectUtils.assign(this, c);
-
-            // add child if requested
-            if(parent != null) parent.addChild(this);
-        }
+				                                                                                      /**
+				                                                                                      * Quick creation
+				                                                                                      of Bitmap with
+				                                                                                      initial data.
+				                                                                                      *
+				                                                                                      * @author Vaclav
+				                                                                                      Vancura
+				                                                                                      (http://vaclav.vancura.org)
+				                                                                                      */
+				                                                                                      public class
+				                                                                                      QBitmap extends
+				                                                                                      Bitmap {
 
 
+				                                                                                      /*
+				                                                                                      * Constructor:
+				                                                                                      QBitmap
+				                                                                                      *
+				                                                                                      * Create a new
+				                                                                                      QBitmap instance.
+				                                                                                      *
+				                                                                                      * Parameters:
+				                                                                                      *
+				                                                                                      * c - Config
+				                                                                                      object
+				                                                                                      * parent - Parent
+				                                                                                      DisplayObjectContainer
+				                                                                                      *
+				                                                                                      * Every sane
+				                                                                                      parameter of
+				                                                                                      Bitmap and
+				                                                                                      DisplayObject is
+				                                                                                      supported, that
+				                                                                                      means:
+				                                                                                      *
+				                                                                                      * Bitmap
+				                                                                                      parameters:
+				                                                                                      bitmapData,
+				                                                                                      pixelSnapping,
+				                                                                                      smoothing
+				                                                                                      *
+				                                                                                      * DisplayObject
+				                                                                                      parameters:
+				                                                                                      accessibilityProperties,
+				                                                                                      alpha, blendMode,
+				                                                                                      cacheAsBitmap,
+				                                                                                      * filters, height,
+				                                                                                      mask, name,
+				                                                                                      opaqueBackground,
+				                                                                                      rotation,
+				                                                                                      scale9Grid,
+				                                                                                      scaleX, scaleY,
+				                                                                                      * scrollRect,
+				                                                                                      transform,
+				                                                                                      visible, width, x,
+				                                                                                      y
+				                                                                                      *
+				                                                                                      * Additionally
+				                                                                                      these parameters
+				                                                                                      are added:
+				                                                                                      *
+				                                                                                      * embed - Bitmap
+				                                                                                      or BitmapData
+				                                                                                      object to be used
+				                                                                                      as Bitmap source
+				                                                                                      (throws
+				                                                                                      * a TypeError if
+				                                                                                      the embed object
+				                                                                                      is not Bitmap nor
+				                                                                                      BitmapData)
+				                                                                                      *
+				                                                                                      * Example code:
+				                                                                                      *
+				                                                                                      * (start code)
+				                                                                                      *
+				                                                                                      * import
+				                                                                                      org.vancura.graphics.QBitmap;
+				                                                                                      *
+				                                                                                      *
+				                                                                                      [Embed(source='bitmap-test.png')]
+				                                                                                      private static var
+				                                                                                      _bitmapTest:Class;
+				                                                                                      *
+				                                                                                      * var
+				                                                                                      myBitmap:QBitmap =
+				                                                                                      new QBitmap({
+				                                                                                      * embed: new
+				                                                                                      _bitmapTest(),
+				                                                                                      * x: 100,
+				                                                                                      * y: 50,
+				                                                                                      * alpha: .5
+				                                                                                      * });
+				                                                                                      *
+				                                                                                      addChild(myBitmap);
+				                                                                                      *
+				                                                                                      * (end)
+				                                                                                      *
+				                                                                                      * Another example:
+				                                                                                      *
+				                                                                                      * (start code)
+				                                                                                      *
+				                                                                                      * import
+				                                                                                      org.vancura.graphics.QSprite;
+				                                                                                      *
+				                                                                                      * var
+				                                                                                      myBitmap:QBitmap =
+				                                                                                      new
+				                                                                                      QBitmap({embed:
+				                                                                                      new
+				                                                                                      _bitmapTest()},
+				                                                                                      this);
+				                                                                                      *
+				                                                                                      * (end)
+				                                                                                      */
+				                                                                                      public function
+				                                                                                      QBitmap(config:Object
+				                                                                                      = null,
+				                                                                                      parent:DisplayObjectContainer
+				                                                                                      = null) {
+				                                                                                      // if config is
+				                                                                                      not defined,
+				                                                                                      prepare it
+				                                                                                      var c:Object;
 
-        // Getters &amp; setters
-        // -----------------
+				                                                                                      if(config == null)
+				                                                                                      c = new Object();
+				                                                                                      else c = config;
+
+				                                                                                      super();
+
+				                                                                                      // Bitmap
+				                                                                                      overrides and
+				                                                                                      custom config
+				                                                                                      if(c.embed) {
+				                                                                                      if(c.embed is
+				                                                                                      Bitmap)
+				                                                                                      this.bitmapData =
+				                                                                                      c.embed.bitmapData;
+				                                                                                      else if(c.embed is
+				                                                                                      BitmapData)
+				                                                                                      this.bitmapData =
+				                                                                                      c.embed;
+				                                                                                      else throw new
+				                                                                                      TypeError('Invalid
+				                                                                                      embed object');
+				                                                                                      }
+
+				                                                                                      // assign
+				                                                                                      parameters
+				                                                                                      ObjectUtils.assign(this,
+				                                                                                      c);
+
+				                                                                                      // add child if
+				                                                                                      requested
+				                                                                                      if(parent != null)
+				                                                                                      parent.addChild(this);
+				                                                                                      }
 
 
-        /**
-         * Moves to the specified position.
-         *
-         * @param x New X position
-         * @param y New Y position
-         */
-        public function setPosition(x:Number, y:Number):void {
-            this.x = x;
-            this.y = y;
-        }
+				                                                                                      // Getters &amp;
+				                                                                                      setters
+				                                                                                      //
+				                                                                                      -----------------
 
 
+				                                                                                      /**
+				                                                                                      * Moves to the
+				                                                                                      specified
+				                                                                                      position.
+				                                                                                      *
+				                                                                                      * @param x New X
+				                                                                                      position
+				                                                                                      * @param y New Y
+				                                                                                      position
+				                                                                                      */
+				                                                                                      public function
+				                                                                                      setPosition(x:Number,
+				                                                                                      y:Number):void {
+				                                                                                      this.x = x;
+				                                                                                      this.y = y;
+				                                                                                      }
 
-        /**
-         * Rescales to new size.
-         *
-         * @param width New width
-         * @param height New height
-         */
-        public function setSize(width:Number, height:Number):void {
-            this.width = width;
-            this.height = height;
-        }
-    }
-}
 
-</textarea></div></div></div><div class="classDescription"><span class="descriptionSummary">Quick creation of Bitmap with initial data.</span></div><div class="summary"><h2 id="Summary">Summary</h2><div class="docNav"><ul><li><div id="twistyTypeInfo_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide type info</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_on");</script><div id="twistyTypeInfo_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show type info</a></div><span id="twistyTypeInfo_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_off");</script></li><li><div id="twistySummaries_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide summaries</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_on");</script><div id="twistySummaries_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show summaries</a></div><span id="twistySummaries_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_off");</script></li><li><div id="twistySort_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Sort by source order</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_on");</script><div id="twistySort_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Sort alphabetically</a></div><span id="twistySort_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_off");</script></li></ul><br class="clear" /></div><div class="memberList"><div class="memberSummaryPart"><span class="title">Constructor</span><ul class="sortable" id="sortul1"><li class="sortli listnum1"><a href="#QBitmap">QBitmap</a><span class="typeInfo"> (config:Object = null, parent:DisplayObjectContainer = null)</span></li></ul></div><div class="memberSummaryPart"><span class="title">Instance methods</span><ul class="sortable" id="sortul2"><li class="sortli listnum1"><a href="#setPosition">setPosition</a><span class="typeInfo"> (x:Number, y:Number) : void</span><ul class="summary"><li>Moves to the specified position.</li></ul></li><li class="sortli listnum2"><a href="#setSize">setSize</a><span class="typeInfo"> (width:Number, height:Number) : void</span><ul class="summary"><li>Rescales to new size.</li></ul></li></ul></div></div></div><div class="memberSection"><h2 id="Constructor">Constructor</h2><div class="member" id="QBitmap"><h3>QBitmap</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> function <b>QBitmap</b> (
+				                                                                                      /**
+				                                                                                      * Rescales to new
+				                                                                                      size.
+				                                                                                      *
+				                                                                                      * @param width New
+				                                                                                      width
+				                                                                                      * @param height
+				                                                                                      New height
+				                                                                                      */
+				                                                                                      public function
+				                                                                                      setSize(width:Number,
+				                                                                                      height:Number):void
+				                                                                                      {
+				                                                                                      this.width =
+				                                                                                      width;
+				                                                                                      this.height =
+				                                                                                      height;
+				                                                                                      }
+				                                                                                      }
+				                                                                                      }
 
-</div><div class="code">config:Object = null,
-parent:DisplayObjectContainer = null)</div><br class="clear" /></div></div></div></div><div class="memberSection"><h2 id="Instancemethods">Instance methods</h2><div class="member" id="setPosition"><h3>setPosition</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> function <b>setPosition</b> (
+				</textarea></div>
+			</div>
+		</div>
+		<div class="classDescription"><span
+				class="descriptionSummary">Quick creation of Bitmap with initial data.</span></div>
+		<div class="summary"><h2 id="Summary">Summary</h2>
 
-</div><div class="code">x:Number,
-y:Number) : void</div><br class="clear" /></div></div><div class="description"> Moves to the specified position. </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Parameters:</span><div class="item"><div class="floatbox code colorizedCode">x<span class="itemSeparator">:</span></div><div>New X position</div></div><div class="item"><div class="floatbox code colorizedCode">y<span class="itemSeparator">:</span></div><div>New Y position</div></div></div></div></div></div><div class="member" id="setSize"><h3>setSize</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> function <b>setSize</b> (
+			<div class="docNav">
+				<ul>
+					<li>
+						<div id="twistyTypeInfo_show"
+						     class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a
+								href="#"><span class="icon">&times;</span>Hide type info</a></div>
+						<script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_on");</script>
+						<div id="twistyTypeInfo_hide"
+						     class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a
+								href="#"><span class="icon">+</span>Show type info</a></div>
+						<span id="twistyTypeInfo_toggle" class="twistyContent"><!----></span>
+						<script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_off");</script>
+					</li>
+					<li>
+						<div id="twistySummaries_show"
+						     class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a
+								href="#"><span class="icon">&times;</span>Hide summaries</a></div>
+						<script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_on");</script>
+						<div id="twistySummaries_hide"
+						     class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a
+								href="#"><span class="icon">+</span>Show summaries</a></div>
+						<span id="twistySummaries_toggle" class="twistyContent"><!----></span>
+						<script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSummaries_off");</script>
+					</li>
+					<li>
+						<div id="twistySort_show"
+						     class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a
+								href="#"><span class="icon">&times;</span>Sort by source order</a></div>
+						<script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_on");</script>
+						<div id="twistySort_hide"
+						     class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a
+								href="#"><span class="icon">+</span>Sort alphabetically</a></div>
+						<span id="twistySort_toggle" class="twistyContent"><!----></span>
+						<script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_off");</script>
+					</li>
+				</ul>
+				<br class="clear" /></div>
+			<div class="memberList">
+				<div class="memberSummaryPart"><span class="title">Constructor</span>
+					<ul class="sortable" id="sortul1">
+						<li class="sortli listnum1"><a href="#QBitmap">QBitmap</a><span class="typeInfo"> (config:Object = null, parent:DisplayObjectContainer = null)</span>
+						</li>
+					</ul>
+				</div>
+				<div class="memberSummaryPart"><span class="title">Instance methods</span>
+					<ul class="sortable" id="sortul2">
+						<li class="sortli listnum1"><a href="#setPosition">setPosition</a><span class="typeInfo"> (x:Number, y:Number) : void</span>
+							<ul class="summary">
+								<li>Moves to the specified position.</li>
+							</ul>
+						</li>
+						<li class="sortli listnum2"><a href="#setSize">setSize</a><span class="typeInfo"> (width:Number, height:Number) : void</span>
+							<ul class="summary">
+								<li>Rescales to new size.</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="memberSection"><h2 id="Constructor">Constructor</h2>
 
-</div><div class="code">width:Number,
-height:Number) : void</div><br class="clear" /></div></div><div class="description"> Rescales to new size. </div><div class="boxWithBorder"><div class="boxedElem"><div class="contentHolder"><span class="title">Parameters:</span><div class="item"><div class="floatbox code colorizedCode">width <span class="itemSeparator">:</span></div><div>New width</div></div><div class="item"><div class="floatbox code colorizedCode">height<span class="itemSeparator">:</span></div><div>New height</div></div></div></div></div></div></div><div class="footer"><ul class="docFooter"></ul></div></div></div></body></html>
+			<div class="member" id="QBitmap"><h3>QBitmap</h3>
+
+				<div class="fullMemberString">
+					<div class="floatholder">
+						<div class="floatbox code"><span class="memberAccess">public</span> function <b>QBitmap</b> (
+
+						</div>
+						<div class="code">config:Object = null,
+						                  parent:DisplayObjectContainer = null)
+						</div>
+						<br class="clear" /></div>
+				</div>
+			</div>
+		</div>
+		<div class="memberSection"><h2 id="Instancemethods">Instance methods</h2>
+
+			<div class="member" id="setPosition"><h3>setPosition</h3>
+
+				<div class="fullMemberString">
+					<div class="floatholder">
+						<div class="floatbox code"><span class="memberAccess">public</span> function <b>setPosition</b>
+						                                                                    (
+
+						</div>
+						<div class="code">x:Number,
+						                  y:Number) : void
+						</div>
+						<br class="clear" /></div>
+				</div>
+				<div class="description"> Moves to the specified position.</div>
+				<div class="boxWithBorder">
+					<div class="boxedElem">
+						<div class="contentHolder"><span class="title">Parameters:</span>
+
+							<div class="item">
+								<div class="floatbox code colorizedCode">x<span class="itemSeparator">:</span></div>
+								<div>New X position</div>
+							</div>
+							<div class="item">
+								<div class="floatbox code colorizedCode">y<span class="itemSeparator">:</span></div>
+								<div>New Y position</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="member" id="setSize"><h3>setSize</h3>
+
+				<div class="fullMemberString">
+					<div class="floatholder">
+						<div class="floatbox code"><span class="memberAccess">public</span> function <b>setSize</b> (
+
+						</div>
+						<div class="code">width:Number,
+						                  height:Number) : void
+						</div>
+						<br class="clear" /></div>
+				</div>
+				<div class="description"> Rescales to new size.</div>
+				<div class="boxWithBorder">
+					<div class="boxedElem">
+						<div class="contentHolder"><span class="title">Parameters:</span>
+
+							<div class="item">
+								<div class="floatbox code colorizedCode">width <span class="itemSeparator">:</span>
+								</div>
+								<div>New width</div>
+							</div>
+							<div class="item">
+								<div class="floatbox code colorizedCode">height<span class="itemSeparator">:</span>
+								</div>
+								<div>New height</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<ul class="docFooter"></ul>
+		</div>
+	</div>
+</div>
+</body>
+</html>
